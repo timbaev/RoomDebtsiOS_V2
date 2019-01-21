@@ -23,11 +23,20 @@
                         <segue destination="R6c-Rm-O5J" kind="relationship" relationship="viewControllers" id="Xpf-aV-FLG"/>
                         <segue destination="ay5-kK-eMo" kind="relationship" relationship="viewControllers" id="0jK-rC-Kqe"/>
                         <segue destination="Unr-0J-e9b" kind="relationship" relationship="viewControllers" id="uSR-Re-S74"/>
+                        <segue destination="51b-Jz-YUc" kind="presentation" identifier="Unauthorized" id="BHf-VJ-JP9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LD-1y-G8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-243" y="-33"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="Brg-Ae-K9J">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Welcome" id="51b-Jz-YUc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EUa-c3-NFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="-34"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="SIn-zV-wSu">

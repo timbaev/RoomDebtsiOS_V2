@@ -10,6 +10,15 @@ import UIKit
 
 class MainTabBarController: LoggedTabBarController {
     
+    // MARK: - Nested Types
+    
+    fileprivate enum Segues {
+        
+        // MARK: - Type Properties
+        
+        static let unauthorized = "Unauthorized"
+    }
+    
     // MARK: - UITabBarController
     
     override func viewDidLoad() {
@@ -23,8 +32,11 @@ class MainTabBarController: LoggedTabBarController {
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         
         self.tabBar.layer.sublayers?.insert(gradientLayer, at: 0)
-        
-        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.performSegue(withIdentifier: Segues.unauthorized, sender: self)
+    }
 }

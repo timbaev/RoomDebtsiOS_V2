@@ -20,6 +20,17 @@ enum Colors {
         static let second = UIColor(redByte: 37, greenByte: 37, blueByte: 70)
     }
     
+    // MARK: -
+    
+    enum PrimaryButton {
+        
+        // MARK: - Type Properties
+        
+        static let first = UIColor(redByte: 29, greenByte: 9, blueByte: 215)
+        static let second = UIColor(redByte: 216, greenByte: 20, blueByte: 188)
+        static let third = UIColor(redByte: 190, greenByte: 30, blueByte: 216)
+    }
+    
     // MARK: - Type Properties
     
     static let navigationTitle = UIColor(redByte: 63, greenByte: 160, blueByte: 255)

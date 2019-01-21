@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eeC-4h-eqe">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Light.ttf">
+            <string>Rubik-Light</string>
+        </array>
+        <array key="Rubik-Medium.ttf">
+            <string>Rubik-Medium</string>
+        </array>
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="vPb-cs-3KQ">
+            <objects>
+                <viewController id="AQk-zx-7lh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gtC-pb-Iqs" customClass="GradientView" customModule="RoomDebts" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RoomDebts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFL-OW-Zal">
+                                <rect key="frame" x="16" y="132" width="343" height="53.5"/>
+                                <fontDescription key="fontDescription" name="Rubik-Light" family="Rubik" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Control your debts easily" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufu-Mv-sJr">
+                                <rect key="frame" x="16" y="199.5" width="343" height="18"/>
+                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6w-pj-Pxy">
+                                <rect key="frame" x="16" y="565" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1td-c3-IMa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="17"/>
+                                <state key="normal" title="Create an account" backgroundImage="CreateAccountBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" red="0.84705882352941175" green="0.13333333333333333" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" red="0.74509803921568629" green="0.11764705882352941" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuB-iv-Fuq">
+                                <rect key="frame" x="16" y="491" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IG5-SD-dac"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
+                                <state key="normal" title="Starting with account" backgroundImage="PrimaryButtonBakcground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Owx-92-LxO" firstAttribute="trailing" secondItem="ufu-Mv-sJr" secondAttribute="trailing" constant="16" id="1zv-OO-Oyo"/>
+                            <constraint firstItem="ufu-Mv-sJr" firstAttribute="leading" secondItem="Owx-92-LxO" secondAttribute="leading" constant="16" id="2fp-kf-mqH"/>
+                            <constraint firstItem="ufu-Mv-sJr" firstAttribute="top" secondItem="TFL-OW-Zal" secondAttribute="bottom" constant="14" id="AXB-fH-48b"/>
+                            <constraint firstItem="TFL-OW-Zal" firstAttribute="top" secondItem="Owx-92-LxO" secondAttribute="top" constant="16" id="Aan-cY-lgi"/>
+                            <constraint firstItem="TFL-OW-Zal" firstAttribute="leading" secondItem="Owx-92-LxO" secondAttribute="leading" constant="16" id="OYx-B2-igf"/>
+                            <constraint firstItem="K6w-pj-Pxy" firstAttribute="top" secondItem="zuB-iv-Fuq" secondAttribute="bottom" constant="24" id="Zri-mn-HRK"/>
+                            <constraint firstItem="Owx-92-LxO" firstAttribute="trailing" secondItem="zuB-iv-Fuq" secondAttribute="trailing" constant="16" id="d39-b9-1ah"/>
+                            <constraint firstItem="Owx-92-LxO" firstAttribute="bottom" secondItem="K6w-pj-Pxy" secondAttribute="bottom" constant="52" id="dth-Mr-Gp5"/>
+                            <constraint firstItem="K6w-pj-Pxy" firstAttribute="leading" secondItem="Owx-92-LxO" secondAttribute="leading" constant="16" id="g0s-MD-COx"/>
+                            <constraint firstItem="zuB-iv-Fuq" firstAttribute="leading" secondItem="Owx-92-LxO" secondAttribute="leading" constant="16" id="hBA-ed-0ZJ"/>
+                            <constraint firstItem="Owx-92-LxO" firstAttribute="trailing" secondItem="TFL-OW-Zal" secondAttribute="trailing" constant="16" id="lmC-Z3-BGr"/>
+                            <constraint firstItem="Owx-92-LxO" firstAttribute="trailing" secondItem="K6w-pj-Pxy" secondAttribute="trailing" constant="16" id="sy0-sv-w7w"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Owx-92-LxO"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.090196078430000007" green="0.094117647060000004" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.066666666669999999" green="0.21960784310000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="brI-W5-NKy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHV-2G-Xfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1224.8" y="-165.06746626686657"/>
+        </scene>
+        <!--Main Navigation Controller-->
+        <scene sceneID="cfY-bF-Dai">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eeC-4h-eqe" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="U25-KY-enu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AQk-zx-7lh" kind="relationship" relationship="rootViewController" id="Vcc-B0-ohM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUg-CR-en1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="285.60000000000002" y="-165.06746626686657"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CreateAccountBackground" width="343" height="50"/>
+        <image name="PrimaryButtonBakcground" width="343" height="50"/>
+    </resources>
+</document>

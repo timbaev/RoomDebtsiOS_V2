@@ -50,6 +50,7 @@
 		CBFDBAAB21F5B9FE0017ED61 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAA121F5B9FE0017ED61 /* Rubik-LightItalic.ttf */; };
 		CBFDBAAC21F5B9FE0017ED61 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAA221F5B9FE0017ED61 /* Rubik-BlackItalic.ttf */; };
 		CBFDBAAD21F5B9FE0017ED61 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAA321F5B9FE0017ED61 /* Rubik-Bold.ttf */; };
+		CBFDBAB221F608EC0017ED61 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAB121F608EC0017ED61 /* Welcome.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		CBFDBAA121F5B9FE0017ED61 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		CBFDBAA221F5B9FE0017ED61 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		CBFDBAA321F5B9FE0017ED61 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		CBFDBAB121F608EC0017ED61 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		CBAC543921F4A3E3004C8C65 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBFDBAAE21F608D20017ED61 /* Authorization */,
 				CBAC547421F4CC4F004C8C65 /* Conversations */,
 				CBAC543D21F4A410004C8C65 /* LaunchScreen */,
 				CBAC543A21F4A3EE004C8C65 /* Main */,
@@ -351,6 +354,30 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		CBFDBAAE21F608D20017ED61 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CBFDBAAF21F608DA0017ED61 /* Welcome */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CBFDBAAF21F608DA0017ED61 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				CBFDBAB021F608E10017ED61 /* Storyboard */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		CBFDBAB021F608E10017ED61 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBFDBAB121F608EC0017ED61 /* Welcome.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +464,7 @@
 				CBFDBAA621F5B9FE0017ED61 /* Rubik-Regular.ttf in Resources */,
 				CBAC547721F4CC77004C8C65 /* Conversations.storyboard in Resources */,
 				CBFDBAA821F5B9FE0017ED61 /* Rubik-Light.ttf in Resources */,
+				CBFDBAB221F608EC0017ED61 /* Welcome.storyboard in Resources */,
 				CBAC542121F4A3D7004C8C65 /* Assets.xcassets in Resources */,
 				CBFDBAAA21F5B9FE0017ED61 /* Rubik-Italic.ttf in Resources */,
 				CBFDBAA521F5B9FE0017ED61 /* Rubik-Medium.ttf in Resources */,
