@@ -58,6 +58,9 @@
                                         <color key="value" red="0.74509803921568629" green="0.11764705882352941" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="WfQ-jr-YKa" kind="show" id="JnD-LM-Nhf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuB-iv-Fuq">
                                 <rect key="frame" x="16" y="491" width="343" height="50"/>
@@ -100,6 +103,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHV-2G-Xfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1224.8" y="-165.06746626686657"/>
+        </scene>
+        <!--SignUp-->
+        <scene sceneID="DCr-yl-JtB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" id="WfQ-jr-YKa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NaA-QM-YhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842" y="-166"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="cfY-bF-Dai">

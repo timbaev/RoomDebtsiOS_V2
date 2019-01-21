@@ -34,5 +34,6 @@ enum Colors {
     // MARK: - Type Properties
     
     static let navigationTitle = UIColor(redByte: 63, greenByte: 160, blueByte: 255)
+    static let navigationTint = UIColor(redByte: 255, greenByte: 53, blueByte: 0)
     static let white = UIColor.white
 }

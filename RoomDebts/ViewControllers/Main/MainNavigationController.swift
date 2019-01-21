@@ -22,5 +22,6 @@ class MainNavigationController: LoggedNavigationController {
         
         self.navigationBar.titleTextAttributes = [.foregroundColor: Colors.navigationTitle]
         self.navigationBar.largeTitleTextAttributes = [.foregroundColor: Colors.navigationTitle]
+        self.navigationBar.tintColor = Colors.navigationTint
     }
 }

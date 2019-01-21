@@ -51,6 +51,11 @@
 		CBFDBAAC21F5B9FE0017ED61 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAA221F5B9FE0017ED61 /* Rubik-BlackItalic.ttf */; };
 		CBFDBAAD21F5B9FE0017ED61 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAA321F5B9FE0017ED61 /* Rubik-Bold.ttf */; };
 		CBFDBAB221F608EC0017ED61 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAB121F608EC0017ED61 /* Welcome.storyboard */; };
+		CBFDBABA21F6243F0017ED61 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBAB921F6243F0017ED61 /* SignUp.storyboard */; };
+		CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBABB21F638AB0017ED61 /* CreateAccountViewController.swift */; };
+		CBFDBABE21F63A670017ED61 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBABD21F63A670017ED61 /* StringExtension.swift */; };
+		CBFDBAC021F63FA20017ED61 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBABF21F63FA20017ED61 /* PrimaryButton.swift */; };
+		CBFDBAC221F645730017ED61 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBAC121F645730017ED61 /* OptionalExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +117,11 @@
 		CBFDBAA221F5B9FE0017ED61 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		CBFDBAA321F5B9FE0017ED61 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		CBFDBAB121F608EC0017ED61 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		CBFDBAB921F6243F0017ED61 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		CBFDBABB21F638AB0017ED61 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		CBFDBABD21F63A670017ED61 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		CBFDBABF21F63FA20017ED61 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		CBFDBAC121F645730017ED61 /* OptionalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +318,8 @@
 		CBAC546E21F4CA9D004C8C65 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CBFDBAC121F645730017ED61 /* OptionalExtension.swift */,
+				CBFDBABD21F63A670017ED61 /* StringExtension.swift */,
 				CBAC546F21F4CAA8004C8C65 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
@@ -333,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				CBAC547921F4CD76004C8C65 /* GradientView.swift */,
+				CBFDBABF21F63FA20017ED61 /* PrimaryButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,6 +370,7 @@
 		CBFDBAAE21F608D20017ED61 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				CBFDBAB721F6242C0017ED61 /* SignUp */,
 				CBFDBAAF21F608DA0017ED61 /* Welcome */,
 			);
 			path = Authorization;
@@ -374,6 +388,23 @@
 			isa = PBXGroup;
 			children = (
 				CBFDBAB121F608EC0017ED61 /* Welcome.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CBFDBAB721F6242C0017ED61 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CBFDBAB821F624360017ED61 /* Storyboard */,
+				CBFDBABB21F638AB0017ED61 /* CreateAccountViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CBFDBAB821F624360017ED61 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBFDBAB921F6243F0017ED61 /* SignUp.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -473,6 +504,7 @@
 				CBFDBAAB21F5B9FE0017ED61 /* Rubik-LightItalic.ttf in Resources */,
 				CBFDBAAD21F5B9FE0017ED61 /* Rubik-Bold.ttf in Resources */,
 				CBFDBAA421F5B9FE0017ED61 /* Rubik-Black.ttf in Resources */,
+				CBFDBABA21F6243F0017ED61 /* SignUp.storyboard in Resources */,
 				CBAC541C21F4A3D4004C8C65 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +525,7 @@
 			files = (
 				CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
+				CBFDBABE21F63A670017ED61 /* StringExtension.swift in Sources */,
 				CBAC546821F4A7C7004C8C65 /* DefaultUserAccountExtension.swift in Sources */,
 				CBAC546021F4A525004C8C65 /* LoggedTableViewController.swift in Sources */,
 				CBAC546521F4A6F9004C8C65 /* UserAccount.swift in Sources */,
@@ -502,13 +535,16 @@
 				CBAC545621F4A48A004C8C65 /* StorageModel.swift in Sources */,
 				CBAC544D21F4A48A004C8C65 /* StorageManager.swift in Sources */,
 				CBAC545F21F4A525004C8C65 /* LoggedViewController.swift in Sources */,
+				CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */,
 				CBAC545521F4A48A004C8C65 /* StorageObject.swift in Sources */,
 				CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */,
 				CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */,
+				CBFDBAC021F63FA20017ED61 /* PrimaryButton.swift in Sources */,
 				CBAC545421F4A48A004C8C65 /* StorageContext.swift in Sources */,
 				CBAC547221F4CAB2004C8C65 /* Colors.swift in Sources */,
 				CBAC547A21F4CD76004C8C65 /* GradientView.swift in Sources */,
 				CBAC545921F4A4E5004C8C65 /* Log.swift in Sources */,
+				CBFDBAC221F645730017ED61 /* OptionalExtension.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
 				CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */,
 				CBAC545221F4A48A004C8C65 /* CoreDataStorageExtension.swift in Sources */,
