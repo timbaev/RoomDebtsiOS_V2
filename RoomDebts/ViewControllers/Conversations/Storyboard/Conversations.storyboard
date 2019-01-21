@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFz-Xa-KLu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Debts-->
+        <scene sceneID="nHZ-5t-RDA">
+            <objects>
+                <viewController title="Debts" id="rFz-Xa-KLu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lir-Cv-VSX" customClass="GradientView" customModule="RoomDebts" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QzB-dv-9VE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QzB-dv-9VE" firstAttribute="top" secondItem="ByC-Us-XlC" secondAttribute="top" id="35C-e6-wjR"/>
+                            <constraint firstItem="QzB-dv-9VE" firstAttribute="leading" secondItem="ByC-Us-XlC" secondAttribute="leading" id="K7q-KD-Xf3"/>
+                            <constraint firstItem="QzB-dv-9VE" firstAttribute="bottom" secondItem="ByC-Us-XlC" secondAttribute="bottom" id="Shi-KC-lqJ"/>
+                            <constraint firstAttribute="trailing" secondItem="QzB-dv-9VE" secondAttribute="trailing" id="dVF-BP-hEq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ByC-Us-XlC"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.090196078431372548" green="0.094117647058823528" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.066666666666666666" green="0.2196078431372549" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkn-3R-nvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77.599999999999994" y="136.28185907046478"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5mD-MF-b6H">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="S9E-qh-xOE">
+            <objects>
+                <tabBarController id="5mD-MF-b6H" customClass="MainTabBarController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pnV-pp-D8C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dc5-NQ-zpX" kind="relationship" relationship="viewControllers" id="jQu-Bu-sPd"/>
+                        <segue destination="R6c-Rm-O5J" kind="relationship" relationship="viewControllers" id="Xpf-aV-FLG"/>
+                        <segue destination="ay5-kK-eMo" kind="relationship" relationship="viewControllers" id="0jK-rC-Kqe"/>
+                        <segue destination="Unr-0J-e9b" kind="relationship" relationship="viewControllers" id="uSR-Re-S74"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4LD-1y-G8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-243" y="-33"/>
+        </scene>
+        <!--Main Navigation Controller-->
+        <scene sceneID="SIn-zV-wSu">
+            <objects>
+                <navigationController id="dc5-NQ-zpX" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="DebtsIcon" selectedImage="DebtsSelectedIcon" id="Sjy-MR-A3k" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="CgN-9a-UsY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="iUk-Kb-q5M" kind="relationship" relationship="rootViewController" id="kre-Ts-NqI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTt-nT-4Lw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1154" y="704"/>
+        </scene>
+        <!--Conversations-->
+        <scene sceneID="xAT-Kv-QVS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Conversations" id="iUk-Kb-q5M" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="W9k-eh-4Le"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DEK-Hn-Wqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1151" y="1186"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="M0L-qG-VcA">
+            <objects>
+                <navigationController id="ay5-kK-eMo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="CheckIcon" selectedImage="CheckSelectedIcon" id="elG-VF-dUB" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="km1-0X-ZVl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmu-3a-CGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="704"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SbG-1a-Gyc">
+            <objects>
+                <navigationController id="R6c-Rm-O5J" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="SearchIcon" selectedImage="SearchSelectedIcon" id="bIT-QA-3Dc" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="1rQ-T7-qeF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mv8-Nz-aNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="704"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HQS-Eo-aia">
+            <objects>
+                <navigationController id="Unr-0J-e9b" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="SettingsIcon" selectedImage="SettingsSelectedIcon" id="gc9-ne-MEa" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TxQ-wr-kGc">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ofe-pV-IIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="704"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CheckIcon" width="23" height="23"/>
+        <image name="CheckSelectedIcon" width="23" height="23"/>
+        <image name="DebtsIcon" width="23" height="23"/>
+        <image name="DebtsSelectedIcon" width="23" height="23"/>
+        <image name="SearchIcon" width="23" height="23"/>
+        <image name="SearchSelectedIcon" width="23" height="23"/>
+        <image name="SettingsIcon" width="23" height="23"/>
+        <image name="SettingsSelectedIcon" width="23" height="23"/>
+    </resources>
+</document>
