@@ -1,0 +1,16 @@
+PODS:
+  - SwiftPhoneNumberFormatter (1.5)
+
+DEPENDENCIES:
+  - SwiftPhoneNumberFormatter
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftPhoneNumberFormatter
+
+SPEC CHECKSUMS:
+  SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
+
+PODFILE CHECKSUM: 362c9fa0db65ce4d1ebb1aa3a685edeace970c2d
+
+COCOAPODS: 1.5.3

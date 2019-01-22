@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class PrimaryButton: UIButton {
     
     // MARK: - Instance Properties
