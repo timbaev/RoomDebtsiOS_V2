@@ -12,5 +12,12 @@ enum Models {
     
     // MARK: - Type Properties
     
-    static let cacheStorageModel: StorageModel = CoreDataStorageModel(identifier: "Cache")
+    static let cacheStorageModel: StorageModel = CoreDataStorageModel(identifier: "RoomDebts")
+    
+    static let cacheContextFactory: CacheContextFactory = DefaultCacheContextFactory()
+    static let cacheManagerFactory: CacheManagerFactory = DefaultCacheManagerFactory()
+    
+    static let cacheModel: CacheModel = DefaultCacheModel(storageModel: Models.cacheStorageModel,
+                                                          contextFactory: Models.cacheContextFactory,
+                                                          managerFactory: Models.cacheManagerFactory)
 }

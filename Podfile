@@ -7,6 +7,7 @@ target 'RoomDebts' do
 
   # Pods for RoomDebts
   pod "SwiftPhoneNumberFormatter"
+  pod 'NVActivityIndicatorView'
 
   target 'RoomDebtsTests' do
     inherit! :search_paths

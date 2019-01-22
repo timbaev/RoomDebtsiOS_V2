@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftPhoneNumberFormatter
+import NVActivityIndicatorView
 
-class CreateAccountViewController: LoggedViewController {
+class CreateAccountViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
     
     // MARK: - Nested Types
     
@@ -55,6 +56,39 @@ class CreateAccountViewController: LoggedViewController {
         Log.i(sender.title ?? "")
         
         self.phoneNumberTextField.resignFirstResponder()
+    }
+    
+    @IBAction func onTextButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i(sender.title(for: .normal) ?? "")
+        
+        guard let firstName = self.firstNameTextField.text else {
+            return
+        }
+        
+        guard let lastName = self.lastNameTextField.text else {
+            return
+        }
+        
+        guard let phoneNumber = self.phoneNumberTextField.phoneNumber() else {
+            return
+        }
+        
+        self.startAnimating(type: .ballScaleMultiple)
+        
+        Services.accountService.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { [weak self] userAccount in
+            guard let viewController = self else {
+                return
+            }
+            
+            viewController.stopAnimating()
+        }, failure: { [weak self] webError in
+            guard let viewController = self else {
+                return
+            }
+            
+            viewController.stopAnimating()
+            viewController.showMessage(withError: webError)
+        })
     }
     
     fileprivate func updateNextButtonState() {

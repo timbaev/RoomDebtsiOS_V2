@@ -9,6 +9,52 @@
 /* Begin PBXBuildFile section */
 		34C2462B3EC1BDA98D082127 /* Pods_RoomDebts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1C0BE311694403D1C51498 /* Pods_RoomDebts.framework */; };
 		CA71C5AA812739C4BD717F23 /* Pods_RoomDebtsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */; };
+		CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE421F70B3700FB98EE /* EndPointType.swift */; };
+		CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE621F70B7600FB98EE /* HTTPMethod.swift */; };
+		CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE821F70C0900FB98EE /* HTTPTask.swift */; };
+		CB472CEC21F70C9F00FB98EE /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CEB21F70C9F00FB98EE /* ParameterEncoding.swift */; };
+		CB472CEE21F70DFD00FB98EE /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CED21F70DFD00FB98EE /* ParameterEncoder.swift */; };
+		CB472CF021F70E1600FB98EE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CEF21F70E1600FB98EE /* NetworkError.swift */; };
+		CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CF121F70F0D00FB98EE /* URLParameterEncoder.swift */; };
+		CB472CF421F7113400FB98EE /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CF321F7113400FB98EE /* JSONParameterEncoder.swift */; };
+		CB472CF721F711E400FB98EE /* HeaderKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CF621F711E400FB98EE /* HeaderKeys.swift */; };
+		CB472CF921F7135100FB98EE /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CF821F7135100FB98EE /* NetworkRouter.swift */; };
+		CB472CFB21F7141100FB98EE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CFA21F7141100FB98EE /* Router.swift */; };
+		CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CFD21F72C8A00FB98EE /* NetworkEnvironment.swift */; };
+		CB472D0121F72D3C00FB98EE /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D0021F72D3C00FB98EE /* NetworkConfig.swift */; };
+		CB472D0321F72DF700FB98EE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D0221F72DF700FB98EE /* Result.swift */; };
+		CB472D0721F72F7800FB98EE /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D0621F72F7800FB98EE /* AccountService.swift */; };
+		CB472D0921F72F8600FB98EE /* DefaultAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D0821F72F8600FB98EE /* DefaultAccountService.swift */; };
+		CB472D0D21F7340800FB98EE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D0C21F7340800FB98EE /* AccountAPI.swift */; };
+		CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D0E21F73A3100FB98EE /* WebError.swift */; };
+		CB472D1321F7434800FB98EE /* UserAccountCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D1221F7434800FB98EE /* UserAccountCoder.swift */; };
+		CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D1421F743BD00FB98EE /* DefaultUserAccountCoder.swift */; };
+		CB472D1721F7488800FB98EE /* UserAccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D1621F7488800FB98EE /* UserAccountsManager.swift */; };
+		CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D1821F74B6F00FB98EE /* CacheContext.swift */; };
+		CB472D1B21F74BE200FB98EE /* CacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D1A21F74BE200FB98EE /* CacheModel.swift */; };
+		CB472D1D21F74BF700FB98EE /* CacheContextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D1C21F74BF700FB98EE /* CacheContextType.swift */; };
+		CB472D2321F74C1E00FB98EE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D1F21F74C1E00FB98EE /* Event.swift */; };
+		CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2021F74C1E00FB98EE /* EventListenerConnection.swift */; };
+		CB472D2521F74C1E00FB98EE /* EventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2121F74C1E00FB98EE /* EventListener.swift */; };
+		CB472D2621F74C1E00FB98EE /* EventConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2221F74C1E00FB98EE /* EventConnection.swift */; };
+		CB472D2821F74C3800FB98EE /* DefaultUserAccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2721F74C3800FB98EE /* DefaultUserAccountsManager.swift */; };
+		CB472D2A21F7539E00FB98EE /* UserAccountExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2921F7539E00FB98EE /* UserAccountExtractor.swift */; };
+		CB472D2C21F7566A00FB98EE /* DefaultUserAccountExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2B21F7566A00FB98EE /* DefaultUserAccountExtractor.swift */; };
+		CB472D2E21F7586E00FB98EE /* Coders.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2D21F7586E00FB98EE /* Coders.swift */; };
+		CB472D3021F7593E00FB98EE /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D2F21F7593E00FB98EE /* Services.swift */; };
+		CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3221F7598700FB98EE /* DefaultCacheProvider.swift */; };
+		CB472D3721F7598700FB98EE /* CacheSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3321F7598700FB98EE /* CacheSession.swift */; };
+		CB472D3821F7598700FB98EE /* CacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3421F7598700FB98EE /* CacheProvider.swift */; };
+		CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3521F7598700FB98EE /* DefaultCacheSession.swift */; };
+		CB472D3E21F75B0800FB98EE /* DefaultCacheContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3A21F75B0700FB98EE /* DefaultCacheContextFactory.swift */; };
+		CB472D3F21F75B0800FB98EE /* DefaultCacheManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3B21F75B0800FB98EE /* DefaultCacheManagerFactory.swift */; };
+		CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3C21F75B0800FB98EE /* CacheContextFactory.swift */; };
+		CB472D4121F75B0800FB98EE /* CacheManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D3D21F75B0800FB98EE /* CacheManagerFactory.swift */; };
+		CB472D4321F75C8700FB98EE /* DefaultCacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4221F75C8700FB98EE /* DefaultCacheModel.swift */; };
+		CB472D4521F75CAE00FB98EE /* DefaultCacheContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4421F75CAE00FB98EE /* DefaultCacheContext.swift */; };
+		CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4621F75E4600FB98EE /* NetworkLogger.swift */; };
+		CB472D4921F764BA00FB98EE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */; };
+		CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */; };
 		CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */; };
 		CBAC541C21F4A3D4004C8C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAC541A21F4A3D4004C8C65 /* Main.storyboard */; };
 		CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541D21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld */; };
@@ -80,6 +126,52 @@
 		83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomDebtsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF1CC913DE2E2A34DC43D8C /* Pods-RoomDebts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.release.xcconfig"; sourceTree = "<group>"; };
 		C36B68E8D728EAD0C6DA59ED /* Pods-RoomDebts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.debug.xcconfig"; sourceTree = "<group>"; };
+		CB472CE421F70B3700FB98EE /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		CB472CE621F70B7600FB98EE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		CB472CE821F70C0900FB98EE /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		CB472CEB21F70C9F00FB98EE /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		CB472CED21F70DFD00FB98EE /* ParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
+		CB472CEF21F70E1600FB98EE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CB472CF121F70F0D00FB98EE /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		CB472CF321F7113400FB98EE /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		CB472CF621F711E400FB98EE /* HeaderKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderKeys.swift; sourceTree = "<group>"; };
+		CB472CF821F7135100FB98EE /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		CB472CFA21F7141100FB98EE /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CB472CFD21F72C8A00FB98EE /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		CB472D0021F72D3C00FB98EE /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		CB472D0221F72DF700FB98EE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		CB472D0621F72F7800FB98EE /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		CB472D0821F72F8600FB98EE /* DefaultAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccountService.swift; sourceTree = "<group>"; };
+		CB472D0C21F7340800FB98EE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
+		CB472D0E21F73A3100FB98EE /* WebError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebError.swift; sourceTree = "<group>"; };
+		CB472D1221F7434800FB98EE /* UserAccountCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountCoder.swift; sourceTree = "<group>"; };
+		CB472D1421F743BD00FB98EE /* DefaultUserAccountCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserAccountCoder.swift; sourceTree = "<group>"; };
+		CB472D1621F7488800FB98EE /* UserAccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountsManager.swift; sourceTree = "<group>"; };
+		CB472D1821F74B6F00FB98EE /* CacheContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheContext.swift; sourceTree = "<group>"; };
+		CB472D1A21F74BE200FB98EE /* CacheModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheModel.swift; sourceTree = "<group>"; };
+		CB472D1C21F74BF700FB98EE /* CacheContextType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheContextType.swift; sourceTree = "<group>"; };
+		CB472D1F21F74C1E00FB98EE /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		CB472D2021F74C1E00FB98EE /* EventListenerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListenerConnection.swift; sourceTree = "<group>"; };
+		CB472D2121F74C1E00FB98EE /* EventListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListener.swift; sourceTree = "<group>"; };
+		CB472D2221F74C1E00FB98EE /* EventConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConnection.swift; sourceTree = "<group>"; };
+		CB472D2721F74C3800FB98EE /* DefaultUserAccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserAccountsManager.swift; sourceTree = "<group>"; };
+		CB472D2921F7539E00FB98EE /* UserAccountExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountExtractor.swift; sourceTree = "<group>"; };
+		CB472D2B21F7566A00FB98EE /* DefaultUserAccountExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserAccountExtractor.swift; sourceTree = "<group>"; };
+		CB472D2D21F7586E00FB98EE /* Coders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coders.swift; sourceTree = "<group>"; };
+		CB472D2F21F7593E00FB98EE /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		CB472D3221F7598700FB98EE /* DefaultCacheProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCacheProvider.swift; sourceTree = "<group>"; };
+		CB472D3321F7598700FB98EE /* CacheSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheSession.swift; sourceTree = "<group>"; };
+		CB472D3421F7598700FB98EE /* CacheProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheProvider.swift; sourceTree = "<group>"; };
+		CB472D3521F7598700FB98EE /* DefaultCacheSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCacheSession.swift; sourceTree = "<group>"; };
+		CB472D3A21F75B0700FB98EE /* DefaultCacheContextFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCacheContextFactory.swift; sourceTree = "<group>"; };
+		CB472D3B21F75B0800FB98EE /* DefaultCacheManagerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCacheManagerFactory.swift; sourceTree = "<group>"; };
+		CB472D3C21F75B0800FB98EE /* CacheContextFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheContextFactory.swift; sourceTree = "<group>"; };
+		CB472D3D21F75B0800FB98EE /* CacheManagerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManagerFactory.swift; sourceTree = "<group>"; };
+		CB472D4221F75C8700FB98EE /* DefaultCacheModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCacheModel.swift; sourceTree = "<group>"; };
+		CB472D4421F75CAE00FB98EE /* DefaultCacheContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCacheContext.swift; sourceTree = "<group>"; };
+		CB472D4621F75E4600FB98EE /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessagePresenter.swift; sourceTree = "<group>"; };
 		CBAC541321F4A3D4004C8C65 /* RoomDebts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomDebts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBAC541B21F4A3D4004C8C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +272,129 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CB472CE221F70A6200FB98EE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CB472CFC21F72C7C00FB98EE /* Config */,
+				CB472CEA21F70C7A00FB98EE /* Encoding */,
+				CB472CF521F711CE00FB98EE /* Keys */,
+				CB472CE321F70B1F00FB98EE /* Service */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CB472CE321F70B1F00FB98EE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CB472CE421F70B3700FB98EE /* EndPointType.swift */,
+				CB472CE621F70B7600FB98EE /* HTTPMethod.swift */,
+				CB472CE821F70C0900FB98EE /* HTTPTask.swift */,
+				CB472D4621F75E4600FB98EE /* NetworkLogger.swift */,
+				CB472CF821F7135100FB98EE /* NetworkRouter.swift */,
+				CB472CFA21F7141100FB98EE /* Router.swift */,
+				CB472D0221F72DF700FB98EE /* Result.swift */,
+				CB472D0E21F73A3100FB98EE /* WebError.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CB472CEA21F70C7A00FB98EE /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				CB472CF321F7113400FB98EE /* JSONParameterEncoder.swift */,
+				CB472CEF21F70E1600FB98EE /* NetworkError.swift */,
+				CB472CEB21F70C9F00FB98EE /* ParameterEncoding.swift */,
+				CB472CED21F70DFD00FB98EE /* ParameterEncoder.swift */,
+				CB472CF121F70F0D00FB98EE /* URLParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		CB472CF521F711CE00FB98EE /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				CB472CF621F711E400FB98EE /* HeaderKeys.swift */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
+		CB472CFC21F72C7C00FB98EE /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D0021F72D3C00FB98EE /* NetworkConfig.swift */,
+				CB472CFD21F72C8A00FB98EE /* NetworkEnvironment.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		CB472D0421F72F4D00FB98EE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D0A21F733BB00FB98EE /* API */,
+				CB472D0521F72F5D00FB98EE /* AccountService */,
+				CB472D3121F7598700FB98EE /* Cache */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CB472D0521F72F5D00FB98EE /* AccountService */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D0821F72F8600FB98EE /* DefaultAccountService.swift */,
+				CB472D2B21F7566A00FB98EE /* DefaultUserAccountExtractor.swift */,
+				CB472D0621F72F7800FB98EE /* AccountService.swift */,
+				CB472D2921F7539E00FB98EE /* UserAccountExtractor.swift */,
+			);
+			path = AccountService;
+			sourceTree = "<group>";
+		};
+		CB472D0A21F733BB00FB98EE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D0C21F7340800FB98EE /* AccountAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CB472D1021F742FB00FB98EE /* Coders */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D1121F7430A00FB98EE /* UserAccount */,
+			);
+			path = Coders;
+			sourceTree = "<group>";
+		};
+		CB472D1121F7430A00FB98EE /* UserAccount */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D1421F743BD00FB98EE /* DefaultUserAccountCoder.swift */,
+				CB472D1221F7434800FB98EE /* UserAccountCoder.swift */,
+			);
+			path = UserAccount;
+			sourceTree = "<group>";
+		};
+		CB472D1E21F74C1E00FB98EE /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D1F21F74C1E00FB98EE /* Event.swift */,
+				CB472D2021F74C1E00FB98EE /* EventListenerConnection.swift */,
+				CB472D2121F74C1E00FB98EE /* EventListener.swift */,
+				CB472D2221F74C1E00FB98EE /* EventConnection.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		CB472D3121F7598700FB98EE /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D3221F7598700FB98EE /* DefaultCacheProvider.swift */,
+				CB472D3321F7598700FB98EE /* CacheSession.swift */,
+				CB472D3421F7598700FB98EE /* CacheProvider.swift */,
+				CB472D3521F7598700FB98EE /* DefaultCacheSession.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		CBAC540A21F4A3D4004C8C65 = {
 			isa = PBXGroup;
 			children = (
@@ -203,9 +418,11 @@
 		CBAC541521F4A3D4004C8C65 /* RoomDebts */ = {
 			isa = PBXGroup;
 			children = (
+				CB472D1021F742FB00FB98EE /* Coders */,
 				CBAC546921F4ACAE004C8C65 /* Configuration */,
 				CBAC543E21F4A422004C8C65 /* Models */,
 				CBAC543C21F4A404004C8C65 /* Resources */,
+				CB472D0421F72F4D00FB98EE /* Services */,
 				CBAC543F21F4A471004C8C65 /* Tools */,
 				CBAC543921F4A3E3004C8C65 /* ViewControllers */,
 				CBAC547821F4CD69004C8C65 /* Views */,
@@ -282,7 +499,9 @@
 		CBAC543F21F4A471004C8C65 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				CB472D1E21F74C1E00FB98EE /* Event */,
 				CBAC546E21F4CA9D004C8C65 /* Extensions */,
+				CB472CE221F70A6200FB98EE /* Networking */,
 				CBFDBAC821F660030017ED61 /* Protocols */,
 				CBAC545A21F4A50B004C8C65 /* ViewControllers */,
 				CBAC544021F4A48A004C8C65 /* Storage */,
@@ -333,6 +552,15 @@
 			children = (
 				CBAC546321F4A6E3004C8C65 /* UserAccount */,
 				CBAC541D21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld */,
+				CB472D3C21F75B0800FB98EE /* CacheContextFactory.swift */,
+				CB472D3D21F75B0800FB98EE /* CacheManagerFactory.swift */,
+				CB472D1821F74B6F00FB98EE /* CacheContext.swift */,
+				CB472D1C21F74BF700FB98EE /* CacheContextType.swift */,
+				CB472D1A21F74BE200FB98EE /* CacheModel.swift */,
+				CB472D4421F75CAE00FB98EE /* DefaultCacheContext.swift */,
+				CB472D3A21F75B0700FB98EE /* DefaultCacheContextFactory.swift */,
+				CB472D3B21F75B0800FB98EE /* DefaultCacheManagerFactory.swift */,
+				CB472D4221F75C8700FB98EE /* DefaultCacheModel.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -341,7 +569,9 @@
 			isa = PBXGroup;
 			children = (
 				CBAC546721F4A7C7004C8C65 /* DefaultUserAccountExtension.swift */,
+				CB472D2721F74C3800FB98EE /* DefaultUserAccountsManager.swift */,
 				CBAC546421F4A6F9004C8C65 /* UserAccount.swift */,
+				CB472D1621F7488800FB98EE /* UserAccountsManager.swift */,
 			);
 			path = UserAccount;
 			sourceTree = "<group>";
@@ -349,9 +579,11 @@
 		CBAC546921F4ACAE004C8C65 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				CBAC546A21F4ACCB004C8C65 /* Models.swift */,
+				CB472D2D21F7586E00FB98EE /* Coders.swift */,
 				CBAC547121F4CAB2004C8C65 /* Colors.swift */,
 				CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */,
+				CBAC546A21F4ACCB004C8C65 /* Models.swift */,
+				CB472D2F21F7593E00FB98EE /* Services.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -363,6 +595,7 @@
 				CBFDBAC121F645730017ED61 /* OptionalExtension.swift */,
 				CBFDBABD21F63A670017ED61 /* StringExtension.swift */,
 				CBAC546F21F4CAA8004C8C65 /* UIColorExtension.swift */,
+				CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -454,6 +687,7 @@
 		CBFDBAC821F660030017ED61 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */,
 				CBFDBAC921F660030017ED61 /* KeyboardScrollableHandler.swift */,
 				CBFDBACA21F660030017ED61 /* DictionaryReceiver.swift */,
 				CBFDBACB21F660030017ED61 /* KeyboardHandler.swift */,
@@ -583,12 +817,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftPhoneNumberFormatter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,10 +883,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */,
+				CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */,
+				CB472D2621F74C1E00FB98EE /* EventConnection.swift in Sources */,
+				CB472D2A21F7539E00FB98EE /* UserAccountExtractor.swift in Sources */,
+				CB472D0921F72F8600FB98EE /* DefaultAccountService.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
+				CB472CEC21F70C9F00FB98EE /* ParameterEncoding.swift in Sources */,
+				CB472D1D21F74BF700FB98EE /* CacheContextType.swift in Sources */,
+				CB472CF921F7135100FB98EE /* NetworkRouter.swift in Sources */,
 				CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */,
+				CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */,
+				CB472CF421F7113400FB98EE /* JSONParameterEncoder.swift in Sources */,
+				CB472D0321F72DF700FB98EE /* Result.swift in Sources */,
+				CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
+				CB472D0721F72F7800FB98EE /* AccountService.swift in Sources */,
+				CB472D3F21F75B0800FB98EE /* DefaultCacheManagerFactory.swift in Sources */,
+				CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */,
+				CB472D1321F7434800FB98EE /* UserAccountCoder.swift in Sources */,
 				CBFDBABE21F63A670017ED61 /* StringExtension.swift in Sources */,
+				CB472D2E21F7586E00FB98EE /* Coders.swift in Sources */,
 				CBAC546821F4A7C7004C8C65 /* DefaultUserAccountExtension.swift in Sources */,
 				CBAC546021F4A525004C8C65 /* LoggedTableViewController.swift in Sources */,
 				CBAC546521F4A6F9004C8C65 /* UserAccount.swift in Sources */,
@@ -658,31 +911,60 @@
 				CBAC545121F4A48A004C8C65 /* CoreDataStorageManager.swift in Sources */,
 				CBAC545E21F4A525004C8C65 /* LoggedTabBarController.swift in Sources */,
 				CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */,
+				CB472D2C21F7566A00FB98EE /* DefaultUserAccountExtractor.swift in Sources */,
 				CBAC545621F4A48A004C8C65 /* StorageModel.swift in Sources */,
+				CB472D4521F75CAE00FB98EE /* DefaultCacheContext.swift in Sources */,
+				CB472D4321F75C8700FB98EE /* DefaultCacheModel.swift in Sources */,
+				CB472CF021F70E1600FB98EE /* NetworkError.swift in Sources */,
 				CBAC544D21F4A48A004C8C65 /* StorageManager.swift in Sources */,
 				CBAC545F21F4A525004C8C65 /* LoggedViewController.swift in Sources */,
 				CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */,
 				CBAC545521F4A48A004C8C65 /* StorageObject.swift in Sources */,
+				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
+				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,
+				CB472D2521F74C1E00FB98EE /* EventListener.swift in Sources */,
+				CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */,
+				CB472D2821F74C3800FB98EE /* DefaultUserAccountsManager.swift in Sources */,
 				CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */,
+				CB472CF721F711E400FB98EE /* HeaderKeys.swift in Sources */,
 				CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */,
 				CBFDBAC021F63FA20017ED61 /* PrimaryButton.swift in Sources */,
 				CBAC545421F4A48A004C8C65 /* StorageContext.swift in Sources */,
 				CBAC547221F4CAB2004C8C65 /* Colors.swift in Sources */,
 				CBAC547A21F4CD76004C8C65 /* GradientView.swift in Sources */,
+				CB472D0121F72D3C00FB98EE /* NetworkConfig.swift in Sources */,
 				CBAC545921F4A4E5004C8C65 /* Log.swift in Sources */,
+				CB472CFB21F7141100FB98EE /* Router.swift in Sources */,
 				CBFDBAC221F645730017ED61 /* OptionalExtension.swift in Sources */,
+				CB472D0D21F7340800FB98EE /* AccountAPI.swift in Sources */,
+				CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */,
+				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
+				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
 				CBFDBACC21F660030017ED61 /* KeyboardScrollableHandler.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
 				CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */,
 				CBAC545221F4A48A004C8C65 /* CoreDataStorageExtension.swift in Sources */,
+				CB472D1721F7488800FB98EE /* UserAccountsManager.swift in Sources */,
 				CBAC546D21F4AD85004C8C65 /* MainTabBarController.swift in Sources */,
 				CBAC545321F4A48A004C8C65 /* CoreDataStorageContext.swift in Sources */,
 				CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */,
+				CB472D2321F74C1E00FB98EE /* Event.swift in Sources */,
+				CB472D4921F764BA00FB98EE /* UIViewControllerExtension.swift in Sources */,
+				CB472CEE21F70DFD00FB98EE /* ParameterEncoder.swift in Sources */,
+				CB472D3821F7598700FB98EE /* CacheProvider.swift in Sources */,
 				CBAC547021F4CAA8004C8C65 /* UIColorExtension.swift in Sources */,
 				CBAC544F21F4A48A004C8C65 /* StorageContextObserver.swift in Sources */,
+				CB472D3721F7598700FB98EE /* CacheSession.swift in Sources */,
 				CBFDBAD021F660E10017ED61 /* CGRectExtension.swift in Sources */,
 				CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */,
+				CB472D4121F75B0800FB98EE /* CacheManagerFactory.swift in Sources */,
+				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
+				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,
+				CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */,
 				CBAC546B21F4ACCB004C8C65 /* Models.swift in Sources */,
+				CB472D3021F7593E00FB98EE /* Services.swift in Sources */,
+				CB472D3E21F75B0800FB98EE /* DefaultCacheContextFactory.swift in Sources */,
+				CB472D1B21F74BE200FB98EE /* CacheModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
