@@ -35,6 +35,8 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
         }
         
+        self.addAuthTokenHeader(to: &request)
+        
         return request
     }
     
@@ -56,6 +58,14 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         headers.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
     }
     
+    fileprivate func addAuthTokenHeader(to request: inout URLRequest) {
+        if let authToken = KeychainManager.shared.authToken {
+            request.setValue(authToken, forHTTPHeaderField: HeaderKeys.authorization)
+        }
+    }
+    
+    // MARK: -
+    
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse, data: Data?) -> Result<WebError> {
         if 200...299 ~= response.statusCode {
             return .success
@@ -63,6 +73,12 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             return .failure(webError)
         } else {
             return .failure(WebError(code: .unknown))
+        }
+    }
+    
+    fileprivate func handleAuthToken(from response: HTTPURLResponse) {
+        if let authToken = response.allHeaderFields[HeaderKeys.authorization] as? String {
+            KeychainManager.shared.authToken = authToken
         }
     }
     
@@ -99,9 +115,12 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 return
             }
             
+            self.handleAuthToken(from: response)
+            
             NetworkLogger.log(response: response, data: responseData)
             
             let result = self.handleNetworkResponse(response, data: data)
+            
             switch result {
             case .success:
                 guard let jsonObject = try? JSONSerialization.jsonObject(with: responseData, options: []) else {

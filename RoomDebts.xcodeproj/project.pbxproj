@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		34C2462B3EC1BDA98D082127 /* Pods_RoomDebts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1C0BE311694403D1C51498 /* Pods_RoomDebts.framework */; };
 		CA71C5AA812739C4BD717F23 /* Pods_RoomDebtsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */; };
+		CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB16A96521F85D6900B74DE0 /* KeychainManager.swift */; };
 		CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE421F70B3700FB98EE /* EndPointType.swift */; };
 		CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE621F70B7600FB98EE /* HTTPMethod.swift */; };
 		CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE821F70C0900FB98EE /* HTTPTask.swift */; };
@@ -126,6 +127,7 @@
 		83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomDebtsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF1CC913DE2E2A34DC43D8C /* Pods-RoomDebts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.release.xcconfig"; sourceTree = "<group>"; };
 		C36B68E8D728EAD0C6DA59ED /* Pods-RoomDebts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.debug.xcconfig"; sourceTree = "<group>"; };
+		CB16A96521F85D6900B74DE0 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		CB472CE421F70B3700FB98EE /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		CB472CE621F70B7600FB98EE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		CB472CE821F70C0900FB98EE /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				CBFDBAC821F660030017ED61 /* Protocols */,
 				CBAC545A21F4A50B004C8C65 /* ViewControllers */,
 				CBAC544021F4A48A004C8C65 /* Storage */,
+				CB16A96521F85D6900B74DE0 /* KeychainManager.swift */,
 				CBAC545821F4A4E5004C8C65 /* Log.swift */,
 			);
 			path = Tools;
@@ -818,6 +821,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -825,6 +829,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftPhoneNumberFormatter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -942,6 +947,7 @@
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
 				CBFDBACC21F660030017ED61 /* KeyboardScrollableHandler.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
+				CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */,
 				CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */,
 				CBAC545221F4A48A004C8C65 /* CoreDataStorageExtension.swift in Sources */,
 				CB472D1721F7488800FB98EE /* UserAccountsManager.swift in Sources */,

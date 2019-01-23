@@ -2,21 +2,25 @@ PODS:
   - NVActivityIndicatorView (4.5.1):
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
+  - SwiftKeychainWrapper (3.2.0)
   - SwiftPhoneNumberFormatter (1.5)
 
 DEPENDENCIES:
   - NVActivityIndicatorView
+  - SwiftKeychainWrapper
   - SwiftPhoneNumberFormatter
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - NVActivityIndicatorView
+    - SwiftKeychainWrapper
     - SwiftPhoneNumberFormatter
 
 SPEC CHECKSUMS:
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
+  SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
 
-PODFILE CHECKSUM: 2bc258f320c14c8f5c61baac4fb07d1665ecf4bb
+PODFILE CHECKSUM: 4c3ccb91e92bb552ddae2812556a082d184013de
 
 COCOAPODS: 1.5.3
