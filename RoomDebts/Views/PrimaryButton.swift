@@ -23,12 +23,12 @@ class PrimaryButton: UIButton {
     fileprivate func applyState() {
         if self.isEnabled {
             UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve, animations: {
-                self.titleLabel?.textColor = Colors.white
+                self.setTitleColor(Colors.white, for: .normal)
                 self.setBackgroundImage(#imageLiteral(resourceName: "PrimaryButtonBakcground.pdf"), for: .normal)
             })
         } else {
             UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve, animations: {
-                self.titleLabel?.textColor = Colors.white.withAlphaComponent(0.6)
+                self.setTitleColor(Colors.white.withAlphaComponent(0.6), for: .normal)
                 self.setBackgroundImage(#imageLiteral(resourceName: "PrimaryButtonDisabledBackground.pdf"), for: .normal)
             })
         }

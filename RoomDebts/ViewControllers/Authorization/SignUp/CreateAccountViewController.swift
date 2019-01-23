@@ -21,6 +21,17 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
         static let phoneNumberLength = 10
     }
     
+    // MARK: -
+    
+    // MARK: - Nested Types
+    
+    fileprivate enum Segues {
+        
+        // MARK: - Type Properties
+        
+        static let showVerificationCode = "ShowVerificationCode"
+    }
+    
     // MARK: - Instance Properties
     
     @IBOutlet fileprivate weak var firstNameTextField: UITextField!
@@ -75,12 +86,13 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
         
         self.startAnimating(type: .ballScaleMultiple)
         
-        Services.accountService.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { [weak self] userAccount in
+        Services.accountService.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { [weak self] in
             guard let viewController = self else {
                 return
             }
             
             viewController.stopAnimating()
+            viewController.performSegue(withIdentifier: Segues.showVerificationCode, sender: viewController)
         }, failure: { [weak self] webError in
             guard let viewController = self else {
                 return

@@ -13,4 +13,5 @@ enum Coders {
     // MARK: - Type Properties
     
     static let userAccountCoder: UserAccountCoder = DefaultUserAccountCoder()
+    static let accessCoder: AccessCoder = DefaultAccessCoder()
 }

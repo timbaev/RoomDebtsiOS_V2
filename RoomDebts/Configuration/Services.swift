@@ -12,7 +12,7 @@ enum Services {
     
     // MARK: - Type Properties
     
-    static let accountService: AccountService = DefaultAccountService(userAccountExtractor: Services.userAccountExtractor)
+    static let accountService: AccountService = DefaultAccountService(userAccountExtractor: Services.userAccountExtractor, accessCoder: Coders.accessCoder)
     
     // MARK: -
     

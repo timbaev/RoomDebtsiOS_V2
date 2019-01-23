@@ -9,6 +9,8 @@ target 'RoomDebts' do
   pod "SwiftPhoneNumberFormatter"
   pod 'NVActivityIndicatorView'
   pod 'SwiftKeychainWrapper'
+  pod 'TextFieldEffects'
+  pod 'Gloss', '~> 2.0'
 
   target 'RoomDebtsTests' do
     inherit! :search_paths

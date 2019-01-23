@@ -1,26 +1,34 @@
 PODS:
+  - Gloss (2.1.0)
   - NVActivityIndicatorView (4.5.1):
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
   - SwiftKeychainWrapper (3.2.0)
   - SwiftPhoneNumberFormatter (1.5)
+  - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
+  - Gloss (~> 2.0)
   - NVActivityIndicatorView
   - SwiftKeychainWrapper
   - SwiftPhoneNumberFormatter
+  - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Gloss
     - NVActivityIndicatorView
     - SwiftKeychainWrapper
     - SwiftPhoneNumberFormatter
+    - TextFieldEffects
 
 SPEC CHECKSUMS:
+  Gloss: 13ab6b4b0ff4cb2448466edc957479b1bccea8ba
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
+  TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 4c3ccb91e92bb552ddae2812556a082d184013de
+PODFILE CHECKSUM: 21f25956248a7633271673e9af90a0eab04b2ba5
 
 COCOAPODS: 1.5.3

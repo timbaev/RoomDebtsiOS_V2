@@ -109,6 +109,11 @@
 		CBFDBACD21F660030017ED61 /* DictionaryReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBACA21F660030017ED61 /* DictionaryReceiver.swift */; };
 		CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBACB21F660030017ED61 /* KeyboardHandler.swift */; };
 		CBFDBAD021F660E10017ED61 /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBACF21F660E10017ED61 /* CGRectExtension.swift */; };
+		CBFF85A921F89234002B7FCD /* VerificationCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFF85A821F89234002B7FCD /* VerificationCode.storyboard */; };
+		CBFF85AB21F896DC002B7FCD /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFF85AA21F896DC002B7FCD /* VerificationCodeViewController.swift */; };
+		CBFF85B121F8F0E4002B7FCD /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFF85B021F8F0E4002B7FCD /* Access.swift */; };
+		CBFF85B921F8F8E3002B7FCD /* AccessCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFF85B821F8F8E3002B7FCD /* AccessCoder.swift */; };
+		CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFF85BA21F8F913002B7FCD /* DefaultAccessCoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +236,11 @@
 		CBFDBACA21F660030017ED61 /* DictionaryReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryReceiver.swift; sourceTree = "<group>"; };
 		CBFDBACB21F660030017ED61 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		CBFDBACF21F660E10017ED61 /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
+		CBFF85A821F89234002B7FCD /* VerificationCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerificationCode.storyboard; sourceTree = "<group>"; };
+		CBFF85AA21F896DC002B7FCD /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
+		CBFF85B021F8F0E4002B7FCD /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
+		CBFF85B821F8F8E3002B7FCD /* AccessCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCoder.swift; sourceTree = "<group>"; };
+		CBFF85BA21F8F913002B7FCD /* DefaultAccessCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccessCoder.swift; sourceTree = "<group>"; };
 		EF1C0BE311694403D1C51498 /* Pods_RoomDebts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomDebts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -361,6 +371,7 @@
 		CB472D1021F742FB00FB98EE /* Coders */ = {
 			isa = PBXGroup;
 			children = (
+				CBFF85B721F8F8DC002B7FCD /* Access */,
 				CB472D1121F7430A00FB98EE /* UserAccount */,
 			);
 			path = Coders;
@@ -494,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				CBAC546221F4A6D7004C8C65 /* Cache */,
+				CBFF85B021F8F0E4002B7FCD /* Access.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -675,6 +687,7 @@
 			children = (
 				CBFDBAB821F624360017ED61 /* Storyboard */,
 				CBFDBABB21F638AB0017ED61 /* CreateAccountViewController.swift */,
+				CBFF85AA21F896DC002B7FCD /* VerificationCodeViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -683,6 +696,7 @@
 			isa = PBXGroup;
 			children = (
 				CBFDBAB921F6243F0017ED61 /* SignUp.storyboard */,
+				CBFF85A821F89234002B7FCD /* VerificationCode.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -696,6 +710,15 @@
 				CBFDBACB21F660030017ED61 /* KeyboardHandler.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CBFF85B721F8F8DC002B7FCD /* Access */ = {
+			isa = PBXGroup;
+			children = (
+				CBFF85BA21F8F913002B7FCD /* DefaultAccessCoder.swift */,
+				CBFF85B821F8F8E3002B7FCD /* AccessCoder.swift */,
+			);
+			path = Access;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -792,6 +815,7 @@
 				CBFDBAAA21F5B9FE0017ED61 /* Rubik-Italic.ttf in Resources */,
 				CBFDBAA521F5B9FE0017ED61 /* Rubik-Medium.ttf in Resources */,
 				CBFDBAA921F5B9FE0017ED61 /* Rubik-MediumItalic.ttf in Resources */,
+				CBFF85A921F89234002B7FCD /* VerificationCode.storyboard in Resources */,
 				CBFDBAAC21F5B9FE0017ED61 /* Rubik-BlackItalic.ttf in Resources */,
 				CBFDBAAB21F5B9FE0017ED61 /* Rubik-LightItalic.ttf in Resources */,
 				CBFDBAAD21F5B9FE0017ED61 /* Rubik-Bold.ttf in Resources */,
@@ -820,17 +844,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftPhoneNumberFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -926,6 +954,7 @@
 				CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */,
 				CBAC545521F4A48A004C8C65 /* StorageObject.swift in Sources */,
 				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
+				CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */,
 				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,
 				CB472D2521F74C1E00FB98EE /* EventListener.swift in Sources */,
 				CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */,
@@ -936,11 +965,14 @@
 				CBFDBAC021F63FA20017ED61 /* PrimaryButton.swift in Sources */,
 				CBAC545421F4A48A004C8C65 /* StorageContext.swift in Sources */,
 				CBAC547221F4CAB2004C8C65 /* Colors.swift in Sources */,
+				CBFF85B121F8F0E4002B7FCD /* Access.swift in Sources */,
+				CBFF85AB21F896DC002B7FCD /* VerificationCodeViewController.swift in Sources */,
 				CBAC547A21F4CD76004C8C65 /* GradientView.swift in Sources */,
 				CB472D0121F72D3C00FB98EE /* NetworkConfig.swift in Sources */,
 				CBAC545921F4A4E5004C8C65 /* Log.swift in Sources */,
 				CB472CFB21F7141100FB98EE /* Router.swift in Sources */,
 				CBFDBAC221F645730017ED61 /* OptionalExtension.swift in Sources */,
+				CBFF85B921F8F8E3002B7FCD /* AccessCoder.swift in Sources */,
 				CB472D0D21F7340800FB98EE /* AccountAPI.swift in Sources */,
 				CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,

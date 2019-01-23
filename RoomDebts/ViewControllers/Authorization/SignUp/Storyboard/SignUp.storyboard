@@ -156,11 +156,20 @@
                         <outletCollection property="textFields" destination="Jqp-8d-Fv7" collectionClass="NSMutableArray" id="b7h-6I-euy"/>
                         <outletCollection property="textFields" destination="D7e-DK-Idf" collectionClass="NSMutableArray" id="lXW-AH-PGM"/>
                         <outletCollection property="textFields" destination="3Rr-ib-d9v" collectionClass="NSMutableArray" id="hZw-g5-BFw"/>
+                        <segue destination="3V2-2h-Xi9" kind="show" identifier="ShowVerificationCode" id="zqx-vN-eyZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMs-dS-HvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-207.19999999999999" y="171.36431784107947"/>
+        </scene>
+        <!--VerificationCode-->
+        <scene sceneID="F3C-th-Lug">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VerificationCode" id="3V2-2h-Xi9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GJb-W1-5Nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="415" y="171"/>
         </scene>
     </scenes>
 </document>

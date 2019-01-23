@@ -77,8 +77,10 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     }
     
     fileprivate func handleAuthToken(from response: HTTPURLResponse) {
-        if let authToken = response.allHeaderFields[HeaderKeys.authorization] as? String {
-            KeychainManager.shared.authToken = authToken
+        if let accessToken = response.allHeaderFields[HeaderKeys.authorization] as? String, var access = KeychainManager.shared.access {
+            access.accessToken = accessToken
+            
+            KeychainManager.shared.access = access
         }
     }
     

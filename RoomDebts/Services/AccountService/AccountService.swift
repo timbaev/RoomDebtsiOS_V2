@@ -12,5 +12,5 @@ protocol AccountService {
  
     // MARK: - Instance Methods
     
-    func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ())
+    func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ())
 }
