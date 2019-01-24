@@ -13,7 +13,7 @@ enum AccountAPI {
     // MARK: - Enumeration Cases
     
     case create(firstName: String, lastName: String, phoneNumber: String)
-    case confirm(code: String)
+    case confirm(phoneNumber: String, code: String)
 }
 
 // MARK: - EndPointType
@@ -47,8 +47,8 @@ extension AccountAPI: EndPointType {
                 urlParameters: nil
             )
             
-        case .confirm(let code):
-            return .requestParameters(bodyParameters: Coders.confirmCoder.encode(code: code), urlParameters: nil)
+        case .confirm(let phoneNumber, let code):
+            return .requestParameters(bodyParameters: Coders.confirmCoder.encode(phoneNumber: phoneNumber, code: code), urlParameters: nil)
         }
     }
     

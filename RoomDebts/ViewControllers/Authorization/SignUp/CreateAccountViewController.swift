@@ -92,7 +92,7 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
             }
             
             viewController.stopAnimating()
-            viewController.performSegue(withIdentifier: Segues.showVerificationCode, sender: viewController)
+            viewController.performSegue(withIdentifier: Segues.showVerificationCode, sender: phoneNumber)
         }, failure: { [weak self] webError in
             guard let viewController = self else {
                 return
@@ -158,6 +158,32 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
         super.viewWillDisappear(animated)
         
         self.unsubscribeFromKeyboardNotifications()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let dictionaryReceiver: DictionaryReceiver?
+        
+        if let navigationController = segue.destination as? UINavigationController {
+            dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+        } else {
+            dictionaryReceiver = segue.destination as? DictionaryReceiver
+        }
+        
+        switch segue.identifier {
+        case Segues.showVerificationCode:
+            guard let phoneNumber = sender as? String else {
+                fatalError()
+            }
+            
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["phoneNumber": phoneNumber])
+            }
+            
+        default:
+            break
+        }
     }
 }
 

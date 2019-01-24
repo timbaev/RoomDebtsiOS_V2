@@ -18,6 +18,5 @@ protocol UserAccount: AnyObject {
     var lastName: String? { get set }
     
     var phoneNumber: String? { get set }
-    var isConfirmed: Bool { get set }
     
 }

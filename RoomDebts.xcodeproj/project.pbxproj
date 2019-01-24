@@ -61,6 +61,10 @@
 		CB71C3D321F9B71E008FDD0B /* ConfirmCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3D221F9B71E008FDD0B /* ConfirmCoder.swift */; };
 		CB71C3D521F9B74A008FDD0B /* DefaultConfirmCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3D421F9B74A008FDD0B /* DefaultConfirmCoder.swift */; };
 		CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3D621F9CDAB008FDD0B /* WelcomeViewController.swift */; };
+		CB71C3DB21F9D90F008FDD0B /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB71C3DA21F9D90F008FDD0B /* SignIn.storyboard */; };
+		CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3DC21F9DA94008FDD0B /* PhoneNumberViewController.swift */; };
+		CB71C3E921FA56DF008FDD0B /* AccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */; };
+		CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */; };
 		CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */; };
 		CBAC541C21F4A3D4004C8C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAC541A21F4A3D4004C8C65 /* Main.storyboard */; };
 		CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541D21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld */; };
@@ -189,6 +193,10 @@
 		CB71C3D221F9B71E008FDD0B /* ConfirmCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCoder.swift; sourceTree = "<group>"; };
 		CB71C3D421F9B74A008FDD0B /* DefaultConfirmCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConfirmCoder.swift; sourceTree = "<group>"; };
 		CB71C3D621F9CDAB008FDD0B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		CB71C3DA21F9D90F008FDD0B /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		CB71C3DC21F9DA94008FDD0B /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
+		CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessExtractor.swift; sourceTree = "<group>"; };
+		CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccessExtractor.swift; sourceTree = "<group>"; };
 		CBAC541321F4A3D4004C8C65 /* RoomDebts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomDebts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBAC541B21F4A3D4004C8C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -354,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				CB472D0A21F733BB00FB98EE /* API */,
+				CB71C3E721FA56CC008FDD0B /* Access */,
 				CB472D0521F72F5D00FB98EE /* AccountService */,
 				CB472D3121F7598700FB98EE /* Cache */,
 			);
@@ -436,6 +445,32 @@
 				CB71C3D221F9B71E008FDD0B /* ConfirmCoder.swift */,
 			);
 			path = Confirm;
+			sourceTree = "<group>";
+		};
+		CB71C3D821F9D8D5008FDD0B /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CB71C3D921F9D902008FDD0B /* Storyboard */,
+				CB71C3DC21F9DA94008FDD0B /* PhoneNumberViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CB71C3D921F9D902008FDD0B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CB71C3DA21F9D90F008FDD0B /* SignIn.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CB71C3E721FA56CC008FDD0B /* Access */ = {
+			isa = PBXGroup;
+			children = (
+				CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */,
+				CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */,
+			);
+			path = Access;
 			sourceTree = "<group>";
 		};
 		CBAC540A21F4A3D4004C8C65 = {
@@ -690,6 +725,7 @@
 		CBFDBAAE21F608D20017ED61 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				CB71C3D821F9D8D5008FDD0B /* SignIn */,
 				CBFDBAB721F6242C0017ED61 /* SignUp */,
 				CBFDBAAF21F608DA0017ED61 /* Welcome */,
 			);
@@ -840,6 +876,7 @@
 				CBFDBAA721F5B9FE0017ED61 /* Rubik-BoldItalic.ttf in Resources */,
 				CBFDBAA621F5B9FE0017ED61 /* Rubik-Regular.ttf in Resources */,
 				CBAC547721F4CC77004C8C65 /* Conversations.storyboard in Resources */,
+				CB71C3DB21F9D90F008FDD0B /* SignIn.storyboard in Resources */,
 				CBFDBAA821F5B9FE0017ED61 /* Rubik-Light.ttf in Resources */,
 				CBFDBAB221F608EC0017ED61 /* Welcome.storyboard in Resources */,
 				CBAC542121F4A3D7004C8C65 /* Assets.xcassets in Resources */,
@@ -947,10 +984,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */,
 				CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */,
 				CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */,
 				CB472D2621F74C1E00FB98EE /* EventConnection.swift in Sources */,
 				CB472D2A21F7539E00FB98EE /* UserAccountExtractor.swift in Sources */,
+				CB71C3E921FA56DF008FDD0B /* AccessExtractor.swift in Sources */,
 				CB472D0921F72F8600FB98EE /* DefaultAccountService.swift in Sources */,
 				CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
@@ -1033,6 +1072,7 @@
 				CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */,
 				CB472D4121F75B0800FB98EE /* CacheManagerFactory.swift in Sources */,
 				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
+				CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,
 				CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */,
 				CBAC546B21F4ACCB004C8C65 /* Models.swift in Sources */,

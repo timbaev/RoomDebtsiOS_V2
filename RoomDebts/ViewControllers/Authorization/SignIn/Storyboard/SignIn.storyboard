@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lr-nF-Z2r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login-->
+        <scene sceneID="6fP-d4-8zq">
+            <objects>
+                <viewController title="Login" id="9Lr-nF-Z2r" customClass="PhoneNumberViewController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E4z-NI-dYL" customClass="GradientView" customModule="RoomDebts" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aX-X2-yr8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0J-G1-Aua" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="262"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6p-fg-g3j" userLabel="TopSpacerView">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="624-2i-Asa">
+                                                <rect key="frame" x="16" y="60.5" width="343" height="17"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NQj-qw-u8U" customClass="PhoneFormattedTextField" customModule="SwiftPhoneNumberFormatter">
+                                                <rect key="frame" x="0.0" y="85.5" width="375" height="59"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="59" id="Son-42-JI9"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="36"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" white="1" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBackgroundColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-uq-1Kw" userLabel="SeparatorView">
+                                                <rect key="frame" x="20" y="152.5" width="335" height="1"/>
+                                                <color key="backgroundColor" red="0.1843137255" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="95w-Wf-sVe"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will text you a verification code to make sure it is you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15O-zx-6QP">
+                                                <rect key="frame" x="20" y="165.5" width="335" height="14.5"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="12"/>
+                                                <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp1-gy-eEg" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="196" width="343" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="eot-MU-y8S"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
+                                                <state key="normal" title="Send code">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="624-2i-Asa" firstAttribute="leading" secondItem="x0J-G1-Aua" secondAttribute="leading" constant="16" id="1oY-tM-1Mk"/>
+                                            <constraint firstAttribute="trailing" secondItem="NQj-qw-u8U" secondAttribute="trailing" id="84J-LC-Zqf"/>
+                                            <constraint firstItem="15O-zx-6QP" firstAttribute="leading" secondItem="x0J-G1-Aua" secondAttribute="leading" constant="20" id="8SS-i6-GrC"/>
+                                            <constraint firstItem="15O-zx-6QP" firstAttribute="top" secondItem="aFn-uq-1Kw" secondAttribute="bottom" constant="12" id="CHH-IA-1lA"/>
+                                            <constraint firstItem="aFn-uq-1Kw" firstAttribute="leading" secondItem="x0J-G1-Aua" secondAttribute="leading" constant="20" id="Gqa-8k-wV2"/>
+                                            <constraint firstItem="gp1-gy-eEg" firstAttribute="top" secondItem="15O-zx-6QP" secondAttribute="bottom" constant="16" id="Jjr-Qp-fK4"/>
+                                            <constraint firstAttribute="trailing" secondItem="15O-zx-6QP" secondAttribute="trailing" constant="20" id="OIq-zG-cr8"/>
+                                            <constraint firstItem="624-2i-Asa" firstAttribute="top" secondItem="F6p-fg-g3j" secondAttribute="bottom" constant="8" id="OdT-JO-dXG"/>
+                                            <constraint firstItem="NQj-qw-u8U" firstAttribute="top" secondItem="624-2i-Asa" secondAttribute="bottom" constant="8" id="RUh-bw-KgD"/>
+                                            <constraint firstItem="NQj-qw-u8U" firstAttribute="leading" secondItem="x0J-G1-Aua" secondAttribute="leading" id="RWP-RH-sSB"/>
+                                            <constraint firstItem="aFn-uq-1Kw" firstAttribute="top" secondItem="NQj-qw-u8U" secondAttribute="bottom" constant="8" id="WBY-VP-eDv"/>
+                                            <constraint firstItem="F6p-fg-g3j" firstAttribute="top" secondItem="x0J-G1-Aua" secondAttribute="top" id="WtJ-Nf-Sfo"/>
+                                            <constraint firstAttribute="trailing" secondItem="aFn-uq-1Kw" secondAttribute="trailing" constant="20" id="a7U-U0-yhZ"/>
+                                            <constraint firstItem="F6p-fg-g3j" firstAttribute="leading" secondItem="x0J-G1-Aua" secondAttribute="leading" id="aN7-e3-vwp"/>
+                                            <constraint firstAttribute="trailing" secondItem="gp1-gy-eEg" secondAttribute="trailing" constant="16" id="cON-Fw-DIS"/>
+                                            <constraint firstAttribute="bottom" secondItem="gp1-gy-eEg" secondAttribute="bottom" constant="16" id="gJW-3s-Ue3"/>
+                                            <constraint firstItem="F6p-fg-g3j" firstAttribute="height" secondItem="x0J-G1-Aua" secondAttribute="height" multiplier="1:5" id="pcu-SE-AKl"/>
+                                            <constraint firstAttribute="trailing" secondItem="F6p-fg-g3j" secondAttribute="trailing" id="r66-DD-aAo"/>
+                                            <constraint firstItem="gp1-gy-eEg" firstAttribute="leading" secondItem="x0J-G1-Aua" secondAttribute="leading" constant="16" id="uV2-dX-kCL"/>
+                                            <constraint firstAttribute="trailing" secondItem="624-2i-Asa" secondAttribute="trailing" constant="16" id="xaW-uA-KB5"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="x0J-G1-Aua" firstAttribute="top" secondItem="6aX-X2-yr8" secondAttribute="top" id="OC7-Uh-SIu"/>
+                                    <constraint firstAttribute="bottom" secondItem="x0J-G1-Aua" secondAttribute="bottom" id="Wq7-1m-Nbf"/>
+                                    <constraint firstItem="x0J-G1-Aua" firstAttribute="leading" secondItem="6aX-X2-yr8" secondAttribute="leading" id="XUU-xM-jxr"/>
+                                    <constraint firstAttribute="trailing" secondItem="x0J-G1-Aua" secondAttribute="trailing" id="etN-8r-Uqy"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpn-hC-0X1" userLabel="BottomSpacerView">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="rqz-IG-5tr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gpn-hC-0X1" secondAttribute="trailing" id="7vI-3t-MqF"/>
+                            <constraint firstItem="gpn-hC-0X1" firstAttribute="leading" secondItem="E4z-NI-dYL" secondAttribute="leading" id="DFG-3g-63a"/>
+                            <constraint firstItem="gpn-hC-0X1" firstAttribute="top" secondItem="6aX-X2-yr8" secondAttribute="bottom" id="GSf-Cc-zBi"/>
+                            <constraint firstItem="6aX-X2-yr8" firstAttribute="leading" secondItem="Lsl-oL-n1B" secondAttribute="leading" id="I3G-2X-fp5"/>
+                            <constraint firstAttribute="bottom" secondItem="gpn-hC-0X1" secondAttribute="bottom" id="iQn-VD-2I4"/>
+                            <constraint firstItem="6aX-X2-yr8" firstAttribute="top" secondItem="Lsl-oL-n1B" secondAttribute="top" id="lrP-WK-KsX"/>
+                            <constraint firstItem="x0J-G1-Aua" firstAttribute="width" secondItem="Lsl-oL-n1B" secondAttribute="width" id="ri8-EB-wlA"/>
+                            <constraint firstItem="Lsl-oL-n1B" firstAttribute="trailing" secondItem="6aX-X2-yr8" secondAttribute="trailing" id="zqs-Ow-dJ5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lsl-oL-n1B"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.090196078430000007" green="0.094117647060000004" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.066666666669999999" green="0.21960784310000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="bottomSpacerViewHeightConstraint" destination="rqz-IG-5tr" id="xbF-K9-XA9"/>
+                        <outlet property="phoneNumberTextField" destination="NQj-qw-u8U" id="17K-v6-odx"/>
+                        <outlet property="scrollView" destination="6aX-X2-yr8" id="xKj-F4-yhg"/>
+                        <outlet property="sendCodeButton" destination="gp1-gy-eEg" id="8HZ-Jv-oIP"/>
+                        <segue destination="uoc-tm-Di6" kind="unwind" identifier="FinishVerificationCode" unwindAction="onVerificationCodeFinished:" id="FVa-QY-A5h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3Q-m6-Jl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uoc-tm-Di6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="48.799999999999997" y="49.925037481259373"/>
+        </scene>
+    </scenes>
+</document>

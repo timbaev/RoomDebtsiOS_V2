@@ -17,26 +17,23 @@ struct DefaultAccountService: AccountService {
     // MARK: -
     
     let userAccountExtractor: UserAccountExtractor
-    let accessCoder: AccessCoder
+    let accessExtractor: AccessExtractor
     
     // MARK: - Instance Methods
     
     func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
         self.router.request(.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber), success: { json in
-            if let access = self.accessCoder.decode(from: json) {
-                KeychainManager.shared.access = access
-                success()
-            } else {
-                failure(WebError(code: .badResponse))
-            }
+            success()
         }, failure: { webError in
             failure(webError)
         })
     }
     
-    func confirm(code: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ()) {
-        self.router.request(.confirm(code: code), success: { json in
+    func confirm(phoneNumber: String, code: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ()) {
+        self.router.request(.confirm(phoneNumber: phoneNumber, code: code), success: { json in
             do {
+                try self.accessExtractor.extract(from: json)
+                
                 let userAccount = try self.userAccountExtractor.extractUserAccount(from: json, context: Services.cacheViewContext)
                 
                 success(userAccount)

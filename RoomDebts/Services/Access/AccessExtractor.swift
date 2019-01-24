@@ -1,5 +1,5 @@
 //
-//  ConfirmCoder.swift
+//  AccessExtractor.swift
 //  RoomDebts
 //
 //  Created by Timur Shafigullin on 24/01/2019.
@@ -8,9 +8,10 @@
 
 import Foundation
 
-protocol ConfirmCoder {
+protocol AccessExtractor {
     
     // MARK: - Instance Methods
     
-    func encode(phoneNumber: String, code: String) -> JSON
+    @discardableResult
+    func extract(from json: JSON) throws -> Access
 }

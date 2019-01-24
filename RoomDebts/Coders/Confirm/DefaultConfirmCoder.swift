@@ -17,12 +17,16 @@ struct DefaultConfirmCoder: ConfirmCoder {
         
         // MARK: - Type Properties
         
+        static let phoneNumber = "phoneNumber"
         static let code = "code"
     }
     
     // MARK: - Instance Methods
     
-    func encode(code: String) -> JSON {
-        return [JSONKeys.code: code]
+    func encode(phoneNumber: String, code: String) -> JSON {
+        return [
+            JSONKeys.phoneNumber: phoneNumber,
+            JSONKeys.code: code
+        ]
     }
 }

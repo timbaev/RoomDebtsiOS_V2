@@ -71,6 +71,9 @@
                                 <state key="normal" title="Starting with account" backgroundImage="PrimaryButtonBakcground">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="GfC-Ce-lH5" kind="show" id="g1s-5L-mEQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,7 +113,15 @@
                 <viewControllerPlaceholder storyboardName="SignUp" id="WfQ-jr-YKa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NaA-QM-YhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="-166"/>
+            <point key="canvasLocation" x="1842" y="-189"/>
+        </scene>
+        <!--SignIn-->
+        <scene sceneID="g1q-3Y-jNS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" id="GfC-Ce-lH5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqe-7x-6U4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="-141"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="cfY-bF-Dai">

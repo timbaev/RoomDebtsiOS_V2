@@ -13,6 +13,7 @@ protocol UserAccountCoder {
     // MARK: - Instance Properties
     
     func userAccountUID(from json: JSON) -> Int64?
+    func userData(from json: JSON) -> JSON?
     
     func encode(firstName: String, lastName: String, phoneNumber: String) -> JSON
     

@@ -29,6 +29,10 @@ class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorV
     
     @IBOutlet fileprivate weak var bottomSpacerViewHeightConstraint: NSLayoutConstraint!
     
+    // MARK: -
+    
+    fileprivate var phoneNumber: String?
+    
     // MARK: - Initializers
     
     deinit {
@@ -44,9 +48,13 @@ class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorV
             return
         }
         
+        guard let phoneNumber = self.phoneNumber else {
+            return
+        }
+        
         self.startAnimating(type: .ballScaleMultiple)
         
-        Services.accountService.confirm(code: code, success: { [weak self] userAccount in
+        Services.accountService.confirm(phoneNumber: phoneNumber, code: code, success: { [weak self] userAccount in
             guard let viewController = self else {
                 return
             }
@@ -71,11 +79,19 @@ class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorV
         self.verifyButton.isEnabled = self.verificationCodeTextField.text.isNotEmpty
     }
     
+    // MARK: -
+    
+    fileprivate func apply(phoneNumber: String) {
+        Log.i(phoneNumber)
+        self.phoneNumber = phoneNumber
+    }
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.verificationCodeTextField.becomeFirstResponder()
         self.verificationCodeTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
     
@@ -115,5 +131,18 @@ extension VerificationCodeViewController: KeyboardHandler {
         UIView.animate(withDuration: 0.25, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+}
+
+extension VerificationCodeViewController: DictionaryReceiver {
+    
+    // MARK: - Instance Methods
+    
+    func apply(dictionary: [String : Any]) {
+        guard let phoneNumber = dictionary["phoneNumber"] as? String else {
+            return
+        }
+        
+        self.apply(phoneNumber: phoneNumber)
     }
 }
