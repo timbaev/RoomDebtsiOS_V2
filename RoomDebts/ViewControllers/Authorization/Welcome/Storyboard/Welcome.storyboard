@@ -21,10 +21,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="vPb-cs-3KQ">
             <objects>
-                <viewController id="AQk-zx-7lh" sceneMemberID="viewController">
+                <viewController id="AQk-zx-7lh" customClass="WelcomeViewController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gtC-pb-Iqs" customClass="GradientView" customModule="RoomDebts" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

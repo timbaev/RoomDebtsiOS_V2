@@ -27,4 +27,8 @@ enum Services {
     static var cacheViewContext: CacheContext {
         return Services.cacheProvider.model.viewContext
     }
+    
+    static var userAccount: UserAccount? {
+        return Services.cacheProvider.model.viewContext.userAccountManager.first()
+    }
 }

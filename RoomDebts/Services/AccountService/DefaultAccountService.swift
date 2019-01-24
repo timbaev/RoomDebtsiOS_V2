@@ -12,7 +12,7 @@ struct DefaultAccountService: AccountService {
     
     // MARK: - Instance Properties
     
-    fileprivate let router = Router<AccountAPI>()
+    fileprivate let router = AuthRouter<AccountAPI>()
     
     // MARK: -
     
@@ -31,6 +31,22 @@ struct DefaultAccountService: AccountService {
             }
         }, failure: { webError in
             failure(webError)
+        })
+    }
+    
+    func confirm(code: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ()) {
+        self.router.request(.confirm(code: code), success: { json in
+            do {
+                let userAccount = try self.userAccountExtractor.extractUserAccount(from: json, context: Services.cacheViewContext)
+                
+                success(userAccount)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                }
+            }
+        }, failure: { error in
+            failure(error)
         })
     }
 }

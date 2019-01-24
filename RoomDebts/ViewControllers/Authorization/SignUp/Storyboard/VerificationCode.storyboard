@@ -85,6 +85,9 @@
                                                 <state key="normal" title="Verify">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onVerifyButtonTouchUpInside:" destination="XpR-xu-uRF" eventType="touchUpInside" id="DZA-O7-1qJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,9 +154,11 @@
                         <outlet property="scrollView" destination="VMU-fm-nS0" id="mnM-l4-aYh"/>
                         <outlet property="verificationCodeTextField" destination="iI2-rv-toh" id="z6a-dd-eWe"/>
                         <outlet property="verifyButton" destination="HaX-nw-AdT" id="bTV-ma-mki"/>
+                        <segue destination="ifa-4m-Y1o" kind="unwind" identifier="FinishVerificationCode" unwindAction="onVerificationCodeFinished:" id="dcR-9l-r2q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y70-RT-qRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ifa-4m-Y1o" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="48.799999999999997" y="49.925037481259373"/>
         </scene>

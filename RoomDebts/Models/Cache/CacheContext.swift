@@ -42,6 +42,8 @@ extension CacheContext {
     // MARK: - Instance Methods
     
     func clear() {
+        KeychainManager.shared.clear()
+        
         self.userAccountManager.clear()
         
         self.save()

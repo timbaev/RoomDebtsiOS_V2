@@ -13,27 +13,28 @@ enum AccountAPI {
     // MARK: - Enumeration Cases
     
     case create(firstName: String, lastName: String, phoneNumber: String)
+    case confirm(code: String)
 }
 
 // MARK: - EndPointType
 
 extension AccountAPI: EndPointType {
     
-    var baseURL: URL {
-        guard let baseURL = URL(string: NetworkConfig.environment.rawValue) else {
-            fatalError()
-        }
-        
-        return baseURL
-    }
-    
     var path: String {
-        return "/v1/account"
+        let basePath = "/v1/account"
+        
+        switch self {
+        case .create:
+            return basePath
+            
+        case .confirm:
+            return basePath + "/confirm"
+        }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .create:
+        case .create, .confirm:
             return .post
         }
     }
@@ -45,6 +46,9 @@ extension AccountAPI: EndPointType {
                 bodyParameters: Coders.userAccountCoder.encode(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber),
                 urlParameters: nil
             )
+            
+        case .confirm(let code):
+            return .requestParameters(bodyParameters: Coders.confirmCoder.encode(code: code), urlParameters: nil)
         }
     }
     

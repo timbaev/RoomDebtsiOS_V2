@@ -31,22 +31,6 @@ class KeychainManager {
     
     // MARK: -
     
-    var authToken: String? {
-        get {
-            return self.wrapper.string(forKey: Keys.authToken)
-        }
-        
-        set {
-            if let newValue = newValue {
-                Log.i(newValue)
-                self.wrapper.set(newValue, forKey: Keys.authToken)
-            } else {
-                Log.i("deleted")
-                self.wrapper.removeObject(forKey: Keys.authToken)
-            }
-        }
-    }
-    
     var access: Access? {
         get {
             guard let accessToken = self.wrapper.string(forKey: Keys.accessToken) else {
@@ -77,5 +61,11 @@ class KeychainManager {
                 self.wrapper.removeObject(forKey: Keys.expiredAt)
             }
         }
+    }
+    
+    // MARK: - Instance Properties
+    
+    func clear() {
+        self.wrapper.removeAllKeys()
     }
 }

@@ -35,7 +35,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
         }
         
-        self.addAuthTokenHeader(to: &request)
+        self.addAccessTokenHeader(to: &request)
         
         return request
     }
@@ -58,9 +58,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         headers.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
     }
     
-    fileprivate func addAuthTokenHeader(to request: inout URLRequest) {
-        if let authToken = KeychainManager.shared.authToken {
-            request.setValue(authToken, forHTTPHeaderField: HeaderKeys.authorization)
+    fileprivate func addAccessTokenHeader(to request: inout URLRequest) {
+        if let accessToken = KeychainManager.shared.access?.accessToken {
+            request.setValue(accessToken, forHTTPHeaderField: HeaderKeys.authorization)
         }
     }
     
@@ -76,7 +76,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
     
-    fileprivate func handleAuthToken(from response: HTTPURLResponse) {
+    fileprivate func handleAccessToken(from response: HTTPURLResponse) {
         if let accessToken = response.allHeaderFields[HeaderKeys.authorization] as? String, var access = KeychainManager.shared.access {
             access.accessToken = accessToken
             
@@ -117,7 +117,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 return
             }
             
-            self.handleAuthToken(from: response)
+            self.handleAccessToken(from: response)
             
             NetworkLogger.log(response: response, data: responseData)
             

@@ -7,8 +7,18 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class VerificationCodeViewController: LoggedViewController {
+class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
+    
+    // MARK: - Nested Types
+    
+    fileprivate enum Segues {
+        
+        // MARK: - Type Properties
+        
+        static let finishVerificationCode = "FinishVerificationCode"
+    }
     
     // MARK: - Instance Properties
     
@@ -26,6 +36,32 @@ class VerificationCodeViewController: LoggedViewController {
     }
     
     // MARK: - Instance Methods
+    
+    @IBAction func onVerifyButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i(sender.title(for: .normal) ?? "")
+        
+        guard let code = self.verificationCodeTextField.text else {
+            return
+        }
+        
+        self.startAnimating(type: .ballScaleMultiple)
+        
+        Services.accountService.confirm(code: code, success: { [weak self] userAccount in
+            guard let viewController = self else {
+                return
+            }
+            
+            viewController.stopAnimating()
+            viewController.performSegue(withIdentifier: Segues.finishVerificationCode, sender: viewController)
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+            
+            viewController.stopAnimating()
+            viewController.showMessage(withError: error)
+        })
+    }
     
     @objc fileprivate func textFieldDidChange(_ sender: UITextField) {
         self.updateVerifyButtonState()

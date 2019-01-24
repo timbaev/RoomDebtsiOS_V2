@@ -18,3 +18,18 @@ protocol EndPointType {
     var task: HTTPTask { get }
     var headers: HTTPHeaders? { get }
 }
+
+// MARK: -
+
+extension EndPointType {
+    
+    // MARK: - Instance Properties
+    
+    var baseURL: URL {
+        guard let baseURL = URL(string: NetworkConfig.environment.rawValue) else {
+            fatalError()
+        }
+        
+        return baseURL
+    }
+}

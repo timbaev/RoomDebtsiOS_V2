@@ -14,4 +14,5 @@ enum Coders {
     
     static let userAccountCoder: UserAccountCoder = DefaultUserAccountCoder()
     static let accessCoder: AccessCoder = DefaultAccessCoder()
+    static let confirmCoder: ConfirmCoder = DefaultConfirmCoder()
 }

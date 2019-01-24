@@ -27,6 +27,8 @@ struct DefaultUserAccountExtractor: UserAccountExtractor {
             throw WebError(code: .badResponse)
         }
         
+        context.save()
+        
         return userAccount
     }
 }

@@ -56,6 +56,11 @@
 		CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4621F75E4600FB98EE /* NetworkLogger.swift */; };
 		CB472D4921F764BA00FB98EE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */; };
 		CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */; };
+		CB71C3CC21F9A236008FDD0B /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3CB21F9A236008FDD0B /* AuthAPI.swift */; };
+		CB71C3D021F9AFFB008FDD0B /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3CF21F9AFFB008FDD0B /* AuthRouter.swift */; };
+		CB71C3D321F9B71E008FDD0B /* ConfirmCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3D221F9B71E008FDD0B /* ConfirmCoder.swift */; };
+		CB71C3D521F9B74A008FDD0B /* DefaultConfirmCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3D421F9B74A008FDD0B /* DefaultConfirmCoder.swift */; };
+		CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3D621F9CDAB008FDD0B /* WelcomeViewController.swift */; };
 		CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */; };
 		CBAC541C21F4A3D4004C8C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAC541A21F4A3D4004C8C65 /* Main.storyboard */; };
 		CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541D21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld */; };
@@ -179,6 +184,11 @@
 		CB472D4621F75E4600FB98EE /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessagePresenter.swift; sourceTree = "<group>"; };
+		CB71C3CB21F9A236008FDD0B /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		CB71C3CF21F9AFFB008FDD0B /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		CB71C3D221F9B71E008FDD0B /* ConfirmCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCoder.swift; sourceTree = "<group>"; };
+		CB71C3D421F9B74A008FDD0B /* DefaultConfirmCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConfirmCoder.swift; sourceTree = "<group>"; };
+		CB71C3D621F9CDAB008FDD0B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CBAC541321F4A3D4004C8C65 /* RoomDebts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomDebts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBAC541B21F4A3D4004C8C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -298,6 +308,7 @@
 		CB472CE321F70B1F00FB98EE /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CB71C3CA21F9A1FF008FDD0B /* Authorization */,
 				CB472CE421F70B3700FB98EE /* EndPointType.swift */,
 				CB472CE621F70B7600FB98EE /* HTTPMethod.swift */,
 				CB472CE821F70C0900FB98EE /* HTTPTask.swift */,
@@ -372,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				CBFF85B721F8F8DC002B7FCD /* Access */,
+				CB71C3D121F9B708008FDD0B /* Confirm */,
 				CB472D1121F7430A00FB98EE /* UserAccount */,
 			);
 			path = Coders;
@@ -406,6 +418,24 @@
 				CB472D3521F7598700FB98EE /* DefaultCacheSession.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		CB71C3CA21F9A1FF008FDD0B /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CB71C3CB21F9A236008FDD0B /* AuthAPI.swift */,
+				CB71C3CF21F9AFFB008FDD0B /* AuthRouter.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CB71C3D121F9B708008FDD0B /* Confirm */ = {
+			isa = PBXGroup;
+			children = (
+				CB71C3D421F9B74A008FDD0B /* DefaultConfirmCoder.swift */,
+				CB71C3D221F9B71E008FDD0B /* ConfirmCoder.swift */,
+			);
+			path = Confirm;
 			sourceTree = "<group>";
 		};
 		CBAC540A21F4A3D4004C8C65 = {
@@ -670,6 +700,7 @@
 			isa = PBXGroup;
 			children = (
 				CBFDBAB021F608E10017ED61 /* Storyboard */,
+				CB71C3D621F9CDAB008FDD0B /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -921,6 +952,7 @@
 				CB472D2621F74C1E00FB98EE /* EventConnection.swift in Sources */,
 				CB472D2A21F7539E00FB98EE /* UserAccountExtractor.swift in Sources */,
 				CB472D0921F72F8600FB98EE /* DefaultAccountService.swift in Sources */,
+				CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
 				CB472CEC21F70C9F00FB98EE /* ParameterEncoding.swift in Sources */,
 				CB472D1D21F74BF700FB98EE /* CacheContextType.swift in Sources */,
@@ -932,6 +964,7 @@
 				CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
 				CB472D0721F72F7800FB98EE /* AccountService.swift in Sources */,
+				CB71C3D321F9B71E008FDD0B /* ConfirmCoder.swift in Sources */,
 				CB472D3F21F75B0800FB98EE /* DefaultCacheManagerFactory.swift in Sources */,
 				CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */,
 				CB472D1321F7434800FB98EE /* UserAccountCoder.swift in Sources */,
@@ -951,8 +984,10 @@
 				CB472CF021F70E1600FB98EE /* NetworkError.swift in Sources */,
 				CBAC544D21F4A48A004C8C65 /* StorageManager.swift in Sources */,
 				CBAC545F21F4A525004C8C65 /* LoggedViewController.swift in Sources */,
+				CB71C3D021F9AFFB008FDD0B /* AuthRouter.swift in Sources */,
 				CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */,
 				CBAC545521F4A48A004C8C65 /* StorageObject.swift in Sources */,
+				CB71C3D521F9B74A008FDD0B /* DefaultConfirmCoder.swift in Sources */,
 				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
 				CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */,
 				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,
@@ -981,6 +1016,7 @@
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
 				CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */,
 				CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */,
+				CB71C3CC21F9A236008FDD0B /* AuthAPI.swift in Sources */,
 				CBAC545221F4A48A004C8C65 /* CoreDataStorageExtension.swift in Sources */,
 				CB472D1721F7488800FB98EE /* UserAccountsManager.swift in Sources */,
 				CBAC546D21F4AD85004C8C65 /* MainTabBarController.swift in Sources */,

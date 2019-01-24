@@ -19,6 +19,12 @@ class MainTabBarController: LoggedTabBarController {
         static let unauthorized = "Unauthorized"
     }
     
+    // MARK: - Instance Methods
+    
+    @IBAction fileprivate func onVerificationCodeFinished(_ segue: UIStoryboardSegue) {
+        Log.i(String(describing: segue.identifier))
+    }
+    
     // MARK: - UITabBarController
     
     override func viewDidLoad() {
@@ -37,6 +43,8 @@ class MainTabBarController: LoggedTabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.performSegue(withIdentifier: Segues.unauthorized, sender: self)
+        if Services.userAccount == nil {
+            self.performSegue(withIdentifier: Segues.unauthorized, sender: self)            
+        }
     }
 }
