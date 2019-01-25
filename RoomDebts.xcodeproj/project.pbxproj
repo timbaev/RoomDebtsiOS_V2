@@ -97,6 +97,8 @@
 		CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */; };
 		CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */; };
 		CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */; };
+		CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */; };
+		CBF277EE21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */; };
 		CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */; };
 		CBFDBAA421F5B9FE0017ED61 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBA9A21F5B9FE0017ED61 /* Rubik-Black.ttf */; };
 		CBFDBAA521F5B9FE0017ED61 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBA9B21F5B9FE0017ED61 /* Rubik-Medium.ttf */; };
@@ -233,6 +235,8 @@
 		CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneColorTabBarItem.swift; sourceTree = "<group>"; };
 		CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedNavigationController.swift; sourceTree = "<group>"; };
+		CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCoder.swift; sourceTree = "<group>"; };
+		CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPhoneNumberCoder.swift; sourceTree = "<group>"; };
 		CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CBFDBA9A21F5B9FE0017ED61 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		CBFDBA9B21F5B9FE0017ED61 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 			children = (
 				CBFF85B721F8F8DC002B7FCD /* Access */,
 				CB71C3D121F9B708008FDD0B /* Confirm */,
+				CBF277EA21FAFA37008E516C /* PhoneNumber */,
 				CB472D1121F7430A00FB98EE /* UserAccount */,
 			);
 			path = Coders;
@@ -705,6 +710,32 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CBF277EA21FAFA37008E516C /* PhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */,
+				CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */,
+			);
+			path = PhoneNumber;
+			sourceTree = "<group>";
+		};
+		CBF277EF21FAFF40008E516C /* VerificationCode */ = {
+			isa = PBXGroup;
+			children = (
+				CBF277F021FAFF4A008E516C /* Storyboard */,
+				CBFF85AA21F896DC002B7FCD /* VerificationCodeViewController.swift */,
+			);
+			path = VerificationCode;
+			sourceTree = "<group>";
+		};
+		CBF277F021FAFF4A008E516C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBFF85A821F89234002B7FCD /* VerificationCode.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CBFDBA9921F5B9E60017ED61 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +758,7 @@
 			children = (
 				CB71C3D821F9D8D5008FDD0B /* SignIn */,
 				CBFDBAB721F6242C0017ED61 /* SignUp */,
+				CBF277EF21FAFF40008E516C /* VerificationCode */,
 				CBFDBAAF21F608DA0017ED61 /* Welcome */,
 			);
 			path = Authorization;
@@ -754,7 +786,6 @@
 			children = (
 				CBFDBAB821F624360017ED61 /* Storyboard */,
 				CBFDBABB21F638AB0017ED61 /* CreateAccountViewController.swift */,
-				CBFF85AA21F896DC002B7FCD /* VerificationCodeViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -763,7 +794,6 @@
 			isa = PBXGroup;
 			children = (
 				CBFDBAB921F6243F0017ED61 /* SignUp.storyboard */,
-				CBFF85A821F89234002B7FCD /* VerificationCode.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1049,6 +1079,7 @@
 				CBFF85B921F8F8E3002B7FCD /* AccessCoder.swift in Sources */,
 				CB472D0D21F7340800FB98EE /* AccountAPI.swift in Sources */,
 				CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */,
+				CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
 				CBFDBACC21F660030017ED61 /* KeyboardScrollableHandler.swift in Sources */,
@@ -1071,6 +1102,7 @@
 				CBFDBAD021F660E10017ED61 /* CGRectExtension.swift in Sources */,
 				CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */,
 				CB472D4121F75B0800FB98EE /* CacheManagerFactory.swift in Sources */,
+				CBF277EE21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift in Sources */,
 				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
 				CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,

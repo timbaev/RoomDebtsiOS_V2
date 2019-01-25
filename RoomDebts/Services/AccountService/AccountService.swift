@@ -14,4 +14,5 @@ protocol AccountService {
     
     func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ())
     func confirm(phoneNumber: String, code: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ())
+    func signIn(phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ())
 }

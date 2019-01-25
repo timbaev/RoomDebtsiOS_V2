@@ -91,6 +91,9 @@
                                                 <state key="normal" title="Send code">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onSendButtonTouchUpInside:" destination="9Lr-nF-Z2r" eventType="touchUpInside" id="WiJ-Sf-y0R"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,12 +164,21 @@
                         <outlet property="scrollView" destination="6aX-X2-yr8" id="xKj-F4-yhg"/>
                         <outlet property="sendCodeButton" destination="gp1-gy-eEg" id="8HZ-Jv-oIP"/>
                         <segue destination="uoc-tm-Di6" kind="unwind" identifier="FinishVerificationCode" unwindAction="onVerificationCodeFinished:" id="FVa-QY-A5h"/>
+                        <segue destination="avD-80-1qq" kind="show" identifier="ShowVerificationCode" id="Pkj-4I-neZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3Q-m6-Jl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uoc-tm-Di6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="48.799999999999997" y="49.925037481259373"/>
+        </scene>
+        <!--VerificationCode-->
+        <scene sceneID="9zk-k3-XeU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VerificationCode" id="avD-80-1qq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDe-i9-CUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="691" y="49"/>
         </scene>
     </scenes>
 </document>

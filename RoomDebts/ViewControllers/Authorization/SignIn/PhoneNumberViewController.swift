@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftPhoneNumberFormatter
+import NVActivityIndicatorView
 
-class PhoneNumberViewController: LoggedViewController {
+class PhoneNumberViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
     
     // MARK: - Nested Types
     
@@ -18,6 +19,15 @@ class PhoneNumberViewController: LoggedViewController {
         // MARK: - Type Properties
         
         static let phoneNumberLength = 10
+    }
+    
+    // MARK: -
+    
+    fileprivate enum Segues {
+        
+        // MARK: - Type Properties
+        
+        static let showVerificationCode = "ShowVerificationCode"
     }
     
     // MARK: - Instance Properties
@@ -36,6 +46,24 @@ class PhoneNumberViewController: LoggedViewController {
     }
     
     // MARK: - Instance Methods
+    
+    @IBAction func onSendButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i(sender.title(for: .normal) ?? "")
+        
+        guard let phoneNumber = self.phoneNumberTextField.phoneNumber() else {
+            return
+        }
+        
+        self.startAnimating(type: .ballScaleMultiple)
+        
+        Services.accountService.signIn(phoneNumber: phoneNumber, success: { [weak self] in
+            self?.stopAnimating()
+            self?.performSegue(withIdentifier: Segues.showVerificationCode, sender: phoneNumber)
+        }, failure: { [weak self] error in
+            self?.stopAnimating()
+            self?.showMessage(withError: error)
+        })
+    }
     
     fileprivate func updateSendCodeButtonState() {
         self.sendCodeButton.isEnabled = (self.phoneNumberTextField.phoneNumberWithoutPrefix()?.count == Constants.phoneNumberLength)
@@ -64,6 +92,32 @@ class PhoneNumberViewController: LoggedViewController {
         super.viewWillDisappear(animated)
         
         self.unsubscribeFromKeyboardNotifications()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let dictionaryReceiver: DictionaryReceiver?
+        
+        if let navigationController = segue.destination as? UINavigationController {
+            dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+        } else {
+            dictionaryReceiver = segue.destination as? DictionaryReceiver
+        }
+        
+        switch segue.identifier {
+        case Segues.showVerificationCode:
+            guard let phoneNumber = sender as? String else {
+                fatalError()
+            }
+            
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["phoneNumber": phoneNumber])
+            }
+            
+        default:
+            break
+        }
     }
 }
 

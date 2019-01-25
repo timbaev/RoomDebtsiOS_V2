@@ -14,6 +14,7 @@ enum AccountAPI {
     
     case create(firstName: String, lastName: String, phoneNumber: String)
     case confirm(phoneNumber: String, code: String)
+    case signIn(phoneNumber: String)
 }
 
 // MARK: - EndPointType
@@ -29,12 +30,15 @@ extension AccountAPI: EndPointType {
             
         case .confirm:
             return basePath + "/confirm"
+            
+        case .signIn:
+            return basePath + "/login"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .create, .confirm:
+        case .create, .confirm, .signIn:
             return .post
         }
     }
@@ -49,6 +53,9 @@ extension AccountAPI: EndPointType {
             
         case .confirm(let phoneNumber, let code):
             return .requestParameters(bodyParameters: Coders.confirmCoder.encode(phoneNumber: phoneNumber, code: code), urlParameters: nil)
+            
+        case .signIn(let phoneNumber):
+            return .requestParameters(bodyParameters: Coders.phoneNumberCoder.encode(phoneNumber: phoneNumber), urlParameters: nil)
         }
     }
     

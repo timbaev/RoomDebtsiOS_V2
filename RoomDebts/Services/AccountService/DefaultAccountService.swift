@@ -46,4 +46,10 @@ struct DefaultAccountService: AccountService {
             failure(error)
         })
     }
+    
+    func signIn(phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
+        self.router.request(.signIn(phoneNumber: phoneNumber), success: { json in
+            success()
+        }, failure: failure)
+    }
 }
