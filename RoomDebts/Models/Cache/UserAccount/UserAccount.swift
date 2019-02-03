@@ -19,4 +19,5 @@ protocol UserAccount: AnyObject {
     
     var phoneNumber: String? { get set }
     
+    var avatarURL: URL? { get set }
 }

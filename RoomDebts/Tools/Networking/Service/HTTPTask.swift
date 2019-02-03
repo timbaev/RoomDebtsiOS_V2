@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 typealias HTTPHeaders = [String: String]
 
@@ -17,4 +17,5 @@ enum HTTPTask {
     case request
     case requestParameters(bodyParameters: Parameters?, urlParameters: Parameters?)
     case requestParametersAndHeader(bodyParameters: Parameters?, urlParameters: Parameters?, additionalHeader: HTTPHeaders?)
+    case upload(image: UIImage, imageName: String, mimeType: MimeType)
 }

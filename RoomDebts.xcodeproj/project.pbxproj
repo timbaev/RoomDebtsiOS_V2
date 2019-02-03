@@ -9,7 +9,14 @@
 /* Begin PBXBuildFile section */
 		34C2462B3EC1BDA98D082127 /* Pods_RoomDebts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1C0BE311694403D1C51498 /* Pods_RoomDebts.framework */; };
 		CA71C5AA812739C4BD717F23 /* Pods_RoomDebtsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */; };
+		CB117BAC2204B72B00C20905 /* Avatar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB117BAB2204B72B00C20905 /* Avatar.storyboard */; };
+		CB117BAE2204B8D000C20905 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB117BAD2204B8D000C20905 /* AvatarViewController.swift */; };
+		CB117BB12204C14B00C20905 /* VerificationCodeSourceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB117BB02204C14B00C20905 /* VerificationCodeSourceScreen.swift */; };
 		CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB16A96521F85D6900B74DE0 /* KeychainManager.swift */; };
+		CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */; };
+		CB37A9922206289A007ECB86 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A9912206289A007ECB86 /* MimeType.swift */; };
+		CB37A994220629EA007ECB86 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A993220629EA007ECB86 /* MediaData.swift */; };
+		CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A99522062C5D007ECB86 /* DataExtensions.swift */; };
 		CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE421F70B3700FB98EE /* EndPointType.swift */; };
 		CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE621F70B7600FB98EE /* HTTPMethod.swift */; };
 		CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE821F70C0900FB98EE /* HTTPTask.swift */; };
@@ -143,7 +150,14 @@
 		83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomDebtsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF1CC913DE2E2A34DC43D8C /* Pods-RoomDebts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.release.xcconfig"; sourceTree = "<group>"; };
 		C36B68E8D728EAD0C6DA59ED /* Pods-RoomDebts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.debug.xcconfig"; sourceTree = "<group>"; };
+		CB117BAB2204B72B00C20905 /* Avatar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Avatar.storyboard; sourceTree = "<group>"; };
+		CB117BAD2204B8D000C20905 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
+		CB117BB02204C14B00C20905 /* VerificationCodeSourceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeSourceScreen.swift; sourceTree = "<group>"; };
 		CB16A96521F85D6900B74DE0 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParameterEncoder.swift; sourceTree = "<group>"; };
+		CB37A9912206289A007ECB86 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
+		CB37A993220629EA007ECB86 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
+		CB37A99522062C5D007ECB86 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		CB472CE421F70B3700FB98EE /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		CB472CE621F70B7600FB98EE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		CB472CE821F70C0900FB98EE /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -306,11 +320,56 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CB117BA92204B6EB00C20905 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				CB117BAA2204B71900C20905 /* Storyboard */,
+				CB117BAD2204B8D000C20905 /* AvatarViewController.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
+		CB117BAA2204B71900C20905 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CB117BAB2204B72B00C20905 /* Avatar.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CB117BAF2204C13900C20905 /* VerificationCode */ = {
+			isa = PBXGroup;
+			children = (
+				CB117BB02204C14B00C20905 /* VerificationCodeSourceScreen.swift */,
+			);
+			path = VerificationCode;
+			sourceTree = "<group>";
+		};
+		CB37A98F2205B134007ECB86 /* Encoders */ = {
+			isa = PBXGroup;
+			children = (
+				CB472CF321F7113400FB98EE /* JSONParameterEncoder.swift */,
+				CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */,
+				CB472CF121F70F0D00FB98EE /* URLParameterEncoder.swift */,
+			);
+			path = Encoders;
+			sourceTree = "<group>";
+		};
+		CB37A99022062877007ECB86 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CB37A993220629EA007ECB86 /* MediaData.swift */,
+				CB37A9912206289A007ECB86 /* MimeType.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		CB472CE221F70A6200FB98EE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				CB472CFC21F72C7C00FB98EE /* Config */,
 				CB472CEA21F70C7A00FB98EE /* Encoding */,
+				CB37A99022062877007ECB86 /* Helpers */,
 				CB472CF521F711CE00FB98EE /* Keys */,
 				CB472CE321F70B1F00FB98EE /* Service */,
 			);
@@ -336,11 +395,10 @@
 		CB472CEA21F70C7A00FB98EE /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
-				CB472CF321F7113400FB98EE /* JSONParameterEncoder.swift */,
+				CB37A98F2205B134007ECB86 /* Encoders */,
 				CB472CEF21F70E1600FB98EE /* NetworkError.swift */,
 				CB472CEB21F70C9F00FB98EE /* ParameterEncoding.swift */,
 				CB472CED21F70DFD00FB98EE /* ParameterEncoder.swift */,
-				CB472CF121F70F0D00FB98EE /* URLParameterEncoder.swift */,
 			);
 			path = Encoding;
 			sourceTree = "<group>";
@@ -575,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				CBAC546221F4A6D7004C8C65 /* Cache */,
+				CB117BAF2204C13900C20905 /* VerificationCode */,
 				CBFF85B021F8F0E4002B7FCD /* Access.swift */,
 			);
 			path = Models;
@@ -677,6 +736,7 @@
 			isa = PBXGroup;
 			children = (
 				CBFDBACF21F660E10017ED61 /* CGRectExtension.swift */,
+				CB37A99522062C5D007ECB86 /* DataExtensions.swift */,
 				CBFDBAC121F645730017ED61 /* OptionalExtension.swift */,
 				CBFDBABD21F63A670017ED61 /* StringExtension.swift */,
 				CBAC546F21F4CAA8004C8C65 /* UIColorExtension.swift */,
@@ -756,6 +816,7 @@
 		CBFDBAAE21F608D20017ED61 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				CB117BA92204B6EB00C20905 /* Avatar */,
 				CB71C3D821F9D8D5008FDD0B /* SignIn */,
 				CBFDBAB721F6242C0017ED61 /* SignUp */,
 				CBF277EF21FAFF40008E516C /* VerificationCode */,
@@ -913,6 +974,7 @@
 				CBFDBAAA21F5B9FE0017ED61 /* Rubik-Italic.ttf in Resources */,
 				CBFDBAA521F5B9FE0017ED61 /* Rubik-Medium.ttf in Resources */,
 				CBFDBAA921F5B9FE0017ED61 /* Rubik-MediumItalic.ttf in Resources */,
+				CB117BAC2204B72B00C20905 /* Avatar.storyboard in Resources */,
 				CBFF85A921F89234002B7FCD /* VerificationCode.storyboard in Resources */,
 				CBFDBAAC21F5B9FE0017ED61 /* Rubik-BlackItalic.ttf in Resources */,
 				CBFDBAAB21F5B9FE0017ED61 /* Rubik-LightItalic.ttf in Resources */,
@@ -1024,7 +1086,9 @@
 				CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
 				CB472CEC21F70C9F00FB98EE /* ParameterEncoding.swift in Sources */,
+				CB37A994220629EA007ECB86 /* MediaData.swift in Sources */,
 				CB472D1D21F74BF700FB98EE /* CacheContextType.swift in Sources */,
+				CB117BAE2204B8D000C20905 /* AvatarViewController.swift in Sources */,
 				CB472CF921F7135100FB98EE /* NetworkRouter.swift in Sources */,
 				CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */,
 				CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */,
@@ -1037,6 +1101,7 @@
 				CB472D3F21F75B0800FB98EE /* DefaultCacheManagerFactory.swift in Sources */,
 				CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */,
 				CB472D1321F7434800FB98EE /* UserAccountCoder.swift in Sources */,
+				CB117BB12204C14B00C20905 /* VerificationCodeSourceScreen.swift in Sources */,
 				CBFDBABE21F63A670017ED61 /* StringExtension.swift in Sources */,
 				CB472D2E21F7586E00FB98EE /* Coders.swift in Sources */,
 				CBAC546821F4A7C7004C8C65 /* DefaultUserAccountExtension.swift in Sources */,
@@ -1046,6 +1111,7 @@
 				CBAC545121F4A48A004C8C65 /* CoreDataStorageManager.swift in Sources */,
 				CBAC545E21F4A525004C8C65 /* LoggedTabBarController.swift in Sources */,
 				CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */,
+				CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */,
 				CB472D2C21F7566A00FB98EE /* DefaultUserAccountExtractor.swift in Sources */,
 				CBAC545621F4A48A004C8C65 /* StorageModel.swift in Sources */,
 				CB472D4521F75CAE00FB98EE /* DefaultCacheContext.swift in Sources */,
@@ -1081,6 +1147,7 @@
 				CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */,
 				CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
+				CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */,
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
 				CBFDBACC21F660030017ED61 /* KeyboardScrollableHandler.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
@@ -1106,6 +1173,7 @@
 				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
 				CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,
+				CB37A9922206289A007ECB86 /* MimeType.swift in Sources */,
 				CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */,
 				CBAC546B21F4ACCB004C8C65 /* Models.swift in Sources */,
 				CB472D3021F7593E00FB98EE /* Services.swift in Sources */,

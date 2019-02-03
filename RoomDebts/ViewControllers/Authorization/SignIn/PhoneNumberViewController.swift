@@ -112,7 +112,7 @@ class PhoneNumberViewController: LoggedViewController, NVActivityIndicatorViewab
             }
             
             if let dictionaryReceiver = dictionaryReceiver {
-                dictionaryReceiver.apply(dictionary: ["phoneNumber": phoneNumber])
+                dictionaryReceiver.apply(dictionary: ["phoneNumber": phoneNumber, "source": VerificationCodeSourceScreen.signIn])
             }
             
         default:

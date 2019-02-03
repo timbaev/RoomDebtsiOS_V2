@@ -154,13 +154,22 @@
                         <outlet property="scrollView" destination="VMU-fm-nS0" id="mnM-l4-aYh"/>
                         <outlet property="verificationCodeTextField" destination="iI2-rv-toh" id="z6a-dd-eWe"/>
                         <outlet property="verifyButton" destination="HaX-nw-AdT" id="bTV-ma-mki"/>
-                        <segue destination="ifa-4m-Y1o" kind="unwind" identifier="FinishVerificationCode" unwindAction="onVerificationCodeFinished:" id="dcR-9l-r2q"/>
+                        <segue destination="ifa-4m-Y1o" kind="unwind" identifier="FinishVerificationCode" unwindAction="onAutorizationFinished:" id="dcR-9l-r2q"/>
+                        <segue destination="fyn-va-kk0" kind="show" identifier="ShowAvatarPicker" id="TPX-SW-rg1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y70-RT-qRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ifa-4m-Y1o" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="48.799999999999997" y="49.925037481259373"/>
+        </scene>
+        <!--Avatar-->
+        <scene sceneID="htV-7S-XIo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Avatar" id="fyn-va-kk0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HW-Z8-SJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="719" y="49"/>
         </scene>
     </scenes>
 </document>

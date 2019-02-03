@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Router<EndPoint: EndPointType>: NetworkRouter {
     
@@ -33,6 +33,16 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         case .requestParametersAndHeader(let bodyParameters, let urlParameters, let additionalHeader):
             self.additionalHeader(additionalHeader, request: &request)
             try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
+            
+        case .upload(let image, let imageName, let mimeType):
+            let mediaData = MediaData(image: image, imageName: imageName, mimeType: mimeType)
+            
+            let boundary = "Boundary-\(UUID().uuidString)"
+            let contentType = "multipart/form-data; boundary=\(boundary)"
+            
+            self.additionalHeader([HeaderKeys.contentType: contentType], request: &request)
+            
+            ImageParameterEncoder.encode(urlRequest: &request, media: mediaData, boundary: boundary)
         }
         
         self.addAccessTokenHeader(to: &request)

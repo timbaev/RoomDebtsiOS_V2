@@ -8,4 +8,21 @@
 
 import Foundation
 
-extension DefaultUserAccount: UserAccount { }
+extension DefaultUserAccount: UserAccount {
+    
+    // MARK: - Instance Properties
+    
+    var avatarURL: URL? {
+        get {
+            if let rawAvatarURL = self.rawAvatarURL {
+                return URL(string: rawAvatarURL)
+            } else {
+                return nil
+            }
+        }
+        
+        set {
+            self.rawAvatarURL = newValue?.absoluteString
+        }
+    }
+}

@@ -22,6 +22,7 @@ struct DefaultUserAccountCoder: UserAccountCoder {
         static let lastName = "lastName"
         static let phoneNumber = "phoneNumber"
         static let isConfirmed = "isConfirmed"
+        static let imageURL = "imageURL"
         
         static let userData = "userData"
     }
@@ -61,10 +62,13 @@ struct DefaultUserAccountCoder: UserAccountCoder {
             return false
         }
         
+        let imageURL: URL? = JSONKeys.imageURL <~~ json
+        
         userAccount.uid = id
         userAccount.firstName = firstName
         userAccount.lastName = lastName
         userAccount.phoneNumber = phoneNumber
+        userAccount.avatarURL = imageURL
         
         return true
     }

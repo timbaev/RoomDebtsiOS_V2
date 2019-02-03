@@ -17,9 +17,7 @@ struct DefaultUserAccountExtractor: UserAccountExtractor {
     // MARK: - Instance Methods
     
     func extractUserAccount(from json: JSON, context: CacheContext) throws -> UserAccount {
-        guard let userData = self.userAccountCoder.userData(from: json) else {
-            throw WebError(code: .badResponse)
-        }
+        let userData = self.userAccountCoder.userData(from: json) ?? json
         
         guard let userAccountUID = self.userAccountCoder.userAccountUID(from: userData) else {
             throw WebError(code: .badResponse)

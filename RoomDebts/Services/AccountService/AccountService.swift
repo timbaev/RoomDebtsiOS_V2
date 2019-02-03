@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AccountService {
  
@@ -15,4 +15,5 @@ protocol AccountService {
     func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ())
     func confirm(phoneNumber: String, code: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ())
     func signIn(phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ())
+    func uploadAvatar(image: UIImage, success: @escaping () -> (), failure: @escaping (WebError) -> ())
 }

@@ -15,5 +15,6 @@ enum HeaderKeys {
     // MARK: - Type Properties
     
     static let contentType = "Content-Type"
+    static let contentLength = "Content-Length"
     static let authorization = "Authorization"
 }

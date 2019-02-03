@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QLQ-ZG-Cq4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Medium.ttf">
+            <string>Rubik-Medium</string>
+        </array>
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Avatar View Controller-->
+        <scene sceneID="YxR-qM-RpX">
+            <objects>
+                <viewController id="QLQ-ZG-Cq4" customClass="AvatarViewController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CBA-4u-VNX" customClass="GradientView" customModule="RoomDebts" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help your friends find you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-r7-2BI">
+                                <rect key="frame" x="52.5" y="84" width="270" height="26.5"/>
+                                <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AvatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Lo3-2Y-VF1">
+                                <rect key="frame" x="137.5" y="173.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Huj-1T-Yrr"/>
+                                    <constraint firstAttribute="width" constant="100" id="O84-WJ-PzS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aey-Cr-KeU">
+                                <rect key="frame" x="153" y="283.5" width="69" height="29"/>
+                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
+                                <state key="normal" title="Add Photo">
+                                    <color key="titleColor" red="0.78823529411764703" green="0.63921568627450975" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onAddPhotoButtonTouchUpInside:" destination="QLQ-ZG-Cq4" eventType="touchUpInside" id="pQ7-II-Hhy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nea-KK-s4L" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
+                                <rect key="frame" x="16" y="601" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0hU-r1-UAN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDoneButtonTouchUpInside:" destination="QLQ-ZG-Cq4" eventType="touchUpInside" id="AsU-TV-1OK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YVj-r7-2BI" firstAttribute="centerX" secondItem="CBA-4u-VNX" secondAttribute="centerX" id="97R-ZM-Ivq"/>
+                            <constraint firstItem="CdV-i9-rbH" firstAttribute="bottom" secondItem="Nea-KK-s4L" secondAttribute="bottom" constant="16" id="Afz-Co-hUJ"/>
+                            <constraint firstItem="aey-Cr-KeU" firstAttribute="top" secondItem="Lo3-2Y-VF1" secondAttribute="bottom" constant="10" id="JAK-FM-PNl"/>
+                            <constraint firstItem="CdV-i9-rbH" firstAttribute="trailing" secondItem="Nea-KK-s4L" secondAttribute="trailing" constant="16" id="Jb0-3T-2P7"/>
+                            <constraint firstItem="Lo3-2Y-VF1" firstAttribute="top" secondItem="YVj-r7-2BI" secondAttribute="bottom" constant="63" id="KH7-xo-ljQ"/>
+                            <constraint firstItem="CdV-i9-rbH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YVj-r7-2BI" secondAttribute="trailing" constant="20" id="Mvw-Jr-X3l"/>
+                            <constraint firstItem="Nea-KK-s4L" firstAttribute="leading" secondItem="CdV-i9-rbH" secondAttribute="leading" constant="16" id="Wx3-xP-AME"/>
+                            <constraint firstItem="Lo3-2Y-VF1" firstAttribute="centerX" secondItem="CBA-4u-VNX" secondAttribute="centerX" id="fga-wv-LRo"/>
+                            <constraint firstItem="aey-Cr-KeU" firstAttribute="centerX" secondItem="CBA-4u-VNX" secondAttribute="centerX" id="nF6-JO-wM8"/>
+                            <constraint firstItem="YVj-r7-2BI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CdV-i9-rbH" secondAttribute="leading" constant="20" id="vSG-d0-AFv"/>
+                            <constraint firstItem="YVj-r7-2BI" firstAttribute="top" secondItem="CdV-i9-rbH" secondAttribute="top" constant="20" id="zg0-ac-k9w"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CdV-i9-rbH"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.090196078430000007" green="0.094117647060000004" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.066666666669999999" green="0.21960784310000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addPhotoButton" destination="aey-Cr-KeU" id="aJF-ex-mYE"/>
+                        <outlet property="avatarImageView" destination="Lo3-2Y-VF1" id="BeL-qw-tjw"/>
+                        <outlet property="doneButton" destination="Nea-KK-s4L" id="6ed-9F-S9Z"/>
+                        <segue destination="l7w-GB-5e7" kind="unwind" identifier="FinishAutorization" unwindAction="onAutorizationFinished:" id="NGj-c6-npH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHU-ix-jjE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="l7w-GB-5e7" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="106"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AvatarPlaceholder" width="100" height="100"/>
+    </resources>
+</document>

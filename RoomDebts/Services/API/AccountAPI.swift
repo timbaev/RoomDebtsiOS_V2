@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum AccountAPI {
     
@@ -15,6 +15,7 @@ enum AccountAPI {
     case create(firstName: String, lastName: String, phoneNumber: String)
     case confirm(phoneNumber: String, code: String)
     case signIn(phoneNumber: String)
+    case avatar(image: UIImage)
 }
 
 // MARK: - EndPointType
@@ -33,12 +34,15 @@ extension AccountAPI: EndPointType {
             
         case .signIn:
             return basePath + "/login"
+            
+        case .avatar:
+            return basePath + "/avatar"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .create, .confirm, .signIn:
+        case .create, .confirm, .signIn, .avatar:
             return .post
         }
     }
@@ -56,6 +60,9 @@ extension AccountAPI: EndPointType {
             
         case .signIn(let phoneNumber):
             return .requestParameters(bodyParameters: Coders.phoneNumberCoder.encode(phoneNumber: phoneNumber), urlParameters: nil)
+            
+        case .avatar(let image):
+            return .upload(image: image, imageName: "avatar.jpg", mimeType: .jpeg)
         }
     }
     

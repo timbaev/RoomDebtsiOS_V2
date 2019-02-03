@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct DefaultAccountService: AccountService {
     
@@ -50,6 +50,17 @@ struct DefaultAccountService: AccountService {
     func signIn(phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
         self.router.request(.signIn(phoneNumber: phoneNumber), success: { json in
             success()
+        }, failure: failure)
+    }
+    
+    func uploadAvatar(image: UIImage, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
+        self.router.request(.avatar(image: image), success: { json in
+            do {
+                try self.userAccountExtractor.extractUserAccount(from: json, context: Services.cacheViewContext)
+                success()
+            } catch {
+                failure(WebError(code: .aborted))
+            }
         }, failure: failure)
     }
 }

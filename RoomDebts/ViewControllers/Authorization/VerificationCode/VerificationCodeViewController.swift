@@ -18,6 +18,8 @@ class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorV
         // MARK: - Type Properties
         
         static let finishVerificationCode = "FinishVerificationCode"
+        
+        static let showAvatarPicker = "ShowAvatarPicker"
     }
     
     // MARK: - Instance Properties
@@ -32,6 +34,8 @@ class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorV
     // MARK: -
     
     fileprivate var phoneNumber: String?
+    
+    fileprivate var sourceScreen: VerificationCodeSourceScreen?
     
     // MARK: - Initializers
     
@@ -60,7 +64,14 @@ class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorV
             }
             
             viewController.stopAnimating()
-            viewController.performSegue(withIdentifier: Segues.finishVerificationCode, sender: viewController)
+            
+            switch viewController.sourceScreen {
+            case .some(.signUp):
+                viewController.performSegue(withIdentifier: Segues.showAvatarPicker, sender: viewController)
+                
+            default:
+                viewController.performSegue(withIdentifier: Segues.finishVerificationCode, sender: viewController)
+            }
         }, failure: { [weak self] error in
             guard let viewController = self else {
                 return
@@ -141,6 +152,10 @@ extension VerificationCodeViewController: DictionaryReceiver {
     func apply(dictionary: [String : Any]) {
         guard let phoneNumber = dictionary["phoneNumber"] as? String else {
             return
+        }
+        
+        if let sourceScreen = dictionary["source"] as? VerificationCodeSourceScreen {
+            self.sourceScreen = sourceScreen
         }
         
         self.apply(phoneNumber: phoneNumber)

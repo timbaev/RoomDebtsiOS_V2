@@ -4,9 +4,10 @@
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawAvatarURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

@@ -178,7 +178,7 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
             }
             
             if let dictionaryReceiver = dictionaryReceiver {
-                dictionaryReceiver.apply(dictionary: ["phoneNumber": phoneNumber])
+                dictionaryReceiver.apply(dictionary: ["phoneNumber": phoneNumber, "source": VerificationCodeSourceScreen.signUp])
             }
             
         default:

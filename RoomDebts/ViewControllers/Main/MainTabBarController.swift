@@ -21,7 +21,7 @@ class MainTabBarController: LoggedTabBarController {
     
     // MARK: - Instance Methods
     
-    @IBAction fileprivate func onVerificationCodeFinished(_ segue: UIStoryboardSegue) {
+    @IBAction fileprivate func onAutorizationFinished(_ segue: UIStoryboardSegue) {
         Log.i(String(describing: segue.identifier))
     }
     
