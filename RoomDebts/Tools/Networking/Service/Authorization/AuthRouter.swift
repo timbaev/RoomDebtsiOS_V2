@@ -38,9 +38,7 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
                     KeychainManager.shared.access = access
                     
                     self?.router.request(route, success: success, failure: failure)
-                }, failure: { error in
-                    failure(error)
-                })
+                }, failure: failure)
             } else {
                 self.router.request(route, success: success, failure: failure)
             }

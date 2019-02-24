@@ -23,16 +23,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hN2-jM-XZG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hN2-jM-XZG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" id="nox-Vg-H6M">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" id="nox-Vg-H6M" customClass="SearchTableViewCell" customModule="RoomDebts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nox-Vg-H6M" id="lyS-US-fQl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AvatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="ptj-md-Cvd" customClass="RoundedImageView" customModule="RoomDebts" customModuleProvider="target">
@@ -48,22 +48,37 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lacara Jones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWh-cU-0t6">
-                                                    <rect key="frame" x="99" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="57" y="11" width="106.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hg0-ZK-zqH">
+                                                    <rect key="frame" x="0.0" y="43" width="375" height="1"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="DvY-hO-NZa"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Hg0-ZK-zqH" secondAttribute="trailing" id="2xD-4v-0aD"/>
                                                 <constraint firstItem="sWh-cU-0t6" firstAttribute="leading" secondItem="ptj-md-Cvd" secondAttribute="trailing" constant="14" id="8LA-Bc-q4g"/>
+                                                <constraint firstAttribute="bottom" secondItem="Hg0-ZK-zqH" secondAttribute="bottom" id="BR4-r1-v4Y"/>
                                                 <constraint firstItem="sWh-cU-0t6" firstAttribute="centerY" secondItem="ptj-md-Cvd" secondAttribute="centerY" id="H3Z-UO-ocH"/>
                                                 <constraint firstItem="ptj-md-Cvd" firstAttribute="top" secondItem="lyS-US-fQl" secondAttribute="top" constant="7" id="jfU-4X-wAH"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sWh-cU-0t6" secondAttribute="trailing" constant="16" id="tjC-7A-mst"/>
                                                 <constraint firstItem="ptj-md-Cvd" firstAttribute="leading" secondItem="lyS-US-fQl" secondAttribute="leading" constant="14" id="wTf-BN-kIg"/>
+                                                <constraint firstItem="Hg0-ZK-zqH" firstAttribute="leading" secondItem="lyS-US-fQl" secondAttribute="leading" id="ysA-lz-VXn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="ptj-md-Cvd" id="802-Xg-6dU"/>
+                                            <outlet property="nameLabel" destination="sWh-cU-0t6" id="HdQ-D6-cjd"/>
+                                            <outlet property="separatorView" destination="Hg0-ZK-zqH" id="jlG-nx-aLr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
