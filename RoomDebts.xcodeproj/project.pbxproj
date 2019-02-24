@@ -17,6 +17,7 @@
 		CB37A9922206289A007ECB86 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A9912206289A007ECB86 /* MimeType.swift */; };
 		CB37A994220629EA007ECB86 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A993220629EA007ECB86 /* MediaData.swift */; };
 		CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A99522062C5D007ECB86 /* DataExtensions.swift */; };
+		CB391D5B2222832800EB4EDD /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */; };
 		CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE421F70B3700FB98EE /* EndPointType.swift */; };
 		CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE621F70B7600FB98EE /* HTTPMethod.swift */; };
 		CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE821F70C0900FB98EE /* HTTPTask.swift */; };
@@ -72,6 +73,8 @@
 		CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3DC21F9DA94008FDD0B /* PhoneNumberViewController.swift */; };
 		CB71C3E921FA56DF008FDD0B /* AccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */; };
 		CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */; };
+		CB83DCD2221E9DBA00749486 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB83DCD1221E9DBA00749486 /* Search.storyboard */; };
+		CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */; };
 		CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */; };
 		CBAC541C21F4A3D4004C8C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAC541A21F4A3D4004C8C65 /* Main.storyboard */; };
 		CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541D21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld */; };
@@ -104,6 +107,8 @@
 		CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */; };
 		CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */; };
 		CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */; };
+		CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31E9F22207B96006EF081 /* RoundedImageView.swift */; };
+		CBE31EA222207D94006EF081 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31EA122207D94006EF081 /* SearchViewController.swift */; };
 		CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */; };
 		CBF277EE21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */; };
 		CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */; };
@@ -158,6 +163,7 @@
 		CB37A9912206289A007ECB86 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		CB37A993220629EA007ECB86 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
 		CB37A99522062C5D007ECB86 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
 		CB472CE421F70B3700FB98EE /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		CB472CE621F70B7600FB98EE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		CB472CE821F70C0900FB98EE /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 		CB71C3DC21F9DA94008FDD0B /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessExtractor.swift; sourceTree = "<group>"; };
 		CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccessExtractor.swift; sourceTree = "<group>"; };
+		CB83DCD1221E9DBA00749486 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		CBAC541321F4A3D4004C8C65 /* RoomDebts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomDebts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBAC541B21F4A3D4004C8C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -249,6 +257,8 @@
 		CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneColorTabBarItem.swift; sourceTree = "<group>"; };
 		CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedNavigationController.swift; sourceTree = "<group>"; };
+		CBE31E9F22207B96006EF081 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		CBE31EA122207D94006EF081 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCoder.swift; sourceTree = "<group>"; };
 		CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPhoneNumberCoder.swift; sourceTree = "<group>"; };
 		CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -536,6 +546,23 @@
 			path = Access;
 			sourceTree = "<group>";
 		};
+		CB83DCCF221E9DA200749486 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CB83DCD0221E9DA900749486 /* Storyboard */,
+				CBE31EA122207D94006EF081 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CB83DCD0221E9DA900749486 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CB83DCD1221E9DBA00749486 /* Search.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CBAC540A21F4A3D4004C8C65 = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +616,7 @@
 				CBAC547421F4CC4F004C8C65 /* Conversations */,
 				CBAC543D21F4A410004C8C65 /* LaunchScreen */,
 				CBAC543A21F4A3EE004C8C65 /* Main */,
+				CB83DCCF221E9DA200749486 /* Search */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -646,8 +674,8 @@
 				CBAC546E21F4CA9D004C8C65 /* Extensions */,
 				CB472CE221F70A6200FB98EE /* Networking */,
 				CBFDBAC821F660030017ED61 /* Protocols */,
-				CBAC545A21F4A50B004C8C65 /* ViewControllers */,
 				CBAC544021F4A48A004C8C65 /* Storage */,
+				CBAC545A21F4A50B004C8C65 /* ViewControllers */,
 				CB16A96521F85D6900B74DE0 /* KeychainManager.swift */,
 				CBAC545821F4A4E5004C8C65 /* Log.swift */,
 			);
@@ -740,6 +768,7 @@
 				CBFDBAC121F645730017ED61 /* OptionalExtension.swift */,
 				CBFDBABD21F63A670017ED61 /* StringExtension.swift */,
 				CBAC546F21F4CAA8004C8C65 /* UIColorExtension.swift */,
+				CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */,
 				CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
@@ -766,6 +795,8 @@
 			children = (
 				CBAC547921F4CD76004C8C65 /* GradientView.swift */,
 				CBFDBABF21F63FA20017ED61 /* PrimaryButton.swift */,
+				CBE31E9F22207B96006EF081 /* RoundedImageView.swift */,
+				CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -977,6 +1008,7 @@
 				CB117BAC2204B72B00C20905 /* Avatar.storyboard in Resources */,
 				CBFF85A921F89234002B7FCD /* VerificationCode.storyboard in Resources */,
 				CBFDBAAC21F5B9FE0017ED61 /* Rubik-BlackItalic.ttf in Resources */,
+				CB83DCD2221E9DBA00749486 /* Search.storyboard in Resources */,
 				CBFDBAAB21F5B9FE0017ED61 /* Rubik-LightItalic.ttf in Resources */,
 				CBFDBAAD21F5B9FE0017ED61 /* Rubik-Bold.ttf in Resources */,
 				CBFDBAA421F5B9FE0017ED61 /* Rubik-Black.ttf in Resources */,
@@ -1093,6 +1125,7 @@
 				CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */,
 				CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */,
 				CB472CF421F7113400FB98EE /* JSONParameterEncoder.swift in Sources */,
+				CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */,
 				CB472D0321F72DF700FB98EE /* Result.swift in Sources */,
 				CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
@@ -1132,6 +1165,7 @@
 				CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */,
 				CB472CF721F711E400FB98EE /* HeaderKeys.swift in Sources */,
 				CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */,
+				CB391D5B2222832800EB4EDD /* UISearchBarExtensions.swift in Sources */,
 				CBFDBAC021F63FA20017ED61 /* PrimaryButton.swift in Sources */,
 				CBAC545421F4A48A004C8C65 /* StorageContext.swift in Sources */,
 				CBAC547221F4CAB2004C8C65 /* Colors.swift in Sources */,
@@ -1148,6 +1182,7 @@
 				CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
 				CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */,
+				CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */,
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
 				CBFDBACC21F660030017ED61 /* KeyboardScrollableHandler.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
@@ -1170,6 +1205,7 @@
 				CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */,
 				CB472D4121F75B0800FB98EE /* CacheManagerFactory.swift in Sources */,
 				CBF277EE21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift in Sources */,
+				CBE31EA222207D94006EF081 /* SearchViewController.swift in Sources */,
 				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
 				CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,

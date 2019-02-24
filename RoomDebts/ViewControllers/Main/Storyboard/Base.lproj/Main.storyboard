@@ -68,6 +68,16 @@
             </objects>
             <point key="canvasLocation" x="-1151" y="1186"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="0jo-L0-X1f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="hB3-TY-cPe" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mZH-2q-Ife"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oj5-qr-tNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="1186"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="M0L-qG-VcA">
             <objects>
@@ -82,15 +92,21 @@
             </objects>
             <point key="canvasLocation" x="390" y="704"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="SbG-1a-Gyc">
             <objects>
-                <navigationController id="R6c-Rm-O5J" sceneMemberID="viewController">
+                <navigationController id="R6c-Rm-O5J" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="SearchIcon" selectedImage="SearchSelectedIcon" id="bIT-QA-3Dc" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="1rQ-T7-qeF">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.24705882352941178" green="0.62745098039215685" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
+                    <connections>
+                        <segue destination="hB3-TY-cPe" kind="relationship" relationship="rootViewController" id="mzZ-jn-VZM"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mv8-Nz-aNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
