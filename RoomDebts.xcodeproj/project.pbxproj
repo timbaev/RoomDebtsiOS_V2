@@ -64,7 +64,7 @@
 		CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4621F75E4600FB98EE /* NetworkLogger.swift */; };
 		CB472D4921F764BA00FB98EE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */; };
 		CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */; };
-		CB714B892222C7D7007961C6 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B882222C7D7007961C6 /* SearchTableViewCell.swift */; };
+		CB714B892222C7D7007961C6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B882222C7D7007961C6 /* UserTableViewCell.swift */; };
 		CB714B8B2222C9D6007961C6 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8A2222C9D6007961C6 /* UserAPI.swift */; };
 		CB714B8E2222CAE8007961C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8D2222CAE8007961C6 /* UserService.swift */; };
 		CB714B902222CAFC007961C6 /* DefaultUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8F2222CAFC007961C6 /* DefaultUserService.swift */; };
@@ -221,7 +221,7 @@
 		CB472D4621F75E4600FB98EE /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessagePresenter.swift; sourceTree = "<group>"; };
-		CB714B882222C7D7007961C6 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		CB714B882222C7D7007961C6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		CB714B8A2222C9D6007961C6 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CB714B8D2222CAE8007961C6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		CB714B8F2222CAFC007961C6 /* DefaultUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserService.swift; sourceTree = "<group>"; };
@@ -467,10 +467,8 @@
 		CB472D0521F72F5D00FB98EE /* AccountService */ = {
 			isa = PBXGroup;
 			children = (
-				CB472D0821F72F8600FB98EE /* DefaultAccountService.swift */,
-				CB472D2B21F7566A00FB98EE /* DefaultUserAccountExtractor.swift */,
-				CB472D0621F72F7800FB98EE /* AccountService.swift */,
-				CB472D2921F7539E00FB98EE /* UserAccountExtractor.swift */,
+				CB714DEB2222F86D007961C6 /* Extractor */,
+				CB714DEC2222F878007961C6 /* Service */,
 			);
 			path = AccountService;
 			sourceTree = "<group>";
@@ -531,7 +529,7 @@
 		CB714B872222C7CB007961C6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				CB714B882222C7D7007961C6 /* SearchTableViewCell.swift */,
+				CB714B882222C7D7007961C6 /* UserTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -540,8 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				CB714DE52222DC2E007961C6 /* Extractor */,
-				CB714B8F2222CAFC007961C6 /* DefaultUserService.swift */,
-				CB714B8D2222CAE8007961C6 /* UserService.swift */,
+				CB714DEA2222F85D007961C6 /* Service */,
 			);
 			path = UserService;
 			sourceTree = "<group>";
@@ -571,6 +568,33 @@
 				CB714DE62222DC39007961C6 /* UserExtractor.swift */,
 			);
 			path = Extractor;
+			sourceTree = "<group>";
+		};
+		CB714DEA2222F85D007961C6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CB714B8F2222CAFC007961C6 /* DefaultUserService.swift */,
+				CB714B8D2222CAE8007961C6 /* UserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CB714DEB2222F86D007961C6 /* Extractor */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D2B21F7566A00FB98EE /* DefaultUserAccountExtractor.swift */,
+				CB472D2921F7539E00FB98EE /* UserAccountExtractor.swift */,
+			);
+			path = Extractor;
+			sourceTree = "<group>";
+		};
+		CB714DEC2222F878007961C6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CB472D0821F72F8600FB98EE /* DefaultAccountService.swift */,
+				CB472D0621F72F7800FB98EE /* AccountService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		CB71C3CA21F9A1FF008FDD0B /* Authorization */ = {
@@ -1110,6 +1134,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework",
@@ -1120,6 +1145,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftPhoneNumberFormatter.framework",
@@ -1191,7 +1217,7 @@
 				CB472D0921F72F8600FB98EE /* DefaultAccountService.swift in Sources */,
 				CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
-				CB714B892222C7D7007961C6 /* SearchTableViewCell.swift in Sources */,
+				CB714B892222C7D7007961C6 /* UserTableViewCell.swift in Sources */,
 				CB714DE42222DA18007961C6 /* Coder.swift in Sources */,
 				CB472CEC21F70C9F00FB98EE /* ParameterEncoding.swift in Sources */,
 				CB37A994220629EA007ECB86 /* MediaData.swift in Sources */,

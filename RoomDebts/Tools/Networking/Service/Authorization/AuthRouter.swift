@@ -18,7 +18,7 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
     // MARK: - Instance Methods
     
     fileprivate func refresToken(with access: Access, success: @escaping (Access) -> (), failure: @escaping (WebError) -> ()) {
-        self.authRouter.request(.refreshToken(refreshToken: access.refreshToken), success: { json in
+        self.authRouter.jsonObject(.refreshToken(refreshToken: access.refreshToken), success: { json in
             if let access = Coders.accessCoder.decode(from: json) {
                 success(access)
             } else {
@@ -30,20 +30,36 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
     }
     
     // MARK: -
-    
-    func request(_ route: EndPoint, success: @escaping (JSON) -> (), failure: @escaping (WebError) -> ()) {
+
+    func jsonArray(_ route: EndPoint, success: @escaping ([JSON]) -> (), failure: @escaping (WebError) -> ()) {
+        if let access = KeychainManager.shared.access {
+            if access.expiredAt < Date() {
+                self.refresToken(with: access, success: { [weak self] access in
+                    KeychainManager.shared.access = access
+
+                    self?.router.jsonArray(route, success: success, failure: failure)
+                    }, failure: failure)
+            } else {
+                self.router.jsonArray(route, success: success, failure: failure)
+            }
+        } else {
+            self.router.jsonArray(route, success: success, failure: failure)
+        }
+    }
+
+    func jsonObject(_ route: EndPoint, success: @escaping (JSON) -> (), failure: @escaping (WebError) -> ()) {
         if let access = KeychainManager.shared.access {
             if access.expiredAt < Date() {
                 self.refresToken(with: access, success: { [weak self] access in
                     KeychainManager.shared.access = access
                     
-                    self?.router.request(route, success: success, failure: failure)
+                    self?.router.jsonObject(route, success: success, failure: failure)
                 }, failure: failure)
             } else {
-                self.router.request(route, success: success, failure: failure)
+                self.router.jsonObject(route, success: success, failure: failure)
             }
         } else {
-            self.router.request(route, success: success, failure: failure)
+            self.router.jsonObject(route, success: success, failure: failure)
         }
     }
     

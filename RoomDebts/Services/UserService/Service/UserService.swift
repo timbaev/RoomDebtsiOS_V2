@@ -12,5 +12,5 @@ protocol UserService {
 
     // MARK: - Instance Methods
 
-    
+    func search(keyword: String, success: @escaping ([User]) -> (), failure: @escaping (WebError) -> ())
 }

@@ -1,5 +1,5 @@
 //
-//  SearchTableViewCell.swift
+//  UserTableViewCell.swift
 //  RoomDebts
 //
 //  Created by Timur Shafigullin on 24/02/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell {
+class UserTableViewCell: UITableViewCell {
 
     // MARK: - Instance Properties
 

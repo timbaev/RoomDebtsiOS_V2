@@ -11,6 +11,7 @@ target 'RoomDebts' do
   pod 'SwiftKeychainWrapper'
   pod 'TextFieldEffects'
   pod 'Gloss', '~> 2.0'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'RoomDebtsTests' do
     inherit! :search_paths

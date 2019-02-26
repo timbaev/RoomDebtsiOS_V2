@@ -22,7 +22,7 @@ struct DefaultAccountService: AccountService {
     // MARK: - Instance Methods
     
     func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
-        self.router.request(.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber), success: { json in
+        self.router.jsonObject(.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber), success: { json in
             success()
         }, failure: { webError in
             failure(webError)
@@ -30,7 +30,7 @@ struct DefaultAccountService: AccountService {
     }
     
     func confirm(phoneNumber: String, code: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ()) {
-        self.router.request(.confirm(phoneNumber: phoneNumber, code: code), success: { json in
+        self.router.jsonObject(.confirm(phoneNumber: phoneNumber, code: code), success: { json in
             do {
                 try self.accessExtractor.extract(from: json)
                 
@@ -48,13 +48,13 @@ struct DefaultAccountService: AccountService {
     }
     
     func signIn(phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
-        self.router.request(.signIn(phoneNumber: phoneNumber), success: { json in
+        self.router.jsonObject(.signIn(phoneNumber: phoneNumber), success: { json in
             success()
         }, failure: failure)
     }
     
     func uploadAvatar(image: UIImage, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
-        self.router.request(.avatar(image: image), success: { json in
+        self.router.jsonObject(.avatar(image: image), success: { json in
             do {
                 try self.userAccountExtractor.extractUserAccount(from: json, context: Services.cacheViewContext)
                 success()

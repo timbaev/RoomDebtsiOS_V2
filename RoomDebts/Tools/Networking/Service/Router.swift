@@ -93,18 +93,18 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             KeychainManager.shared.access = access
         }
     }
-    
+
     // MARK: -
-    
-    func request(_ route: EndPoint, success: @escaping (JSON) -> (), failure: @escaping (WebError) -> ()) {
+
+    private func performRequest(_ route: EndPoint, success: @escaping (Data) -> (), failure: @escaping (WebError) -> ()) {
         let session = URLSession.shared
-        
+
         guard let request = try? self.buildRequest(from: route) else {
             return failure(WebError(code: .badRequest))
         }
-        
+
         NetworkLogger.log(request: request)
-        
+
         self.task = session.dataTask(with: request, completionHandler: { data, response, error in
             guard error == nil else {
                 DispatchQueue.main.async {
@@ -112,55 +112,85 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 }
                 return
             }
-            
+
             guard let response = response as? HTTPURLResponse else {
                 DispatchQueue.main.async {
                     failure(WebError(code: .aborted))
                 }
                 return
             }
-            
+
             guard let responseData = data else {
                 DispatchQueue.main.async {
                     failure(WebError(code: .badResponse))
                 }
                 return
             }
-            
+
             self.handleAccessToken(from: response)
-            
+
             NetworkLogger.log(response: response, data: responseData)
-            
+
             let result = self.handleNetworkResponse(response, data: data)
-            
+
             switch result {
             case .success:
-                guard let jsonObject = try? JSONSerialization.jsonObject(with: responseData, options: []) else {
-                    DispatchQueue.main.async {
-                        failure(WebError(code: .badResponse))
-                    }
-                    return
-                }
-                
-                guard let responseJSON = jsonObject as? [String: Any] else {
-                    DispatchQueue.main.async {
-                        failure(WebError(code: .badResponse))
-                    }
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    success(responseJSON)
-                }
-                
+                success(responseData)
+
             case .failure(let webError):
                 DispatchQueue.main.async {
                     failure(webError)
                 }
             }
         })
-        
+
         self.task?.resume()
+    }
+    
+    // MARK: -
+
+    func jsonArray(_ route: EndPoint, success: @escaping ([JSON]) -> (), failure: @escaping (WebError) -> ()) {
+        self.performRequest(route, success: { data in
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                DispatchQueue.main.async {
+                    failure(WebError(code: .badResponse))
+                }
+                return
+            }
+
+            guard let responseArrayJSON = jsonObject as? [[String: Any]] else {
+                DispatchQueue.main.async {
+                    failure(WebError(code: .badResponse))
+                }
+                return
+            }
+
+            DispatchQueue.main.async {
+                success(responseArrayJSON)
+            }
+        }, failure: failure)
+    }
+    
+    func jsonObject(_ route: EndPoint, success: @escaping (JSON) -> (), failure: @escaping (WebError) -> ()) {
+        self.performRequest(route, success: { data in
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                DispatchQueue.main.async {
+                    failure(WebError(code: .badResponse))
+                }
+                return
+            }
+
+            guard let responseJSON = jsonObject as? [String: Any] else {
+                DispatchQueue.main.async {
+                    failure(WebError(code: .badResponse))
+                }
+                return
+            }
+
+            DispatchQueue.main.async {
+                success(responseJSON)
+            }
+        }, failure: failure)
     }
     
     func cancel() {
