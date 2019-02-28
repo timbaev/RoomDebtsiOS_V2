@@ -12,5 +12,6 @@ protocol UserExtractor {
 
     // MARK: - Instance Methods
 
-    func extractUsers(from json: [[String: Any]]) throws -> [User]
+    func extractSearchUsers(from json: [[String: Any]]) throws -> [User]
+    func extractUser(from json: [String: Any], cacheContext: CacheContext) throws -> User
 }

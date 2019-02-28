@@ -8,8 +8,9 @@
 
 import UIKit
 import Kingfisher
+import NVActivityIndicatorView
 
-class SearchViewController: LoggedViewController, ErrorMessagePresenter {
+class SearchViewController: LoggedViewController, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
     // MARK: - Nested Types
 
@@ -37,7 +38,7 @@ class SearchViewController: LoggedViewController, ErrorMessagePresenter {
 
         search.searchResultsUpdater = self
         search.dimsBackgroundDuringPresentation = false
-        search.obscuresBackgroundDuringPresentation = true
+        search.obscuresBackgroundDuringPresentation = false
 
         search.searchBar.placeholder = "Name or Phone Number".localized()
         search.searchBar.setImage(UIImage(named: "SearchBarIcon"), for: .search, state: .normal)
@@ -68,6 +69,8 @@ class SearchViewController: LoggedViewController, ErrorMessagePresenter {
 
             kf.indicatorType = .activity
             kf.setImage(with: avatarImageURL, placeholder: #imageLiteral(resourceName: "AvatarPlaceholder.pdf"), options: [.transition(.fade(0.25))])
+        } else {
+            cell.avatar = #imageLiteral(resourceName: "AvatarPlaceholder.pdf")
         }
     }
 
@@ -87,6 +90,28 @@ class SearchViewController: LoggedViewController, ErrorMessagePresenter {
         }
 
         cell.isLastRow = (self.users.count - 1 == indexPath.row)
+    }
+
+    // MARK: -
+
+    private func sendInvite(to user: User) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.conversationService.create(opponentUID: user.uid, success: { [weak self] conversation in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.showMessage(withTitle: nil, message: "Invitation sent successfully".localized())
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.showMessage(withError: error)
+        })
     }
 
     // MARK: -
@@ -145,6 +170,25 @@ extension SearchViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         self.cancelLoadAvatarImage(userTableCell: cell as! UserTableViewCell)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let user = self.users[indexPath.row]
+
+        if let firstName = user.firstName, let lastName = user.lastName {
+            let formattedMessage = String(format: "Send invite to %@ %@?".localized(), firstName, lastName)
+
+            UIAlertController.Builder()
+                .withTitle("Send Invite".localized())
+                .withMessage(formattedMessage)
+                .addOkAction(handler: { [unowned self] action in
+                    self.sendInvite(to: user)
+                })
+                .addCancelAction()
+                .show(in: self)
+        }
     }
 }
 

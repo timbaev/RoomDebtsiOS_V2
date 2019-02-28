@@ -1,5 +1,5 @@
 //
-//  DefaultUser.swift
+//  SearchUser.swift
 //  RoomDebts
 //
 //  Created by Timur Shafigullin on 24/02/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DefaultUser: User {
+class SearchUser: User {
 
     // MARK: - Instance Properties
 

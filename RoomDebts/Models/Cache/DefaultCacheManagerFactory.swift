@@ -15,4 +15,12 @@ struct DefaultCacheManagerFactory: CacheManagerFactory {
     func createUserAccountsManager(with context: CacheContext) -> UserAccountsManager {
         return DefaultUserAccountsManager<DefaultUserAccount>(context: context)
     }
+
+    func createConversationManager(with context: CacheContext) -> ConversationManager {
+        return DefaultConversationManager<DefaultConversation>(context: context)
+    }
+
+    func createUserManager(with context: CacheContext) -> UserManager {
+        return DefaultUserManager<DefaultUser>(context: context)
+    }
 }

@@ -18,6 +18,8 @@ protocol CacheContext: AnyObject {
     var parent: CacheContext? { get }
     
     var userAccountManager: UserAccountsManager { get }
+    var conversationManager: ConversationManager { get }
+    var userManager: UserManager { get }
     
     var type: CacheContextType { get }
     

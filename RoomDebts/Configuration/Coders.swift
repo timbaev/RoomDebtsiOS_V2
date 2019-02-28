@@ -17,4 +17,5 @@ enum Coders {
     static let confirmCoder: ConfirmCoder = DefaultConfirmCoder()
     static let phoneNumberCoder: PhoneNumberCoder = DefaultPhoneNumberCoder()
     static let userCoder: UserCoder = DefaultUserCoder()
+    static let conversationCoder: ConversationCoder = DefaultConversationCoder()
 }

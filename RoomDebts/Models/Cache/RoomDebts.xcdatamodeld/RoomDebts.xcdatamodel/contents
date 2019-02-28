@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DefaultConversation" representedClassName="DefaultConversation" syncable="YES" codeGenerationType="class">
+        <attribute name="debtorUID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rawStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawCreator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="conversationsCreator" inverseEntity="DefaultUser" syncable="YES"/>
+        <relationship name="rawOpponent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="conversationsOpponent" inverseEntity="DefaultUser" syncable="YES"/>
+    </entity>
+    <entity name="DefaultUser" representedClassName="DefaultUser" syncable="YES" codeGenerationType="class">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawImageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="conversationsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawCreator" inverseEntity="DefaultConversation" syncable="YES"/>
+        <relationship name="conversationsOpponent" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawOpponent" inverseEntity="DefaultConversation" syncable="YES"/>
+    </entity>
     <entity name="DefaultUserAccount" representedClassName="DefaultUserAccount" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,5 +25,7 @@
     </entity>
     <elements>
         <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="135"/>
+        <element name="DefaultConversation" positionX="-54" positionY="36" width="128" height="135"/>
     </elements>
 </model>

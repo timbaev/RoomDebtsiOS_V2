@@ -16,10 +16,22 @@ final class DefaultCacheContext: CacheContext {
     
     fileprivate(set) weak var model: CacheModel!
     fileprivate(set) weak var parent: CacheContext?
+
+    // MARK: - CacheContext
     
     fileprivate(set) lazy var userAccountManager: UserAccountsManager = { [unowned self] in
         return self.model.managerFactory.createUserAccountsManager(with: self)
     }()
+
+    fileprivate(set) lazy var conversationManager: ConversationManager = { [unowned self] in
+        return self.model.managerFactory.createConversationManager(with: self)
+    }()
+
+    fileprivate(set) lazy var userManager: UserManager = { [unowned self] in
+        return self.model.managerFactory.createUserManager(with: self)
+    }()
+
+    // MARK: -
     
     var type: CacheContextType {
         return self.storageContext.type

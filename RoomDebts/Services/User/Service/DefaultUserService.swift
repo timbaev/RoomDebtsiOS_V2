@@ -21,7 +21,7 @@ struct DefaultUserService: UserService {
     func search(keyword: String, success: @escaping ([User]) -> (), failure: @escaping (WebError) -> ()) {
         self.router.jsonArray(.search(keyword: keyword), success: { json in
             do {
-                let users = try self.userExtractor.extractUsers(from: json)
+                let users = try self.userExtractor.extractSearchUsers(from: json)
 
                 success(users)
             } catch {
