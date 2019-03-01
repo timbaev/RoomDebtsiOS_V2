@@ -13,7 +13,7 @@ class KeychainManager {
     
     // MARK: - Nested Types
     
-    fileprivate enum Keys {
+    private enum Keys {
         
         // MARK: - Type Properties
         
@@ -25,7 +25,7 @@ class KeychainManager {
     
     // MARK: - Instance Properties
     
-    fileprivate let wrapper = KeychainWrapper.standard
+    private let wrapper = KeychainWrapper.standard
     
     static let shared = KeychainManager()
     

@@ -9,13 +9,13 @@
 import Foundation
 
 protocol UserAccountCoder {
-    
+
     // MARK: - Instance Properties
-    
+
     func userAccountUID(from json: JSON) -> Int64?
     func userData(from json: JSON) -> JSON?
-    
+
     func encode(firstName: String, lastName: String, phoneNumber: String) -> JSON
-    
+
     func decode(userAccount: UserAccount, from json: JSON) -> Bool
 }

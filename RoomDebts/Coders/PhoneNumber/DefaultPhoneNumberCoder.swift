@@ -9,18 +9,18 @@
 import Foundation
 
 struct DefaultPhoneNumberCoder: PhoneNumberCoder {
-    
+
     // MARK: - Nested Types
-    
-    fileprivate enum JSONKeys {
-        
+
+    private enum JSONKeys {
+
         // MARK: - Type Properties
-        
+
         static let phoneNumber = "phoneNumber"
     }
-    
+
     // MARK: - Instance Methods
-    
+
     func encode(phoneNumber: String) -> JSON {
         return [JSONKeys.phoneNumber: phoneNumber]
     }

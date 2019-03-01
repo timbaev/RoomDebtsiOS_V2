@@ -14,7 +14,7 @@ public class CoreDataStorageModel<Manager: CoreDataStorageManager, Context: Core
     // MARK: - Instance Propertes
     
     @available(iOS 10.0, *)
-    public fileprivate(set) lazy var persistentContainer: NSPersistentContainer = { [unowned self] in
+    public private(set) lazy var persistentContainer: NSPersistentContainer = { [unowned self] in
         let container = NSPersistentContainer(name: self.identifier)
         
         container.loadPersistentStores(completionHandler: { storeDescription, error in
@@ -26,7 +26,7 @@ public class CoreDataStorageModel<Manager: CoreDataStorageManager, Context: Core
         return container
     }()
     
-    public fileprivate(set) lazy var managedObjectContext: NSManagedObjectContext = { [unowned self] in
+    public private(set) lazy var managedObjectContext: NSManagedObjectContext = { [unowned self] in
         if #available(iOS 10.0, *) {
             return self.persistentContainer.viewContext
         } else {
@@ -39,7 +39,7 @@ public class CoreDataStorageModel<Manager: CoreDataStorageManager, Context: Core
         }
     }()
     
-    public fileprivate(set) lazy var managedObjectModel: NSManagedObjectModel = { [unowned self] in
+    public private(set) lazy var managedObjectModel: NSManagedObjectModel = { [unowned self] in
         if #available(iOS 10.0, *) {
             return self.persistentContainer.managedObjectModel
         } else {
@@ -55,7 +55,7 @@ public class CoreDataStorageModel<Manager: CoreDataStorageManager, Context: Core
         }
     }()
     
-    public fileprivate(set) lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = { [unowned self] in
+    public private(set) lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = { [unowned self] in
         if #available(iOS 10.0, *) {
             return self.persistentContainer.persistentStoreCoordinator
         } else {
@@ -81,7 +81,7 @@ public class CoreDataStorageModel<Manager: CoreDataStorageManager, Context: Core
     
     public let identifier: String
     
-    public fileprivate(set) lazy var viewContext: StorageContext = { [unowned self] in
+    public private(set) lazy var viewContext: StorageContext = { [unowned self] in
         return Context(managedObjectContext: self.managedObjectContext, model: self, parent: nil)
     }()
     

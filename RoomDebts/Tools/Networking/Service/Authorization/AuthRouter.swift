@@ -12,12 +12,12 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
     
     // MARK: - Instance Properties
     
-    fileprivate let router = Router<EndPoint>()
-    fileprivate let authRouter = Router<AuthAPI>()
+    private let router = Router<EndPoint>()
+    private let authRouter = Router<AuthAPI>()
     
     // MARK: - Instance Methods
     
-    fileprivate func refresToken(with access: Access, success: @escaping (Access) -> (), failure: @escaping (WebError) -> ()) {
+    private func refresToken(with access: Access, success: @escaping (Access) -> (), failure: @escaping (WebError) -> ()) {
         self.authRouter.jsonObject(.refreshToken(refreshToken: access.refreshToken), success: { json in
             if let access = Coders.accessCoder.decode(from: json) {
                 success(access)

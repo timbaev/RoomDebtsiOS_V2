@@ -9,8 +9,8 @@
 import Foundation
 
 protocol AccessCoder {
-    
+
     // MARK: - Instance Properties
-    
+
     func decode(from json: JSON) -> Access?
 }

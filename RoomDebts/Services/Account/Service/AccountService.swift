@@ -9,11 +9,11 @@
 import UIKit
 
 protocol AccountService {
- 
+
     // MARK: - Instance Methods
-    
-    func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ())
-    func confirm(phoneNumber: String, code: String, success: @escaping (UserAccount) -> (), failure: @escaping (WebError) -> ())
-    func signIn(phoneNumber: String, success: @escaping () -> (), failure: @escaping (WebError) -> ())
-    func uploadAvatar(image: UIImage, success: @escaping () -> (), failure: @escaping (WebError) -> ())
+
+    func create(firstName: String, lastName: String, phoneNumber: String, success: @escaping () -> Void, failure: @escaping (WebError) -> Void)
+    func confirm(phoneNumber: String, code: String, success: @escaping (UserAccount) -> Void, failure: @escaping (WebError) -> Void)
+    func signIn(phoneNumber: String, success: @escaping () -> Void, failure: @escaping (WebError) -> Void)
+    func uploadAvatar(image: UIImage, success: @escaping () -> Void, failure: @escaping (WebError) -> Void)
 }

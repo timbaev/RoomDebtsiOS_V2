@@ -14,7 +14,7 @@ class SearchViewController: LoggedViewController, ErrorMessagePresenter, NVActiv
 
     // MARK: - Nested Types
 
-    fileprivate enum Constants {
+    private enum Constants {
 
         // MARK: - Type Properties
 
@@ -41,8 +41,8 @@ class SearchViewController: LoggedViewController, ErrorMessagePresenter, NVActiv
         search.obscuresBackgroundDuringPresentation = false
 
         search.searchBar.placeholder = "Name or Phone Number".localized()
-        search.searchBar.setImage(UIImage(named: "SearchBarIcon"), for: .search, state: .normal)
-        search.searchBar.setSearchFieldBackgroundImage(UIImage(named: "SearchFieldBackground"), for: .normal)
+        search.searchBar.setImage(#imageLiteral(resourceName: "SearchIcon.pdf"), for: .search, state: .normal)
+        search.searchBar.setSearchFieldBackgroundImage(#imageLiteral(resourceName: "SearchFieldBackground.pdf"), for: .normal)
         search.searchBar.searchTextPositionAdjustment = UIOffset(horizontal: 7.0, vertical: 0.0)
         search.searchBar.tintColor = Colors.white
 

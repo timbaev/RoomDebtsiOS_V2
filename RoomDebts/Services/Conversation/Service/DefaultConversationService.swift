@@ -18,7 +18,7 @@ struct DefaultConversationService: ConversationService {
 
     // MARK: - Instance Methods
 
-    func create(opponentUID: Int64, success: @escaping (Conversation) -> (), failure: @escaping (WebError) -> ()) {
+    func create(opponentUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
         self.router.jsonObject(.create(opponentUID: opponentUID), success: { json in
             do {
                 let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)

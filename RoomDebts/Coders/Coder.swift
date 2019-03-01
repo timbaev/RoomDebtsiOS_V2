@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-fileprivate enum JSONKeys {
+private enum JSONKeys {
 
     // MARK: - Type Properties
 

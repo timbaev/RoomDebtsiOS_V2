@@ -1,9 +1,9 @@
 //
 //  AlertPresenter.swift
-//  Wager
+//  RoomDebts
 //
 //  Created by Almaz Ibragimov on 06.06.2018.
-//  Copyright © 2018 Influx. All rights reserved.
+//  Copyright © 2018 Timur Shafigullin. All rights reserved.
 //
 
 import UIKit

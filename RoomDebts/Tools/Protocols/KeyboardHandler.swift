@@ -36,7 +36,7 @@ public extension KeyboardHandler where Self: UIViewController {
     
     // MARK: - Instance Methods
 
-    fileprivate func onKeyboardWillShow(with notification: NSNotification) {
+    private func onKeyboardWillShow(with notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             return
         }
@@ -49,7 +49,7 @@ public extension KeyboardHandler where Self: UIViewController {
                     view: self.view)
     }
     
-    fileprivate func onKeyboardWillHide(with notification: NSNotification) {
+    private func onKeyboardWillHide(with notification: NSNotification) {
         self.handle(keyboardHeight: 0.0, view: self.view)
     }
     

@@ -9,8 +9,8 @@
 import Foundation
 
 protocol PhoneNumberCoder {
-    
+
     // MARK: - Instance Properties
-    
+
     func encode(phoneNumber: String) -> JSON
 }

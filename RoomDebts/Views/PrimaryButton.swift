@@ -9,18 +9,18 @@
 import UIKit
 
 class PrimaryButton: UIButton {
-    
+
     // MARK: - Instance Properties
-    
+
     override var isEnabled: Bool {
         didSet {
             self.applyState()
         }
     }
-    
+
     // MARK: - Instance Methods
-    
-    fileprivate func applyState() {
+
+    private func applyState() {
         if self.isEnabled {
             UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve, animations: {
                 self.setTitleColor(Colors.white, for: .normal)
@@ -33,12 +33,12 @@ class PrimaryButton: UIButton {
             })
         }
     }
-    
+
     // MARK: - UIButton
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         self.applyState()
     }
 }

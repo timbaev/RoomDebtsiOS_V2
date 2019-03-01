@@ -9,9 +9,9 @@
 import Foundation
 
 struct Access {
-    
+
     // MARK: - Instance Properties
-    
+
     var accessToken: String
     var refreshToken: String
     var expiredAt: Date

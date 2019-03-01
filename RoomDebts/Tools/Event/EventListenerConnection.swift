@@ -16,7 +16,7 @@ final class EventListenerConnection<T>: EventConnection {
     
     // MARK: - EventConnection
     
-    fileprivate(set) var isPaused = false
+    private(set) var isPaused = false
     
     // MARK: - Initializers
     

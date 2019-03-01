@@ -12,16 +12,16 @@ class DefaultConversationManager<Object>: ConversationManager, StorageContextObs
 
     // MARK: - Instance Properties
 
-    fileprivate lazy var sortDescriptors = [NSSortDescriptor(key: "uid", ascending: true)]
+    private lazy var sortDescriptors = [NSSortDescriptor(key: "uid", ascending: true)]
 
     // MARK: -
 
     unowned let context: CacheContext
 
-    fileprivate(set) lazy var objectsRemovedEvent = Event<[Conversation]>()
-    fileprivate(set) lazy var objectsAppendedEvent = Event<[Conversation]>()
-    fileprivate(set) lazy var objectsUpdatedEvent = Event<[Conversation]>()
-    fileprivate(set) lazy var objectsChangedEvent = Event<[Conversation]>()
+    private(set) lazy var objectsRemovedEvent = Event<[Conversation]>()
+    private(set) lazy var objectsAppendedEvent = Event<[Conversation]>()
+    private(set) lazy var objectsUpdatedEvent = Event<[Conversation]>()
+    private(set) lazy var objectsChangedEvent = Event<[Conversation]>()
 
     // MARK: - Initializers
 
@@ -31,11 +31,11 @@ class DefaultConversationManager<Object>: ConversationManager, StorageContextObs
 
     // MARK: - Instance Methods
 
-    fileprivate func createPredicate(withUID uid: Int64) -> NSPredicate {
+    private func createPredicate(withUID uid: Int64) -> NSPredicate {
         return NSPredicate(format: "uid == %d", uid)
     }
 
-    fileprivate func filter(objects: [StorageObject]) -> [Object] {
+    private func filter(objects: [StorageObject]) -> [Object] {
         return objects.compactMap({ object in
             return object as? Object
         })

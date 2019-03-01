@@ -9,8 +9,8 @@
 import Foundation
 
 protocol ConfirmCoder {
-    
+
     // MARK: - Instance Methods
-    
+
     func encode(phoneNumber: String, code: String) -> JSON
 }

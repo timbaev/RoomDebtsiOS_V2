@@ -1123,6 +1123,7 @@
 				CBAC541021F4A3D4004C8C65 /* Frameworks */,
 				CBAC541121F4A3D4004C8C65 /* Resources */,
 				27DF73FFC001350FFFCEE105 /* [CP] Embed Pods Frameworks */,
+				CB0ECA3B22297AB1000B902E /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -1259,6 +1260,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CB0ECA3B22297AB1000B902E /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		DA219270CB13D47D7CE959ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

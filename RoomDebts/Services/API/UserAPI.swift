@@ -18,7 +18,7 @@ enum UserAPI {
 extension UserAPI: EndPointType {
 
     // MARK: - Instance Properties
-    
+
     var path: String {
         let basePath = "/v1/users"
 

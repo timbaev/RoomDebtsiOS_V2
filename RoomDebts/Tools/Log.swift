@@ -80,7 +80,7 @@ class Log {
     
 }
 
-fileprivate extension Date {
+private extension Date {
     
     func toString() -> String {
         return Log.dateFormatter.string(from: self)

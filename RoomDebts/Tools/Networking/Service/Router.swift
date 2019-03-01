@@ -12,11 +12,11 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     
     // MARK: - Instance Properties
     
-    fileprivate var task: URLSessionTask?
+    private var task: URLSessionTask?
     
     // MARK: - Instance Methods
     
-    fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
+    private func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10.0)
@@ -50,7 +50,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         return request
     }
     
-    fileprivate func configureParameters(bodyParameters: Parameters?, urlParameters: Parameters?, request: inout URLRequest) throws {
+    private func configureParameters(bodyParameters: Parameters?, urlParameters: Parameters?, request: inout URLRequest) throws {
         if let bodyParameters = bodyParameters {
             try JSONParameterEncoder.encode(urlRequest: &request, with: bodyParameters)
         }
@@ -60,7 +60,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
     
-    fileprivate func additionalHeader(_ additionalHeader: HTTPHeaders?, request: inout URLRequest) {
+    private func additionalHeader(_ additionalHeader: HTTPHeaders?, request: inout URLRequest) {
         guard let headers = additionalHeader else {
             return
         }
@@ -68,7 +68,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         headers.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
     }
     
-    fileprivate func addAccessTokenHeader(to request: inout URLRequest) {
+    private func addAccessTokenHeader(to request: inout URLRequest) {
         if let accessToken = KeychainManager.shared.access?.accessToken {
             request.setValue(accessToken, forHTTPHeaderField: HeaderKeys.authorization)
         }
@@ -76,7 +76,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     
     // MARK: -
     
-    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse, data: Data?) -> Result<WebError> {
+    private func handleNetworkResponse(_ response: HTTPURLResponse, data: Data?) -> Result<WebError> {
         if 200...299 ~= response.statusCode {
             return .success
         } else if let webError = WebError(fromStatusCode: response.statusCode, data: data) {
@@ -86,7 +86,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
     
-    fileprivate func handleAccessToken(from response: HTTPURLResponse) {
+    private func handleAccessToken(from response: HTTPURLResponse) {
         if let accessToken = response.allHeaderFields[HeaderKeys.authorization] as? String, var access = KeychainManager.shared.access {
             access.accessToken = accessToken
             

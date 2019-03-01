@@ -1,9 +1,9 @@
 //
 //  RoundedView.swift
-//  UULA
+//  RoomDebts
 //
 //  Created by Timur Shafigullin on 13/02/2019.
-//  Copyright © 2019 AZ Solutions. All rights reserved.
+//  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
 import UIKit

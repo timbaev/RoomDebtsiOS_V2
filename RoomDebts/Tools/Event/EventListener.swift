@@ -12,7 +12,7 @@ public final class EventListener<T> {
     
     // MARK: - Instance Properties
     
-    public fileprivate(set) weak var receiver: AnyObject?
+    public private(set) weak var receiver: AnyObject?
     
     public let event: Event<T>
     public let handler: Event<T>.Handler

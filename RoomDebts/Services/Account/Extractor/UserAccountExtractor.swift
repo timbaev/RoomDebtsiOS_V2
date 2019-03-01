@@ -9,7 +9,7 @@
 import Foundation
 
 protocol UserAccountExtractor {
-    
+
     @discardableResult
     func extractUserAccount(from json: JSON, context: CacheContext) throws -> UserAccount
 }

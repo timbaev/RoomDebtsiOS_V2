@@ -5,6 +5,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
   - SwiftKeychainWrapper (3.2.0)
+  - SwiftLint (0.30.1)
   - SwiftPhoneNumberFormatter (1.5)
   - TextFieldEffects (1.5.1)
 
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - NVActivityIndicatorView
   - SwiftKeychainWrapper
+  - SwiftLint
   - SwiftPhoneNumberFormatter
   - TextFieldEffects
 
@@ -22,6 +24,7 @@ SPEC REPOS:
     - Kingfisher
     - NVActivityIndicatorView
     - SwiftKeychainWrapper
+    - SwiftLint
     - SwiftPhoneNumberFormatter
     - TextFieldEffects
 
@@ -30,9 +33,10 @@ SPEC CHECKSUMS:
   Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 790899a9a162b6406b62a70fdd6b40a9a98175df
+PODFILE CHECKSUM: 1b12a0046553290feeb1dadd1743026c30e23bfc
 
 COCOAPODS: 1.5.3

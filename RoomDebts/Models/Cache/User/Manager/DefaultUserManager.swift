@@ -12,16 +12,16 @@ class DefaultUserManager<Object>: UserManager, StorageContextObserver where Obje
 
     // MARK: - Instance Properties
 
-    fileprivate lazy var sortDescriptors = [NSSortDescriptor(key: "uid", ascending: true)]
+    private lazy var sortDescriptors = [NSSortDescriptor(key: "uid", ascending: true)]
 
     // MARK: -
 
     unowned let context: CacheContext
 
-    fileprivate(set) lazy var objectsRemovedEvent = Event<[User]>()
-    fileprivate(set) lazy var objectsAppendedEvent = Event<[User]>()
-    fileprivate(set) lazy var objectsUpdatedEvent = Event<[User]>()
-    fileprivate(set) lazy var objectsChangedEvent = Event<[User]>()
+    private(set) lazy var objectsRemovedEvent = Event<[User]>()
+    private(set) lazy var objectsAppendedEvent = Event<[User]>()
+    private(set) lazy var objectsUpdatedEvent = Event<[User]>()
+    private(set) lazy var objectsChangedEvent = Event<[User]>()
 
     // MARK: - Initializers
 
@@ -31,11 +31,11 @@ class DefaultUserManager<Object>: UserManager, StorageContextObserver where Obje
 
     // MARK: - Instance Methods
 
-    fileprivate func createPredicate(withUID uid: Int64) -> NSPredicate {
+    private func createPredicate(withUID uid: Int64) -> NSPredicate {
         return NSPredicate(format: "uid == %d", uid)
     }
 
-    fileprivate func filter(objects: [StorageObject]) -> [Object] {
+    private func filter(objects: [StorageObject]) -> [Object] {
         return objects.compactMap({ object in
             return object as? Object
         })

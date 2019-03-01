@@ -9,12 +9,12 @@
 import UIKit
 
 class WelcomeViewController: LoggedViewController {
-    
+
     // MARK: - UIViewController
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         Services.cacheProvider.model.viewContext.clear()
     }
 }

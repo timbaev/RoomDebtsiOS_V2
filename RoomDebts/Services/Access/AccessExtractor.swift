@@ -9,9 +9,9 @@
 import Foundation
 
 protocol AccessExtractor {
-    
+
     // MARK: - Instance Methods
-    
+
     @discardableResult
     func extract(from json: JSON) throws -> Access
 }

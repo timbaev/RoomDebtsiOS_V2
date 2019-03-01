@@ -8,36 +8,33 @@
 
 import UIKit
 
-@IBDesignable
-class GradientView: UIView {
-    
+@IBDesignable class GradientView: UIView {
+
     // MARK: - Instance Properties
-    
-    @IBInspectable var firstColor: UIColor = UIColor.clear {
+
+    @IBInspectable var firstColor = UIColor.clear {
         didSet {
             self.applyState()
         }
     }
-    
-    @IBInspectable var secondColor: UIColor = UIColor.clear {
+
+    @IBInspectable var secondColor = UIColor.clear {
         didSet {
             self.applyState()
         }
     }
-    
+
     // MARK: -
-    
+
     override class var layerClass: AnyClass {
-        get {
-            return CAGradientLayer.self
-        }
+        return CAGradientLayer.self
     }
-    
+
     // MARK: - Instance Methods
-    
-    fileprivate func applyState() {
+
+    private func applyState() {
         let layer = self.layer as! CAGradientLayer
-        
+
         layer.colors = [self.firstColor, self.secondColor].map { $0.cgColor }
     }
 }

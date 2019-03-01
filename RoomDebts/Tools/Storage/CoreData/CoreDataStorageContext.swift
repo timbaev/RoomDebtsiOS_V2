@@ -17,12 +17,12 @@ public class CoreDataStorageContext<Manager: CoreDataStorageManager>: StorageCon
     
     // MARK: - StorageContext
     
-    public fileprivate(set) var observers: [StorageContextObserver] = []
+    public private(set) var observers: [StorageContextObserver] = []
     
-    public fileprivate(set) weak var model: StorageModel!
-    public fileprivate(set) weak var parent: StorageContext?
+    public private(set) weak var model: StorageModel!
+    public private(set) weak var parent: StorageContext?
     
-    public fileprivate(set) lazy var manager: StorageManager = { [unowned self] in
+    public private(set) lazy var manager: StorageManager = { [unowned self] in
         return Manager(managedObjectContext: self.managedObjectContext, context: self)
     }()
     
@@ -41,7 +41,7 @@ public class CoreDataStorageContext<Manager: CoreDataStorageManager>: StorageCon
     
     // MARK: - Instance Methods
     
-    @objc fileprivate func onManagedObjectContextObjectsDidChange(_ notification: NSNotification) {
+    @objc private func onManagedObjectContextObjectsDidChange(_ notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             return
         }
@@ -85,7 +85,7 @@ public class CoreDataStorageContext<Manager: CoreDataStorageManager>: StorageCon
         }
     }
     
-    fileprivate func createChildContext(concurrencyType: NSManagedObjectContextConcurrencyType) -> CoreDataStorageContext {
+    private func createChildContext(concurrencyType: NSManagedObjectContextConcurrencyType) -> CoreDataStorageContext {
         let managedObjectContext = NSManagedObjectContext(concurrencyType: concurrencyType)
         
         managedObjectContext.parent = self.managedObjectContext

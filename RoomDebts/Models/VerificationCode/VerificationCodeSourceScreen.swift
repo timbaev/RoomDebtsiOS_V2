@@ -1,5 +1,5 @@
 //
-//  VerificationCodeSource.swift
+//  VerificationCodeSourceScreen.swift
 //  RoomDebts
 //
 //  Created by Timur Shafigullin on 01/02/2019.
@@ -9,9 +9,9 @@
 import Foundation
 
 enum VerificationCodeSourceScreen {
-    
+
     // MARK: - Enumeration Cases
-    
+
     case signIn
     case signUp
 }

@@ -16,7 +16,7 @@ public final class Event<T> {
     
     // MARK: - Instance Properties
     
-    fileprivate(set) var listeners: [EventListener<T>] = []
+    private(set) var listeners: [EventListener<T>] = []
     
     // MARK: - Instance Methods
     

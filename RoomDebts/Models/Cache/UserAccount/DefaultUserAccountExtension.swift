@@ -9,9 +9,9 @@
 import Foundation
 
 extension DefaultUserAccount: UserAccount {
-    
+
     // MARK: - Instance Properties
-    
+
     var avatarURL: URL? {
         get {
             if let rawAvatarURL = self.rawAvatarURL {
@@ -20,7 +20,7 @@ extension DefaultUserAccount: UserAccount {
                 return nil
             }
         }
-        
+
         set {
             self.rawAvatarURL = newValue?.absoluteString
         }

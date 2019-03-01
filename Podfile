@@ -12,6 +12,7 @@ target 'RoomDebts' do
   pod 'TextFieldEffects'
   pod 'Gloss', '~> 2.0'
   pod 'Kingfisher', '~> 5.0'
+  pod 'SwiftLint'
 
   target 'RoomDebtsTests' do
     inherit! :search_paths

@@ -9,9 +9,9 @@
 import Foundation
 
 enum Coders {
-    
+
     // MARK: - Type Properties
-    
+
     static let userAccountCoder: UserAccountCoder = DefaultUserAccountCoder()
     static let accessCoder: AccessCoder = DefaultAccessCoder()
     static let confirmCoder: ConfirmCoder = DefaultConfirmCoder()

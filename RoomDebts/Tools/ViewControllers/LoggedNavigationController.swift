@@ -12,7 +12,7 @@ class LoggedNavigationController: UINavigationController {
     
     // MARK: - Instance Properties
     
-    public fileprivate(set) final var isViewAppeared = false
+    public private(set) final var isViewAppeared = false
     
     // MARK: - Initializers
     
