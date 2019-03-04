@@ -108,6 +108,8 @@
 		CB9C4438222684640052F512 /* DefaultConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C4437222684640052F512 /* DefaultConversationManager.swift */; };
 		CB9C443B2226B3310052F512 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C443A2226B3310052F512 /* UserManager.swift */; };
 		CB9C443D2226B34E0052F512 /* DefaultUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C443C2226B34E0052F512 /* DefaultUserManager.swift */; };
+		CBA02E16222D8440009683A5 /* Debts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA02E15222D8440009683A5 /* Debts.storyboard */; };
+		CBA02E18222D84C0009683A5 /* DebtsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02E17222D84C0009683A5 /* DebtsTableViewController.swift */; };
 		CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */; };
 		CBAC541C21F4A3D4004C8C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAC541A21F4A3D4004C8C65 /* Main.storyboard */; };
 		CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541D21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld */; };
@@ -293,6 +295,8 @@
 		CB9C4437222684640052F512 /* DefaultConversationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationManager.swift; sourceTree = "<group>"; };
 		CB9C443A2226B3310052F512 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CB9C443C2226B34E0052F512 /* DefaultUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserManager.swift; sourceTree = "<group>"; };
+		CBA02E15222D8440009683A5 /* Debts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Debts.storyboard; sourceTree = "<group>"; };
+		CBA02E17222D84C0009683A5 /* DebtsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsTableViewController.swift; sourceTree = "<group>"; };
 		CBAC541321F4A3D4004C8C65 /* RoomDebts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomDebts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAC541621F4A3D4004C8C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBAC541B21F4A3D4004C8C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -804,6 +808,23 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		CBA02E13222D842A009683A5 /* Debts */ = {
+			isa = PBXGroup;
+			children = (
+				CBA02E14222D8436009683A5 /* Storyboard */,
+				CBA02E17222D84C0009683A5 /* DebtsTableViewController.swift */,
+			);
+			path = Debts;
+			sourceTree = "<group>";
+		};
+		CBA02E14222D8436009683A5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBA02E15222D8440009683A5 /* Debts.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CBAC540A21F4A3D4004C8C65 = {
 			isa = PBXGroup;
 			children = (
@@ -855,6 +876,7 @@
 			children = (
 				CBFDBAAE21F608D20017ED61 /* Authorization */,
 				CBAC547421F4CC4F004C8C65 /* Conversations */,
+				CBA02E13222D842A009683A5 /* Debts */,
 				CBAC543D21F4A410004C8C65 /* LaunchScreen */,
 				CBAC543A21F4A3EE004C8C65 /* Main */,
 				CB83DCCF221E9DA200749486 /* Search */,
@@ -1260,6 +1282,7 @@
 				CBFDBAA721F5B9FE0017ED61 /* Rubik-BoldItalic.ttf in Resources */,
 				CBFDBAA621F5B9FE0017ED61 /* Rubik-Regular.ttf in Resources */,
 				CBAC547721F4CC77004C8C65 /* Conversations.storyboard in Resources */,
+				CBA02E16222D8440009683A5 /* Debts.storyboard in Resources */,
 				CB71C3DB21F9D90F008FDD0B /* SignIn.storyboard in Resources */,
 				CBFDBAA821F5B9FE0017ED61 /* Rubik-Light.ttf in Resources */,
 				CBFDBAB221F608EC0017ED61 /* Welcome.storyboard in Resources */,
@@ -1409,6 +1432,7 @@
 				CB117BAE2204B8D000C20905 /* AvatarViewController.swift in Sources */,
 				CB472CF921F7135100FB98EE /* NetworkRouter.swift in Sources */,
 				CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */,
+				CBA02E18222D84C0009683A5 /* DebtsTableViewController.swift in Sources */,
 				CB9C4436222683F30052F512 /* ConversationManager.swift in Sources */,
 				CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */,
 				CB472CF421F7113400FB98EE /* JSONParameterEncoder.swift in Sources */,

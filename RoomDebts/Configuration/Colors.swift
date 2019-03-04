@@ -66,4 +66,6 @@ enum Colors {
     static let red = UIColor(redByte: 255, greenByte: 3, blueByte: 3)
     static let green = UIColor(redByte: 3, greenByte: 255, blueByte: 23)
     static let gray = UIColor(redByte: 155, greenByte: 155, blueByte: 155)
+
+    static let barItem = UIColor(redByte: 153, greenByte: 55, blueByte: 123)
 }

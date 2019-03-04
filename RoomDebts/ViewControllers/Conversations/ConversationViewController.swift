@@ -20,6 +20,15 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         static let conversationTableCellIdentifier = "ConversationCell"
     }
 
+    // MARK: -
+
+    private enum Segues {
+
+        // MARK: - Type Properties
+
+        static let showDebts = "ShowDebts"
+    }
+
     // MARK: - Instance Properties
 
     @IBOutlet private weak var tableView: UITableView!
@@ -343,6 +352,32 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
             self.apply(conversationListType: .all)
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        let dictionaryReceiver: DictionaryReceiver?
+
+        if let navigationController = segue.destination as? UINavigationController {
+            dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+        } else {
+            dictionaryReceiver = segue.destination as? DictionaryReceiver
+        }
+
+        switch segue.identifier {
+        case Segues.showDebts:
+            guard let conversation = sender as? Conversation else {
+                fatalError()
+            }
+
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["conversation": conversation])
+            }
+
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -376,5 +411,13 @@ extension ConversationViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         self.cancelLoadOpponentAvatarImage(conversationTableCell: cell as! ConversationTableViewCell)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let conversation = self.conversationList[indexPath.row]
+
+        if conversation.status == .accepted {
+            self.performSegue(withIdentifier: Segues.showDebts, sender: conversation)
+        }
     }
 }
