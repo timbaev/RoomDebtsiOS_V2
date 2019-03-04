@@ -192,6 +192,14 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             }
         }, failure: failure)
     }
+
+    func json(_ route: EndPoint, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
+        self.performRequest(route, success: { data in
+            DispatchQueue.main.async {
+                success()
+            }
+        }, failure: failure)
+    }
     
     func cancel() {
         self.task?.cancel()

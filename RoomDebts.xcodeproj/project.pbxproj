@@ -77,6 +77,7 @@
 		CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4621F75E4600FB98EE /* NetworkLogger.swift */; };
 		CB472D4921F764BA00FB98EE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */; };
 		CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */; };
+		CB5953B0222D46EF0079D56B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5953AF222D46EF0079D56B /* Messages.swift */; };
 		CB714B892222C7D7007961C6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B882222C7D7007961C6 /* UserTableViewCell.swift */; };
 		CB714B8B2222C9D6007961C6 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8A2222C9D6007961C6 /* UserAPI.swift */; };
 		CB714B8E2222CAE8007961C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8D2222CAE8007961C6 /* UserService.swift */; };
@@ -261,6 +262,7 @@
 		CB472D4621F75E4600FB98EE /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessagePresenter.swift; sourceTree = "<group>"; };
+		CB5953AF222D46EF0079D56B /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		CB714B882222C7D7007961C6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		CB714B8A2222C9D6007961C6 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CB714B8D2222CAE8007961C6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -997,6 +999,7 @@
 				CB472D2D21F7586E00FB98EE /* Coders.swift */,
 				CBAC547121F4CAB2004C8C65 /* Colors.swift */,
 				CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */,
+				CB5953AF222D46EF0079D56B /* Messages.swift */,
 				CBAC546A21F4ACCB004C8C65 /* Models.swift */,
 				CB472D2F21F7593E00FB98EE /* Services.swift */,
 			);
@@ -1434,6 +1437,7 @@
 				CBFDBACD21F660030017ED61 /* DictionaryReceiver.swift in Sources */,
 				CB9C443B2226B3310052F512 /* UserManager.swift in Sources */,
 				CB098ECB2225305C00FDD47C /* DefaultUserExtension.swift in Sources */,
+				CB5953B0222D46EF0079D56B /* Messages.swift in Sources */,
 				CBAC545121F4A48A004C8C65 /* CoreDataStorageManager.swift in Sources */,
 				CBAC545E21F4A525004C8C65 /* LoggedTabBarController.swift in Sources */,
 				CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */,

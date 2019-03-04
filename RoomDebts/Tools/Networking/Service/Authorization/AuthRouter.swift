@@ -62,6 +62,22 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
             self.router.jsonObject(route, success: success, failure: failure)
         }
     }
+
+    func json(_ route: EndPoint, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
+        if let access = KeychainManager.shared.access {
+            if access.expiredAt < Date() {
+                self.refresToken(with: access, success: { [weak self] access in
+                    KeychainManager.shared.access = access
+
+                    self?.router.json(route, success: success, failure: failure)
+                    }, failure: failure)
+            } else {
+                self.router.json(route, success: success, failure: failure)
+            }
+        } else {
+            self.router.json(route, success: success, failure: failure)
+        }
+    }
     
     func cancel() {
         self.authRouter.cancel()

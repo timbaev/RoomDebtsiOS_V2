@@ -65,6 +65,20 @@ class DefaultConversationManager<Object>: ConversationManager, StorageContextObs
         self.storageManager.clear(Object.self, sortDescriptors: self.sortDescriptors)
     }
 
+    func clear(withUID uid: Int64) {
+        self.storageManager.clear(Object.self,
+                                  sortDescriptors: self.sortDescriptors,
+                                  predicate: self.createPredicate(withUID: uid))
+    }
+
+    func startObserving() {
+        self.storageManager.context.addObserver(self)
+    }
+
+    func stopObserving() {
+        self.storageManager.context.removeObserver(self)
+    }
+
     // MARK: - StorageContextObserver
 
     func storageContext(_ storageContext: StorageContext, didRemoveObjects objects: [StorageObject]) {

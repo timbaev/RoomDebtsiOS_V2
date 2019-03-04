@@ -111,6 +111,9 @@
                                                                                         <real key="value" value="8"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="onAcceptButtonTouchUpInside:" destination="iYY-pv-D4Z" eventType="touchUpInside" id="T36-UQ-Ur4"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xi8-Kw-yHX" customClass="RoundedButton" customModule="RoomDebts" customModuleProvider="target">
                                                                                 <rect key="frame" x="159" y="0.0" width="114" height="39"/>
@@ -128,6 +131,9 @@
                                                                                         <real key="value" value="8"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="onDeclineButtonTouchUpInside:" destination="iYY-pv-D4Z" eventType="touchUpInside" id="yi0-IV-WQz"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>

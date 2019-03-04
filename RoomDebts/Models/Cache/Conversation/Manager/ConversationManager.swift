@@ -16,6 +16,11 @@ protocol ConversationManager {
 
     var context: CacheContext { get }
 
+    var objectsRemovedEvent: Event<[Conversation]> { get }
+    var objectsAppendedEvent: Event<[Conversation]> { get }
+    var objectsUpdatedEvent: Event<[Conversation]> { get }
+    var objectsChangedEvent: Event<[Conversation]> { get }
+
     // MARK: - Instance Methods
 
     func firstOrNew(withUID uid: Int64) -> Conversation
@@ -26,6 +31,10 @@ protocol ConversationManager {
     func append() -> Conversation
 
     func clear()
+    func clear(withUID uid: Int64)
+
+    func startObserving()
+    func stopObserving()
 }
 
 // MARK: -

@@ -14,6 +14,8 @@ enum ConversationAPI {
 
     case create(opponentUID: Int64)
     case fetch
+    case accept(conversationUID: Int64)
+    case reject(conversationUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -28,12 +30,18 @@ extension ConversationAPI: EndPointType {
         switch self {
         case .create, .fetch:
             return basePath
+
+        case .accept(let conversationUID):
+            return basePath + "/\(conversationUID)/accept"
+
+        case .reject(let conversationUID):
+            return basePath + "/\(conversationUID)/reject"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .create:
+        case .create, .accept, .reject:
             return .post
 
         case .fetch:
@@ -48,7 +56,7 @@ extension ConversationAPI: EndPointType {
 
             return .requestParameters(bodyParameters: requestParameters, urlParameters: nil)
 
-        case .fetch:
+        case .fetch, .accept, .reject:
             return .request
         }
     }

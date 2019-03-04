@@ -53,7 +53,7 @@ extension EmptyStateViewable where Self: UIViewController {
 
         NSLayoutConstraint.activate([self.emptyStateContainerView.topAnchor.constraint(equalTo: view.topAnchor),
                                      self.emptyStateContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                                     self.emptyStateContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                                     self.emptyStateContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                                      self.emptyStateContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
 
         NSLayoutConstraint.activate([self.emptyStateView.topAnchor.constraint(equalTo: self.emptyStateContainerView.topAnchor),

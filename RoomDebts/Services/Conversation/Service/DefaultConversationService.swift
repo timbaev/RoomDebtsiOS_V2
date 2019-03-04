@@ -12,7 +12,7 @@ struct DefaultConversationService: ConversationService {
 
     // MARK: - Instance Properties
 
-    private let router = Router<ConversationAPI>()
+    private let router = AuthRouter<ConversationAPI>()
 
     let conversationExtractor: ConversationExtractor
 
@@ -43,6 +43,28 @@ struct DefaultConversationService: ConversationService {
                     failure(webError)
                 }
             }
+        }, failure: failure)
+    }
+
+    func accept(conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonObject(.accept(conversationUID: conversationUID), success: { json in
+            do {
+                let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
+
+                success(conversation)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                }
+            }
+        }, failure: failure)
+    }
+
+    func reject(conversationUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.json(.reject(conversationUID: conversationUID), success: {
+            Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
+
+            success()
         }, failure: failure)
     }
 }

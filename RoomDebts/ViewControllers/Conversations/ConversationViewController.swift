@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class ConversationViewController: LoggedViewController, EmptyStateViewable {
+class ConversationViewController: LoggedViewController, EmptyStateViewable, NVActivityIndicatorViewable, ErrorMessagePresenter {
 
     // MARK: - Nested Types
 
@@ -38,6 +39,12 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
     private(set) var isRefreshingData = false
     private(set) var shouldApplyData = true
 
+    // MARK: - Initializers
+
+    deinit {
+        self.unsubscribeFromConversationsEvents()
+    }
+
     // MARK: - Instance Methods
 
     @objc private func onTableRefreshControlRequested(_ sender: Any) {
@@ -57,32 +64,58 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
         case .connection, .timeOut:
             if self.conversationList?.isEmpty ?? true {
                 self.showEmptyState(image: #imageLiteral(resourceName: "ErrorInternet.pdf"),
-                                    title: "No Internet Connection".localized(),
-                                    message: "RoomDebts app requires an internet connection to provide offers. Please check your connection and try again.".localized(),
+                                    title: Messages.internetConncetionTitle,
+                                    message: Messages.internetConnection,
                                     action: action)
+            } else {
+                self.showMessage(withTitle: Messages.internetConncetionTitle, message: Messages.internetConnection)
             }
 
         case .badRequest:
             if let message = error.message {
-                self.showEmptyState(image: #imageLiteral(resourceName: "ErrorWarning.pdf"),
-                                    title: "Something went wrong".localized(),
-                                    message: message,
-                                    action: action)
+                if self.conversationList?.isEmpty ?? true {
+                    self.showEmptyState(image: #imageLiteral(resourceName: "ErrorWarning.pdf"),
+                                        title: Messages.unknownErrorTitle,
+                                        message: message,
+                                        action: action)
+                } else {
+                    self.showMessage(withTitle: nil, message: message)
+                }
             } else {
                 self.showEmptyState(image: #imageLiteral(resourceName: "ErrorWarning.pdf"),
-                                    title: "Something went wrong".localized(),
-                                    message: "RoomDebts can’t process your request at the moment. \n Please, try again later.".localized(),
+                                    title: Messages.unknownErrorTitle,
+                                    message: Messages.unknownError,
                                     action: action)
             }
 
         default:
             if self.conversationList?.isEmpty ?? true {
                 self.showEmptyState(image: #imageLiteral(resourceName: "ErrorWarning.pdf"),
-                                    title: "Something went wrong".localized(),
-                                    message: "RoomDebts can’t process your request at the moment. \n Please, try again later.".localized(),
+                                    title: Messages.unknownErrorTitle,
+                                    message: Messages.unknownError,
                                     action: action)
+            } else {
+                self.showMessage(withTitle: Messages.unknownErrorTitle, message: Messages.unknownError)
             }
         }
+    }
+
+    // MARK: -
+
+    private func subscribeToConversationsEvents() {
+        self.unsubscribeFromConversationsEvents()
+
+        let conversationManager = Services.cacheViewContext.conversationManager
+
+        conversationManager.objectsChangedEvent.connect(self, handler: { [weak self] _ in
+            self?.shouldApplyData = true
+        })
+
+        conversationManager.startObserving()
+    }
+
+    private func unsubscribeFromConversationsEvents() {
+        Services.cacheViewContext.conversationManager.objectsChangedEvent.disconnect(self)
     }
 
     // MARK: -
@@ -153,6 +186,14 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
 
         cell.price = String(format: "%.2f₽", conversation.price)
         cell.isVisited = false
+
+        cell.onAcceptButtonClick = { [unowned self] in
+            self.acceptConversation(conversation)
+        }
+
+        cell.onDeclineButtonClick = { [unowned self] in
+            self.rejectConversation(conversation)
+        }
     }
 
     // MARK: -
@@ -203,6 +244,49 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
         })
     }
 
+    private func acceptConversation(_ conversation: Conversation) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.conversationService.accept(conversationUID: conversation.uid, success: { [weak self] conversation in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.tableView.reloadData()
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
+    }
+
+    private func rejectConversation(_ conversation: Conversation) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.conversationService.reject(conversationUID: conversation.uid, success: { [weak self] in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.conversationList.remove(conversation: conversation)
+            viewController.tableView.reloadData()
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
+    }
+
+    // MARK: -
+
     private func apply(conversationList: ConversationList, canShowState: Bool = true) {
         Log.i(conversationList.count)
 
@@ -248,6 +332,8 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
 
         self.configEmptyState()
         self.configTableRefreshControl()
+
+        self.subscribeToConversationsEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -22,6 +22,11 @@ class ConversationTableViewCell: UITableViewCell {
 
     // MARK: -
 
+    var onAcceptButtonClick: (() -> Void)?
+    var onDeclineButtonClick: (() -> Void)?
+
+    // MARK: -
+
     var avatar: UIImage? {
         get {
             return self.avatarImageView.image
@@ -97,5 +102,19 @@ class ConversationTableViewCell: UITableViewCell {
 
     var avatarImageViewTarget: UIImageView {
         return self.avatarImageView
+    }
+
+    // MARK: - Instance Methods
+
+    @IBAction private func onAcceptButtonTouchUpInside(_ sender: UIButton) {
+        Log.i()
+
+        self.onAcceptButtonClick?()
+    }
+
+    @IBAction private func onDeclineButtonTouchUpInside(_ sender: UIButton) {
+        Log.i()
+
+        self.onDeclineButtonClick?()
     }
 }

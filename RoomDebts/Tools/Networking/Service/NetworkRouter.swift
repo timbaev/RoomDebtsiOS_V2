@@ -18,6 +18,7 @@ protocol NetworkRouter: AnyObject {
 
     func jsonArray(_ route: EndPoint, success: @escaping ([JSON]) -> (), failure: @escaping (WebError) -> ())
     func jsonObject(_ route: EndPoint, success: @escaping (JSON) -> (), failure: @escaping (WebError) -> ())
+    func json(_ route: EndPoint, success: @escaping () -> (), failure: @escaping (WebError) -> ())
     
     func cancel()
 }
