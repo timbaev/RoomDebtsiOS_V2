@@ -122,6 +122,8 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
         if let status = conversation.status {
             switch status {
             case .accepted:
+                cell.isShowActions = false
+
                 if conversation.price > 0 {
                     if userIsDebtor {
                         cell.status = "Repay".localized()
