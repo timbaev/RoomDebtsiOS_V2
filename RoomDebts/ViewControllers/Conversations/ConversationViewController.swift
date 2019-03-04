@@ -121,6 +121,9 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
                     cell.isShowActions = true
                 }
             }
+        } else {
+            cell.status = nil
+            cell.isShowActions = false
         }
 
         cell.price = String(format: "%.2f₽", conversation.price)

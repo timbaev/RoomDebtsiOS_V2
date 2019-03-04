@@ -42,10 +42,6 @@ struct DefaultConversationCoder: ConversationCoder {
             return false
         }
 
-        guard let debtorUID: Int64 = JSONKeys.debtorID <~~ json else {
-            return false
-        }
-
         guard let rawStatus: String = JSONKeys.status <~~ json else {
             return false
         }
@@ -57,6 +53,8 @@ struct DefaultConversationCoder: ConversationCoder {
         guard let price: Double = JSONKeys.price <~~ json else {
             return false
         }
+
+        let debtorUID: Int64 = JSONKeys.debtorID <~~ json ?? 0
 
         conversation.uid = uid
 

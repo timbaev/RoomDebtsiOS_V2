@@ -36,6 +36,8 @@ struct DefaultConversationService: ConversationService {
         self.router.jsonArray(.fetch, success: { json in
             do {
                 let conversationList = try self.conversationExtractor.extractConversationList(from: json, withListType: .all, cacheContext: Services.cacheViewContext)
+
+                success(conversationList)
             } catch {
                 if let webError = error as? WebError {
                     failure(webError)

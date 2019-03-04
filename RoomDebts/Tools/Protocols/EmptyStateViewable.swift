@@ -23,8 +23,6 @@ protocol EmptyStateViewable {
     func showEmptyState(title: String?, message: String)
 
     func showNoDataState(with message: String)
-    func showNoDataState()
-
     func showLoadingState(with title: String?, message: String)
 
     func hideEmptyState()
@@ -39,16 +37,24 @@ extension EmptyStateViewable where Self: UIViewController {
     func initialize() {
         self.emptyStateContainerView.translatesAutoresizingMaskIntoConstraints = false
 
-        self.view.addSubview(self.emptyStateContainerView)
+        let view: UIView
+
+        if let navigationView = self.navigationController?.view {
+            view = navigationView
+        } else {
+            view = self.view
+        }
+
+        view.addSubview(self.emptyStateContainerView)
 
         self.emptyStateView.translatesAutoresizingMaskIntoConstraints = false
 
         self.emptyStateContainerView.addSubview(self.emptyStateView)
 
-        NSLayoutConstraint.activate([self.emptyStateContainerView.topAnchor.constraint(equalTo: self.view.topAnchor),
-                                     self.emptyStateContainerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                                     self.emptyStateContainerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-                                     self.emptyStateContainerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)])
+        NSLayoutConstraint.activate([self.emptyStateContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+                                     self.emptyStateContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                     self.emptyStateContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                                     self.emptyStateContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
 
         NSLayoutConstraint.activate([self.emptyStateView.topAnchor.constraint(equalTo: self.emptyStateContainerView.topAnchor),
                                      self.emptyStateView.leadingAnchor.constraint(equalTo: self.emptyStateContainerView.leadingAnchor),
@@ -77,10 +83,6 @@ extension EmptyStateViewable where Self: UIViewController {
 
     func showNoDataState(with message: String) {
         self.showEmptyState(title: nil, message: message)
-    }
-
-    func showNoDataState() {
-        self.showEmptyState(title: nil, message: "Nothing found".localized())
     }
 
     func showLoadingState(with title: String?, message: String) {

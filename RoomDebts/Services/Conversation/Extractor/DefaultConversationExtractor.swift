@@ -44,6 +44,8 @@ struct DefaultConversationExtractor: ConversationExtractor {
         conversation.creator = creator
         conversation.opponent = opponent
 
+        cacheContext.save()
+
         return conversation
     }
 
@@ -51,6 +53,8 @@ struct DefaultConversationExtractor: ConversationExtractor {
         let conversationList = cacheContext.conversationListManager.firstOrNew(withListType: listType)
 
         try json.forEach { conversationList.append(conversation: try self.extractConversation(from: $0, cacheContext: cacheContext)) }
+
+        cacheContext.save()
 
         return conversationList
     }

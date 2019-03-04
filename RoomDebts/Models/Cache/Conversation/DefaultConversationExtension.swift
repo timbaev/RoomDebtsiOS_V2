@@ -22,7 +22,7 @@ extension DefaultConversation: Conversation {
         }
 
         set {
-            self.rawStatus = status?.rawValue
+            self.rawStatus = newValue?.rawValue
         }
     }
 
