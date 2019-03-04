@@ -23,6 +23,8 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
 
     @IBOutlet private weak var tableView: UITableView!
 
+    private weak var tableRefreshControl: UIRefreshControl!
+
     // MARK: -
 
     var emptyStateContainerView = UIView()
@@ -37,6 +39,14 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
     private(set) var shouldApplyData = true
 
     // MARK: - Instance Methods
+
+    @objc private func onTableRefreshControlRequested(_ sender: Any) {
+        Log.i()
+
+        self.refreshConversationList()
+    }
+
+    // MARK: -
 
     private func handle(stateError error: WebError, retryHandler: (() -> Void)? = nil) {
         let action = EmptyStateAction(title: "Try Again".localized(), onClicked: {
@@ -81,6 +91,19 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
         self.emptyStateView.textColor = Colors.white
         self.emptyStateView.activityIndicatorColor = Colors.white
         self.emptyStateView.backgroundColor = Colors.emptyState
+    }
+
+    private func configTableRefreshControl() {
+        let tableRefreshControl = UIRefreshControl()
+
+        tableRefreshControl.tintColor = Colors.white
+
+        tableRefreshControl.addTarget(self,
+                                      action: #selector(self.onTableRefreshControlRequested(_:)),
+                                      for: .valueChanged)
+
+        self.tableView.refreshControl = tableRefreshControl
+        self.tableRefreshControl = tableRefreshControl
     }
 
     private func config(conversationTableCell cell: ConversationTableViewCell, at indexPath: IndexPath) {
@@ -154,9 +177,11 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
 
         self.isRefreshingData = true
 
-        if (self.conversationList.isEmpty) || (!self.emptyStateContainerView.isHidden) {
-            self.showLoadingState(with: "Loading conversations".localized(),
-                                  message: "We are loading list of conversations. Please wait a bit".localized())
+        if !self.tableRefreshControl.isRefreshing {
+            if (self.conversationList.isEmpty) || (!self.emptyStateContainerView.isHidden) {
+                self.showLoadingState(with: "Loading conversations".localized(),
+                                      message: "We are loading list of conversations. Please wait a bit".localized())
+            }
         }
 
         Services.conversationService.fetch(success: { [weak self] conversationList in
@@ -181,13 +206,17 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
 
         self.conversationList = conversationList
 
-        self.isRefreshingData = false
-
         if conversationList.isEmpty && canShowState {
             self.showNoDataState(with: "Conversations not exists".localized())
         } else {
             self.hideEmptyState()
         }
+
+        if self.tableRefreshControl.isRefreshing {
+            self.tableRefreshControl.endRefreshing()
+        }
+
+        self.isRefreshingData = false
 
         self.tableView.reloadData()
 
@@ -216,6 +245,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable {
         self.shouldApplyData = true
 
         self.configEmptyState()
+        self.configTableRefreshControl()
     }
 
     override func viewWillAppear(_ animated: Bool) {
