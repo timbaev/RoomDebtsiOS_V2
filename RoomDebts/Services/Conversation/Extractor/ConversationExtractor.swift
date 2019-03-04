@@ -13,4 +13,5 @@ protocol ConversationExtractor {
     // MARK: - Instance Methods
 
     func extractConversation(from json: [String: Any], cacheContext: CacheContext) throws -> Conversation
+    func extractConversationList(from json: [[String: Any]], withListType listType: ConversationListType, cacheContext: CacheContext) throws -> ConversationList
 }

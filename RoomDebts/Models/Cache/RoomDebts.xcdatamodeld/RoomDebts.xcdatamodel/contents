@@ -6,7 +6,12 @@
         <attribute name="rawStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="rawCreator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="conversationsCreator" inverseEntity="DefaultUser" syncable="YES"/>
+        <relationship name="rawList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultConversationList" inverseName="rawConversations" inverseEntity="DefaultConversationList" syncable="YES"/>
         <relationship name="rawOpponent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="conversationsOpponent" inverseEntity="DefaultUser" syncable="YES"/>
+    </entity>
+    <entity name="DefaultConversationList" representedClassName="DefaultConversationList" syncable="YES" codeGenerationType="class">
+        <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawConversations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawList" inverseEntity="DefaultConversation" syncable="YES"/>
     </entity>
     <entity name="DefaultUser" representedClassName="DefaultUser" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,8 +29,9 @@
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DefaultConversation" positionX="-54" positionY="36" width="128" height="150"/>
         <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="135"/>
-        <element name="DefaultConversation" positionX="-54" positionY="36" width="128" height="135"/>
+        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DefaultConversationList" positionX="-54" positionY="63" width="128" height="75"/>
     </elements>
 </model>

@@ -55,7 +55,15 @@ enum Colors {
 
     static let navigationTitle = UIColor(redByte: 63, greenByte: 160, blueByte: 255)
     static let navigationTint = UIColor(redByte: 255, greenByte: 53, blueByte: 0)
+
     static let white = UIColor(whiteByte: 255)
+    static let black = UIColor.black
 
     static let lightGrayBackground = UIColor(whiteByte: 34)
+
+    static let emptyState = UIColor(redByte: 7, greenByte: 16, blueByte: 60)
+
+    static let red = UIColor(redByte: 255, greenByte: 3, blueByte: 3)
+    static let green = UIColor(redByte: 3, greenByte: 255, blueByte: 23)
+    static let gray = UIColor(redByte: 155, greenByte: 155, blueByte: 155)
 }

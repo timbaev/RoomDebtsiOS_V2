@@ -35,8 +35,79 @@ class WebError: Error {
         case server
         case access
     }
+
+    // MARK: - Type Properties
+
+    public static let unknown = WebError(code: .unknown)
+    public static let aborted = WebError(code: .aborted)
+
+    public static let tooManyRequests = WebError(code: .tooManyRequests)
+
+    public static let connection = WebError(code: .connection)
+    public static let timeOut = WebError(code: .timeOut)
+
+    public static let security = WebError(code: .security)
+
+    public static let badRequest = WebError(code: .badRequest)
+    public static let badResponse = WebError(code: .badResponse)
+
+    public static let unauthorized = WebError(code: .unauthorized)
+
+    public static let resource = WebError(code: .resource)
+    public static let server = WebError(code: .server)
+    public static let access = WebError(code: .access)
     
     // MARK: - Instance Properties
+
+    public var logDescription: String {
+        var description: String
+
+        switch self {
+        case WebError.aborted:
+            description = "WebError.aborted"
+
+        case WebError.tooManyRequests:
+            description = "WebError.tooManyRequests"
+
+        case WebError.connection:
+            description = "WebError.connection"
+
+        case WebError.timeOut:
+            description = "WebError.timeOut"
+
+        case WebError.security:
+            description = "WebError.security"
+
+        case WebError.badRequest:
+            description = "WebError.badRequest"
+
+        case WebError.badResponse:
+            description = "WebError.badResponse"
+
+        case WebError.unauthorized:
+            description = "WebError.unauthorized"
+
+        case WebError.resource:
+            description = "WebError.resource"
+
+        case WebError.server:
+            description = "WebError.server"
+
+        case WebError.access:
+            description = "WebError.access"
+
+        default:
+            description = "WebError.unknown"
+        }
+
+        if let data = self.data {
+            description.append("data: \(data)")
+        }
+
+        return description
+    }
+
+    // MARK: -
     
     let code: Code
     let data: Data?
@@ -133,5 +204,35 @@ class WebError: Error {
         default:
             self.init(code: .unknown, data: data)
         }
+    }
+}
+
+// MARK: - Equatable
+
+extension WebError: Equatable {
+
+    // MARK: - Type Methods
+
+    public static func == (left: WebError, right: WebError) -> Bool {
+        return (left.code == right.code)
+    }
+
+    public static func != (left: WebError, right: WebError) -> Bool {
+        return (left.code != right.code)
+    }
+
+    public static func ~= (left: WebError, right: WebError) -> Bool {
+        return (left.code == right.code)
+    }
+}
+
+// MARK: - CustomStringConvertible
+
+extension WebError: CustomStringConvertible {
+
+    // MARK: - Instance Properties
+
+    public var description: String {
+        return self.logDescription
     }
 }

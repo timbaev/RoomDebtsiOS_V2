@@ -9,6 +9,9 @@
 import Foundation
 
 enum LogEvent: String {
+
+    // MARK: - Enumeration cases
+
     case e = "[‼️]" // error
     case i = "[ℹ️]" // info
     case d = "[💬]" // debug
@@ -17,7 +20,7 @@ enum LogEvent: String {
     case s = "[🔥]" // severe
 }
 
-/// Wrapping Swift.print() within DEBUG flag
+// Wrapping Swift.print() within DEBUG flag
 func print(_ object: Any) {
     #if DEBUG
         Swift.print(object)
@@ -25,40 +28,23 @@ func print(_ object: Any) {
 }
 
 class Log {
+
+    // MARK: - Type Properties
     
     static var dateFormat = "hh:mm:ss"
+
     static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
+
         formatter.dateFormat = dateFormat
         formatter.locale = Locale.current
         formatter.timeZone = TimeZone.current
+
         return formatter
     }
-    
-    class func e(_ object: Any, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
-        printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: LogEvent.e)
-    }
-    
-    class func d(_ object: Any, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
-        printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: LogEvent.d)
-    }
-    
-    class func i(_ object: Any, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
-        printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: LogEvent.i)
-    }
-    
-    class func v(_ object: Any, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
-        printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: LogEvent.v)
-    }
-    
-    class func w(_ object: Any, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
-        printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: LogEvent.w)
-    }
-    
-    class func s(_ object: Any, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
-        printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: LogEvent.s)
-    }
-    
+
+    // MARK: - Type Methods
+
     private static var isLoggingEnabled: Bool {
         #if DEBUG
         return true
@@ -66,24 +52,62 @@ class Log {
         return false
         #endif
     }
-    
+
     private class func sourceFileName(filePath: String) -> String {
         let components = filePath.components(separatedBy: "/")
         return components.isEmpty ? "" : components.last!
     }
-    
-    private class func printLog(_ object: Any, filename: String, line: Int, column: Int, funcName: String, event: LogEvent) {
-        if isLoggingEnabled {
-            print("\(Date().toString()) \(event.rawValue)[\(sourceFileName(filePath: filename))]:\(line) \(column) \(funcName) -> \(object)")
+
+    private class func printLog(_ object: Any?, filename: String, line: Int, column: Int, funcName: String, event: LogEvent) {
+        if Log.isLoggingEnabled {
+            var body = "\(Date().string) \(event.rawValue)[\(sourceFileName(filePath: filename))]:\(line) \(column) \(funcName)"
+
+            if let object = object {
+                body.append(" -> \(object)")
+            }
+
+            print(body)
         }
     }
-    
-}
 
-private extension Date {
+    // MARK: -
     
-    func toString() -> String {
-        return Log.dateFormatter.string(from: self)
+    class func e(_ object: Any? = nil, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
+        Log.printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: .e)
     }
     
+    class func d(_ object: Any? = nil, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
+        Log.printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: .d)
+    }
+
+    class func i(_ object: Any? = nil, sender: Any, line: Int = #line, column: Int = #column, funcName: String = #function) {
+        Log.printLog(object, filename: "\(String(describing: type(of: sender)))", line: line, column: column, funcName: funcName, event: .i)
+    }
+    
+    class func i(_ object: Any? = nil, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
+        Log.printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: .i)
+    }
+    
+    class func v(_ object: Any? = nil, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
+        Log.printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: .v)
+    }
+    
+    class func w(_ object: Any? = nil, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
+        Log.printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: .w)
+    }
+    
+    class func s(_ object: Any? = nil, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
+        Log.printLog(object, filename: filename, line: line, column: column, funcName: funcName, event: .s)
+    }
+}
+
+// MARK: - Date
+
+private extension Date {
+
+    // MARK: - Instance Methods
+
+    var string: String {
+        return Log.dateFormatter.string(from: self)
+    }
 }

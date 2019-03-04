@@ -46,4 +46,12 @@ struct DefaultConversationExtractor: ConversationExtractor {
 
         return conversation
     }
+
+    func extractConversationList(from json: [[String: Any]], withListType listType: ConversationListType, cacheContext: CacheContext) throws -> ConversationList {
+        let conversationList = cacheContext.conversationListManager.firstOrNew(withListType: listType)
+
+        try json.forEach { conversationList.append(conversation: try self.extractConversation(from: $0, cacheContext: cacheContext)) }
+
+        return conversationList
+    }
 }

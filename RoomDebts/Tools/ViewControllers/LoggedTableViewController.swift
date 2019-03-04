@@ -17,7 +17,7 @@ public class LoggedTableViewController: UITableViewController {
     // MARK: - Initializers
 
     deinit {
-        Log.i("")
+        Log.i(sender: self)
     }
 
     // MARK: - Instance Methods
@@ -25,13 +25,13 @@ public class LoggedTableViewController: UITableViewController {
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-        Log.i("")
+        Log.i(sender: self)
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        Log.i("")
+        Log.i(sender: self)
         
         self.isViewAppeared = false
     }
@@ -39,7 +39,7 @@ public class LoggedTableViewController: UITableViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        Log.i(animated)
+        Log.i(sender: self)
         
         self.isViewAppeared = false
     }
@@ -47,7 +47,7 @@ public class LoggedTableViewController: UITableViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        Log.i(animated)
+        Log.i(sender: self)
         
         self.isViewAppeared = true
     }
@@ -55,13 +55,13 @@ public class LoggedTableViewController: UITableViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        Log.i(animated)
+        Log.i(sender: self)
     }
 
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        Log.i(animated)
+        Log.i(sender: self)
         
         self.isViewAppeared = false
     }

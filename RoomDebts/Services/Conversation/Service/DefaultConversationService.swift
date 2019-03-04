@@ -31,4 +31,16 @@ struct DefaultConversationService: ConversationService {
             }
         }, failure: failure)
     }
+
+    func fetch(success: @escaping (ConversationList) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonArray(.fetch, success: { json in
+            do {
+                let conversationList = try self.conversationExtractor.extractConversationList(from: json, withListType: .all, cacheContext: Services.cacheViewContext)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                }
+            }
+        }, failure: failure)
+    }
 }

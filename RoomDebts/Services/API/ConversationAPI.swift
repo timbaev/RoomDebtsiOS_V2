@@ -13,6 +13,7 @@ enum ConversationAPI {
     // MARK: - Enumeration Cases
 
     case create(opponentUID: Int64)
+    case fetch
 }
 
 // MARK: - EndPointType
@@ -25,7 +26,7 @@ extension ConversationAPI: EndPointType {
         let basePath = "/v1/conversations"
 
         switch self {
-        case .create:
+        case .create, .fetch:
             return basePath
         }
     }
@@ -34,6 +35,9 @@ extension ConversationAPI: EndPointType {
         switch self {
         case .create:
             return .post
+
+        case .fetch:
+            return .get
         }
     }
 
@@ -43,6 +47,9 @@ extension ConversationAPI: EndPointType {
             let requestParameters = Coders.conversationCoder.encode(opponentUID: opponentUID)
 
             return .requestParameters(bodyParameters: requestParameters, urlParameters: nil)
+
+        case .fetch:
+            return .request
         }
     }
 

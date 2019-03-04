@@ -23,4 +23,8 @@ struct DefaultCacheManagerFactory: CacheManagerFactory {
     func createUserManager(with context: CacheContext) -> UserManager {
         return DefaultUserManager<DefaultUser>(context: context)
     }
+
+    func createConversationListManager(with context: CacheContext) -> ConversationListManager {
+        return DefaultConversationListManager<DefaultConversationList>(context: context)
+    }
 }

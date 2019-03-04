@@ -21,6 +21,8 @@ protocol CacheContext: AnyObject {
     var conversationManager: ConversationManager { get }
     var userManager: UserManager { get }
 
+    var conversationListManager: ConversationListManager { get }
+
     var type: CacheContextType { get }
 
     // MARK: - Instance Methods
