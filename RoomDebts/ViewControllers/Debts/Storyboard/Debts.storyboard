@@ -42,10 +42,21 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="5Mi-S8-0C2" kind="presentation" identifier="ShowCreateDebt" id="AFq-AD-rv7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLe-Fn-3QM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="165"/>
+        </scene>
+        <!--CreateDebt-->
+        <scene sceneID="mQA-Db-4tn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateDebt" id="5Mi-S8-0C2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6M-Gk-ewp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="164"/>
         </scene>
     </scenes>
 </document>

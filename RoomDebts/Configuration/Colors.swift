@@ -51,6 +51,16 @@ enum Colors {
         static let second = UIColor(redByte: 17, greenByte: 56, blueByte: 108)
     }
 
+    // MARK: -
+
+    enum Border {
+
+        // MARK: - Type Properties
+
+        static let first = UIColor(redByte: 255, greenByte: 0, blueByte: 184)
+        static let second = UIColor(redByte: 255, greenByte: 196, blueByte: 0)
+    }
+
     // MARK: - Type Properties
 
     static let navigationTitle = UIColor(redByte: 63, greenByte: 160, blueByte: 255)
@@ -68,4 +78,9 @@ enum Colors {
     static let gray = UIColor(redByte: 155, greenByte: 155, blueByte: 155)
 
     static let barItem = UIColor(redByte: 153, greenByte: 55, blueByte: 123)
+
+    static let clear = UIColor.clear
+
+    static let placeholder = UIColor(redByte: 170, greenByte: 170, blueByte: 170)
+    static let textPlaceholder = UIColor(redByte: 255, greenByte: 255, blueByte: 255, alpha: 0.6)
 }

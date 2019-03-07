@@ -10,6 +10,15 @@ import UIKit
 
 class DebtsTableViewController: LoggedViewController {
 
+    // MARK: - Nested Types
+
+    private enum Segues {
+
+        // MARK: - Type Properties
+
+        static let showCreateDebt = "ShowCreateDebt"
+    }
+
     // MARK: - Instance Properties
 
     private var conversation: Conversation?
@@ -23,6 +32,12 @@ class DebtsTableViewController: LoggedViewController {
 
     @objc private func onPlusButtonTouchUpInside(sender: UIBarButtonItem) {
         Log.i()
+
+        guard let conversation = self.conversation else {
+            return
+        }
+
+        self.performSegue(withIdentifier: Segues.showCreateDebt, sender: conversation)
     }
 
     // MARK: -
@@ -71,6 +86,32 @@ class DebtsTableViewController: LoggedViewController {
 
         if self.shouldApplyData, let conversation = self.conversation {
             self.apply(conversation: conversation)
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        let dictionaryReceiver: DictionaryReceiver?
+
+        if let navigationController = segue.destination as? UINavigationController {
+            dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+        } else {
+            dictionaryReceiver = segue.destination as? DictionaryReceiver
+        }
+
+        switch segue.identifier {
+        case Segues.showCreateDebt:
+            guard let conversation = sender as? Conversation else {
+                fatalError()
+            }
+
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["conversation": conversation])
+            }
+
+        default:
+            break
         }
     }
 }
