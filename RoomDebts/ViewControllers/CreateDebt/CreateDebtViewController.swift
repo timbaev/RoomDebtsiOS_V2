@@ -53,6 +53,14 @@ class CreateDebtViewController: LoggedViewController {
         Log.i()
 
         self.dateTextField.text = DebtDateFormatter.shared.string(from: sender.date)
+
+        self.updateCreateButtonState()
+    }
+
+    // MARK: -
+
+    private func updateCreateButtonState() {
+        self.createButton.isEnabled = (self.currencyView.textFieldTarget.hasText && self.dateTextField.hasText)
     }
 
     // MARK: -
@@ -83,6 +91,10 @@ class CreateDebtViewController: LoggedViewController {
 
         self.currencyView.onNextButtonClick = { [unowned self] in
             self.nextResponder(after: self.currencyView.textFieldTarget)
+        }
+
+        self.currencyView.onTextFieldDidChange = { [unowned self] textField in
+            self.updateCreateButtonState()
         }
 
         self.dateTextField.onNextButtonClick = { [unowned self] in

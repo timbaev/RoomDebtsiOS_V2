@@ -290,6 +290,9 @@
                     <navigationItem key="navigationItem" title="Create Debt" id="Nkf-bX-G8U">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Z33-rq-0up">
                             <color key="tintColor" red="1" green="0.20784313730000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onCancelButtonTouchUpInside:" destination="nah-DX-p9k" id="afu-wx-YSn"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

@@ -87,6 +87,7 @@ import UIKit
     // MARK: -
 
     var onNextButtonClick: (() -> Void)?
+    var onTextFieldDidChange: ((UITextField) -> Void)?
 
     // MARK: - Initializers
 
@@ -106,6 +107,8 @@ import UIKit
 
     @objc private func textFieldDidChange(_ textField: UITextField) {
         self.updateCurrencySymbolLabelState()
+
+        self.onTextFieldDidChange?(textField)
     }
 
     private func updateCurrencySymbolLabelState() {
