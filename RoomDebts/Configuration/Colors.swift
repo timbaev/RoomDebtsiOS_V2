@@ -68,6 +68,7 @@ enum Colors {
 
     static let white = UIColor(whiteByte: 255)
     static let black = UIColor.black
+    static let dark = UIColor(redByte: 20, greenByte: 45, blueByte: 68)
 
     static let lightGrayBackground = UIColor(whiteByte: 34)
 

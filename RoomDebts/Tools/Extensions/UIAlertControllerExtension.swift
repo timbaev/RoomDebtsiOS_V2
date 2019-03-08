@@ -84,7 +84,7 @@ extension UIAlertController {
         }
 
         func show(in viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
-            viewController.present(self.build(), animated: animated, completion: completion)
+            viewController.present(alertController: self.build(), animated: animated, completion: completion)
         }
     }
 }

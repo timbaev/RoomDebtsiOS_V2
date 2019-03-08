@@ -68,6 +68,8 @@ import UIKit
         }
     }
 
+    // MARK: -
+
     var text: String? {
         get {
             return self.textField.text
@@ -77,6 +79,14 @@ import UIKit
             self.textField.text = newValue
         }
     }
+
+    var textFieldTarget: UITextField {
+        return self.textField
+    }
+
+    // MARK: -
+
+    var onNextButtonClick: (() -> Void)?
 
     // MARK: - Initializers
 
@@ -120,6 +130,11 @@ import UIKit
         self.textField.delegate = self
         self.textField.textAlignment = .right
         self.textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        self.textField.keyboardAppearance = .dark
+
+        self.textField.onNextButtonClick = { [unowned self] in
+            self.onNextButtonClick?()
+        }
 
         self.addSubview(self.textField)
 

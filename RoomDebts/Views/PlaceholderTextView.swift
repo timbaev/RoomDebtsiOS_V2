@@ -59,6 +59,17 @@ import UIKit
         }
     }
 
+    // MARK: -
+
+    var onDoneButtonClick: (() -> Void)?
+    var textViewDidChange: ((UITextView) -> Void)?
+
+    // MARK: -
+
+    var textViewTarget: UITextView {
+        return self.textView
+    }
+
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -90,6 +101,8 @@ import UIKit
     private func initialize() {
         self.textView.translatesAutoresizingMaskIntoConstraints = false
         self.textView.delegate = self
+        self.textView.returnKeyType = .done
+        self.textView.keyboardAppearance = .dark
 
         self.addSubview(self.textView)
 
@@ -117,5 +130,17 @@ extension PlaceholderTextView: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         self.placeholderLabel.isHidden = textView.hasText
+
+        self.textViewDidChange?(textView)
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            self.onDoneButtonClick?()
+
+            return false
+        }
+
+        return true
     }
 }

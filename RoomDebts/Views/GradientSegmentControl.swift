@@ -10,14 +10,6 @@ import UIKit
 
 class GradientSegmentControl: UISegmentedControl {
 
-    // MARK: - Instance Properties
-
-    override var selectedSegmentIndex: Int {
-        didSet {
-            self.updateGradientBackground()
-        }
-    }
-
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -34,34 +26,60 @@ class GradientSegmentControl: UISegmentedControl {
 
     // MARK: - Instance Methods
 
-    private func initialize() {
-        let gradient = CAGradientLayer()
-
-        gradient.frame = self.frame
-        gradient.colors = [Colors.Border.first.cgColor, Colors.Border.second.cgColor]
-
-        let shape = CAShapeLayer()
-
-        shape.lineWidth = 1
-        shape.cornerRadius = 10
-        shape.path = UIBezierPath(rect: self.bounds).cgPath
-        shape.strokeColor = Colors.black.cgColor
-        shape.fillColor = Colors.clear.cgColor
-
-        gradient.mask = shape
-
-        self.layer.addSublayer(gradient)
+    @objc private func onSegmentControlValueChanged(_ sender: UISegmentedControl) {
+        self.updateGradientBackground()
     }
+
+    // MARK: -
 
     private func updateGradientBackground() {
         let sortedViews = self.subviews.sorted(by: { $0.frame.origin.x < $1.frame.origin.x })
 
         sortedViews.enumerated().forEach { index, view in
             if index == self.selectedSegmentIndex {
-                view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "PrimaryButtonBakcground.pdf"))
+                view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "PrimaryGradientBackground.pdf"))
+                view.tintColor = Colors.clear
             } else {
                 view.backgroundColor = Colors.clear
+                view.tintColor = Colors.clear
             }
         }
+    }
+
+    // MARK: -
+
+    private func initialize() {
+        self.addTarget(self, action: #selector(self.onSegmentControlValueChanged(_:)), for: .valueChanged)
+
+        self.setTitleTextAttributes([.font: Fonts.regular(ofSize: 17),
+                                     .foregroundColor: Colors.white], for: .normal)
+
+        self.setTitleTextAttributes([.font: Fonts.regular(ofSize: 17),
+                                     .foregroundColor: Colors.white], for: .selected)
+
+        let cornerRadius = self.bounds.height / 2
+
+        self.clipsToBounds = true
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = cornerRadius
+
+        let gradient = CAGradientLayer()
+
+        gradient.frame = self.bounds
+        gradient.cornerRadius = cornerRadius
+        gradient.colors = [Colors.Border.first.cgColor, Colors.Border.second.cgColor]
+
+        let shape = CAShapeLayer()
+
+        shape.lineWidth = 2
+        shape.path = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
+        shape.strokeColor = Colors.black.cgColor
+        shape.fillColor = Colors.clear.cgColor
+
+        gradient.mask = shape
+
+        self.layer.addSublayer(gradient)
+
+        self.updateGradientBackground()
     }
 }

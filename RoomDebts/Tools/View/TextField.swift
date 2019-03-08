@@ -59,8 +59,9 @@ import UIKit
             let toolbar = UIToolbar()
 
             toolbar.barStyle = .default
-            toolbar.isTranslucent = true
+            toolbar.isTranslucent = false
             toolbar.tintColor = Colors.PrimaryButton.third
+            toolbar.barTintColor = Colors.dark
 
             let nextButton = UIBarButtonItem(title: "Next".localized(), style: .plain, target: self, action: #selector(self.onNextBarButtonItemTouchUpInside(_:)))
             let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
