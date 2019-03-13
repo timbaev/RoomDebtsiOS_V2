@@ -20,6 +20,7 @@ protocol CacheContext: AnyObject {
     var userAccountManager: UserAccountsManager { get }
     var conversationManager: ConversationManager { get }
     var userManager: UserManager { get }
+    var debtManager: DebtManager { get }
 
     var conversationListManager: ConversationListManager { get }
 
@@ -49,6 +50,11 @@ extension CacheContext {
         KeychainManager.shared.clear()
 
         self.userAccountManager.clear()
+        self.conversationManager.clear()
+        self.userManager.clear()
+        self.debtManager.clear()
+
+        self.conversationListManager.clear()
 
         self.save()
     }

@@ -12,5 +12,8 @@ protocol UserCoder: Coder {
 
     // MARK: - Instance Methods
 
-    func decode(user: User, from json: [String: Any]) -> Bool
+    func decode(user: User, from json: JSON) -> Bool
+
+    func creatorJSON(from json: JSON) -> JSON?
+    func opponentJSON(from json: JSON) -> JSON?
 }

@@ -20,11 +20,14 @@ struct DefaultUserCoder: UserCoder {
         static let firstName = "firstName"
         static let lastName = "lastName"
         static let imageURL = "imageURL"
+
+        static let creator = "creator"
+        static let opponent = "opponent"
     }
 
     // MARK: - Instance Methods
 
-    func decode(user: User, from json: [String: Any]) -> Bool {
+    func decode(user: User, from json: JSON) -> Bool {
         guard let uid = self.uid(from: json) else {
             return false
         }
@@ -46,5 +49,13 @@ struct DefaultUserCoder: UserCoder {
         user.imageURL = imageURL
 
         return true
+    }
+
+    func creatorJSON(from json: JSON) -> JSON? {
+        return JSONKeys.creator <~~ json
+    }
+
+    func opponentJSON(from json: JSON) -> JSON? {
+        return JSONKeys.opponent <~~ json
     }
 }

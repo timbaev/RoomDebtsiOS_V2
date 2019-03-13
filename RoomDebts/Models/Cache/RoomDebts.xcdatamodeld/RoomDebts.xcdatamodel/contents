@@ -13,6 +13,15 @@
         <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="rawConversations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawList" inverseEntity="DefaultConversation" syncable="YES"/>
     </entity>
+    <entity name="DefaultDebt" representedClassName="DefaultDebt" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="debtorUID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rawDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawCreator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="debtsCreator" inverseEntity="DefaultUser" syncable="YES"/>
+    </entity>
     <entity name="DefaultUser" representedClassName="DefaultUser" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,6 +29,7 @@
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="conversationsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawCreator" inverseEntity="DefaultConversation" syncable="YES"/>
         <relationship name="conversationsOpponent" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawOpponent" inverseEntity="DefaultConversation" syncable="YES"/>
+        <relationship name="debtsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultDebt" inverseName="rawCreator" inverseEntity="DefaultDebt" syncable="YES"/>
     </entity>
     <entity name="DefaultUserAccount" representedClassName="DefaultUserAccount" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -30,8 +40,9 @@
     </entity>
     <elements>
         <element name="DefaultConversation" positionX="-54" positionY="36" width="128" height="150"/>
-        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="135"/>
-        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="DefaultConversationList" positionX="-54" positionY="63" width="128" height="75"/>
+        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="150"/>
+        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DefaultDebt" positionX="-54" positionY="72" width="128" height="150"/>
     </elements>
 </model>

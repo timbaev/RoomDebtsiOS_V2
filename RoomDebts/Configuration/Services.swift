@@ -18,6 +18,7 @@ enum Services {
     static let userService: UserService = DefaultUserService(userExtractor: Services.userExtractor)
 
     static let conversationService: ConversationService = DefaultConversationService(conversationExtractor: Services.conversationExtractor)
+    static let debtService: DebtService = DefaultDebtService(debtExtractor: Services.debtExtractor)
 
     // MARK: -
 
@@ -25,7 +26,12 @@ enum Services {
     static let accessExtactor: AccessExtractor = DefaultAccessExtractor(accessCoder: Coders.accessCoder)
     static let userExtractor: UserExtractor = DefaultUserExrtactor(userCoder: Coders.userCoder)
     static let conversationExtractor: ConversationExtractor = DefaultConversationExtractor(conversationCoder: Coders.conversationCoder,
+                                                                                           userCoder: Coders.userCoder,
                                                                                            userExtractor: Services.userExtractor)
+
+    static let debtExtractor: DebtExtractor = DefaultDebtExtractor(debtCoder: Coders.debtCoder,
+                                                                   userCoder: Coders.userCoder,
+                                                                   userExtractor: Services.userExtractor)
 
     // MARK: -
 

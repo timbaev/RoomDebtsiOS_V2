@@ -48,7 +48,6 @@ disabled_rules:
   - cyclomatic_complexity
   - unused_setter_value
   - pattern_matching_keywords
-  - function_parameter_count
 
 opt_in_rules:
   - anyobject_protocol
@@ -88,6 +87,7 @@ opt_in_rules:
   - for_where
   - force_try
   - function_body_length
+  - function_parameter_count
   - generic_type_name
   - identical_operands
   - implicit_getter
@@ -355,8 +355,8 @@ function_body_length:
   error: 40
 
 function_parameter_count:
-  warning: 4
-  error: 4
+  warning: 6
+  error: 6
   ignores_default_parameters: false
 
 generic_type_name:

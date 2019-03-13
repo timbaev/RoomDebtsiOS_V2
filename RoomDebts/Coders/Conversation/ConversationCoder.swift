@@ -15,7 +15,4 @@ protocol ConversationCoder: Coder {
     func encode(opponentUID: Int64) -> [String: Any]
 
     func decode(conversation: Conversation, from json: [String: Any]) -> Bool
-
-    func creatorJSON(from json: [String: Any]) -> [String: Any]?
-    func opponentJSON(from json: [String: Any]) -> [String: Any]?
 }

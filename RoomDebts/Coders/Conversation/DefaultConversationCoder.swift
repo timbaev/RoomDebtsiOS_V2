@@ -64,12 +64,4 @@ struct DefaultConversationCoder: ConversationCoder {
 
         return true
     }
-
-    func creatorJSON(from json: [String: Any]) -> [String: Any]? {
-        return JSONKeys.creator <~~ json
-    }
-
-    func opponentJSON(from json: [String: Any]) -> [String: Any]? {
-        return JSONKeys.opponent <~~ json
-    }
 }

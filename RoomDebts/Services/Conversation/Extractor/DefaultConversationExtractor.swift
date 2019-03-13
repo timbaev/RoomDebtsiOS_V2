@@ -14,6 +14,7 @@ struct DefaultConversationExtractor: ConversationExtractor {
 
     let conversationCoder: ConversationCoder
 
+    let userCoder: UserCoder
     let userExtractor: UserExtractor
 
     // MARK: - Instance Methods
@@ -29,11 +30,11 @@ struct DefaultConversationExtractor: ConversationExtractor {
             throw WebError(code: .badResponse)
         }
 
-        guard let creatorJSON = self.conversationCoder.creatorJSON(from: json) else {
+        guard let creatorJSON = self.userCoder.creatorJSON(from: json) else {
             throw WebError(code: .badResponse)
         }
 
-        guard let opponentJSON = self.conversationCoder.opponentJSON(from: json) else {
+        guard let opponentJSON = self.userCoder.opponentJSON(from: json) else {
             throw WebError(code: .badResponse)
         }
 

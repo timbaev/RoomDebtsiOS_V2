@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class CreateDebtViewController: LoggedViewController {
+class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
 
     // MARK: - Nested Types
 
@@ -36,6 +37,7 @@ class CreateDebtViewController: LoggedViewController {
     // MARK: -
 
     private var textInputs: [UIView] = []
+    private weak var datePicker: UIDatePicker?
 
     private var conversation: Conversation?
 
@@ -55,6 +57,67 @@ class CreateDebtViewController: LoggedViewController {
         self.dateTextField.text = DebtDateFormatter.shared.string(from: sender.date)
 
         self.updateCreateButtonState()
+    }
+
+    @IBAction private func onCreateButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i()
+
+        guard let rawPrice = self.currencyView.text else {
+            return
+        }
+
+        guard let price = Double(rawPrice) else {
+            return
+        }
+
+        guard let date = self.datePicker?.date else {
+            return
+        }
+
+        let description = self.descriptionTextView.text
+
+        let rawDebtorUID: Int64?
+
+        if self.debtorSegmentControl.selectedSegmentIndex == Constants.creatorSegmentIndex {
+            rawDebtorUID = self.conversation?.creator?.uid
+        } else {
+            rawDebtorUID = self.conversation?.opponent?.uid
+        }
+
+        guard let debtorUID = rawDebtorUID else {
+            return
+        }
+
+        guard let conversationUID = self.conversation?.uid else {
+            return
+        }
+
+        let form = CreateDebtForm(price: price,
+                                  date: date,
+                                  description: description,
+                                  debtorUID: debtorUID,
+                                  conversationUID: conversationUID)
+
+        self.createDebt(with: form)
+    }
+
+    // MARK: -
+
+    private func handle(stateError error: WebError, retryHandler: (() -> Void)? = nil) {
+        switch error {
+        case .connection, .timeOut:
+            self.showMessage(withTitle: Messages.internetConncetionTitle, message: Messages.internetConnection)
+
+        case .badRequest:
+            if let message = error.message {
+                self.showMessage(withTitle: nil, message: message)
+            } else {
+                self.showMessage(withTitle: Messages.unknownErrorTitle, message: Messages.unknownError)
+            }
+
+        default:
+            self.showMessage(withTitle: Messages.unknownErrorTitle, message: Messages.unknownError)
+        }
     }
 
     // MARK: -
@@ -124,7 +187,31 @@ class CreateDebtViewController: LoggedViewController {
         datePicker.setValue(Colors.white, forKeyPath: "textColor")
         datePicker.addTarget(self, action: #selector(self.onDatePickerValueChange(_:)), for: .valueChanged)
 
+        self.datePicker = datePicker
+
         self.dateTextField.inputView = datePicker
+    }
+
+    // MARK: -
+
+    func createDebt(with form: CreateDebtForm) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.debtService.create(with: form, success: { [weak self] debt in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.dismiss(animated: true)
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
     }
 
     // MARK: -

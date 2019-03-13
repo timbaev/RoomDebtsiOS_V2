@@ -18,4 +18,5 @@ enum Coders {
     static let phoneNumberCoder: PhoneNumberCoder = DefaultPhoneNumberCoder()
     static let userCoder: UserCoder = DefaultUserCoder()
     static let conversationCoder: ConversationCoder = DefaultConversationCoder()
+    static let debtCoder: DebtCoder = DefaultDebtCoder()
 }

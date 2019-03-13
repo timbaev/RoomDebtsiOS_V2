@@ -24,6 +24,10 @@ struct DefaultCacheManagerFactory: CacheManagerFactory {
         return DefaultUserManager<DefaultUser>(context: context)
     }
 
+    func createDebtManager(with context: CacheContext) -> DebtManager {
+        return DefaultDebtManager<DefaultDebt>(context: context)
+    }
+
     func createConversationListManager(with context: CacheContext) -> ConversationListManager {
         return DefaultConversationListManager<DefaultConversationList>(context: context)
     }

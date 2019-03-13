@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		34C2462B3EC1BDA98D082127 /* Pods_RoomDebts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1C0BE311694403D1C51498 /* Pods_RoomDebts.framework */; };
 		CA71C5AA812739C4BD717F23 /* Pods_RoomDebtsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */; };
+		CB03CBD022369EDB00104251 /* ISO8601Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBCF22369EDB00104251 /* ISO8601Formatter.swift */; };
+		CB03CBD32236CD9B00104251 /* Debt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBD22236CD9B00104251 /* Debt.swift */; };
+		CB03CBD52236D3C100104251 /* DebtStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBD42236D3C100104251 /* DebtStatus.swift */; };
+		CB03CBD72236D40700104251 /* DefaultDebtExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBD62236D40700104251 /* DefaultDebtExtension.swift */; };
+		CB03CBDA2236D4A500104251 /* DebtManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBD92236D4A500104251 /* DebtManager.swift */; };
+		CB03CBDC2236D4C700104251 /* DefaultDebtManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBDB2236D4C700104251 /* DefaultDebtManager.swift */; };
+		CB03CBDF2236D53A00104251 /* DebtExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBDE2236D53A00104251 /* DebtExtractor.swift */; };
+		CB03CBE12236D65000104251 /* DefaultDebtExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03CBE02236D65000104251 /* DefaultDebtExtractor.swift */; };
 		CB098EBE22251AD100FDD47C /* ConversationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB098EBD22251AD100FDD47C /* ConversationAPI.swift */; };
 		CB098EC122251EAE00FDD47C /* ConversationCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB098EC022251EAE00FDD47C /* ConversationCoder.swift */; };
 		CB098EC322251EC900FDD47C /* DefaultConversationCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB098EC222251EC900FDD47C /* DefaultConversationCoder.swift */; };
@@ -149,6 +157,12 @@
 		CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */; };
 		CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */; };
 		CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */; };
+		CBCCC4322232CE6500535D57 /* DebtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC4312232CE6500535D57 /* DebtService.swift */; };
+		CBCCC4342232CE7200535D57 /* DefaultDebtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC4332232CE7200535D57 /* DefaultDebtService.swift */; };
+		CBCCC4362232CE9E00535D57 /* DebtAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC4352232CE9E00535D57 /* DebtAPI.swift */; };
+		CBCCC4392232D07800535D57 /* CreateDebtForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC4382232D07800535D57 /* CreateDebtForm.swift */; };
+		CBCCC43C2232D15C00535D57 /* DebtCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC43B2232D15C00535D57 /* DebtCoder.swift */; };
+		CBCCC43E2232D17200535D57 /* DefaultDebtCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC43D2232D17200535D57 /* DefaultDebtCoder.swift */; };
 		CBE2F8832227E98B006B0FA4 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */; };
 		CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31E9F22207B96006EF081 /* RoundedImageView.swift */; };
 		CBE31EA222207D94006EF081 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31EA122207D94006EF081 /* SearchViewController.swift */; };
@@ -203,6 +217,14 @@
 		83B78FB530F52A14B544AC58 /* Pods_RoomDebtsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomDebtsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF1CC913DE2E2A34DC43D8C /* Pods-RoomDebts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.release.xcconfig"; sourceTree = "<group>"; };
 		C36B68E8D728EAD0C6DA59ED /* Pods-RoomDebts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomDebts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts.debug.xcconfig"; sourceTree = "<group>"; };
+		CB03CBCF22369EDB00104251 /* ISO8601Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601Formatter.swift; sourceTree = "<group>"; };
+		CB03CBD22236CD9B00104251 /* Debt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debt.swift; sourceTree = "<group>"; };
+		CB03CBD42236D3C100104251 /* DebtStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtStatus.swift; sourceTree = "<group>"; };
+		CB03CBD62236D40700104251 /* DefaultDebtExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtExtension.swift; sourceTree = "<group>"; };
+		CB03CBD92236D4A500104251 /* DebtManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtManager.swift; sourceTree = "<group>"; };
+		CB03CBDB2236D4C700104251 /* DefaultDebtManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtManager.swift; sourceTree = "<group>"; };
+		CB03CBDE2236D53A00104251 /* DebtExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtExtractor.swift; sourceTree = "<group>"; };
+		CB03CBE02236D65000104251 /* DefaultDebtExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtExtractor.swift; sourceTree = "<group>"; };
 		CB098EBD22251AD100FDD47C /* ConversationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationAPI.swift; sourceTree = "<group>"; };
 		CB098EC022251EAE00FDD47C /* ConversationCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCoder.swift; sourceTree = "<group>"; };
 		CB098EC222251EC900FDD47C /* DefaultConversationCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationCoder.swift; sourceTree = "<group>"; };
@@ -347,6 +369,12 @@
 		CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneColorTabBarItem.swift; sourceTree = "<group>"; };
 		CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedNavigationController.swift; sourceTree = "<group>"; };
+		CBCCC4312232CE6500535D57 /* DebtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtService.swift; sourceTree = "<group>"; };
+		CBCCC4332232CE7200535D57 /* DefaultDebtService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtService.swift; sourceTree = "<group>"; };
+		CBCCC4352232CE9E00535D57 /* DebtAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtAPI.swift; sourceTree = "<group>"; };
+		CBCCC4382232D07800535D57 /* CreateDebtForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebtForm.swift; sourceTree = "<group>"; };
+		CBCCC43B2232D15C00535D57 /* DebtCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCoder.swift; sourceTree = "<group>"; };
+		CBCCC43D2232D17200535D57 /* DefaultDebtCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtCoder.swift; sourceTree = "<group>"; };
 		CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		CBE31E9F22207B96006EF081 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		CBE31EA122207D94006EF081 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +452,35 @@
 				6A11B46D97AF1FD8EB758633 /* Pods-RoomDebtsTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CB03CBD12236CCAD00104251 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				CB03CBD82236D49C00104251 /* Manager */,
+				CB03CBD22236CD9B00104251 /* Debt.swift */,
+				CB03CBD42236D3C100104251 /* DebtStatus.swift */,
+				CB03CBD62236D40700104251 /* DefaultDebtExtension.swift */,
+			);
+			path = Debt;
+			sourceTree = "<group>";
+		};
+		CB03CBD82236D49C00104251 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CB03CBD92236D4A500104251 /* DebtManager.swift */,
+				CB03CBDB2236D4C700104251 /* DefaultDebtManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CB03CBDD2236D52C00104251 /* Extractor */ = {
+			isa = PBXGroup;
+			children = (
+				CB03CBDE2236D53A00104251 /* DebtExtractor.swift */,
+				CB03CBE02236D65000104251 /* DefaultDebtExtractor.swift */,
+			);
+			path = Extractor;
 			sourceTree = "<group>";
 		};
 		CB098EBF22251E9300FDD47C /* Conversation */ = {
@@ -585,12 +642,13 @@
 		CB472D0421F72F4D00FB98EE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CB472D0A21F733BB00FB98EE /* API */,
 				CB71C3E721FA56CC008FDD0B /* Access */,
 				CB472D0521F72F5D00FB98EE /* Account */,
-				CB098EC42225205600FDD47C /* Conversation */,
-				CB714B8C2222CA8D007961C6 /* User */,
+				CB472D0A21F733BB00FB98EE /* API */,
 				CB472D3121F7598700FB98EE /* Cache */,
+				CB098EC42225205600FDD47C /* Conversation */,
+				CBCCC42F2232CE5000535D57 /* Debt */,
+				CB714B8C2222CA8D007961C6 /* User */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -609,6 +667,7 @@
 			children = (
 				CB472D0C21F7340800FB98EE /* AccountAPI.swift */,
 				CB098EBD22251AD100FDD47C /* ConversationAPI.swift */,
+				CBCCC4352232CE9E00535D57 /* DebtAPI.swift */,
 				CB714B8A2222C9D6007961C6 /* UserAPI.swift */,
 			);
 			path = API;
@@ -620,6 +679,7 @@
 				CBFF85B721F8F8DC002B7FCD /* Access */,
 				CB71C3D121F9B708008FDD0B /* Confirm */,
 				CB098EBF22251E9300FDD47C /* Conversation */,
+				CBCCC43A2232D14D00535D57 /* Debt */,
 				CBF277EA21FAFA37008E516C /* PhoneNumber */,
 				CB472D1121F7430A00FB98EE /* UserAccount */,
 				CB714DDE2222D9A6007961C6 /* UserCoder */,
@@ -965,6 +1025,7 @@
 			isa = PBXGroup;
 			children = (
 				CBAC546221F4A6D7004C8C65 /* Cache */,
+				CBCCC4372232D06700535D57 /* Forms */,
 				CB117BAF2204C13900C20905 /* VerificationCode */,
 				CBFF85B021F8F0E4002B7FCD /* Access.swift */,
 			);
@@ -1030,6 +1091,7 @@
 			children = (
 				CB9C442D222680C30052F512 /* Conversation */,
 				CB0ECA3C222983EF000B902E /* ConversationList */,
+				CB03CBD12236CCAD00104251 /* Debt */,
 				CB714B912222CBC1007961C6 /* User */,
 				CBAC546321F4A6E3004C8C65 /* UserAccount */,
 				CB472D1821F74B6F00FB98EE /* CacheContext.swift */,
@@ -1120,10 +1182,46 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CBCCC42F2232CE5000535D57 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				CB03CBDD2236D52C00104251 /* Extractor */,
+				CBCCC4302232CE5D00535D57 /* Service */,
+			);
+			path = Debt;
+			sourceTree = "<group>";
+		};
+		CBCCC4302232CE5D00535D57 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CBCCC4312232CE6500535D57 /* DebtService.swift */,
+				CBCCC4332232CE7200535D57 /* DefaultDebtService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CBCCC4372232D06700535D57 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				CBCCC4382232D07800535D57 /* CreateDebtForm.swift */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
+		CBCCC43A2232D14D00535D57 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				CBCCC43B2232D15C00535D57 /* DebtCoder.swift */,
+				CBCCC43D2232D17200535D57 /* DefaultDebtCoder.swift */,
+			);
+			path = Debt;
+			sourceTree = "<group>";
+		};
 		CBD7281C222FCDAA00D1C684 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
 				CB18CA3622315A190027E905 /* DebtDateFormatter.swift */,
+				CB03CBCF22369EDB00104251 /* ISO8601Formatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -1476,6 +1574,7 @@
 				CB71C3E921FA56DF008FDD0B /* AccessExtractor.swift in Sources */,
 				CB714B8E2222CAE8007961C6 /* UserService.swift in Sources */,
 				CB472D0921F72F8600FB98EE /* DefaultAccountService.swift in Sources */,
+				CBCCC4362232CE9E00535D57 /* DebtAPI.swift in Sources */,
 				CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
 				CB714B892222C7D7007961C6 /* UserTableViewCell.swift in Sources */,
@@ -1494,6 +1593,7 @@
 				CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */,
 				CB714B952222D863007961C6 /* User.swift in Sources */,
 				CB9C4438222684640052F512 /* DefaultConversationManager.swift in Sources */,
+				CBCCC4392232D07800535D57 /* CreateDebtForm.swift in Sources */,
 				CB472D0321F72DF700FB98EE /* Result.swift in Sources */,
 				CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
@@ -1515,6 +1615,8 @@
 				CB9C442F222680E00052F512 /* Conversation.swift in Sources */,
 				CBFDBACD21F660030017ED61 /* DictionaryReceiver.swift in Sources */,
 				CB9C443B2226B3310052F512 /* UserManager.swift in Sources */,
+				CB03CBD72236D40700104251 /* DefaultDebtExtension.swift in Sources */,
+				CBCCC4322232CE6500535D57 /* DebtService.swift in Sources */,
 				CB098ECB2225305C00FDD47C /* DefaultUserExtension.swift in Sources */,
 				CB5953B0222D46EF0079D56B /* Messages.swift in Sources */,
 				CBAC545121F4A48A004C8C65 /* CoreDataStorageManager.swift in Sources */,
@@ -1533,7 +1635,9 @@
 				CB71C3D021F9AFFB008FDD0B /* AuthRouter.swift in Sources */,
 				CB4EB174222E3D6B00FF2232 /* PlaceholderTextView.swift in Sources */,
 				CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */,
+				CB03CBE12236D65000104251 /* DefaultDebtExtractor.swift in Sources */,
 				CBAC545521F4A48A004C8C65 /* StorageObject.swift in Sources */,
+				CBCCC4342232CE7200535D57 /* DefaultDebtService.swift in Sources */,
 				CB71C3D521F9B74A008FDD0B /* DefaultConfirmCoder.swift in Sources */,
 				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
 				CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */,
@@ -1544,8 +1648,10 @@
 				CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */,
 				CB472D2821F74C3800FB98EE /* DefaultUserAccountsManager.swift in Sources */,
 				CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */,
+				CBCCC43E2232D17200535D57 /* DefaultDebtCoder.swift in Sources */,
 				CB098EC62225206600FDD47C /* ConversationService.swift in Sources */,
 				CB714DE72222DC39007961C6 /* UserExtractor.swift in Sources */,
+				CB03CBDF2236D53A00104251 /* DebtExtractor.swift in Sources */,
 				CB472CF721F711E400FB98EE /* HeaderKeys.swift in Sources */,
 				CBEB2DBF222C1CEC00653B11 /* RoundedButton.swift in Sources */,
 				CB4EB1A6222EE08200FF2232 /* CreateDebtViewController.swift in Sources */,
@@ -1557,6 +1663,7 @@
 				CB714B902222CAFC007961C6 /* DefaultUserService.swift in Sources */,
 				CBFF85B121F8F0E4002B7FCD /* Access.swift in Sources */,
 				CBFF85AB21F896DC002B7FCD /* VerificationCodeViewController.swift in Sources */,
+				CB03CBD022369EDB00104251 /* ISO8601Formatter.swift in Sources */,
 				CBAC547A21F4CD76004C8C65 /* GradientView.swift in Sources */,
 				CB472D0121F72D3C00FB98EE /* NetworkConfig.swift in Sources */,
 				CB714DE22222D9CB007961C6 /* DefaultUserCoder.swift in Sources */,
@@ -1569,6 +1676,7 @@
 				CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */,
 				CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
+				CB03CBDC2236D4C700104251 /* DefaultDebtManager.swift in Sources */,
 				CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */,
 				CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */,
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
@@ -1579,15 +1687,18 @@
 				CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */,
 				CB71C3CC21F9A236008FDD0B /* AuthAPI.swift in Sources */,
 				CBEB2DC2222C1DF100653B11 /* ConversationTableViewCell.swift in Sources */,
+				CBCCC43C2232D15C00535D57 /* DebtCoder.swift in Sources */,
 				CB4EB176222E912D00FF2232 /* GradientSegmentControl.swift in Sources */,
 				CBAC545221F4A48A004C8C65 /* CoreDataStorageExtension.swift in Sources */,
 				CB472D1721F7488800FB98EE /* UserAccountsManager.swift in Sources */,
+				CB03CBD52236D3C100104251 /* DebtStatus.swift in Sources */,
 				CBEB2DC4222C229800653B11 /* EmptyStateView.swift in Sources */,
 				CB098EBE22251AD100FDD47C /* ConversationAPI.swift in Sources */,
 				CBEB2DC8222C4BE000653B11 /* ImageDownloader.swift in Sources */,
 				CB714B8B2222C9D6007961C6 /* UserAPI.swift in Sources */,
 				CBAC546D21F4AD85004C8C65 /* MainTabBarController.swift in Sources */,
 				CB18CA2F2230F0260027E905 /* CurrencyView.swift in Sources */,
+				CB03CBD32236CD9B00104251 /* Debt.swift in Sources */,
 				CBAC545321F4A48A004C8C65 /* CoreDataStorageContext.swift in Sources */,
 				CBEB2DC6222C32A100653B11 /* EmptyStateViewable.swift in Sources */,
 				CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */,
@@ -1615,6 +1726,7 @@
 				CB0ECA45222989F9000B902E /* DefaultConversationListManager.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,
 				CB37A9922206289A007ECB86 /* MimeType.swift in Sources */,
+				CB03CBDA2236D4A500104251 /* DebtManager.swift in Sources */,
 				CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */,
 				CBAC546B21F4ACCB004C8C65 /* Models.swift in Sources */,
 				CB472D3021F7593E00FB98EE /* Services.swift in Sources */,
