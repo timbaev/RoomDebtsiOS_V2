@@ -21,6 +21,12 @@
         <attribute name="rawStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="rawCreator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="debtsCreator" inverseEntity="DefaultUser" syncable="YES"/>
+        <relationship name="rawList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultDebtList" inverseName="rawDebts" inverseEntity="DefaultDebtList" syncable="YES"/>
+    </entity>
+    <entity name="DefaultDebtList" representedClassName="DefaultDebtList" syncable="YES" codeGenerationType="class">
+        <attribute name="conversationUID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawDebts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultDebt" inverseName="rawList" inverseEntity="DefaultDebt" syncable="YES"/>
     </entity>
     <entity name="DefaultUser" representedClassName="DefaultUser" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,8 +47,9 @@
     <elements>
         <element name="DefaultConversation" positionX="-54" positionY="36" width="128" height="150"/>
         <element name="DefaultConversationList" positionX="-54" positionY="63" width="128" height="75"/>
+        <element name="DefaultDebt" positionX="-54" positionY="72" width="128" height="165"/>
         <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="150"/>
         <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="DefaultDebt" positionX="-54" positionY="72" width="128" height="150"/>
+        <element name="DefaultDebtList" positionX="-54" positionY="90" width="128" height="90"/>
     </elements>
 </model>

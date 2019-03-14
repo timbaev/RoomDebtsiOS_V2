@@ -92,7 +92,7 @@ class DebtTableViewCell: UITableViewCell {
 
         self.onAcceptButtonClick?()
     }
-    
+
     @IBAction private func onDeclineButtonTouchUpInside(_ sender: UIButton) {
         Log.i()
 
