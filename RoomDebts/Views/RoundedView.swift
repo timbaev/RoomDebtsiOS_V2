@@ -8,11 +8,11 @@
 
 import UIKit
 
-@IBDesignable public class RoundedView: UIView {
+@IBDesignable class RoundedView: UIView {
 
     // MARK: - Instance Properties
 
-    @IBInspectable public var cornerRadius: CGFloat = 0.0 {
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {
             self.layer.cornerRadius = self.cornerRadius
             self.layer.masksToBounds = (self.cornerRadius > 0.0)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class GradientView: UIView {
+@IBDesignable class GradientView: RoundedView {
 
     // MARK: - Instance Properties
 
@@ -19,6 +19,12 @@ import UIKit
     }
 
     @IBInspectable var secondColor = UIColor.clear {
+        didSet {
+            self.applyState()
+        }
+    }
+
+    @IBInspectable var isHorizontal: Bool = false {
         didSet {
             self.applyState()
         }
@@ -36,5 +42,13 @@ import UIKit
         let layer = self.layer as! CAGradientLayer
 
         layer.colors = [self.firstColor, self.secondColor].map { $0.cgColor }
+
+        if self.isHorizontal {
+            layer.startPoint = CGPoint(x: 0, y: 0.5)
+            layer.endPoint = CGPoint(x: 1, y: 0.5)
+        } else {
+            layer.startPoint = CGPoint(x: 0.5, y: 0)
+            layer.endPoint = CGPoint(x: 0.5, y: 1)
+        }
     }
 }
