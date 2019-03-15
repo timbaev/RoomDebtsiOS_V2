@@ -42,4 +42,18 @@ struct DefaultDebtExtractor: DebtExtractor {
 
         return debt
     }
+
+    func extractDebtList(from json: [JSON], withListType listType: DebtListType, cacheContext: CacheContext) throws -> DebtList {
+        let debtList = cacheContext.debtListManager.firstOrNew(withListType: listType)
+
+        debtList.clearDebts()
+
+        try json.forEach {
+            debtList.append(debt: try self.extractDebt(from: $0, cacheContext: cacheContext))
+        }
+
+        cacheContext.save()
+
+        return debtList
+    }
 }

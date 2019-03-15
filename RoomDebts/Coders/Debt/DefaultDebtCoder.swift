@@ -43,6 +43,14 @@ struct DefaultDebtCoder: DebtCoder {
         return requestParameters
     }
 
+    func encode(conversationUID: Int64) -> JSON {
+        var requestParamters: JSON = [:]
+
+        requestParamters[JSONKeys.conversationID] = conversationUID
+
+        return requestParamters
+    }
+
     func decode(debt: Debt, from json: JSON) -> Bool {
         guard let uid = self.uid(from: json) else {
             return false

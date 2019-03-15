@@ -13,6 +13,7 @@ enum DebtAPI {
     // MARK: - Enumeration Cases
 
     case create(form: CreateDebtForm)
+    case fetch(conversationUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -25,7 +26,7 @@ extension DebtAPI: EndPointType {
         let basePath = "/v1/debts"
 
         switch self {
-        case .create:
+        case .create, .fetch:
             return basePath
         }
     }
@@ -34,6 +35,9 @@ extension DebtAPI: EndPointType {
         switch self {
         case .create:
             return .post
+
+        case .fetch:
+            return .get
         }
     }
 
@@ -43,6 +47,11 @@ extension DebtAPI: EndPointType {
             let requestParameters = Coders.debtCoder.encode(createForm: form)
 
             return .requestParameters(bodyParameters: requestParameters, urlParameters: nil)
+
+        case .fetch(let conversationUID):
+            let requestParamters = Coders.debtCoder.encode(conversationUID: conversationUID)
+
+            return .requestParameters(bodyParameters: nil, urlParameters: requestParamters)
         }
     }
 

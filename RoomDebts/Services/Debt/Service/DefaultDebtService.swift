@@ -29,6 +29,24 @@ struct DefaultDebtService: DebtService {
             } catch {
                 if let webError = error as? WebError {
                     failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
+                }
+            }
+        }, failure: failure)
+    }
+
+    func fetch(for conversationUID: Int64, success: @escaping (DebtList) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonArray(.fetch(conversationUID: conversationUID), success: { json in
+            do {
+                let debtList = try self.debtExtractor.extractDebtList(from: json, withListType: .conversation(uid: conversationUID), cacheContext: Services.cacheViewContext)
+
+                success(debtList)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
                 }
             }
         }, failure: failure)

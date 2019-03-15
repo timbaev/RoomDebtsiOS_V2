@@ -35,8 +35,14 @@ final class DefaultCacheContext: CacheContext {
         return self.model.managerFactory.createDebtManager(with: self)
     }()
 
+    // MARK: -
+
     private(set) lazy var conversationListManager: ConversationListManager = { [unowned self] in
         return self.model.managerFactory.createConversationListManager(with: self)
+    }()
+
+    private(set) lazy var debtListManager: DebtListManager = { [unowned self] in
+        return self.model.managerFactory.createDebtListManager(with: self)
     }()
 
     // MARK: -

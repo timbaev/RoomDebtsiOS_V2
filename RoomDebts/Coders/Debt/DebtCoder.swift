@@ -13,5 +13,7 @@ protocol DebtCoder: Coder {
     // MARK: - Instance Methods
 
     func encode(createForm form: CreateDebtForm) -> JSON
+    func encode(conversationUID: Int64) -> JSON
+
     func decode(debt: Debt, from json: JSON) -> Bool
 }

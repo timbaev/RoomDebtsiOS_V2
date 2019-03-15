@@ -13,4 +13,5 @@ protocol DebtExtractor {
     // MARK: - Instance Methods
 
     func extractDebt(from json: JSON, cacheContext: CacheContext) throws -> Debt
+    func extractDebtList(from json: [JSON], withListType listType: DebtListType, cacheContext: CacheContext) throws -> DebtList
 }

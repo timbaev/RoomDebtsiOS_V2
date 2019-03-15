@@ -23,12 +23,6 @@ import UIKit
         }
     }
 
-    @IBInspectable var text: String? = nil {
-        didSet {
-            self.applyState()
-        }
-    }
-
     @IBInspectable var textColor: UIColor = Colors.white {
         didSet {
             self.applyState()
@@ -56,6 +50,16 @@ import UIKit
     @IBInspectable var textViewTintColor: UIColor = Colors.white {
         didSet {
             self.applyState()
+        }
+    }
+
+    @IBInspectable var text: String {
+        get {
+            return self.textView.text
+        }
+
+        set {
+            self.textView.text = newValue
         }
     }
 

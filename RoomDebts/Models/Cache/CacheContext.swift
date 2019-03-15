@@ -23,6 +23,7 @@ protocol CacheContext: AnyObject {
     var debtManager: DebtManager { get }
 
     var conversationListManager: ConversationListManager { get }
+    var debtListManager: DebtListManager { get }
 
     var type: CacheContextType { get }
 
@@ -55,6 +56,7 @@ extension CacheContext {
         self.debtManager.clear()
 
         self.conversationListManager.clear()
+        self.debtListManager.clear()
 
         self.save()
     }

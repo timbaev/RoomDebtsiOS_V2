@@ -13,6 +13,7 @@ class DebtTableViewCell: UITableViewCell {
     // MARK: - Instance Properties
 
     @IBOutlet private weak var requestView: GradientView!
+    @IBOutlet private weak var requestLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var descriptionStackView: UIStackView!
@@ -40,6 +41,16 @@ class DebtTableViewCell: UITableViewCell {
         }
     }
 
+    var request: String? {
+        get {
+            return self.requestLabel.text
+        }
+
+        set {
+            self.requestLabel.text = newValue
+        }
+    }
+
     var price: String? {
         get {
             return self.priceLabel.text
@@ -47,6 +58,16 @@ class DebtTableViewCell: UITableViewCell {
 
         set {
             self.priceLabel.text = newValue
+        }
+    }
+
+    var priceTextColor: UIColor {
+        get {
+            return self.priceLabel.textColor
+        }
+
+        set {
+            self.priceLabel.textColor = newValue
         }
     }
 
