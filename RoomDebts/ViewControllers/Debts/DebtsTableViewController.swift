@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter {
+class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
     // MARK: - Nested Types
 
@@ -175,24 +176,38 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         let userIsDebtor = (debt.debtorUID == Services.userAccount?.uid)
         let userIsCreator = (debt.creator?.uid == Services.userAccount?.uid)
 
+        let userIsConversationCreator = (self.conversation?.creator?.uid == Services.userAccount?.uid)
+        let opponent = userIsConversationCreator ? self.conversation?.opponent : self.conversation?.creator
+
         switch debt.status {
-        case .accepted?:
+        case .accepted?, nil:
             cell.hasRequest = false
+            cell.isButtonsHidden = true
 
         case .newRequest?, .editRequest?, .closeRequest?, .deleteRequest?:
-            cell.request = debt.status?.description
-            cell.hasRequest = !userIsCreator
+            cell.hasRequest = true
 
-        case nil:
-            cell.hasRequest = false
+            if userIsCreator {
+                cell.request = String(format: "Pending %@".localized(), debt.status?.description ?? "")
+                cell.isButtonsHidden = true
+            } else {
+                cell.request = debt.status?.description
+                cell.isButtonsHidden = false
+            }
         }
 
         cell.price = String(format: "%.2f", debt.price)
 
-        if userIsDebtor {
-            cell.priceTextColor = Colors.red
+        if let userFirstName = Services.userAccount?.firstName, let opponentFirstName = opponent?.firstName {
+            if userIsDebtor {
+                cell.priceTextColor = Colors.red
+                cell.debtor = "\(opponentFirstName) -> \(userFirstName)"
+            } else {
+                cell.priceTextColor = Colors.green
+                cell.debtor = "\(userFirstName) -> \(opponentFirstName)"
+            }
         } else {
-            cell.priceTextColor = Colors.green
+            cell.debtor = nil
         }
 
         if let date = debt.date {
@@ -209,9 +224,13 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
             cell.creator = nil
         }
 
-        cell.onAcceptButtonClick = { }
+        cell.onAcceptButtonClick = { [unowned self] in
+            self.accept(debt: debt)
+        }
 
-        cell.onDeclineButtonClick = { }
+        cell.onDeclineButtonClick = { [unowned self] in
+            self.reject(debt: debt)
+        }
     }
 
     // MARK: -
@@ -225,6 +244,10 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
 
         self.isRefreshingData = true
 
+        if self.isAnimating {
+            self.stopAnimating()
+        }
+
         if !self.tableRefreshControl.isRefreshing {
             if (self.debtList.isEmpty) || (!self.emptyStateContainerView.isHidden) {
                 self.showLoadingState(with: "Loading debts".localized(),
@@ -233,19 +256,31 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         }
 
         Services.debtService.fetch(for: conversation.uid, success: { [weak self] debtList in
-            guard let viewController = self else {
-                return
-            }
-
-            viewController.apply(debtList: debtList)
+            self?.apply(debtList: debtList)
         }, failure: { [weak self] error in
-            guard let viewController = self else {
-                return
-            }
-
-            viewController.handle(stateError: error, retryHandler: { [weak self] in
+            self?.handle(stateError: error, retryHandler: { [weak self] in
                 self?.refreshDebtList()
             })
+        })
+    }
+
+    private func accept(debt: Debt) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.debtService.accept(for: debt.uid, success: { [weak self] debt in
+            self?.refreshDebtList()
+        }, failure: { [weak self] error in
+            self?.handle(stateError: error)
+        })
+    }
+
+    private func reject(debt: Debt) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.debtService.reject(for: debt.uid, success: { [weak self] in
+            self?.refreshDebtList()
+        }, failure: { [weak self] error in
+            self?.handle(stateError: error)
         })
     }
 

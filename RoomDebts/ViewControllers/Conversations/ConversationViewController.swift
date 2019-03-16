@@ -52,6 +52,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
 
     deinit {
         self.unsubscribeFromConversationsEvents()
+        self.unsubscribeFromDebtsEvents()
     }
 
     // MARK: - Instance Methods
@@ -125,6 +126,22 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
 
     private func unsubscribeFromConversationsEvents() {
         Services.cacheViewContext.conversationManager.objectsChangedEvent.disconnect(self)
+    }
+
+    private func subscribeToDebtsEvents() {
+        self.unsubscribeFromDebtsEvents()
+
+        let debtManager = Services.cacheViewContext.debtManager
+
+        debtManager.objectsChangedEvent.connect(self, handler: { [weak self] _ in
+            self?.shouldApplyData = true
+        })
+
+        debtManager.startObserving()
+    }
+
+    private func unsubscribeFromDebtsEvents() {
+        Services.cacheViewContext.debtManager.objectsChangedEvent.disconnect(self)
     }
 
     // MARK: -
@@ -343,6 +360,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         self.configTableRefreshControl()
 
         self.subscribeToConversationsEvents()
+        self.subscribeToDebtsEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {

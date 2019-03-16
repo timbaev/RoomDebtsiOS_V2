@@ -15,6 +15,7 @@ class DebtTableViewCell: UITableViewCell {
     @IBOutlet private weak var requestView: GradientView!
     @IBOutlet private weak var requestLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var debtorLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var descriptionStackView: UIStackView!
     @IBOutlet private weak var descriptionLabel: UILabel!
@@ -31,13 +32,22 @@ class DebtTableViewCell: UITableViewCell {
 
     var hasRequest: Bool {
         get {
-            return !(self.requestView.isHidden && self.acceptButton.isHidden && self.declineButton.isHidden)
+            return !self.requestView.isHidden
         }
 
         set {
             self.requestView.isHidden = !newValue
-            self.acceptButton.isHidden = !newValue
-            self.declineButton.isHidden = !newValue
+        }
+    }
+
+    var isButtonsHidden: Bool {
+        get {
+            return self.acceptButton.isHidden && self.declineButton.isHidden
+        }
+
+        set {
+            self.acceptButton.isHidden = newValue
+            self.declineButton.isHidden = newValue
         }
     }
 
@@ -68,6 +78,16 @@ class DebtTableViewCell: UITableViewCell {
 
         set {
             self.priceLabel.textColor = newValue
+        }
+    }
+
+    var debtor: String? {
+        get {
+            return self.debtorLabel.text
+        }
+
+        set {
+            self.debtorLabel.text = newValue
         }
     }
 
