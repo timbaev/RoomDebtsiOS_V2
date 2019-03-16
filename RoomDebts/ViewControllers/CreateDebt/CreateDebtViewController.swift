@@ -164,6 +164,8 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
             self.nextResponder(after: self.dateTextField)
         }
 
+        self.dateTextField.text = DebtDateFormatter.shared.string(from: Date())
+
         self.descriptionTextView.onDoneButtonClick = { [unowned self] in
             self.nextResponder(after: self.descriptionTextView.textViewTarget)
         }

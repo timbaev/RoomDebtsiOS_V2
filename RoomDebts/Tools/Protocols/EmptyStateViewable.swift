@@ -23,6 +23,8 @@ protocol EmptyStateViewable {
     func showEmptyState(title: String?, message: String)
 
     func showNoDataState(with message: String)
+    func showNoDataState(with message: String, action: EmptyStateAction?)
+    
     func showLoadingState(with title: String?, message: String)
 
     func hideEmptyState()
@@ -83,6 +85,10 @@ extension EmptyStateViewable where Self: UIViewController {
 
     func showNoDataState(with message: String) {
         self.showEmptyState(title: nil, message: message)
+    }
+
+    func showNoDataState(with message: String, action: EmptyStateAction?) {
+        self.showEmptyState(image: nil, title: nil, message: message, action: action)
     }
 
     func showLoadingState(with title: String?, message: String) {

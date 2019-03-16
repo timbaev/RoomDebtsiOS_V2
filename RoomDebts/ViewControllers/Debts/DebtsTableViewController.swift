@@ -270,7 +270,12 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         Services.debtService.accept(for: debt.uid, success: { [weak self] debt in
             self?.refreshDebtList()
         }, failure: { [weak self] error in
-            self?.handle(stateError: error)
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
         })
     }
 
@@ -280,7 +285,12 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         Services.debtService.reject(for: debt.uid, success: { [weak self] in
             self?.refreshDebtList()
         }, failure: { [weak self] error in
-            self?.handle(stateError: error)
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
         })
     }
 
@@ -292,7 +302,15 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         self.debtList = debtList
 
         if debtList.isEmpty && canShowState {
-            self.showNoDataState(with: "Debts not exists".localized())
+            let action = EmptyStateAction(title: "Create new debt".localized(), onClicked: { [unowned self] in
+                guard let conversation = self.conversation else {
+                    return
+                }
+
+                self.performSegue(withIdentifier: Segues.showCreateDebt, sender: conversation)
+            })
+
+            self.showNoDataState(with: "Debts not exists".localized(), action: action)
         } else {
             self.hideEmptyState()
         }
