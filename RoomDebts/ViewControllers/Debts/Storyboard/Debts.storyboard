@@ -31,24 +31,24 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebtCell" rowHeight="319" id="P3F-3V-blk" customClass="DebtTableViewCell" customModule="RoomDebts" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="319"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebtCell" rowHeight="367" id="P3F-3V-blk" customClass="DebtTableViewCell" customModule="RoomDebts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="367"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P3F-3V-blk" id="nke-8z-aRL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q77-c7-4bX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
                                                     <subviews>
                                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xkb-O4-Uwa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nuO-qJ-lwj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W4K-ht-cXL">
-                                                                        <rect key="frame" x="14" y="8" width="347" height="233"/>
+                                                                        <rect key="frame" x="14" y="8" width="347" height="281"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4x-R0-hGs" customClass="GradientView" customModule="RoomDebts" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="347" height="32"/>
@@ -176,10 +176,34 @@
                                                                                     </label>
                                                                                 </subviews>
                                                                             </stackView>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3S-ju-aCE" userLabel="SeparatorView">
+                                                                                <rect key="frame" x="0.0" y="241" width="347" height="2"/>
+                                                                                <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="2" id="k1c-H7-Zai"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="xls-qx-Jf6">
+                                                                                <rect key="frame" x="0.0" y="251" width="347" height="30"/>
+                                                                                <subviews>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XM-AK-kWx">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                                        <state key="normal" image="EditIcon"/>
+                                                                                    </button>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w47-QP-kcd">
+                                                                                        <rect key="frame" x="158.5" y="0.0" width="30" height="30"/>
+                                                                                        <state key="normal" image="RepayIcon"/>
+                                                                                    </button>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQt-k1-O7g">
+                                                                                        <rect key="frame" x="317" y="0.0" width="30" height="30"/>
+                                                                                        <state key="normal" image="DeleteIcon"/>
+                                                                                    </button>
+                                                                                </subviews>
+                                                                            </stackView>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="aOb-8j-0S4">
-                                                                        <rect key="frame" x="51" y="249" width="273" height="39"/>
+                                                                        <rect key="frame" x="51" y="297" width="273" height="39"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-bR-aqE" customClass="RoundedButton" customModule="RoomDebts" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="39"/>
@@ -310,4 +334,9 @@
             <point key="canvasLocation" x="785" y="164"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DeleteIcon" width="30" height="36"/>
+        <image name="EditIcon" width="30" height="30"/>
+        <image name="RepayIcon" width="30" height="30"/>
+    </resources>
 </document>

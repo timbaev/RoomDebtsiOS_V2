@@ -116,6 +116,9 @@
 		CB7ACE47222AF3D6004628A4 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */; };
 		CB83DCD2221E9DBA00749486 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB83DCD1221E9DBA00749486 /* Search.storyboard */; };
 		CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */; };
+		CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB6223EBE19005E379D /* ConfigurableCell.swift */; };
+		CB913AB9223EBF6D005E379D /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB8223EBF6D005E379D /* CellConfigurator.swift */; };
+		CB913ABB223EBFE7005E379D /* TableCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */; };
 		CB9C442F222680E00052F512 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C442E222680E00052F512 /* Conversation.swift */; };
 		CB9C44312226813F0052F512 /* ConversationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C44302226813F0052F512 /* ConversationStatus.swift */; };
 		CB9C4433222681B80052F512 /* DefaultConversationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C4432222681B80052F512 /* DefaultConversationExtension.swift */; };
@@ -158,6 +161,7 @@
 		CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */; };
 		CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */; };
 		CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */; };
+		CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */; };
 		CBC86B86223A53EB003C50F6 /* DebtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B85223A53EB003C50F6 /* DebtList.swift */; };
 		CBC86B88223A540A003C50F6 /* DebtListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B87223A540A003C50F6 /* DebtListType.swift */; };
 		CBC86B8A223A568B003C50F6 /* DefaultDebtListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B89223A568B003C50F6 /* DefaultDebtListExtension.swift */; };
@@ -330,6 +334,9 @@
 		CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		CB83DCD1221E9DBA00749486 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		CB913AB6223EBE19005E379D /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		CB913AB8223EBF6D005E379D /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
+		CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellConfigurator.swift; sourceTree = "<group>"; };
 		CB9C442E222680E00052F512 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		CB9C44302226813F0052F512 /* ConversationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationStatus.swift; sourceTree = "<group>"; };
 		CB9C4432222681B80052F512 /* DefaultConversationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationExtension.swift; sourceTree = "<group>"; };
@@ -376,6 +383,7 @@
 		CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneColorTabBarItem.swift; sourceTree = "<group>"; };
 		CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedNavigationController.swift; sourceTree = "<group>"; };
+		CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtTableViewModel.swift; sourceTree = "<group>"; };
 		CBC86B85223A53EB003C50F6 /* DebtList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtList.swift; sourceTree = "<group>"; };
 		CBC86B87223A540A003C50F6 /* DebtListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtListType.swift; sourceTree = "<group>"; };
 		CBC86B89223A568B003C50F6 /* DefaultDebtListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtListExtension.swift; sourceTree = "<group>"; };
@@ -892,6 +900,24 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		CB913AB4223EBDFF005E379D /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CB913AB5223EBE08005E379D /* Cell */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		CB913AB5223EBE08005E379D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CB913AB8223EBF6D005E379D /* CellConfigurator.swift */,
+				CB913AB6223EBE19005E379D /* ConfigurableCell.swift */,
+				CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CB9C442D222680C30052F512 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,6 +1081,7 @@
 		CBAC543E21F4A422004C8C65 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CBC20097223F6E5300D0DF6A /* ViewModels */,
 				CBAC546221F4A6D7004C8C65 /* Cache */,
 				CBCCC4372232D06700535D57 /* Forms */,
 				CB117BAF2204C13900C20905 /* VerificationCode */,
@@ -1202,6 +1229,7 @@
 				CBEB2DC0222C1DE600653B11 /* Conversation */,
 				CB3ADFC9223A36F900495E05 /* Debts */,
 				CB714B872222C7CB007961C6 /* Search */,
+				CB913AB4223EBDFF005E379D /* Tools */,
 				CB18CA2E2230F0260027E905 /* CurrencyView.swift */,
 				CBEB2DC3222C229800653B11 /* EmptyStateView.swift */,
 				CB4EB175222E912D00FF2232 /* GradientSegmentControl.swift */,
@@ -1213,6 +1241,22 @@
 				CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CBC20097223F6E5300D0DF6A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CBC20098223F6E5B00D0DF6A /* Debts */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CBC20098223F6E5B00D0DF6A /* Debts */ = {
+			isa = PBXGroup;
+			children = (
+				CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */,
+			);
+			path = Debts;
 			sourceTree = "<group>";
 		};
 		CBC86B8B223A58D0003C50F6 /* Manager */ = {
@@ -1609,6 +1653,7 @@
 			files = (
 				CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */,
 				CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */,
+				CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */,
 				CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */,
 				CB472D2621F74C1E00FB98EE /* EventConnection.swift in Sources */,
 				CB472D2A21F7539E00FB98EE /* UserAccountExtractor.swift in Sources */,
@@ -1631,6 +1676,7 @@
 				CB9C4436222683F30052F512 /* ConversationManager.swift in Sources */,
 				CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */,
 				CB472CF421F7113400FB98EE /* JSONParameterEncoder.swift in Sources */,
+				CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */,
 				CB098EC82225207800FDD47C /* DefaultConversationService.swift in Sources */,
 				CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */,
 				CB714B952222D863007961C6 /* User.swift in Sources */,
@@ -1735,6 +1781,7 @@
 				CBEB2DC2222C1DF100653B11 /* ConversationTableViewCell.swift in Sources */,
 				CBCCC43C2232D15C00535D57 /* DebtCoder.swift in Sources */,
 				CB4EB176222E912D00FF2232 /* GradientSegmentControl.swift in Sources */,
+				CB913ABB223EBFE7005E379D /* TableCellConfigurator.swift in Sources */,
 				CB3ADFCB223A370900495E05 /* DebtTableViewCell.swift in Sources */,
 				CBAC545221F4A48A004C8C65 /* CoreDataStorageExtension.swift in Sources */,
 				CB472D1721F7488800FB98EE /* UserAccountsManager.swift in Sources */,
@@ -1744,6 +1791,7 @@
 				CBEB2DC8222C4BE000653B11 /* ImageDownloader.swift in Sources */,
 				CB714B8B2222C9D6007961C6 /* UserAPI.swift in Sources */,
 				CBAC546D21F4AD85004C8C65 /* MainTabBarController.swift in Sources */,
+				CB913AB9223EBF6D005E379D /* CellConfigurator.swift in Sources */,
 				CB18CA2F2230F0260027E905 /* CurrencyView.swift in Sources */,
 				CB03CBD32236CD9B00104251 /* Debt.swift in Sources */,
 				CBAC545321F4A48A004C8C65 /* CoreDataStorageContext.swift in Sources */,

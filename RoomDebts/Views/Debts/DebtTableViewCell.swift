@@ -14,19 +14,30 @@ class DebtTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var requestView: GradientView!
     @IBOutlet private weak var requestLabel: UILabel!
+
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var debtorLabel: UILabel!
+
     @IBOutlet private weak var dateLabel: UILabel!
+
     @IBOutlet private weak var descriptionStackView: UIStackView!
     @IBOutlet private weak var descriptionLabel: UILabel!
+
     @IBOutlet private weak var creatorLabel: UILabel!
+
     @IBOutlet private weak var acceptButton: RoundedButton!
     @IBOutlet private weak var declineButton: RoundedButton!
+
+    @IBOutlet private weak var toolbarStackView: UIStackView!
 
     // MARK: -
 
     var onAcceptButtonClick: (() -> Void)?
     var onDeclineButtonClick: (() -> Void)?
+
+    var onEditButtonClick: (() -> Void)?
+    var onRepayButtonClick: (() -> Void)?
+    var onDeleteButtonClick: (() -> Void)?
 
     // MARK: -
 
@@ -126,6 +137,16 @@ class DebtTableViewCell: UITableViewCell {
         }
     }
 
+    var isToolbarHidden: Bool {
+        get {
+            return self.toolbarStackView.isHidden
+        }
+
+        set {
+            self.toolbarStackView.isHidden = newValue
+        }
+    }
+
     // MARK: - Instance Methods
 
     @IBAction private func onAcceptButtonTouchUpInside(_ sender: UIButton) {
@@ -138,5 +159,23 @@ class DebtTableViewCell: UITableViewCell {
         Log.i()
 
         self.onDeclineButtonClick?()
+    }
+
+    @IBAction private func onEditButtonTouchUpInside(_ sender: UIButton) {
+        Log.i()
+
+        self.onEditButtonClick?()
+    }
+
+    @IBAction private func onRepayButtonTouchUpInside(_ sender: UIButton) {
+        Log.i()
+
+        self.onRepayButtonClick?()
+    }
+
+    @IBAction private func onDeleteButtonTouchUpInside(_ sender: UIButton) {
+        Log.i()
+
+        self.onDeleteButtonClick?()
     }
 }

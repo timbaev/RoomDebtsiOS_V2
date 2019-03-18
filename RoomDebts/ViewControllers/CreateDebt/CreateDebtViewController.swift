@@ -40,6 +40,7 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
     private weak var datePicker: UIDatePicker?
 
     private var conversation: Conversation?
+    private var debt: Debt?
 
     private(set) var shouldApplyData = true
 
@@ -236,6 +237,34 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
         }
     }
 
+    private func apply(debt: Debt) {
+        Log.i(debt.uid)
+
+        self.debt = debt
+
+        if self.isViewLoaded {
+            self.currencyView.text = String(format: "%.2f", debt.price)
+
+            if let date = debt.date {
+                self.dateTextField.text = DebtDateFormatter.shared.string(from: date)
+            }
+
+            self.descriptionTextView.text = debt.debtDescription ?? ""
+
+            if debt.debtorUID == self.conversation?.creator?.uid {
+                self.debtorSegmentControl.selectedSegmentIndex = Constants.creatorSegmentIndex
+            } else {
+                self.debtorSegmentControl.selectedSegmentIndex = Constants.opponentSegmentIndex
+            }
+
+            self.createButton.setTitle("Update".localized(), for: .normal)
+
+            self.shouldApplyData = false
+        } else {
+            self.shouldApplyData = true
+        }
+    }
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -252,6 +281,10 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
 
         if self.shouldApplyData, let conversation = self.conversation {
             self.apply(conversation: conversation)
+
+            if let debt = self.debt {
+                self.apply(debt: debt)
+            }
         }
 
         self.subscribeToKeyboardNotifications()
@@ -271,11 +304,13 @@ extension CreateDebtViewController: DictionaryReceiver {
     // MARK: - Instance Methods
 
     func apply(dictionary: [String: Any]) {
-        guard let conversation = dictionary["conversation"] as? Conversation else {
-            return
+        if let conversation = dictionary["conversation"] as? Conversation {
+            self.apply(conversation: conversation)
         }
 
-        self.apply(conversation: conversation)
+        if let debt = dictionary["debt"] as? Debt {
+            self.apply(debt: debt)
+        }
     }
 }
 

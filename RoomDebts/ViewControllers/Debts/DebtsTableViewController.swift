@@ -183,6 +183,7 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         case .accepted?, nil:
             cell.hasRequest = false
             cell.isButtonsHidden = true
+            cell.isToolbarHidden = false
 
         case .newRequest?, .editRequest?, .closeRequest?, .deleteRequest?:
             cell.hasRequest = true
@@ -190,9 +191,11 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
             if userIsCreator {
                 cell.request = String(format: "Pending %@".localized(), debt.status?.description ?? "")
                 cell.isButtonsHidden = true
+                cell.isToolbarHidden = false
             } else {
                 cell.request = debt.status?.description
                 cell.isButtonsHidden = false
+                cell.isToolbarHidden = true
             }
         }
 
@@ -230,6 +233,14 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
 
         cell.onDeclineButtonClick = { [unowned self] in
             self.reject(debt: debt)
+        }
+
+        cell.onEditButtonClick = { [unowned self] in
+            guard let conversation = self.conversation else {
+                return
+            }
+
+            self.performSegue(withIdentifier: Segues.showCreateDebt, sender: (debt: debt, conversation: conversation))
         }
     }
 
@@ -395,12 +406,19 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
 
         switch segue.identifier {
         case Segues.showCreateDebt:
-            guard let conversation = sender as? Conversation else {
+            var dictionary: [String: Any] = [:]
+
+            if let data = sender as? (debt: Debt, conversation: Conversation) {
+                dictionary["debt"] = data.debt
+                dictionary["conversation"] = data.conversation
+            } else if let conversation = sender as? Conversation {
+                dictionary["conversation"] = conversation
+            } else {
                 fatalError()
             }
 
             if let dictionaryReceiver = dictionaryReceiver {
-                dictionaryReceiver.apply(dictionary: ["conversation": conversation])
+                dictionaryReceiver.apply(dictionary: dictionary)
             }
 
         default:
