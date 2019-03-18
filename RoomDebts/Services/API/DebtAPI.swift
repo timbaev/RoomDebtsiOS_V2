@@ -44,10 +44,10 @@ extension DebtAPI: EndPointType {
             return basePath + "/\(debtUID)"
 
         case .deleteRequest(let debtUID):
-            return basePath + "\(debtUID)/request"
+            return basePath + "/\(debtUID)/request"
 
         case .delete(let debtUID):
-            return basePath + "\(debtUID)"
+            return basePath + "/\(debtUID)"
         }
     }
 
