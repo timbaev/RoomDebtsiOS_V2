@@ -35,7 +35,7 @@ extension UIViewController {
         }
         
         alertController.view.tintColor = Colors.PrimaryButton.third
-        
+
         self.present(alertController, animated: animated, completion: completion)
     }
 }

@@ -17,6 +17,8 @@ enum DebtAPI {
     case accept(debtUID: Int64)
     case reject(debtUID: Int64)
     case update(debtUID: Int64, form: CreateDebtForm)
+    case deleteRequest(debtUID: Int64)
+    case delete(debtUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -40,6 +42,12 @@ extension DebtAPI: EndPointType {
 
         case .update(let debtUID, _):
             return basePath + "/\(debtUID)"
+
+        case .deleteRequest(let debtUID):
+            return basePath + "\(debtUID)/request"
+
+        case .delete(let debtUID):
+            return basePath + "\(debtUID)"
         }
     }
 
@@ -53,6 +61,9 @@ extension DebtAPI: EndPointType {
 
         case .update:
             return .put
+
+        case .deleteRequest, .delete:
+            return .delete
         }
     }
 
@@ -68,7 +79,7 @@ extension DebtAPI: EndPointType {
 
             return .requestParameters(bodyParameters: nil, urlParameters: requestParameters)
 
-        case .accept, .reject:
+        case .accept, .reject, .deleteRequest, .delete:
             return .request
 
         case .update(_, let form):

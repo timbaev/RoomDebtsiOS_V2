@@ -202,6 +202,29 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
 
             self.performSegue(withIdentifier: Segues.showCreateDebt, sender: (debt: debt, conversation: conversation))
         }
+
+        cell.onDeleteButtonClick = { [unowned self] in
+            let message: String
+            let actionTitle: String
+
+            if debt.status == .newRequest {
+                message = "Debt can be delete without opponent approve".localized()
+                actionTitle = "Delete".localized()
+            } else {
+                message = "Opponent should approve deletion of this debt".localized()
+                actionTitle = "Send delete request".localized()
+            }
+
+            UIAlertController.Builder()
+                .preferredStyle(.actionSheet)
+                .withTitle("Deletion".localized())
+                .withMessage(message)
+                .addDestructiveAction(withTitle: actionTitle, handler: { [unowned self] action in
+                    self.delete(debt: debt)
+                })
+                .addCancelAction()
+                .show(in: self)
+        }
     }
 
     // MARK: -
@@ -263,6 +286,34 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
             viewController.stopAnimating()
             viewController.handle(stateError: error)
         })
+    }
+
+    private func delete(debt: Debt) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        if debt.status == .newRequest {
+            Services.debtService.delete(debtUID: debt.uid, success: { [weak self] in
+                self?.refreshDebtList()
+            }, failure: { [weak self] error in
+                guard let viewController = self else {
+                    return
+                }
+
+                viewController.stopAnimating()
+                viewController.handle(stateError: error)
+            })
+        } else {
+            Services.debtService.deleteRequest(for: debt.uid, success: { [weak self] debt in
+                self?.refreshDebtList()
+            }, failure: { [weak self] error in
+                guard let viewController = self else {
+                    return
+                }
+
+                viewController.stopAnimating()
+                viewController.handle(stateError: error)
+            })
+        }
     }
 
     // MARK: -

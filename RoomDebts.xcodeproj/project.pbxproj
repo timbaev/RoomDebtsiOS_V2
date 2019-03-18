@@ -1558,7 +1558,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -1579,7 +1579,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CB0ECA3B22297AB1000B902E /* Swiftlint */ = {

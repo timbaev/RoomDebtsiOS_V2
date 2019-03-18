@@ -89,4 +89,28 @@ struct DefaultDebtService: DebtService {
             }
         }, failure: failure)
     }
+
+    func deleteRequest(for debtUID: Int64, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonObject(.deleteRequest(debtUID: debtUID), success: { json in
+            do {
+                let debt = try self.debtExtractor.extractDebt(from: json, cacheContext: Services.cacheViewContext)
+
+                success(debt)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
+                }
+            }
+        }, failure: failure)
+    }
+
+    func delete(debtUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.json(.delete(debtUID: debtUID), success: {
+            Services.cacheViewContext.debtManager.clear(withUID: debtUID)
+
+            success()
+        }, failure: failure)
+    }
 }
