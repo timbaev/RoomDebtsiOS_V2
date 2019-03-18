@@ -29,6 +29,7 @@ class DebtTableViewCell: UITableViewCell {
     @IBOutlet private weak var declineButton: RoundedButton!
 
     @IBOutlet private weak var toolbarStackView: UIStackView!
+    @IBOutlet private weak var repayButton: UIButton!
 
     // MARK: -
 
@@ -97,5 +98,6 @@ extension DebtTableViewCell: ConfigurableCell {
 
         self.creatorLabel.text = viewModel.creator
         self.toolbarStackView.isHidden = viewModel.isToolbarHidden
+        self.repayButton.isHidden = viewModel.isRepayButtonHidden
     }
 }

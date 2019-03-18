@@ -22,9 +22,11 @@ struct DebtTableViewModel {
     let debtDescription: String?
     let creator: String?
     let isToolbarHidden: Bool
+    let isRepayButtonHidden: Bool
 
     // MARK: - Initializers
 
+    // swiftlint:disable function_body_length
     init(debt: Debt, conversation: Conversation) {
         let userIsDebtor = (debt.debtorUID == Services.userAccount?.uid)
         let userIsCreator = (debt.creator?.uid == Services.userAccount?.uid)
@@ -38,9 +40,11 @@ struct DebtTableViewModel {
             self.isButtonsHidden = true
             self.isToolbarHidden = false
             self.request = nil
+            self.isRepayButtonHidden = false
 
         case .newRequest?, .editRequest?, .closeRequest?, .deleteRequest?:
             self.hasRequest = true
+            self.isRepayButtonHidden = true
 
             if userIsCreator {
                 self.request = String(format: "Pending %@".localized(), debt.status?.description ?? "")

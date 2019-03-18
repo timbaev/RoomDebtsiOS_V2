@@ -296,6 +296,7 @@
                                             <outlet property="descriptionLabel" destination="ah4-ZN-evU" id="zoz-wM-1Iv"/>
                                             <outlet property="descriptionStackView" destination="nTp-pz-9vs" id="sTf-O6-rXh"/>
                                             <outlet property="priceLabel" destination="osj-Cb-oc8" id="gTH-0g-sMp"/>
+                                            <outlet property="repayButton" destination="w47-QP-kcd" id="qce-l0-b72"/>
                                             <outlet property="requestLabel" destination="y0J-6L-c6Z" id="pTB-bt-mdO"/>
                                             <outlet property="requestView" destination="M4x-R0-hGs" id="02b-FU-uvY"/>
                                             <outlet property="toolbarStackView" destination="xls-qx-Jf6" id="xNX-0r-iBt"/>
