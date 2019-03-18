@@ -46,14 +46,20 @@ struct DebtTableViewModel {
             self.hasRequest = true
             self.isRepayButtonHidden = true
 
-            if userIsCreator {
-                self.request = String(format: "Pending %@".localized(), debt.status?.description ?? "")
+            if debt.isRejected {
+                self.request = String(format: "Rejected %@".localized(), debt.status?.description ?? "")
                 self.isButtonsHidden = true
                 self.isToolbarHidden = false
             } else {
-                self.request = debt.status?.description
-                self.isButtonsHidden = false
-                self.isToolbarHidden = true
+                if userIsCreator {
+                    self.request = String(format: "Pending %@".localized(), debt.status?.description ?? "")
+                    self.isButtonsHidden = true
+                    self.isToolbarHidden = false
+                } else {
+                    self.request = debt.status?.description
+                    self.isButtonsHidden = false
+                    self.isToolbarHidden = true
+                }
             }
         }
 

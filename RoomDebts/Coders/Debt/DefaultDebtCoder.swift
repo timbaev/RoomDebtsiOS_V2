@@ -22,6 +22,7 @@ struct DefaultDebtCoder: DebtCoder {
         static let description = "description"
         static let debtorID = "debtorID"
         static let conversationID = "conversationID"
+        static let isRejected = "isRejected"
 
         static let status = "status"
     }
@@ -76,6 +77,10 @@ struct DefaultDebtCoder: DebtCoder {
             return false
         }
 
+        guard let isRejected: Bool = JSONKeys.isRejected <~~ json else {
+            return false
+        }
+
         let description: String? = JSONKeys.description <~~ json
 
         debt.uid = uid
@@ -84,6 +89,7 @@ struct DefaultDebtCoder: DebtCoder {
         debt.debtorUID = debtorUID
         debt.status = status
         debt.debtDescription = description
+        debt.isRejected = isRejected
 
         return true
     }

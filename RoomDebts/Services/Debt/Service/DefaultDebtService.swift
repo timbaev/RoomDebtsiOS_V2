@@ -70,8 +70,6 @@ struct DefaultDebtService: DebtService {
 
     func reject(for debtUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
         self.router.json(.reject(debtUID: debtUID), success: {
-            Services.cacheViewContext.debtManager.clear(withUID: debtUID)
-
             success()
         }, failure: failure)
     }

@@ -17,6 +17,7 @@ protocol Debt: AnyObject {
     var price: Double { get set }
     var date: Date? { get set }
     var debtDescription: String? { get set }
+    var isRejected: Bool { get set }
 
     var creator: User? { get set }
     var debtorUID: Int64 { get set }
