@@ -60,6 +60,7 @@ import UIKit
 
         set {
             self.textView.text = newValue
+            self.updatePlaceholderLabelState()
         }
     }
 
@@ -124,6 +125,10 @@ import UIKit
                                      self.placeholderLabel.leadingAnchor.constraint(equalTo: self.textView.leadingAnchor, constant: 5),
                                      self.placeholderLabel.trailingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: self.textView.trailingAnchor, multiplier: -7)])
     }
+
+    private func updatePlaceholderLabelState() {
+        self.placeholderLabel.isHidden = self.textView.hasText
+    }
 }
 
 // MARK: - UITextViewDelegate
@@ -133,7 +138,7 @@ extension PlaceholderTextView: UITextViewDelegate {
     // MARK: - Instance Methods
 
     func textViewDidChange(_ textView: UITextView) {
-        self.placeholderLabel.isHidden = textView.hasText
+        self.updatePlaceholderLabelState()
 
         self.textViewDidChange?(textView)
     }

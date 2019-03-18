@@ -16,6 +16,7 @@ enum DebtAPI {
     case fetch(conversationUID: Int64)
     case accept(debtUID: Int64)
     case reject(debtUID: Int64)
+    case update(debtUID: Int64, form: CreateDebtForm)
 }
 
 // MARK: - EndPointType
@@ -36,6 +37,9 @@ extension DebtAPI: EndPointType {
 
         case .reject(let debtUID):
             return basePath + "/\(debtUID)/reject"
+
+        case .update(let debtUID, _):
+            return basePath + "/\(debtUID)"
         }
     }
 
@@ -46,6 +50,9 @@ extension DebtAPI: EndPointType {
 
         case .fetch:
             return .get
+
+        case .update:
+            return .put
         }
     }
 
@@ -57,12 +64,17 @@ extension DebtAPI: EndPointType {
             return .requestParameters(bodyParameters: requestParameters, urlParameters: nil)
 
         case .fetch(let conversationUID):
-            let requestParamters = Coders.debtCoder.encode(conversationUID: conversationUID)
+            let requestParameters = Coders.debtCoder.encode(conversationUID: conversationUID)
 
-            return .requestParameters(bodyParameters: nil, urlParameters: requestParamters)
+            return .requestParameters(bodyParameters: nil, urlParameters: requestParameters)
 
         case .accept, .reject:
             return .request
+
+        case .update(_, let form):
+            let requestParameters = Coders.debtCoder.encode(createForm: form)
+
+            return .requestParameters(bodyParameters: requestParameters, urlParameters: nil)
         }
     }
 

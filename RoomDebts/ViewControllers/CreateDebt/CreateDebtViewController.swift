@@ -99,7 +99,11 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
                                   debtorUID: debtorUID,
                                   conversationUID: conversationUID)
 
-        self.createDebt(with: form)
+        if let debt = self.debt {
+            self.update(debt: debt, with: form)
+        } else {
+            self.createDebt(with: form)
+        }
     }
 
     // MARK: -
@@ -197,10 +201,30 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
 
     // MARK: -
 
-    func createDebt(with form: CreateDebtForm) {
+    private func createDebt(with form: CreateDebtForm) {
         self.startAnimating(type: .ballScaleMultiple)
 
         Services.debtService.create(with: form, success: { [weak self] debt in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.dismiss(animated: true)
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
+    }
+
+    private func update(debt: Debt, with form: CreateDebtForm) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.debtService.update(for: debt.uid, form: form, success: { [weak self] debt in
             guard let viewController = self else {
                 return
             }
@@ -259,6 +283,8 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
 
             self.createButton.setTitle("Update".localized(), for: .normal)
 
+            self.updateCreateButtonState()
+
             self.shouldApplyData = false
         } else {
             self.shouldApplyData = true
@@ -288,6 +314,12 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
         }
 
         self.subscribeToKeyboardNotifications()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.debtorSegmentControl.layoutSubviews()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

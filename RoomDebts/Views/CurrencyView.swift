@@ -77,6 +77,7 @@ import UIKit
 
         set {
             self.textField.text = newValue
+            self.updateCurrencySymbolLabelState()
         }
     }
 

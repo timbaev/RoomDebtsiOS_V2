@@ -10,6 +10,14 @@ import UIKit
 
 class GradientSegmentControl: UISegmentedControl {
 
+    // MARK: - Instance Properties
+
+    override var selectedSegmentIndex: Int {
+        didSet {
+            self.updateGradientBackground()
+        }
+    }
+
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -79,6 +87,14 @@ class GradientSegmentControl: UISegmentedControl {
         gradient.mask = shape
 
         self.layer.addSublayer(gradient)
+
+        self.updateGradientBackground()
+    }
+
+    // MARK: - UISegmentedControl
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
 
         self.updateGradientBackground()
     }

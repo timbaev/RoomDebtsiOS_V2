@@ -189,14 +189,23 @@
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XM-AK-kWx">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                                         <state key="normal" image="EditIcon"/>
+                                                                                        <connections>
+                                                                                            <action selector="onEditButtonTouchUpInside:" destination="P3F-3V-blk" eventType="touchUpInside" id="GMU-15-EYA"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w47-QP-kcd">
                                                                                         <rect key="frame" x="158.5" y="0.0" width="30" height="30"/>
                                                                                         <state key="normal" image="RepayIcon"/>
+                                                                                        <connections>
+                                                                                            <action selector="onRepayButtonTouchUpInside:" destination="P3F-3V-blk" eventType="touchUpInside" id="j7i-fd-nWN"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQt-k1-O7g">
                                                                                         <rect key="frame" x="317" y="0.0" width="30" height="30"/>
                                                                                         <state key="normal" image="DeleteIcon"/>
+                                                                                        <connections>
+                                                                                            <action selector="onDeleteButtonTouchUpInside:" destination="P3F-3V-blk" eventType="touchUpInside" id="RJh-BH-inb"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -289,6 +298,7 @@
                                             <outlet property="priceLabel" destination="osj-Cb-oc8" id="gTH-0g-sMp"/>
                                             <outlet property="requestLabel" destination="y0J-6L-c6Z" id="pTB-bt-mdO"/>
                                             <outlet property="requestView" destination="M4x-R0-hGs" id="02b-FU-uvY"/>
+                                            <outlet property="toolbarStackView" destination="xls-qx-Jf6" id="xNX-0r-iBt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

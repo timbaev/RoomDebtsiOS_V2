@@ -39,114 +39,6 @@ class DebtTableViewCell: UITableViewCell {
     var onRepayButtonClick: (() -> Void)?
     var onDeleteButtonClick: (() -> Void)?
 
-    // MARK: -
-
-    var hasRequest: Bool {
-        get {
-            return !self.requestView.isHidden
-        }
-
-        set {
-            self.requestView.isHidden = !newValue
-        }
-    }
-
-    var isButtonsHidden: Bool {
-        get {
-            return self.acceptButton.isHidden && self.declineButton.isHidden
-        }
-
-        set {
-            self.acceptButton.isHidden = newValue
-            self.declineButton.isHidden = newValue
-        }
-    }
-
-    var request: String? {
-        get {
-            return self.requestLabel.text
-        }
-
-        set {
-            self.requestLabel.text = newValue
-        }
-    }
-
-    var price: String? {
-        get {
-            return self.priceLabel.text
-        }
-
-        set {
-            self.priceLabel.text = newValue
-        }
-    }
-
-    var priceTextColor: UIColor {
-        get {
-            return self.priceLabel.textColor
-        }
-
-        set {
-            self.priceLabel.textColor = newValue
-        }
-    }
-
-    var debtor: String? {
-        get {
-            return self.debtorLabel.text
-        }
-
-        set {
-            self.debtorLabel.text = newValue
-        }
-    }
-
-    var date: String? {
-        get {
-            return self.dateLabel.text
-        }
-
-        set {
-            self.dateLabel.text = newValue
-        }
-    }
-
-    var debtDescription: String? {
-        get {
-            return self.descriptionLabel.text
-        }
-
-        set {
-            if let newValue = newValue {
-                self.descriptionLabel.text = newValue
-                self.descriptionStackView.isHidden = false
-            } else {
-                self.descriptionStackView.isHidden = true
-            }
-        }
-    }
-
-    var creator: String? {
-        get {
-            return self.creatorLabel.text
-        }
-
-        set {
-            self.creatorLabel.text = newValue
-        }
-    }
-
-    var isToolbarHidden: Bool {
-        get {
-            return self.toolbarStackView.isHidden
-        }
-
-        set {
-            self.toolbarStackView.isHidden = newValue
-        }
-    }
-
     // MARK: - Instance Methods
 
     @IBAction private func onAcceptButtonTouchUpInside(_ sender: UIButton) {
@@ -177,5 +69,33 @@ class DebtTableViewCell: UITableViewCell {
         Log.i()
 
         self.onDeleteButtonClick?()
+    }
+}
+
+// MARK: - ConfigurableCell
+
+extension DebtTableViewCell: ConfigurableCell {
+
+    // MARK: - Instance Methods
+
+    func configure(data viewModel: DebtTableViewModel) {
+        self.requestView.isHidden = !viewModel.hasRequest
+        self.acceptButton.isHidden = viewModel.isButtonsHidden
+        self.declineButton.isHidden = viewModel.isButtonsHidden
+        self.requestLabel.text = viewModel.request
+        self.priceLabel.text = viewModel.price
+        self.priceLabel.textColor = viewModel.priceTextColor
+        self.debtorLabel.text = viewModel.debtor
+        self.dateLabel.text = viewModel.date
+
+        if let description = viewModel.debtDescription {
+            self.descriptionLabel.text = description
+            self.descriptionStackView.isHidden = false
+        } else {
+            self.descriptionStackView.isHidden = true
+        }
+
+        self.creatorLabel.text = viewModel.creator
+        self.toolbarStackView.isHidden = viewModel.isToolbarHidden
     }
 }

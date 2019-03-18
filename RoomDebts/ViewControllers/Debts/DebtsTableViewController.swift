@@ -11,6 +11,10 @@ import NVActivityIndicatorView
 
 class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
+    // MARK: - Type Aliases
+
+    private typealias DebtCellConfigurator = TableCellConfigurator<DebtTableViewCell, DebtTableViewModel>
+
     // MARK: - Nested Types
 
     private enum Segues {
@@ -43,6 +47,8 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
     // MARK: -
 
     private var conversation: Conversation?
+
+    private var items: [CellConfigurator] = []
 
     // MARK: -
 
@@ -173,59 +179,13 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
     private func config(debtTableCell cell: DebtTableViewCell, at indexPath: IndexPath) {
         let debt = self.debtList[indexPath.row]
 
-        let userIsDebtor = (debt.debtorUID == Services.userAccount?.uid)
-        let userIsCreator = (debt.creator?.uid == Services.userAccount?.uid)
-
-        let userIsConversationCreator = (self.conversation?.creator?.uid == Services.userAccount?.uid)
-        let opponent = userIsConversationCreator ? self.conversation?.opponent : self.conversation?.creator
-
-        switch debt.status {
-        case .accepted?, nil:
-            cell.hasRequest = false
-            cell.isButtonsHidden = true
-            cell.isToolbarHidden = false
-
-        case .newRequest?, .editRequest?, .closeRequest?, .deleteRequest?:
-            cell.hasRequest = true
-
-            if userIsCreator {
-                cell.request = String(format: "Pending %@".localized(), debt.status?.description ?? "")
-                cell.isButtonsHidden = true
-                cell.isToolbarHidden = false
-            } else {
-                cell.request = debt.status?.description
-                cell.isButtonsHidden = false
-                cell.isToolbarHidden = true
-            }
+        guard let conversation = self.conversation else {
+            return
         }
 
-        cell.price = String(format: "%.2f", debt.price)
+        let viewModel = DebtTableViewModel(debt: debt, conversation: conversation)
 
-        if let userFirstName = Services.userAccount?.firstName, let opponentFirstName = opponent?.firstName {
-            if userIsDebtor {
-                cell.priceTextColor = Colors.red
-                cell.debtor = "\(opponentFirstName) -> \(userFirstName)"
-            } else {
-                cell.priceTextColor = Colors.green
-                cell.debtor = "\(userFirstName) -> \(opponentFirstName)"
-            }
-        } else {
-            cell.debtor = nil
-        }
-
-        if let date = debt.date {
-            cell.date = DebtDateFormatter.shared.string(from: date)
-        } else {
-            cell.date = nil
-        }
-
-        cell.debtDescription = debt.debtDescription
-
-        if let firstName = debt.creator?.firstName, let lastName = debt.creator?.lastName {
-            cell.creator = "\(firstName) \(lastName)"
-        } else {
-            cell.creator = nil
-        }
+        TableCellConfigurator<DebtTableViewCell, DebtTableViewModel>(item: viewModel).configure(cell: cell)
 
         cell.onAcceptButtonClick = { [unowned self] in
             self.accept(debt: debt)
