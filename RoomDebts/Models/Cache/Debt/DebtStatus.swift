@@ -13,6 +13,7 @@ enum DebtStatus: String {
     // MARK: - Enumeration Cases
 
     case accepted
+    case repaid
     case newRequest
     case editRequest
     case repayRequest
@@ -24,6 +25,9 @@ enum DebtStatus: String {
         switch self {
         case .accepted:
             return "Accepted".localized()
+
+        case .repaid:
+            return "Repaid".localized()
 
         case .newRequest:
             return "New Request".localized()

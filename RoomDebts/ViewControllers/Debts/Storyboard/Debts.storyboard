@@ -256,14 +256,22 @@
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
+                                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZR-TY-yEs" userLabel="BlackView">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </view>
                                                                 </subviews>
                                                                 <constraints>
+                                                                    <constraint firstItem="rZR-TY-yEs" firstAttribute="top" secondItem="nuO-qJ-lwj" secondAttribute="top" id="Mda-t6-oaY"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="rZR-TY-yEs" secondAttribute="trailing" id="Mzz-oI-2l2"/>
                                                                     <constraint firstItem="W4K-ht-cXL" firstAttribute="top" secondItem="nuO-qJ-lwj" secondAttribute="top" constant="8" id="Uij-MN-yG5"/>
                                                                     <constraint firstAttribute="bottom" secondItem="aOb-8j-0S4" secondAttribute="bottom" constant="8" id="a7X-MS-jo6"/>
+                                                                    <constraint firstItem="rZR-TY-yEs" firstAttribute="leading" secondItem="nuO-qJ-lwj" secondAttribute="leading" id="fwF-ow-MNv"/>
                                                                     <constraint firstItem="aOb-8j-0S4" firstAttribute="centerX" secondItem="nuO-qJ-lwj" secondAttribute="centerX" id="izt-bJ-AXf"/>
                                                                     <constraint firstItem="aOb-8j-0S4" firstAttribute="top" secondItem="W4K-ht-cXL" secondAttribute="bottom" constant="8" id="oCi-VU-Njo"/>
                                                                     <constraint firstAttribute="trailing" secondItem="W4K-ht-cXL" secondAttribute="trailing" constant="14" id="ryh-Wl-Naf"/>
                                                                     <constraint firstItem="W4K-ht-cXL" firstAttribute="leading" secondItem="nuO-qJ-lwj" secondAttribute="leading" constant="14" id="wNc-vT-9NM"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="rZR-TY-yEs" secondAttribute="bottom" id="wqb-nP-vPV"/>
                                                                 </constraints>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -289,6 +297,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="acceptButton" destination="Nws-bR-aqE" id="YBL-vG-ANP"/>
+                                            <outlet property="blackView" destination="rZR-TY-yEs" id="Y4d-QX-QoK"/>
                                             <outlet property="creatorLabel" destination="oH5-Ys-LFD" id="UcF-2q-ehv"/>
                                             <outlet property="dateLabel" destination="TEE-4Y-lpg" id="css-4h-2vN"/>
                                             <outlet property="debtorLabel" destination="sDq-UA-jEA" id="pOU-6Z-8xA"/>
@@ -300,6 +309,7 @@
                                             <outlet property="requestLabel" destination="y0J-6L-c6Z" id="pTB-bt-mdO"/>
                                             <outlet property="requestView" destination="M4x-R0-hGs" id="02b-FU-uvY"/>
                                             <outlet property="toolbarStackView" destination="xls-qx-Jf6" id="xNX-0r-iBt"/>
+                                            <outlet property="toolbarTopSeparatorView" destination="r3S-ju-aCE" id="LqV-XC-cyu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -346,7 +356,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DeleteIcon" width="30" height="36"/>
+        <image name="DeleteIcon" width="30" height="30"/>
         <image name="EditIcon" width="30" height="30"/>
         <image name="RepayIcon" width="30" height="30"/>
     </resources>

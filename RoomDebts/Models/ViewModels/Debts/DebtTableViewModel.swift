@@ -23,6 +23,7 @@ struct DebtTableViewModel {
     let creator: String?
     let isToolbarHidden: Bool
     let isRepayButtonHidden: Bool
+    let isBlackViewHidden: Bool
 
     // MARK: - Initializers
 
@@ -41,10 +42,12 @@ struct DebtTableViewModel {
             self.isToolbarHidden = false
             self.request = nil
             self.isRepayButtonHidden = false
+            self.isBlackViewHidden = true
 
         case .newRequest?, .editRequest?, .repayRequest?, .deleteRequest?:
             self.hasRequest = true
             self.isRepayButtonHidden = true
+            self.isBlackViewHidden = true
 
             if debt.isRejected {
                 self.request = String(format: "Rejected %@".localized(), debt.status?.description ?? "")
@@ -61,6 +64,14 @@ struct DebtTableViewModel {
                     self.isToolbarHidden = true
                 }
             }
+
+        case .repaid?:
+            self.hasRequest = true
+            self.isRepayButtonHidden = true
+            self.isBlackViewHidden = false
+            self.request = debt.status?.description
+            self.isButtonsHidden = true
+            self.isToolbarHidden = true
         }
 
         self.price = String(format: "%.2f", debt.price)
