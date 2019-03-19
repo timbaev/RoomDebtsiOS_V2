@@ -193,10 +193,17 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }, failure: failure)
     }
 
-    func json(_ route: EndPoint, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
+    func json(_ route: EndPoint, success: @escaping (Any?) -> (), failure: @escaping (WebError) -> ()) {
         self.performRequest(route, success: { data in
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) else {
+                DispatchQueue.main.async {
+                    success(nil)
+                }
+                return
+            }
+
             DispatchQueue.main.async {
-                success()
+                success(jsonObject)
             }
         }, failure: failure)
     }

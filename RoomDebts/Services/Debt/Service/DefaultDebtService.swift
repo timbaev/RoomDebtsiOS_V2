@@ -52,8 +52,12 @@ struct DefaultDebtService: DebtService {
         }, failure: failure)
     }
 
-    func accept(for debtUID: Int64, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.accept(debtUID: debtUID), success: { json in
+    func accept(for debtUID: Int64, success: @escaping (Debt?) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.json(.accept(debtUID: debtUID), success: { object in
+            guard let json = object as? JSON else {
+                return success(nil)
+            }
+
             do {
                 let debt = try self.debtExtractor.extractDebt(from: json, cacheContext: Services.cacheViewContext)
 
@@ -69,7 +73,7 @@ struct DefaultDebtService: DebtService {
     }
 
     func reject(for debtUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.reject(debtUID: debtUID), success: {
+        self.router.json(.reject(debtUID: debtUID), success: { object in
             success()
         }, failure: failure)
     }
@@ -107,7 +111,7 @@ struct DefaultDebtService: DebtService {
     }
 
     func delete(debtUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.delete(debtUID: debtUID), success: {
+        self.router.json(.delete(debtUID: debtUID), success: { object in
             Services.cacheViewContext.debtManager.clear(withUID: debtUID)
 
             success()

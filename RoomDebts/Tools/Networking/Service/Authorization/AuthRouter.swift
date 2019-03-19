@@ -63,7 +63,7 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
         }
     }
 
-    func json(_ route: EndPoint, success: @escaping () -> (), failure: @escaping (WebError) -> ()) {
+    func json(_ route: EndPoint, success: @escaping (Any?) -> (), failure: @escaping (WebError) -> ()) {
         if let access = KeychainManager.shared.access {
             if access.expiredAt < Date() {
                 self.refresToken(with: access, success: { [weak self] access in

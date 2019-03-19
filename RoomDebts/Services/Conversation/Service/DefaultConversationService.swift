@@ -61,7 +61,7 @@ struct DefaultConversationService: ConversationService {
     }
 
     func reject(conversationUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.reject(conversationUID: conversationUID), success: {
+        self.router.json(.reject(conversationUID: conversationUID), success: { object in
             Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
 
             success()
