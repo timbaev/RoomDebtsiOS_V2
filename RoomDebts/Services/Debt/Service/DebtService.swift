@@ -22,4 +22,6 @@ protocol DebtService {
 
     func deleteRequest(for debtUID: Int64, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void)
     func delete(debtUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void)
+
+    func repayRequest(for debtUID: Int64, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void)
 }

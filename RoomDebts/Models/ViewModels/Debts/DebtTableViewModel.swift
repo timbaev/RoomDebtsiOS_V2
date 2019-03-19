@@ -42,7 +42,7 @@ struct DebtTableViewModel {
             self.request = nil
             self.isRepayButtonHidden = false
 
-        case .newRequest?, .editRequest?, .closeRequest?, .deleteRequest?:
+        case .newRequest?, .editRequest?, .repayRequest?, .deleteRequest?:
             self.hasRequest = true
             self.isRepayButtonHidden = true
 

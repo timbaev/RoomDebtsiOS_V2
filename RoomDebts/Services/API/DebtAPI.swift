@@ -19,6 +19,7 @@ enum DebtAPI {
     case update(debtUID: Int64, form: CreateDebtForm)
     case deleteRequest(debtUID: Int64)
     case delete(debtUID: Int64)
+    case repayRequest(debtUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -44,16 +45,19 @@ extension DebtAPI: EndPointType {
             return basePath + "/\(debtUID)"
 
         case .deleteRequest(let debtUID):
-            return basePath + "/\(debtUID)/request"
+            return basePath + "/\(debtUID)/request/delete"
 
         case .delete(let debtUID):
             return basePath + "/\(debtUID)"
+
+        case .repayRequest(let debtUID):
+            return basePath + "/\(debtUID)/request/repay"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .create, .accept, .reject:
+        case .create, .accept, .reject, .deleteRequest, .repayRequest:
             return .post
 
         case .fetch:
@@ -62,7 +66,7 @@ extension DebtAPI: EndPointType {
         case .update:
             return .put
 
-        case .deleteRequest, .delete:
+        case .delete:
             return .delete
         }
     }
@@ -79,7 +83,7 @@ extension DebtAPI: EndPointType {
 
             return .requestParameters(bodyParameters: nil, urlParameters: requestParameters)
 
-        case .accept, .reject, .deleteRequest, .delete:
+        case .accept, .reject, .deleteRequest, .delete, .repayRequest:
             return .request
 
         case .update(_, let form):

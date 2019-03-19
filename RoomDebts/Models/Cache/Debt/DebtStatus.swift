@@ -15,7 +15,7 @@ enum DebtStatus: String {
     case accepted
     case newRequest
     case editRequest
-    case closeRequest
+    case repayRequest
     case deleteRequest
 
     // MARK: - Instance Properties
@@ -31,8 +31,8 @@ enum DebtStatus: String {
         case .editRequest:
             return "Edit Request".localized()
 
-        case .closeRequest:
-            return "Close Request".localized()
+        case .repayRequest:
+            return "Repay Request".localized()
 
         case .deleteRequest:
             return "Delete Request".localized()

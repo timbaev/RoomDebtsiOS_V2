@@ -225,6 +225,18 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
                 .addCancelAction()
                 .show(in: self)
         }
+
+        cell.onRepayButtonClick = { [unowned self] in
+            UIAlertController.Builder()
+                .preferredStyle(.actionSheet)
+                .withTitle("Repay".localized())
+                .withMessage("Opponent should approve repayment of this debt".localized())
+                .addDefaultAction(withTitle: "Send repay request".localized(), handler: { [unowned self] action in
+                    self.repayRequest(for: debt)
+                })
+                .addCancelAction()
+                .show(in: self)
+        }
     }
 
     // MARK: -
@@ -314,6 +326,21 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
                 viewController.handle(stateError: error)
             })
         }
+    }
+
+    private func repayRequest(for debt: Debt) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.debtService.repayRequest(for: debt.uid, success: { [weak self] debt in
+            self?.refreshDebtList()
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
     }
 
     // MARK: -
