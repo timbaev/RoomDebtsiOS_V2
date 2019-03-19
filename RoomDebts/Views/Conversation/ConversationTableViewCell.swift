@@ -16,7 +16,10 @@ class ConversationTableViewCell: UITableViewCell {
     @IBOutlet private weak var opponentNameLabel: UILabel!
     @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var moreButton: UIButton!
+
     @IBOutlet private weak var visitedView: GradientView!
+
     @IBOutlet private weak var acceptButton: RoundedButton!
     @IBOutlet private weak var declineButton: RoundedButton!
 
@@ -24,6 +27,7 @@ class ConversationTableViewCell: UITableViewCell {
 
     var onAcceptButtonClick: (() -> Void)?
     var onDeclineButtonClick: (() -> Void)?
+    var onMoreButtonClick: (() -> Void)?
 
     // MARK: -
 
@@ -77,6 +81,16 @@ class ConversationTableViewCell: UITableViewCell {
         }
     }
 
+    var isMoreButtonHidden: Bool {
+        get {
+            return self.moreButton.isHidden
+        }
+
+        set {
+            self.moreButton.isHidden = newValue
+        }
+    }
+
     var isVisited: Bool {
         get {
             return self.visitedView.isHidden
@@ -116,5 +130,11 @@ class ConversationTableViewCell: UITableViewCell {
         Log.i()
 
         self.onDeclineButtonClick?()
+    }
+
+    @IBAction private func onMoreButtonTouchUpInside(_ sender: UIButton) {
+        Log.i()
+
+        self.onMoreButtonClick?()
     }
 }

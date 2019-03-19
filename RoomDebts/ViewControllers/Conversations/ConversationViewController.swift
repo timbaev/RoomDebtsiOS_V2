@@ -196,14 +196,10 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
                     cell.priceTextColor = Colors.gray
                 }
 
-            case .invited:
-                if userIsCreator {
-                    cell.status = "Waiting for confirmation".localized()
-                    cell.isShowActions = false
-                } else {
-                    cell.status = "Confirm invitation".localized()
-                    cell.isShowActions = true
-                }
+            case .invited, .repayRequest:
+                cell.status = conversation.status?.description(userIsCreator: userIsCreator)
+                cell.isShowActions = !userIsCreator
+                cell.isMoreButtonHidden = (!userIsCreator && conversation.status == .repayRequest)
             }
         } else {
             cell.status = nil
@@ -220,6 +216,43 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         cell.onDeclineButtonClick = { [unowned self] in
             self.rejectConversation(conversation)
         }
+
+        cell.onMoreButtonClick = { [unowned self] in
+            self.showActions(for: conversation, userIsCreator: userIsCreator)
+        }
+    }
+
+    private func showActions(for conversation: Conversation, userIsCreator: Bool) {
+        var builder = UIAlertController.Builder()
+            .preferredStyle(.actionSheet)
+            .withTitle("Actions".localized())
+            .addCancelAction()
+
+        switch conversation.status {
+        case .accepted?:
+            builder = builder.withMessage("All actions opponent should approve".localized())
+                .addDefaultAction(withTitle: "Repay All Debts".localized(), handler: { [unowned self] action in
+                    self.sendRepayRequest(for: conversation)
+            })
+
+        case .invited?:
+            builder = builder.withMessage("Conversation can be delete without opponent approve".localized())
+
+        case .repayRequest?:
+            if userIsCreator {
+                builder = builder.withMessage("Delete action opponent should approve".localized())
+                    .addDefaultAction(withTitle: "Cancel Repay Request".localized(), handler: { action in
+                    })
+            }
+
+        case nil:
+            fatalError()
+        }
+
+        builder = builder.addDestructiveAction(withTitle: "Delete Conversation".localized(), handler: { action in
+        })
+
+        builder.show(in: self)
     }
 
     // MARK: -
@@ -311,6 +344,21 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         })
     }
 
+    private func sendRepayRequest(for conversation: Conversation) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.conversationService.repayRequest(for: conversation.uid, success: { [weak self] conversation in
+            self?.refreshConversationList()
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
+    }
+
     // MARK: -
 
     private func apply(conversationList: ConversationList, canShowState: Bool = true) {
@@ -326,6 +374,10 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
 
         if self.tableRefreshControl.isRefreshing {
             self.tableRefreshControl.endRefreshing()
+        }
+
+        if self.isAnimating {
+            self.stopAnimating()
         }
 
         self.isRefreshingData = false
@@ -434,7 +486,7 @@ extension ConversationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let conversation = self.conversationList[indexPath.row]
 
-        if conversation.status == .accepted {
+        if conversation.status != .invited {
             self.performSegue(withIdentifier: Segues.showDebts, sender: conversation)
         }
     }

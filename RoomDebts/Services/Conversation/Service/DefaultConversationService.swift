@@ -67,4 +67,20 @@ struct DefaultConversationService: ConversationService {
             success()
         }, failure: failure)
     }
+
+    func repayRequest(for conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonObject(.repayRequest(conversationUID: conversationUID), success: { json in
+            do {
+                let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
+
+                success(conversation)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
+                }
+            }
+        }, failure: failure)
+    }
 }

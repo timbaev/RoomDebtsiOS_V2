@@ -13,5 +13,29 @@ enum ConversationStatus: String {
     // MARK: - Enumeration Cases
 
     case accepted
+    case repayRequest
     case invited
+
+    // MARK: - Instance Methods
+
+    func description(userIsCreator: Bool) -> String {
+        switch self {
+        case .accepted:
+            return "Accepted".localized()
+
+        case .repayRequest:
+            if userIsCreator {
+                return "Pending confirmation of request to repay all debts".localized()
+            } else {
+                return "Repay all debts request".localized()
+            }
+
+        case .invited:
+            if userIsCreator {
+                return "Waiting for confirmation".localized()
+            } else {
+                return "Confirm invitation".localized()
+            }
+        }
+    }
 }
