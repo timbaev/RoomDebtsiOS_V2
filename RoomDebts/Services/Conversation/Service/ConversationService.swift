@@ -19,4 +19,5 @@ protocol ConversationService {
     func reject(conversationUID: Int64, success: @escaping (Conversation?) -> Void, failure: @escaping (WebError) -> Void)
 
     func repayRequest(for conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void)
+    func deleteRequest(for conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void)
 }

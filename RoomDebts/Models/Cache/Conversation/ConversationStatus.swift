@@ -14,6 +14,7 @@ enum ConversationStatus: String {
 
     case accepted
     case repayRequest
+    case deleteRequest
     case invited
 
     // MARK: - Instance Methods
@@ -25,7 +26,7 @@ enum ConversationStatus: String {
 
         case .repayRequest:
             if userIsCreator {
-                return "Pending confirmation of request to repay all debts".localized()
+                return "Pending repay all debts request".localized()
             } else {
                 return "Repay all debts request".localized()
             }
@@ -35,6 +36,13 @@ enum ConversationStatus: String {
                 return "Waiting for confirmation".localized()
             } else {
                 return "Confirm invitation".localized()
+            }
+
+        case .deleteRequest:
+            if userIsCreator {
+                return "Pending delete request".localized()
+            } else {
+                return "Delete request".localized()
             }
         }
     }

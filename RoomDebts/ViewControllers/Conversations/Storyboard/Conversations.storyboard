@@ -155,6 +155,7 @@
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="leading" secondItem="qBo-NW-R99" secondAttribute="trailing" constant="7" id="2ho-Cb-lMV"/>
                                                                     <constraint firstItem="qBo-NW-R99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G7y-8u-Hhh" secondAttribute="trailing" constant="16" id="30G-9s-LjT"/>
                                                                     <constraint firstAttribute="trailing" secondItem="XUC-bs-y5K" secondAttribute="trailing" id="8Mj-WC-nye"/>
+                                                                    <constraint firstItem="zYy-d1-4g7" firstAttribute="top" secondItem="G7y-8u-Hhh" secondAttribute="bottom" constant="5" id="8P3-K6-yNH"/>
                                                                     <constraint firstItem="G7y-8u-Hhh" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" constant="13" id="966-AN-4qw"/>
                                                                     <constraint firstItem="qBo-NW-R99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zYy-d1-4g7" secondAttribute="trailing" constant="16" id="AZB-SZ-XYh"/>
                                                                     <constraint firstItem="zYy-d1-4g7" firstAttribute="leading" secondItem="g3c-6L-WpU" secondAttribute="trailing" constant="4" id="Iq2-zO-Lfp"/>
@@ -169,7 +170,7 @@
                                                                     <constraint firstAttribute="bottom" secondItem="fsO-Hm-Mju" secondAttribute="bottom" constant="14" id="cUm-Vc-8Mh"/>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" id="cv7-fg-f0M"/>
                                                                     <constraint firstItem="qBo-NW-R99" firstAttribute="centerY" secondItem="Axt-Km-lnH" secondAttribute="centerY" id="eOO-G2-KkO"/>
-                                                                    <constraint firstItem="zYy-d1-4g7" firstAttribute="centerY" secondItem="g3c-6L-WpU" secondAttribute="centerY" id="gWc-Db-Jto"/>
+                                                                    <constraint firstItem="fsO-Hm-Mju" firstAttribute="top" secondItem="zYy-d1-4g7" secondAttribute="bottom" constant="14" id="grC-20-8go"/>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="leading" secondItem="gHL-Pa-cYZ" secondAttribute="trailing" constant="11" id="m0l-mp-fgj"/>
                                                                     <constraint firstAttribute="bottom" secondItem="XUC-bs-y5K" secondAttribute="bottom" id="pxa-2U-Tiv"/>
                                                                 </constraints>

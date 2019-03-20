@@ -212,12 +212,23 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
                     })
             }
 
+        case .deleteRequest?:
+            if userIsCreator {
+                builder = builder.addDefaultAction(withTitle: "Cancel Delete Request".localized(), handler: { action in
+                })
+            }
+
         case nil:
             fatalError()
         }
 
-        builder = builder.addDestructiveAction(withTitle: "Delete Conversation".localized(), handler: { action in
-        })
+        if conversation.status != .deleteRequest {
+            builder = builder.addDestructiveAction(withTitle: "Delete Conversation".localized(), handler: { [unowned self] action in
+                if conversation.status != .invited {
+                    self.sendDeleteRequest(for: conversation)
+                }
+            })
+        }
 
         builder.show(in: self)
     }
@@ -319,6 +330,21 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         self.startAnimating(type: .ballScaleMultiple)
 
         Services.conversationService.repayRequest(for: conversation.uid, success: { [weak self] conversation in
+            self?.refreshConversationList()
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
+    }
+
+    private func sendDeleteRequest(for conversation: Conversation) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.conversationService.deleteRequest(for: conversation.uid, success: { [weak self] conversation in
             self?.refreshConversationList()
         }, failure: { [weak self] error in
             guard let viewController = self else {

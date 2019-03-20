@@ -80,7 +80,7 @@ class ConversationTableViewModel {
                 self.priceTextColor = Colors.gray
             }
 
-        case .invited?, .repayRequest?:
+        case .invited?, .repayRequest?, .deleteRequest?:
             self.status = conversation.status?.description(userIsCreator: userIsCreator)
             self.isShowActions = !userIsCreator
             self.isMoreButtonHidden = (!userIsCreator && conversation.status == .repayRequest)
@@ -101,6 +101,9 @@ class ConversationTableViewModel {
 
         case .repayRequest?:
             self.rejectStatus = "(Repay all debts request rejected)".localized()
+
+        case .deleteRequest?:
+            self.rejectStatus = "(Delete request rejected)".localized()
         }
     }
 
