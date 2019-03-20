@@ -228,6 +228,8 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
             builder = builder.addDestructiveAction(withTitle: "Delete Conversation".localized(), handler: { [unowned self] action in
                 if conversation.status != .invited {
                     self.sendDeleteRequest(for: conversation)
+                } else {
+                    self.delete(conversation: conversation)
                 }
             })
         }
@@ -368,6 +370,27 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
 
         Services.conversationService.cancelRequest(for: conversation.uid, success: { [weak self] conversation in
             self?.refreshConversationList()
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
+    }
+
+    private func delete(conversation: Conversation) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.conversationService.delete(conversationUID: conversation.uid, success: { [weak self] in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.conversationList.remove(conversation: conversation)
+            viewController.tableView.reloadData()
         }, failure: { [weak self] error in
             guard let viewController = self else {
                 return

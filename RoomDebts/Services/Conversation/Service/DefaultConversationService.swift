@@ -141,4 +141,12 @@ struct DefaultConversationService: ConversationService {
             }
         }, failure: failure)
     }
+
+    func delete(conversationUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.json(.delete(conversationUID: conversationUID), success: { object in
+            Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
+
+            success()
+        }, failure: failure)
+    }
 }

@@ -14,6 +14,7 @@ protocol ConversationService {
 
     func create(opponentUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void)
     func fetch(success: @escaping (ConversationList) -> Void, failure: @escaping (WebError) -> Void)
+    func delete(conversationUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void)
 
     func accept(conversationUID: Int64, success: @escaping (Conversation?) -> Void, failure: @escaping (WebError) -> Void)
     func reject(conversationUID: Int64, success: @escaping (Conversation?) -> Void, failure: @escaping (WebError) -> Void)

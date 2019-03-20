@@ -19,6 +19,7 @@ enum ConversationAPI {
     case repayRequest(conversationUID: Int64)
     case deleteRequest(conversationUID: Int64)
     case cancelRequest(conversationUID: Int64)
+    case delete(conversationUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -48,6 +49,9 @@ extension ConversationAPI: EndPointType {
 
         case .cancelRequest(let conversationUID):
             return basePath + "/\(conversationUID)/request/cancel"
+
+        case .delete(let conversationUID):
+            return basePath + "/\(conversationUID)"
         }
     }
 
@@ -58,6 +62,9 @@ extension ConversationAPI: EndPointType {
 
         case .fetch:
             return .get
+
+        case .delete:
+            return .delete
         }
     }
 
@@ -68,7 +75,7 @@ extension ConversationAPI: EndPointType {
 
             return .requestParameters(bodyParameters: requestParameters, urlParameters: nil)
 
-        case .fetch, .accept, .reject, .repayRequest, .deleteRequest, .cancelRequest:
+        case .fetch, .accept, .reject, .repayRequest, .deleteRequest, .cancelRequest, .delete:
             return .request
         }
     }
