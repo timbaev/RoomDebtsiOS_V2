@@ -18,6 +18,7 @@ protocol Conversation: AnyObject {
     var price: Double { get set }
 
     var status: ConversationStatus? { get set }
+    var rejectStatus: ConversationStatus? { get set }
 
     var creator: User? { get set }
     var opponent: User? { get set }

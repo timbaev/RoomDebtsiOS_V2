@@ -144,12 +144,20 @@
                                                                             <action selector="onMoreButtonTouchUpInside:" destination="iYY-pv-D4Z" eventType="touchUpInside" id="dK3-sB-GnP"/>
                                                                         </connections>
                                                                     </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Repay Request Rejected)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYy-d1-4g7">
+                                                                        <rect key="frame" x="94" y="38.5" width="144" height="14.5"/>
+                                                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="12"/>
+                                                                        <color key="textColor" white="1" alpha="0.68999999999999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="leading" secondItem="qBo-NW-R99" secondAttribute="trailing" constant="7" id="2ho-Cb-lMV"/>
                                                                     <constraint firstItem="qBo-NW-R99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G7y-8u-Hhh" secondAttribute="trailing" constant="16" id="30G-9s-LjT"/>
                                                                     <constraint firstAttribute="trailing" secondItem="XUC-bs-y5K" secondAttribute="trailing" id="8Mj-WC-nye"/>
                                                                     <constraint firstItem="G7y-8u-Hhh" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" constant="13" id="966-AN-4qw"/>
+                                                                    <constraint firstItem="qBo-NW-R99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zYy-d1-4g7" secondAttribute="trailing" constant="16" id="AZB-SZ-XYh"/>
+                                                                    <constraint firstItem="zYy-d1-4g7" firstAttribute="leading" secondItem="g3c-6L-WpU" secondAttribute="trailing" constant="4" id="Iq2-zO-Lfp"/>
                                                                     <constraint firstItem="fsO-Hm-Mju" firstAttribute="centerX" secondItem="Qab-Dx-Se1" secondAttribute="centerX" id="K6p-JM-hcp"/>
                                                                     <constraint firstItem="Axt-Km-lnH" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" constant="17" id="KCm-kg-lCO"/>
                                                                     <constraint firstItem="G7y-8u-Hhh" firstAttribute="leading" secondItem="Axt-Km-lnH" secondAttribute="trailing" constant="13" id="Lo4-eM-X8R"/>
@@ -161,7 +169,7 @@
                                                                     <constraint firstAttribute="bottom" secondItem="fsO-Hm-Mju" secondAttribute="bottom" constant="14" id="cUm-Vc-8Mh"/>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" id="cv7-fg-f0M"/>
                                                                     <constraint firstItem="qBo-NW-R99" firstAttribute="centerY" secondItem="Axt-Km-lnH" secondAttribute="centerY" id="eOO-G2-KkO"/>
-                                                                    <constraint firstItem="qBo-NW-R99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g3c-6L-WpU" secondAttribute="trailing" constant="16" id="fva-R1-qbB"/>
+                                                                    <constraint firstItem="zYy-d1-4g7" firstAttribute="centerY" secondItem="g3c-6L-WpU" secondAttribute="centerY" id="gWc-Db-Jto"/>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="leading" secondItem="gHL-Pa-cYZ" secondAttribute="trailing" constant="11" id="m0l-mp-fgj"/>
                                                                     <constraint firstAttribute="bottom" secondItem="XUC-bs-y5K" secondAttribute="bottom" id="pxa-2U-Tiv"/>
                                                                 </constraints>
@@ -194,6 +202,7 @@
                                             <outlet property="moreButton" destination="gHL-Pa-cYZ" id="hZr-f8-N52"/>
                                             <outlet property="opponentNameLabel" destination="G7y-8u-Hhh" id="Kcc-MJ-I8T"/>
                                             <outlet property="priceLabel" destination="qBo-NW-R99" id="EC8-VE-iLp"/>
+                                            <outlet property="rejectStatusLabel" destination="zYy-d1-4g7" id="wAT-eQ-ZXa"/>
                                             <outlet property="statusLabel" destination="g3c-6L-WpU" id="QBG-EP-whv"/>
                                             <outlet property="visitedView" destination="XUC-bs-y5K" id="Sjg-TS-chp"/>
                                         </connections>

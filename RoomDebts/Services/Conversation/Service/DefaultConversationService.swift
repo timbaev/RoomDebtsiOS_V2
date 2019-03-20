@@ -27,6 +27,8 @@ struct DefaultConversationService: ConversationService {
             } catch {
                 if let webError = error as? WebError {
                     failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
                 }
             }
         }, failure: failure)
@@ -41,6 +43,8 @@ struct DefaultConversationService: ConversationService {
             } catch {
                 if let webError = error as? WebError {
                     failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
                 }
             }
         }, failure: failure)
@@ -55,16 +59,32 @@ struct DefaultConversationService: ConversationService {
             } catch {
                 if let webError = error as? WebError {
                     failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
                 }
             }
         }, failure: failure)
     }
 
-    func reject(conversationUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
+    func reject(conversationUID: Int64, success: @escaping (Conversation?) -> Void, failure: @escaping (WebError) -> Void) {
         self.router.json(.reject(conversationUID: conversationUID), success: { object in
-            Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
+            guard let json = object as? JSON else {
+                Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
 
-            success()
+                return success(nil)
+            }
+
+            do {
+                let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
+
+                success(conversation)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
+                }
+            }
         }, failure: failure)
     }
 

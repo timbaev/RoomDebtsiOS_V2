@@ -22,6 +22,7 @@ struct DefaultConversationCoder: ConversationCoder {
         static let debtorID = "debtorID"
         static let price = "price"
         static let status = "status"
+        static let rejectStatus = "rejectStatus"
 
         static let creator = "creator"
         static let opponent = "opponent"
@@ -56,11 +57,18 @@ struct DefaultConversationCoder: ConversationCoder {
 
         let debtorUID: Int64 = JSONKeys.debtorID <~~ json ?? 0
 
+        var rejectStatus: ConversationStatus?
+
+        if let rawRejectStatus: String = JSONKeys.rejectStatus <~~ json {
+            rejectStatus = ConversationStatus(rawValue: rawRejectStatus)
+        }
+
         conversation.uid = uid
 
         conversation.debtorUID = debtorUID
         conversation.price = price
         conversation.status = status
+        conversation.rejectStatus = rejectStatus
 
         return true
     }

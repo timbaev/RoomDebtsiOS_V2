@@ -36,6 +36,7 @@
 		CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB16A96521F85D6900B74DE0 /* KeychainManager.swift */; };
 		CB18CA2F2230F0260027E905 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB18CA2E2230F0260027E905 /* CurrencyView.swift */; };
 		CB18CA3722315A190027E905 /* DebtDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB18CA3622315A190027E905 /* DebtDateFormatter.swift */; };
+		CB320B4222420BE1006AA4D6 /* ConversationTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */; };
 		CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */; };
 		CB37A9922206289A007ECB86 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A9912206289A007ECB86 /* MimeType.swift */; };
 		CB37A994220629EA007ECB86 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A993220629EA007ECB86 /* MediaData.swift */; };
@@ -254,6 +255,7 @@
 		CB16A96521F85D6900B74DE0 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		CB18CA2E2230F0260027E905 /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		CB18CA3622315A190027E905 /* DebtDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtDateFormatter.swift; sourceTree = "<group>"; };
+		CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewModel.swift; sourceTree = "<group>"; };
 		CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParameterEncoder.swift; sourceTree = "<group>"; };
 		CB37A9912206289A007ECB86 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		CB37A993220629EA007ECB86 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
@@ -582,6 +584,14 @@
 				CB117BB02204C14B00C20905 /* VerificationCodeSourceScreen.swift */,
 			);
 			path = VerificationCode;
+			sourceTree = "<group>";
+		};
+		CB320B4022420B5B006AA4D6 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */,
+			);
+			path = Conversations;
 			sourceTree = "<group>";
 		};
 		CB37A98F2205B134007ECB86 /* Encoders */ = {
@@ -1246,6 +1256,7 @@
 		CBC20097223F6E5300D0DF6A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CB320B4022420B5B006AA4D6 /* Conversations */,
 				CBC20098223F6E5B00D0DF6A /* Debts */,
 			);
 			path = ViewModels;
@@ -1735,6 +1746,7 @@
 				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,
 				CB714DE02222D9B8007961C6 /* UserCoder.swift in Sources */,
 				CB472D2521F74C1E00FB98EE /* EventListener.swift in Sources */,
+				CB320B4222420BE1006AA4D6 /* ConversationTableViewModel.swift in Sources */,
 				CB098EC122251EAE00FDD47C /* ConversationCoder.swift in Sources */,
 				CB472D4721F75E4600FB98EE /* NetworkLogger.swift in Sources */,
 				CB472D2821F74C3800FB98EE /* DefaultUserAccountsManager.swift in Sources */,

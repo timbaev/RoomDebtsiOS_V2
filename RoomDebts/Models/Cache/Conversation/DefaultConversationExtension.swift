@@ -26,6 +26,20 @@ extension DefaultConversation: Conversation {
         }
     }
 
+    var rejectStatus: ConversationStatus? {
+        get {
+            if let rawRejectStatus = self.rawRejectStatus {
+                return ConversationStatus(rawValue: rawRejectStatus)
+            } else {
+                return nil
+            }
+        }
+
+        set {
+            self.rawRejectStatus = newValue?.rawValue
+        }
+    }
+
     var creator: User? {
         get {
             return self.rawCreator

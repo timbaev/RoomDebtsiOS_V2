@@ -15,6 +15,7 @@ class ConversationTableViewCell: UITableViewCell {
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var opponentNameLabel: UILabel!
     @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var rejectStatusLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
 
@@ -28,89 +29,6 @@ class ConversationTableViewCell: UITableViewCell {
     var onAcceptButtonClick: (() -> Void)?
     var onDeclineButtonClick: (() -> Void)?
     var onMoreButtonClick: (() -> Void)?
-
-    // MARK: -
-
-    var avatar: UIImage? {
-        get {
-            return self.avatarImageView.image
-        }
-
-        set {
-            self.avatarImageView.image = newValue
-        }
-    }
-
-    var opponentName: String? {
-        get {
-            return self.opponentNameLabel.text
-        }
-
-        set {
-            self.opponentNameLabel.text = newValue
-        }
-    }
-
-    var status: String? {
-        get {
-            return self.statusLabel.text
-        }
-
-        set {
-            self.statusLabel.text = newValue
-        }
-    }
-
-    var price: String? {
-        get {
-            return self.priceLabel.text
-        }
-
-        set {
-            self.priceLabel.text = newValue
-        }
-    }
-
-    var priceTextColor: UIColor {
-        get {
-            return self.priceLabel.textColor
-        }
-
-        set {
-            self.priceLabel.textColor = newValue
-        }
-    }
-
-    var isMoreButtonHidden: Bool {
-        get {
-            return self.moreButton.isHidden
-        }
-
-        set {
-            self.moreButton.isHidden = newValue
-        }
-    }
-
-    var isVisited: Bool {
-        get {
-            return self.visitedView.isHidden
-        }
-
-        set {
-            self.visitedView.isHidden = newValue
-        }
-    }
-
-    var isShowActions: Bool {
-        get {
-            return !(self.acceptButton.isHidden && self.declineButton.isHidden)
-        }
-
-        set {
-            self.acceptButton.isHidden = !newValue
-            self.declineButton.isHidden = !newValue
-        }
-    }
 
     // MARK: -
 
@@ -136,5 +54,25 @@ class ConversationTableViewCell: UITableViewCell {
         Log.i()
 
         self.onMoreButtonClick?()
+    }
+}
+
+// MARK: - ConfigurableCell
+
+extension ConversationTableViewCell: ConfigurableCell {
+
+    // MARK: - Instance Methods
+
+    func configure(data viewModel: ConversationTableViewModel) {
+        self.avatarImageView.image = viewModel.avatar
+        self.opponentNameLabel.text = viewModel.opponentName
+        self.statusLabel.text = viewModel.status
+        self.rejectStatusLabel.text = viewModel.rejectStatus
+        self.priceLabel.text = viewModel.price
+        self.priceLabel.textColor = viewModel.priceTextColor
+        self.moreButton.isHidden = viewModel.isMoreButtonHidden
+        self.visitedView.isHidden = viewModel.isVisited
+        self.acceptButton.isHidden = !viewModel.isShowActions
+        self.declineButton.isHidden = !viewModel.isShowActions
     }
 }

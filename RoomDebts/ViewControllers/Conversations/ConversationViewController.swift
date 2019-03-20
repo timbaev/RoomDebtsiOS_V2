@@ -11,6 +11,10 @@ import NVActivityIndicatorView
 
 class ConversationViewController: LoggedViewController, EmptyStateViewable, NVActivityIndicatorViewable, ErrorMessagePresenter {
 
+    // MARK: - Type Aliases
+
+    private typealias ConversationCellConfigurator = TableCellConfigurator<ConversationTableViewCell, ConversationTableViewModel>
+
     // MARK: - Nested Types
 
     private enum Constants {
@@ -168,46 +172,9 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
     private func config(conversationTableCell cell: ConversationTableViewCell, at indexPath: IndexPath) {
         let conversation = self.conversationList[indexPath.row]
 
-        let userIsCreator = (conversation.creator?.uid == Services.userAccount?.uid)
-        let userIsDebtor = (conversation.debtorUID == Services.userAccount?.uid)
-        let opponent = userIsCreator ? conversation.opponent : conversation.creator
+        let viewModel = ConversationTableViewModel(conversation: conversation)
 
-        if let firstName = opponent?.firstName, let lastName = opponent?.lastName {
-            cell.opponentName = "\(firstName) \(lastName)"
-        } else {
-            cell.opponentName = nil
-        }
-
-        if let status = conversation.status {
-            switch status {
-            case .accepted:
-                cell.isShowActions = false
-
-                if conversation.price > 0 {
-                    if userIsDebtor {
-                        cell.status = "Repay".localized()
-                        cell.priceTextColor = Colors.red
-                    } else {
-                        cell.status = "Get".localized()
-                        cell.priceTextColor = Colors.green
-                    }
-                } else {
-                    cell.status = "No debts".localized()
-                    cell.priceTextColor = Colors.gray
-                }
-
-            case .invited, .repayRequest:
-                cell.status = conversation.status?.description(userIsCreator: userIsCreator)
-                cell.isShowActions = !userIsCreator
-                cell.isMoreButtonHidden = (!userIsCreator && conversation.status == .repayRequest)
-            }
-        } else {
-            cell.status = nil
-            cell.isShowActions = false
-        }
-
-        cell.price = String(format: "%.2f₽", conversation.price)
-        cell.isVisited = false
+        ConversationCellConfigurator(item: viewModel).configure(cell: cell)
 
         cell.onAcceptButtonClick = { [unowned self] in
             self.acceptConversation(conversation)
@@ -218,7 +185,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         }
 
         cell.onMoreButtonClick = { [unowned self] in
-            self.showActions(for: conversation, userIsCreator: userIsCreator)
+            self.showActions(for: conversation, userIsCreator: viewModel.userIsCreator)
         }
     }
 
@@ -326,14 +293,18 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
     private func rejectConversation(_ conversation: Conversation) {
         self.startAnimating(type: .ballScaleMultiple)
 
-        Services.conversationService.reject(conversationUID: conversation.uid, success: { [weak self] in
+        Services.conversationService.reject(conversationUID: conversation.uid, success: { [weak self] updatedConversation in
             guard let viewController = self else {
                 return
             }
 
-            viewController.stopAnimating()
-            viewController.conversationList.remove(conversation: conversation)
-            viewController.tableView.reloadData()
+            if updatedConversation == nil {
+                viewController.stopAnimating()
+                viewController.conversationList.remove(conversation: conversation)
+                viewController.tableView.reloadData()
+            } else {
+                viewController.refreshConversationList()
+            }
         }, failure: { [weak self] error in
             guard let viewController = self else {
                 return
