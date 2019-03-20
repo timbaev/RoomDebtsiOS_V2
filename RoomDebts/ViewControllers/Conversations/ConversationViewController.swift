@@ -208,13 +208,15 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         case .repayRequest?:
             if userIsCreator {
                 builder = builder.withMessage("Delete action opponent should approve".localized())
-                    .addDefaultAction(withTitle: "Cancel Repay Request".localized(), handler: { action in
+                    .addDefaultAction(withTitle: "Cancel Repay Request".localized(), handler: { [unowned self] action in
+                        self.cancelRequest(for: conversation)
                     })
             }
 
         case .deleteRequest?:
             if userIsCreator {
-                builder = builder.addDefaultAction(withTitle: "Cancel Delete Request".localized(), handler: { action in
+                builder = builder.addDefaultAction(withTitle: "Cancel Delete Request".localized(), handler: { [unowned self] action in
+                    self.cancelRequest(for: conversation)
                 })
             }
 
@@ -350,6 +352,21 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         self.startAnimating(type: .ballScaleMultiple)
 
         Services.conversationService.deleteRequest(for: conversation.uid, success: { [weak self] conversation in
+            self?.refreshConversationList()
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.handle(stateError: error)
+        })
+    }
+
+    private func cancelRequest(for conversation: Conversation) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.conversationService.cancelRequest(for: conversation.uid, success: { [weak self] conversation in
             self?.refreshConversationList()
         }, failure: { [weak self] error in
             guard let viewController = self else {
