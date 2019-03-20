@@ -50,8 +50,14 @@ struct DefaultConversationService: ConversationService {
         }, failure: failure)
     }
 
-    func accept(conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.accept(conversationUID: conversationUID), success: { json in
+    func accept(conversationUID: Int64, success: @escaping (Conversation?) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.json(.accept(conversationUID: conversationUID), success: { object in
+            guard let json = object as? JSON else {
+                Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
+
+                return success(nil)
+            }
+
             do {
                 let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
 

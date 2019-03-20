@@ -284,13 +284,18 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
     private func acceptConversation(_ conversation: Conversation) {
         self.startAnimating(type: .ballScaleMultiple)
 
-        Services.conversationService.accept(conversationUID: conversation.uid, success: { [weak self] conversation in
+        Services.conversationService.accept(conversationUID: conversation.uid, success: { [weak self] updatedConversation in
             guard let viewController = self else {
                 return
             }
 
-            viewController.stopAnimating()
-            viewController.tableView.reloadData()
+            if updatedConversation == nil {
+                viewController.stopAnimating()
+                viewController.conversationList.remove(conversation: conversation)
+                viewController.tableView.reloadData()
+            } else {
+                viewController.refreshConversationList()
+            }
         }, failure: { [weak self] error in
             guard let viewController = self else {
                 return
