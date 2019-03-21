@@ -28,6 +28,15 @@ class SettingsTableViewController: LoggedViewController {
         static let logoutRowIndex = 2
     }
 
+    // MARK: -
+
+    private enum Segues {
+
+        // MARK: - Type Properties
+
+        static let showEditAccount = "ShowEditAccount"
+    }
+
     // MARK: - Instance Properties
 
     @IBOutlet private weak var tableView: UITableView!
@@ -92,5 +101,13 @@ extension SettingsTableViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        switch indexPath.row {
+        case Constants.accountRowIndex:
+            self.performSegue(withIdentifier: Segues.showEditAccount, sender: self)
+
+        default:
+            break
+        }
     }
 }

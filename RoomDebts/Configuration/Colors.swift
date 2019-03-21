@@ -78,7 +78,8 @@ enum Colors {
     static let green = UIColor(redByte: 3, greenByte: 255, blueByte: 23)
     static let gray = UIColor(redByte: 155, greenByte: 155, blueByte: 155)
 
-    static let barItem = UIColor(redByte: 153, greenByte: 55, blueByte: 123)
+    static let plusBarItem = UIColor(redByte: 153, greenByte: 55, blueByte: 123)
+    static let saveBarItem = UIColor(redByte: 0, greenByte: 146, blueByte: 255)
 
     static let clear = UIColor.clear
 

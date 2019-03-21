@@ -171,7 +171,7 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
     private func configPlusBarButtonItem() {
         let plusBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.onPlusButtonTouchUpInside(sender:)))
 
-        plusBarButtonItem.tintColor = Colors.barItem
+        plusBarButtonItem.tintColor = Colors.plusBarItem
 
         self.navigationItem.rightBarButtonItem = plusBarButtonItem
     }

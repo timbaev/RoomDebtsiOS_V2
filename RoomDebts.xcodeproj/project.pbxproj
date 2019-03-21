@@ -180,6 +180,8 @@
 		CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D8224383470070F603 /* SettingTableViewCell.swift */; };
 		CBDE71DB2243855C0070F603 /* LogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71DA2243855C0070F603 /* LogoutTableViewCell.swift */; };
 		CBDE71DD224386DE0070F603 /* LogoutTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71DC224386DE0070F603 /* LogoutTableViewModel.swift */; };
+		CBDE71E1224393ED0070F603 /* EditAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDE71E0224393ED0070F603 /* EditAccount.storyboard */; };
+		CBDE71E3224396930070F603 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71E2224396930070F603 /* EditAccountViewController.swift */; };
 		CBE2F8832227E98B006B0FA4 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */; };
 		CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31E9F22207B96006EF081 /* RoundedImageView.swift */; };
 		CBE31EA222207D94006EF081 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31EA122207D94006EF081 /* SearchViewController.swift */; };
@@ -409,6 +411,8 @@
 		CBDE71D8224383470070F603 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		CBDE71DA2243855C0070F603 /* LogoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableViewCell.swift; sourceTree = "<group>"; };
 		CBDE71DC224386DE0070F603 /* LogoutTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableViewModel.swift; sourceTree = "<group>"; };
+		CBDE71E0224393ED0070F603 /* EditAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAccount.storyboard; sourceTree = "<group>"; };
+		CBDE71E2224396930070F603 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		CBE31E9F22207B96006EF081 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		CBE31EA122207D94006EF081 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -872,8 +876,8 @@
 		CB714DEC2222F878007961C6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CB472D0821F72F8600FB98EE /* DefaultAccountService.swift */,
 				CB472D0621F72F7800FB98EE /* AccountService.swift */,
+				CB472D0821F72F8600FB98EE /* DefaultAccountService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1074,6 +1078,7 @@
 				CBAC547421F4CC4F004C8C65 /* Conversations */,
 				CBA02E19222D8D10009683A5 /* CreateDebt */,
 				CBA02E13222D842A009683A5 /* Debts */,
+				CBDE71DE224393CB0070F603 /* EditAccount */,
 				CBAC543D21F4A410004C8C65 /* LaunchScreen */,
 				CBAC543A21F4A3EE004C8C65 /* Main */,
 				CB83DCCF221E9DA200749486 /* Search */,
@@ -1373,6 +1378,23 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		CBDE71DE224393CB0070F603 /* EditAccount */ = {
+			isa = PBXGroup;
+			children = (
+				CBDE71DF224393D80070F603 /* Storyboard */,
+				CBDE71E2224396930070F603 /* EditAccountViewController.swift */,
+			);
+			path = EditAccount;
+			sourceTree = "<group>";
+		};
+		CBDE71DF224393D80070F603 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBDE71E0224393ED0070F603 /* EditAccount.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CBEB2DC0222C1DE600653B11 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1584,6 +1606,7 @@
 				CBA02E16222D8440009683A5 /* Debts.storyboard in Resources */,
 				CB71C3DB21F9D90F008FDD0B /* SignIn.storyboard in Resources */,
 				CBFDBAA821F5B9FE0017ED61 /* Rubik-Light.ttf in Resources */,
+				CBDE71E1224393ED0070F603 /* EditAccount.storyboard in Resources */,
 				CBFDBAB221F608EC0017ED61 /* Welcome.storyboard in Resources */,
 				CBAC542121F4A3D7004C8C65 /* Assets.xcassets in Resources */,
 				CBFDBAAA21F5B9FE0017ED61 /* Rubik-Italic.ttf in Resources */,
@@ -1837,6 +1860,7 @@
 				CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
 				CB03CBDC2236D4C700104251 /* DefaultDebtManager.swift in Sources */,
+				CBDE71E3224396930070F603 /* EditAccountViewController.swift in Sources */,
 				CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */,
 				CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */,
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,

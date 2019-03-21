@@ -206,11 +206,20 @@
                     <connections>
                         <outlet property="appVersionLabel" destination="zyU-yb-gTN" id="87F-PB-rHB"/>
                         <outlet property="tableView" destination="zWA-zo-i3q" id="6CL-AC-feE"/>
+                        <segue destination="ZSB-Yt-QuC" kind="show" identifier="ShowEditAccount" id="QpB-6f-r08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxs-W9-g0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="196" y="122"/>
+        </scene>
+        <!--EditAccount-->
+        <scene sceneID="6ha-Xm-SVP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditAccount" id="ZSB-Yt-QuC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IfO-cl-zqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932" y="16"/>
         </scene>
     </scenes>
     <resources>

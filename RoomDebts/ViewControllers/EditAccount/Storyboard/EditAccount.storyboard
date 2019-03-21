@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iy6-6j-h6u">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--My Account-->
+        <scene sceneID="eqd-k6-yyo">
+            <objects>
+                <viewController title="My Account" id="iy6-6j-h6u" customClass="EditAccountViewController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jeo-xg-fRW" customClass="GradientView" customModule="RoomDebts" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5N-se-XbG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I96-gj-xyE">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AvatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="eJJ-Ug-Dh6" customClass="RoundedImageView" customModule="RoomDebts" customModuleProvider="target">
+                                                <rect key="frame" x="127.5" y="52" width="120" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="7tE-CB-UbK"/>
+                                                    <constraint firstAttribute="width" constant="120" id="VYw-V1-xyq"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjU-lL-TlF">
+                                                <rect key="frame" x="142.5" y="181" width="90" height="29"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
+                                                <state key="normal" title="Change Photo">
+                                                    <color key="titleColor" red="0.78823529411764703" green="0.65098039215686276" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-nT-umn">
+                                                <rect key="frame" x="8" y="226" width="359" height="44"/>
+                                                <color key="backgroundColor" red="0.14657169580000001" green="0.18256133790000001" blue="0.38609483839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="S5r-Up-z2Q"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxH-nc-oui">
+                                                <rect key="frame" x="8" y="286" width="359" height="44"/>
+                                                <color key="backgroundColor" red="0.14657169580000001" green="0.18256133790000001" blue="0.38609483839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="6mH-A9-SoJ"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fa-eL-UUQ" customClass="PhoneFormattedTextField" customModule="SwiftPhoneNumberFormatter">
+                                                <rect key="frame" x="8" y="346" width="359" height="44"/>
+                                                <color key="backgroundColor" red="0.14657169580000001" green="0.18256133790000001" blue="0.38609483839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="VIc-8h-h9E"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="hxH-nc-oui" firstAttribute="top" secondItem="fd7-nT-umn" secondAttribute="bottom" constant="16" id="1gx-bu-li0"/>
+                                            <constraint firstAttribute="trailing" secondItem="hxH-nc-oui" secondAttribute="trailing" constant="8" id="2dt-Qg-xKP"/>
+                                            <constraint firstItem="fd7-nT-umn" firstAttribute="leading" secondItem="I96-gj-xyE" secondAttribute="leading" constant="8" id="6ww-Rz-3hQ"/>
+                                            <constraint firstItem="eJJ-Ug-Dh6" firstAttribute="centerX" secondItem="I96-gj-xyE" secondAttribute="centerX" id="8gV-e5-ZT4"/>
+                                            <constraint firstItem="MjU-lL-TlF" firstAttribute="top" secondItem="eJJ-Ug-Dh6" secondAttribute="bottom" constant="9" id="ARG-wW-ivX"/>
+                                            <constraint firstAttribute="trailing" secondItem="fd7-nT-umn" secondAttribute="trailing" constant="8" id="FfY-Ac-DpW"/>
+                                            <constraint firstItem="hxH-nc-oui" firstAttribute="leading" secondItem="I96-gj-xyE" secondAttribute="leading" constant="8" id="Iqj-bi-s1R"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Fa-eL-UUQ" secondAttribute="bottom" constant="16" id="JKy-dI-tSU"/>
+                                            <constraint firstItem="eJJ-Ug-Dh6" firstAttribute="top" secondItem="I96-gj-xyE" secondAttribute="top" constant="52" id="NAd-lt-k94"/>
+                                            <constraint firstItem="MjU-lL-TlF" firstAttribute="centerX" secondItem="eJJ-Ug-Dh6" secondAttribute="centerX" id="eiX-uR-CN1"/>
+                                            <constraint firstItem="9Fa-eL-UUQ" firstAttribute="leading" secondItem="I96-gj-xyE" secondAttribute="leading" constant="8" id="fwl-Ly-zNq"/>
+                                            <constraint firstItem="fd7-nT-umn" firstAttribute="top" secondItem="MjU-lL-TlF" secondAttribute="bottom" constant="16" id="gus-I1-hU9"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Fa-eL-UUQ" secondAttribute="trailing" constant="8" id="qYD-xl-hJU"/>
+                                            <constraint firstItem="9Fa-eL-UUQ" firstAttribute="top" secondItem="hxH-nc-oui" secondAttribute="bottom" constant="16" id="yce-Od-7ns"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="I96-gj-xyE" firstAttribute="leading" secondItem="V5N-se-XbG" secondAttribute="leading" id="WqW-vb-fan"/>
+                                    <constraint firstAttribute="bottom" secondItem="I96-gj-xyE" secondAttribute="bottom" id="faI-e3-ShB"/>
+                                    <constraint firstItem="I96-gj-xyE" firstAttribute="top" secondItem="V5N-se-XbG" secondAttribute="top" id="nCZ-g0-kOH"/>
+                                    <constraint firstAttribute="trailing" secondItem="I96-gj-xyE" secondAttribute="trailing" id="uIi-h4-UeL"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f1g-Ih-ScA" firstAttribute="bottom" secondItem="V5N-se-XbG" secondAttribute="bottom" id="72K-S0-XHt"/>
+                            <constraint firstItem="V5N-se-XbG" firstAttribute="top" secondItem="f1g-Ih-ScA" secondAttribute="top" id="AWV-ZB-tJR"/>
+                            <constraint firstItem="I96-gj-xyE" firstAttribute="width" secondItem="f1g-Ih-ScA" secondAttribute="width" id="lyF-M8-tFb"/>
+                            <constraint firstItem="f1g-Ih-ScA" firstAttribute="trailing" secondItem="V5N-se-XbG" secondAttribute="trailing" id="pJ8-6n-lTE"/>
+                            <constraint firstItem="V5N-se-XbG" firstAttribute="leading" secondItem="f1g-Ih-ScA" secondAttribute="leading" id="rS1-ax-sXd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f1g-Ih-ScA"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.090196078430000007" green="0.094117647060000004" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.066666666669999999" green="0.21960784310000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="eJJ-Ug-Dh6" id="Bqn-In-gkh"/>
+                        <outlet property="firstNameTextField" destination="fd7-nT-umn" id="uK8-GE-lq6"/>
+                        <outlet property="lastNameTextField" destination="hxH-nc-oui" id="s1a-X2-W9s"/>
+                        <outlet property="phoneNumberTextField" destination="9Fa-eL-UUQ" id="hlJ-Ar-tQw"/>
+                        <outlet property="scrollView" destination="V5N-se-XbG" id="8ib-9Y-ruD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AlH-4L-mZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18.399999999999999" y="151.57421289355324"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AvatarPlaceholder" width="100" height="100"/>
+    </resources>
+</document>
