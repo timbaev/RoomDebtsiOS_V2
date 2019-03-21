@@ -14,4 +14,5 @@ enum VerificationCodeSourceScreen {
 
     case signIn
     case signUp
+    case editProfile
 }

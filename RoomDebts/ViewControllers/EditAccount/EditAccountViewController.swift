@@ -21,6 +21,15 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
         static let phoneNumberLength = 10
     }
 
+    // MARK: -
+
+    private enum Segues {
+
+        // MARK: - Type Properties
+
+        static let showVerificationCode = "ShowVerificationCode"
+    }
+
     // MARK: - Instance Properties
 
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -28,6 +37,8 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
     @IBOutlet private weak var firstNameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var phoneNumberTextField: PhoneFormattedTextField!
+
+    @IBOutlet private var textFields: [UITextField]!
 
     // MARK: - Initializers
 
@@ -39,12 +50,32 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
 
     @objc private func onSaveBarButtonItemTouchUpInside(_ sender: UIBarButtonItem) {
         Log.i()
+
+        guard let firstName = self.firstNameTextField.text else {
+            return
+        }
+
+        guard let lastName = self.lastNameTextField.text else {
+            return
+        }
+
+        guard let phoneNumber = self.phoneNumberTextField.phoneNumber() else {
+            return
+        }
+
+        self.update(with: firstName, lastName: lastName, phoneNumber: phoneNumber)
     }
 
     @objc private func onTextFieldDidChange(_ textField: UITextField) {
         Log.i(textField.text)
 
         self.updateSaveBarButtonItemState()
+    }
+
+    @objc private func onDoneToolbarButtonTouchUpInside(_ sender: UIBarButtonItem) {
+        Log.i()
+
+        self.view.endEditing(true)
     }
 
     @IBAction private func onChangePhotoTouchUpInside(_ sender: UIButton) {
@@ -108,7 +139,7 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
 
     // MARK: -
 
-    private func config(userAccount: UserAccount) {
+    private func apply(userAccount: UserAccount) {
         Log.i(userAccount.uid)
 
         self.loadAvatarImage(for: userAccount)
@@ -129,6 +160,22 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
         self.phoneNumberTextField.textDidChangeBlock = { [unowned self] textField in
             self.updateSaveBarButtonItemState()
         }
+
+        let toolbar = UIToolbar()
+
+        toolbar.barStyle = .default
+        toolbar.isTranslucent = false
+        toolbar.tintColor = Colors.PrimaryButton.third
+        toolbar.barTintColor = Colors.dark
+
+        let nextButton = UIBarButtonItem(title: "Done".localized(), style: .plain, target: self, action: #selector(self.onDoneToolbarButtonTouchUpInside(_:)))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        toolbar.setItems([spaceButton, nextButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        toolbar.sizeToFit()
+
+        self.phoneNumberTextField.inputAccessoryView = toolbar
     }
 
     private func configSaveBarButtonItem() {
@@ -176,6 +223,30 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
         })
     }
 
+    private func update(with firstName: String, lastName: String, phoneNumber: String) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.accountService.update(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { [weak self] userAccount, needConfirm in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.apply(userAccount: userAccount)
+            viewController.stopAnimating()
+
+            if needConfirm {
+                viewController.performSegue(withIdentifier: Segues.showVerificationCode, sender: phoneNumber)
+            }
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.showMessage(withError: error)
+        })
+    }
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -186,7 +257,7 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
         self.configTextFieldTargets()
 
         if let userAccount = Services.userAccount {
-            self.config(userAccount: userAccount)
+            self.apply(userAccount: userAccount)
         } else {
             fatalError()
         }
@@ -198,6 +269,32 @@ class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewab
         super.viewWillDisappear(animated)
 
         self.unsubscribeFromKeyboardNotifications()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        let dictionaryReceiver: DictionaryReceiver?
+
+        if let navigationController = segue.destination as? UINavigationController {
+            dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+        } else {
+            dictionaryReceiver = segue.destination as? DictionaryReceiver
+        }
+
+        switch segue.identifier {
+        case Segues.showVerificationCode:
+            guard let phoneNumber = sender as? String else {
+                fatalError()
+            }
+
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["phoneNumber": phoneNumber, "source": VerificationCodeSourceScreen.editProfile])
+            }
+
+        default:
+            break
+        }
     }
 }
 
@@ -232,3 +329,26 @@ extension EditAccountViewController: UIImagePickerControllerDelegate {
 // MARK: - UINavigationControllerDelegate
 
 extension EditAccountViewController: UINavigationControllerDelegate { }
+
+// MARK: - UITextFieldDelegate
+
+extension EditAccountViewController: UITextFieldDelegate {
+
+    // MARK: - Instance Methods
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let currentIndex = self.textFields.firstIndex(of: textField) else {
+            return false
+        }
+
+        textField.resignFirstResponder()
+
+        let hasNext = (currentIndex + 1 <= self.textFields.count - 1)
+        
+        if hasNext {
+            self.textFields[currentIndex + 1].becomeFirstResponder()
+        }
+
+        return true
+    }
+}

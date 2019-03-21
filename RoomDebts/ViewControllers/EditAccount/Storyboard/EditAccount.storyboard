@@ -61,6 +61,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="iy6-6j-h6u" id="YDv-Rn-Nzd"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxH-nc-oui">
                                                 <rect key="frame" x="8" y="286" width="359" height="44"/>
@@ -72,6 +75,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="iy6-6j-h6u" id="bpE-CP-rix"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fa-eL-UUQ" customClass="PhoneFormattedTextField" customModule="SwiftPhoneNumberFormatter">
                                                 <rect key="frame" x="8" y="346" width="359" height="44"/>
@@ -83,6 +89,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="iy6-6j-h6u" id="yeh-XR-OoL"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -137,11 +146,23 @@
                         <outlet property="lastNameTextField" destination="hxH-nc-oui" id="s1a-X2-W9s"/>
                         <outlet property="phoneNumberTextField" destination="9Fa-eL-UUQ" id="hlJ-Ar-tQw"/>
                         <outlet property="scrollView" destination="V5N-se-XbG" id="8ib-9Y-ruD"/>
+                        <outletCollection property="textFields" destination="fd7-nT-umn" collectionClass="NSMutableArray" id="WLh-C2-vf5"/>
+                        <outletCollection property="textFields" destination="hxH-nc-oui" collectionClass="NSMutableArray" id="bdv-W9-wlr"/>
+                        <outletCollection property="textFields" destination="9Fa-eL-UUQ" collectionClass="NSMutableArray" id="WeR-NF-rUW"/>
+                        <segue destination="wXi-d7-YAu" kind="show" identifier="ShowVerificationCode" id="xJh-2h-P8A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AlH-4L-mZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-18.399999999999999" y="151.57421289355324"/>
+        </scene>
+        <!--VerificationCode-->
+        <scene sceneID="OTJ-fp-7Zh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VerificationCode" id="wXi-d7-YAu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNF-e5-WNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="151"/>
         </scene>
     </scenes>
     <resources>

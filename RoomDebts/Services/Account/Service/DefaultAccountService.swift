@@ -65,9 +65,20 @@ struct DefaultAccountService: AccountService {
         }, failure: failure)
     }
 
-    func update(firstName: String, lastName: String, phoneNumber: String, success: @escaping (UserAccount?) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.update(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber), success: { json in
+    func update(firstName: String, lastName: String, phoneNumber: String, success: @escaping (UserAccount, Bool) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonObject(.update(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber), success: { response in
+            do {
+                let userAccount = try self.userAccountExtractor.extractUserAccount(from: response.content, context: Services.cacheViewContext)
 
+                success(userAccount, response.httpStatusCode == .accepted)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
+                    failure(WebError(code: .aborted))
+                }
+            }
         }, failure: failure)
     }
 }

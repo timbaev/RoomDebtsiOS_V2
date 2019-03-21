@@ -66,11 +66,17 @@ class VerificationCodeViewController: LoggedViewController, NVActivityIndicatorV
             viewController.stopAnimating()
 
             switch viewController.sourceScreen {
-            case .some(.signUp):
+            case .signUp?:
                 viewController.performSegue(withIdentifier: Segues.showAvatarPicker, sender: viewController)
 
-            default:
+            case .signIn?:
                 viewController.performSegue(withIdentifier: Segues.finishVerificationCode, sender: viewController)
+
+            case .editProfile?:
+                viewController.navigationController?.popViewController(animated: true)
+
+            case nil:
+                fatalError()
             }
         }, failure: { [weak self] error in
             guard let viewController = self else {
