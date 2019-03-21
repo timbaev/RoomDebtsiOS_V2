@@ -18,8 +18,8 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
     // MARK: - Instance Methods
     
     private func refresToken(with access: Access, success: @escaping (Access) -> (), failure: @escaping (WebError) -> ()) {
-        self.authRouter.jsonObject(.refreshToken(refreshToken: access.refreshToken), success: { json in
-            if let access = Coders.accessCoder.decode(from: json) {
+        self.authRouter.jsonObject(.refreshToken(refreshToken: access.refreshToken), success: { response in
+            if let access = Coders.accessCoder.decode(from: response.content) {
                 success(access)
             } else {
                 failure(WebError(code: .unauthorized))
@@ -31,7 +31,7 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
     
     // MARK: -
 
-    func jsonArray(_ route: EndPoint, success: @escaping ([JSON]) -> (), failure: @escaping (WebError) -> ()) {
+    func jsonArray(_ route: EndPoint, success: @escaping (HTTPResponse<[JSON]>) -> (), failure: @escaping (WebError) -> ()) {
         if let access = KeychainManager.shared.access {
             if access.expiredAt < Date() {
                 self.refresToken(with: access, success: { [weak self] access in
@@ -47,7 +47,7 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
         }
     }
 
-    func jsonObject(_ route: EndPoint, success: @escaping (JSON) -> (), failure: @escaping (WebError) -> ()) {
+    func jsonObject(_ route: EndPoint, success: @escaping (HTTPResponse<JSON>) -> (), failure: @escaping (WebError) -> ()) {
         if let access = KeychainManager.shared.access {
             if access.expiredAt < Date() {
                 self.refresToken(with: access, success: { [weak self] access in
@@ -63,7 +63,7 @@ class AuthRouter<EndPoint: EndPointType>: NetworkRouter {
         }
     }
 
-    func json(_ route: EndPoint, success: @escaping (Any?) -> (), failure: @escaping (WebError) -> ()) {
+    func json(_ route: EndPoint, success: @escaping (HTTPResponse<Any?>) -> (), failure: @escaping (WebError) -> ()) {
         if let access = KeychainManager.shared.access {
             if access.expiredAt < Date() {
                 self.refresToken(with: access, success: { [weak self] access in

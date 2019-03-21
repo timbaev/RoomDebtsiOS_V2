@@ -182,6 +182,8 @@
 		CBDE71DD224386DE0070F603 /* LogoutTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71DC224386DE0070F603 /* LogoutTableViewModel.swift */; };
 		CBDE71E1224393ED0070F603 /* EditAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDE71E0224393ED0070F603 /* EditAccount.storyboard */; };
 		CBDE71E3224396930070F603 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71E2224396930070F603 /* EditAccountViewController.swift */; };
+		CBDE71E52243CBCB0070F603 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71E42243CBCB0070F603 /* HTTPResponse.swift */; };
+		CBDE71E72243CCB60070F603 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71E62243CCB60070F603 /* HTTPStatusCode.swift */; };
 		CBE2F8832227E98B006B0FA4 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */; };
 		CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31E9F22207B96006EF081 /* RoundedImageView.swift */; };
 		CBE31EA222207D94006EF081 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31EA122207D94006EF081 /* SearchViewController.swift */; };
@@ -413,6 +415,8 @@
 		CBDE71DC224386DE0070F603 /* LogoutTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableViewModel.swift; sourceTree = "<group>"; };
 		CBDE71E0224393ED0070F603 /* EditAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAccount.storyboard; sourceTree = "<group>"; };
 		CBDE71E2224396930070F603 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		CBDE71E42243CBCB0070F603 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		CBDE71E62243CCB60070F603 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		CBE31E9F22207B96006EF081 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		CBE31EA122207D94006EF081 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -669,9 +673,11 @@
 				CB472CE821F70C0900FB98EE /* HTTPTask.swift */,
 				CB472D4621F75E4600FB98EE /* NetworkLogger.swift */,
 				CB472CF821F7135100FB98EE /* NetworkRouter.swift */,
-				CB472CFA21F7141100FB98EE /* Router.swift */,
+				CBDE71E42243CBCB0070F603 /* HTTPResponse.swift */,
 				CB472D0221F72DF700FB98EE /* Result.swift */,
+				CB472CFA21F7141100FB98EE /* Router.swift */,
 				CB472D0E21F73A3100FB98EE /* WebError.swift */,
+				CBDE71E62243CCB60070F603 /* HTTPStatusCode.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1815,10 +1821,12 @@
 				CB4EB174222E3D6B00FF2232 /* PlaceholderTextView.swift in Sources */,
 				CBDE71D322436BAF0070F603 /* SettingsTableViewController.swift in Sources */,
 				CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */,
+				CBDE71E52243CBCB0070F603 /* HTTPResponse.swift in Sources */,
 				CB03CBE12236D65000104251 /* DefaultDebtExtractor.swift in Sources */,
 				CBAC545521F4A48A004C8C65 /* StorageObject.swift in Sources */,
 				CBCCC4342232CE7200535D57 /* DefaultDebtService.swift in Sources */,
 				CB71C3D521F9B74A008FDD0B /* DefaultConfirmCoder.swift in Sources */,
+				CBDE71E72243CCB60070F603 /* HTTPStatusCode.swift in Sources */,
 				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
 				CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */,
 				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,

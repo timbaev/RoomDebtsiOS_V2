@@ -30,11 +30,11 @@ struct DefaultAccountService: AccountService {
     }
 
     func confirm(phoneNumber: String, code: String, success: @escaping (UserAccount) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.confirm(phoneNumber: phoneNumber, code: code), success: { json in
+        self.router.jsonObject(.confirm(phoneNumber: phoneNumber, code: code), success: { response in
             do {
-                try self.accessExtractor.extract(from: json)
+                try self.accessExtractor.extract(from: response.content)
 
-                let userAccount = try self.userAccountExtractor.extractUserAccount(from: json, context: Services.cacheViewContext)
+                let userAccount = try self.userAccountExtractor.extractUserAccount(from: response.content, context: Services.cacheViewContext)
 
                 success(userAccount)
             } catch {
@@ -54,14 +54,20 @@ struct DefaultAccountService: AccountService {
     }
 
     func uploadAvatar(image: UIImage, success: @escaping (UserAccount) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.avatar(image: image), success: { json in
+        self.router.jsonObject(.avatar(image: image), success: { response in
             do {
-                let userAccount = try self.userAccountExtractor.extractUserAccount(from: json, context: Services.cacheViewContext)
+                let userAccount = try self.userAccountExtractor.extractUserAccount(from: response.content, context: Services.cacheViewContext)
 
                 success(userAccount)
             } catch {
                 failure(WebError(code: .aborted))
             }
+        }, failure: failure)
+    }
+
+    func update(firstName: String, lastName: String, phoneNumber: String, success: @escaping (UserAccount?) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonObject(.update(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber), success: { json in
+
         }, failure: failure)
     }
 }

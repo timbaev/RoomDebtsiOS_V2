@@ -21,9 +21,9 @@ struct DefaultDebtService: DebtService {
     // MARK: - Instance Methods
 
     func create(with form: CreateDebtForm, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.create(form: form), success: { json in
+        self.router.jsonObject(.create(form: form), success: { response in
             do {
-                let debt = try self.debtExtractor.extractDebt(from: json, cacheContext: Services.cacheViewContext)
+                let debt = try self.debtExtractor.extractDebt(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(debt)
             } catch {
@@ -37,9 +37,9 @@ struct DefaultDebtService: DebtService {
     }
 
     func fetch(for conversationUID: Int64, success: @escaping (DebtList) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonArray(.fetch(conversationUID: conversationUID), success: { json in
+        self.router.jsonArray(.fetch(conversationUID: conversationUID), success: { response in
             do {
-                let debtList = try self.debtExtractor.extractDebtList(from: json, withListType: .conversation(uid: conversationUID), cacheContext: Services.cacheViewContext)
+                let debtList = try self.debtExtractor.extractDebtList(from: response.content, withListType: .conversation(uid: conversationUID), cacheContext: Services.cacheViewContext)
 
                 success(debtList)
             } catch {
@@ -53,8 +53,8 @@ struct DefaultDebtService: DebtService {
     }
 
     func accept(for debtUID: Int64, success: @escaping (Debt?) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.accept(debtUID: debtUID), success: { object in
-            guard let json = object as? JSON else {
+        self.router.json(.accept(debtUID: debtUID), success: { response in
+            guard let json = response.content as? JSON else {
                 return success(nil)
             }
 
@@ -73,15 +73,15 @@ struct DefaultDebtService: DebtService {
     }
 
     func reject(for debtUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.reject(debtUID: debtUID), success: { object in
+        self.router.json(.reject(debtUID: debtUID), success: { response in
             success()
         }, failure: failure)
     }
 
     func update(for debtUID: Int64, form: CreateDebtForm, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.update(debtUID: debtUID, form: form), success: { json in
+        self.router.jsonObject(.update(debtUID: debtUID, form: form), success: { response in
             do {
-                let debt = try self.debtExtractor.extractDebt(from: json, cacheContext: Services.cacheViewContext)
+                let debt = try self.debtExtractor.extractDebt(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(debt)
             } catch {
@@ -95,9 +95,9 @@ struct DefaultDebtService: DebtService {
     }
 
     func deleteRequest(for debtUID: Int64, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.deleteRequest(debtUID: debtUID), success: { json in
+        self.router.jsonObject(.deleteRequest(debtUID: debtUID), success: { response in
             do {
-                let debt = try self.debtExtractor.extractDebt(from: json, cacheContext: Services.cacheViewContext)
+                let debt = try self.debtExtractor.extractDebt(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(debt)
             } catch {
@@ -111,7 +111,7 @@ struct DefaultDebtService: DebtService {
     }
 
     func delete(debtUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.delete(debtUID: debtUID), success: { object in
+        self.router.json(.delete(debtUID: debtUID), success: { response in
             Services.cacheViewContext.debtManager.clear(withUID: debtUID)
 
             success()
@@ -119,9 +119,9 @@ struct DefaultDebtService: DebtService {
     }
 
     func repayRequest(for debtUID: Int64, success: @escaping (Debt) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.repayRequest(debtUID: debtUID), success: { json in
+        self.router.jsonObject(.repayRequest(debtUID: debtUID), success: { response in
             do {
-                let debt = try self.debtExtractor.extractDebt(from: json, cacheContext: Services.cacheViewContext)
+                let debt = try self.debtExtractor.extractDebt(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(debt)
             } catch {

@@ -19,9 +19,9 @@ struct DefaultUserService: UserService {
     // MARK: - Instance Methods
 
     func search(keyword: String, success: @escaping ([User]) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonArray(.search(keyword: keyword), success: { json in
+        self.router.jsonArray(.search(keyword: keyword), success: { response in
             do {
-                let users = try self.userExtractor.extractSearchUsers(from: json)
+                let users = try self.userExtractor.extractSearchUsers(from: response.content)
 
                 success(users)
             } catch {

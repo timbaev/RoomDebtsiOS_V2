@@ -19,9 +19,9 @@ struct DefaultConversationService: ConversationService {
     // MARK: - Instance Methods
 
     func create(opponentUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.create(opponentUID: opponentUID), success: { json in
+        self.router.jsonObject(.create(opponentUID: opponentUID), success: { response in
             do {
-                let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
+                let conversation = try self.conversationExtractor.extractConversation(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(conversation)
             } catch {
@@ -35,9 +35,9 @@ struct DefaultConversationService: ConversationService {
     }
 
     func fetch(success: @escaping (ConversationList) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonArray(.fetch, success: { json in
+        self.router.jsonArray(.fetch, success: { response in
             do {
-                let conversationList = try self.conversationExtractor.extractConversationList(from: json, withListType: .all, cacheContext: Services.cacheViewContext)
+                let conversationList = try self.conversationExtractor.extractConversationList(from: response.content, withListType: .all, cacheContext: Services.cacheViewContext)
 
                 success(conversationList)
             } catch {
@@ -51,8 +51,8 @@ struct DefaultConversationService: ConversationService {
     }
 
     func accept(conversationUID: Int64, success: @escaping (Conversation?) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.accept(conversationUID: conversationUID), success: { object in
-            guard let json = object as? JSON else {
+        self.router.json(.accept(conversationUID: conversationUID), success: { response in
+            guard let json = response.content as? JSON else {
                 Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
 
                 return success(nil)
@@ -73,8 +73,8 @@ struct DefaultConversationService: ConversationService {
     }
 
     func reject(conversationUID: Int64, success: @escaping (Conversation?) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.reject(conversationUID: conversationUID), success: { object in
-            guard let json = object as? JSON else {
+        self.router.json(.reject(conversationUID: conversationUID), success: { response in
+            guard let json = response.content as? JSON else {
                 Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
 
                 return success(nil)
@@ -95,9 +95,9 @@ struct DefaultConversationService: ConversationService {
     }
 
     func repayRequest(for conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.repayRequest(conversationUID: conversationUID), success: { json in
+        self.router.jsonObject(.repayRequest(conversationUID: conversationUID), success: { response in
             do {
-                let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
+                let conversation = try self.conversationExtractor.extractConversation(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(conversation)
             } catch {
@@ -111,9 +111,9 @@ struct DefaultConversationService: ConversationService {
     }
 
     func deleteRequest(for conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.deleteRequest(conversationUID: conversationUID), success: { json in
+        self.router.jsonObject(.deleteRequest(conversationUID: conversationUID), success: { response in
             do {
-                let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
+                let conversation = try self.conversationExtractor.extractConversation(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(conversation)
             } catch {
@@ -127,9 +127,9 @@ struct DefaultConversationService: ConversationService {
     }
 
     func cancelRequest(for conversationUID: Int64, success: @escaping (Conversation) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.cancelRequest(conversationUID: conversationUID), success: { json in
+        self.router.jsonObject(.cancelRequest(conversationUID: conversationUID), success: { response in
             do {
-                let conversation = try self.conversationExtractor.extractConversation(from: json, cacheContext: Services.cacheViewContext)
+                let conversation = try self.conversationExtractor.extractConversation(from: response.content, cacheContext: Services.cacheViewContext)
 
                 success(conversation)
             } catch {
@@ -143,7 +143,7 @@ struct DefaultConversationService: ConversationService {
     }
 
     func delete(conversationUID: Int64, success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.json(.delete(conversationUID: conversationUID), success: { object in
+        self.router.json(.delete(conversationUID: conversationUID), success: { response in
             Services.cacheViewContext.conversationManager.clear(withUID: conversationUID)
 
             success()

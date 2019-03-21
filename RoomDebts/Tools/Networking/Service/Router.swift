@@ -96,7 +96,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
 
     // MARK: -
 
-    private func performRequest(_ route: EndPoint, success: @escaping (Data) -> (), failure: @escaping (WebError) -> ()) {
+    private func performRequest(_ route: EndPoint, success: @escaping (Data, HTTPStatusCode) -> (), failure: @escaping (WebError) -> ()) {
         let session = URLSession.shared
 
         guard let request = try? self.buildRequest(from: route) else {
@@ -120,6 +120,13 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 return
             }
 
+            guard let httpStatusCode = HTTPStatusCode(rawValue: response.statusCode) else {
+                DispatchQueue.main.async {
+                    failure(WebError(code: .aborted))
+                }
+                return
+            }
+
             guard let responseData = data else {
                 DispatchQueue.main.async {
                     failure(WebError(code: .badResponse))
@@ -135,7 +142,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
 
             switch result {
             case .success:
-                success(responseData)
+                success(responseData, httpStatusCode)
 
             case .failure(let webError):
                 DispatchQueue.main.async {
@@ -149,8 +156,8 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     
     // MARK: -
 
-    func jsonArray(_ route: EndPoint, success: @escaping ([JSON]) -> (), failure: @escaping (WebError) -> ()) {
-        self.performRequest(route, success: { data in
+    func jsonArray(_ route: EndPoint, success: @escaping (HTTPResponse<[JSON]>) -> (), failure: @escaping (WebError) -> ()) {
+        self.performRequest(route, success: { data, statusCode in
             guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) else {
                 DispatchQueue.main.async {
                     failure(WebError(code: .badResponse))
@@ -166,13 +173,13 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             }
 
             DispatchQueue.main.async {
-                success(responseArrayJSON)
+                success(HTTPResponse(content: responseArrayJSON, httpStatusCode: statusCode))
             }
         }, failure: failure)
     }
     
-    func jsonObject(_ route: EndPoint, success: @escaping (JSON) -> (), failure: @escaping (WebError) -> ()) {
-        self.performRequest(route, success: { data in
+    func jsonObject(_ route: EndPoint, success: @escaping (HTTPResponse<JSON>) -> (), failure: @escaping (WebError) -> ()) {
+        self.performRequest(route, success: { data, statusCode in
             guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) else {
                 DispatchQueue.main.async {
                     failure(WebError(code: .badResponse))
@@ -188,22 +195,22 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             }
 
             DispatchQueue.main.async {
-                success(responseJSON)
+                success(HTTPResponse(content: responseJSON, httpStatusCode: statusCode))
             }
         }, failure: failure)
     }
 
-    func json(_ route: EndPoint, success: @escaping (Any?) -> (), failure: @escaping (WebError) -> ()) {
-        self.performRequest(route, success: { data in
+    func json(_ route: EndPoint, success: @escaping (HTTPResponse<Any?>) -> (), failure: @escaping (WebError) -> ()) {
+        self.performRequest(route, success: { data, statusCode in
             guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) else {
                 DispatchQueue.main.async {
-                    success(nil)
+                    success(HTTPResponse(content: nil, httpStatusCode: statusCode))
                 }
                 return
             }
 
             DispatchQueue.main.async {
-                success(jsonObject)
+                success(HTTPResponse(content: jsonObject, httpStatusCode: statusCode))
             }
         }, failure: failure)
     }

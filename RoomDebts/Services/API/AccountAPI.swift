@@ -16,6 +16,7 @@ enum AccountAPI {
     case confirm(phoneNumber: String, code: String)
     case signIn(phoneNumber: String)
     case avatar(image: UIImage)
+    case update(firstName: String, lastName: String, phoneNumber: String)
 }
 
 // MARK: - EndPointType
@@ -37,6 +38,9 @@ extension AccountAPI: EndPointType {
 
         case .avatar:
             return basePath + "/avatar"
+
+        case .update:
+            return basePath
         }
     }
 
@@ -44,6 +48,9 @@ extension AccountAPI: EndPointType {
         switch self {
         case .create, .confirm, .signIn, .avatar:
             return .post
+
+        case .update:
+            return .put
         }
     }
 
@@ -63,6 +70,11 @@ extension AccountAPI: EndPointType {
 
         case .avatar(let image):
             return .upload(image: image, imageName: "avatar.jpg", mimeType: .jpeg)
+
+        case let .update(firstName, lastName, phoneNumber):
+            let requestParameters = Coders.userAccountCoder.encode(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
+
+            return .requestParameters(bodyParameters: requestParameters, urlParameters: nil)
         }
     }
 
