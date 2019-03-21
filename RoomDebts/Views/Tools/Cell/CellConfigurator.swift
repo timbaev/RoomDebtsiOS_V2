@@ -12,7 +12,7 @@ protocol CellConfigurator {
 
     // MARK: - Type Properties
 
-    static var reuseId: String { get }
+    var reuseId: String { get }
 
     // MARK: - Instance Methods
 

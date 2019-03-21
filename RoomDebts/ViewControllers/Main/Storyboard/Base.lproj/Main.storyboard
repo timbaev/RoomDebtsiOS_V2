@@ -112,19 +112,32 @@
             </objects>
             <point key="canvasLocation" x="-372" y="704"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="HQS-Eo-aia">
             <objects>
-                <navigationController id="Unr-0J-e9b" sceneMemberID="viewController">
+                <navigationController id="Unr-0J-e9b" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="SettingsIcon" selectedImage="SettingsSelectedIcon" id="gc9-ne-MEa" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TxQ-wr-kGc">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="xJx-kK-cQj" kind="relationship" relationship="rootViewController" id="Tq7-gt-7kg"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ofe-pV-IIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1206" y="704"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="pxK-bw-ZSH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="xJx-kK-cQj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1cz-TV-BbJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HH-ba-0WO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="1169"/>
         </scene>
     </scenes>
     <resources>

@@ -12,7 +12,7 @@ class TableCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfigura
 
     // MARK: - Type Properties
 
-    static var reuseId: String {
+    var reuseId: String {
         return String(describing: CellType.self)
     }
 
