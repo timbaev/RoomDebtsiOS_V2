@@ -207,6 +207,7 @@
                         <outlet property="appVersionLabel" destination="zyU-yb-gTN" id="87F-PB-rHB"/>
                         <outlet property="tableView" destination="zWA-zo-i3q" id="6CL-AC-feE"/>
                         <segue destination="ZSB-Yt-QuC" kind="show" identifier="ShowEditAccount" id="QpB-6f-r08"/>
+                        <segue destination="gmm-Th-aII" kind="presentation" identifier="ShowWelcome" id="8br-yW-1ps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxs-W9-g0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -220,6 +221,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IfO-cl-zqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="16"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="edR-ur-pEj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Welcome" id="gmm-Th-aII" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csG-bR-4qN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946" y="187"/>
         </scene>
     </scenes>
     <resources>

@@ -344,7 +344,7 @@ extension EditAccountViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
 
         let hasNext = (currentIndex + 1 <= self.textFields.count - 1)
-        
+
         if hasNext {
             self.textFields[currentIndex + 1].becomeFirstResponder()
         }

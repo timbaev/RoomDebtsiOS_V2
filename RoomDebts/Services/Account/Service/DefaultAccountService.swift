@@ -81,4 +81,10 @@ struct DefaultAccountService: AccountService {
             }
         }, failure: failure)
     }
+
+    func logout(success: @escaping () -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.json(.logout, success: { response in
+            success()
+        }, failure: failure)
+    }
 }

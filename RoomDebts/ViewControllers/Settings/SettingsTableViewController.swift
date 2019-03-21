@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class SettingsTableViewController: LoggedViewController {
+class SettingsTableViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
 
     // MARK: - Type Aliases
 
@@ -35,6 +36,7 @@ class SettingsTableViewController: LoggedViewController {
         // MARK: - Type Properties
 
         static let showEditAccount = "ShowEditAccount"
+        static let showWelcome = "ShowWelcome"
     }
 
     // MARK: - Instance Properties
@@ -62,6 +64,28 @@ class SettingsTableViewController: LoggedViewController {
         }
 
         self.appVersionLabel.text = String(format: "App Version %@ (%@)".localized(), appVersion, buildNumber)
+    }
+
+    // MARK: -
+
+    private func logout() {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.accountService.logout(success: { [weak self] in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.performSegue(withIdentifier: Segues.showWelcome, sender: self)
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.showMessage(withError: error)
+        })
     }
 
     // MARK: - UIViewController
@@ -105,6 +129,9 @@ extension SettingsTableViewController: UITableViewDelegate {
         switch indexPath.row {
         case Constants.accountRowIndex:
             self.performSegue(withIdentifier: Segues.showEditAccount, sender: self)
+
+        case Constants.logoutRowIndex:
+            self.logout()
 
         default:
             break

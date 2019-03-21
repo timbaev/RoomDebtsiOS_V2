@@ -17,4 +17,5 @@ protocol AccountService {
     func signIn(phoneNumber: String, success: @escaping () -> Void, failure: @escaping (WebError) -> Void)
     func uploadAvatar(image: UIImage, success: @escaping (UserAccount) -> Void, failure: @escaping (WebError) -> Void)
     func update(firstName: String, lastName: String, phoneNumber: String, success: @escaping (UserAccount, Bool) -> Void, failure: @escaping (WebError) -> Void)
+    func logout(success: @escaping () -> Void, failure: @escaping (WebError) -> Void)
 }
