@@ -47,6 +47,9 @@
                                                 <state key="normal" title="Change Photo">
                                                     <color key="titleColor" red="0.78823529411764703" green="0.65098039215686276" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onChangePhotoTouchUpInside:" destination="iy6-6j-h6u" eventType="touchUpInside" id="Rbm-F1-EoF"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-nT-umn">
                                                 <rect key="frame" x="8" y="226" width="359" height="44"/>

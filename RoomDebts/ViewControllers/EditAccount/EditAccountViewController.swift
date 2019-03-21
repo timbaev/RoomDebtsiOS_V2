@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftPhoneNumberFormatter
+import NVActivityIndicatorView
 
-class EditAccountViewController: LoggedViewController {
+class EditAccountViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
 
     // MARK: - Nested Types
 
@@ -46,6 +47,21 @@ class EditAccountViewController: LoggedViewController {
         self.updateSaveBarButtonItemState()
     }
 
+    @IBAction private func onChangePhotoTouchUpInside(_ sender: UIButton) {
+        Log.i()
+
+        UIAlertController.Builder()
+            .preferredStyle(.actionSheet)
+            .withTitle("Change Photo".localized())
+            .addDefaultAction(withTitle: "From Camera".localized(), handler: { [unowned self] action in
+                self.takePhoto()
+            }).addDefaultAction(withTitle: "From Gallery".localized(), handler: { [unowned self] action in
+                self.selectPhoto()
+            })
+            .addCancelAction()
+            .show(in: self)
+    }
+
     // MARK: -
 
     private func updateSaveBarButtonItemState() {
@@ -64,6 +80,30 @@ class EditAccountViewController: LoggedViewController {
         } else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
+    }
+
+    // MARK: -
+
+    private func takePhoto() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            return Log.w("Camera is not available")
+        }
+
+        let imagePicker = UIImagePickerController()
+
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+
+        self.present(imagePicker, animated: true)
+    }
+
+    private func selectPhoto() {
+        let imagePicker = UIImagePickerController()
+
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+
+        self.present(imagePicker, animated: true)
     }
 
     // MARK: -
@@ -113,6 +153,29 @@ class EditAccountViewController: LoggedViewController {
         }
     }
 
+    // MARK: -
+
+    private func upload(image: UIImage) {
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.accountService.uploadAvatar(image: image, success: { [weak self] userAccount in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+
+            viewController.avatarImageView.image = image
+        }, failure: { [weak self] error in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+            viewController.showMessage(withError: error)
+        })
+    }
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -148,3 +211,24 @@ extension EditAccountViewController: KeyboardScrollableHandler {
         return self.scrollView
     }
 }
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension EditAccountViewController: UIImagePickerControllerDelegate {
+
+    // MARK: - Instance Methods
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        picker.dismiss(animated: true)
+
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            return
+        }
+
+        self.upload(image: selectedImage)
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+
+extension EditAccountViewController: UINavigationControllerDelegate { }

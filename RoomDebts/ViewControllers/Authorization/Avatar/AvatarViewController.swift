@@ -64,7 +64,7 @@ class AvatarViewController: LoggedViewController, ErrorMessagePresenter, NVActiv
 
             self.startAnimating(type: .ballScaleMultiple)
 
-            Services.accountService.uploadAvatar(image: image, success: { [weak self] in
+            Services.accountService.uploadAvatar(image: image, success: { [weak self] userAccount in
                 guard let viewController = self else {
                     return
                 }
