@@ -116,6 +116,7 @@
 		CB71C3E921FA56DF008FDD0B /* AccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */; };
 		CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */; };
 		CB7ACE47222AF3D6004628A4 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */; };
+		CB7D5671224BE1FA0014B42B /* WelcomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */; };
 		CB83DCD2221E9DBA00749486 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB83DCD1221E9DBA00749486 /* Search.storyboard */; };
 		CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */; };
 		CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB6223EBE19005E379D /* ConfigurableCell.swift */; };
@@ -136,7 +137,6 @@
 		CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBAC541D21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld */; };
 		CBAC542121F4A3D7004C8C65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAC542021F4A3D7004C8C65 /* Assets.xcassets */; };
 		CBAC542421F4A3D7004C8C65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAC542221F4A3D7004C8C65 /* LaunchScreen.storyboard */; };
-		CBAC542F21F4A3D7004C8C65 /* RoomDebtsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC542E21F4A3D7004C8C65 /* RoomDebtsTests.swift */; };
 		CBAC544D21F4A48A004C8C65 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC544121F4A48A004C8C65 /* StorageManager.swift */; };
 		CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC544221F4A48A004C8C65 /* StorageFetchRequest.swift */; };
 		CBAC544F21F4A48A004C8C65 /* StorageContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC544321F4A48A004C8C65 /* StorageContextObserver.swift */; };
@@ -175,6 +175,26 @@
 		CBCCC4392232D07800535D57 /* CreateDebtForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC4382232D07800535D57 /* CreateDebtForm.swift */; };
 		CBCCC43C2232D15C00535D57 /* DebtCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC43B2232D15C00535D57 /* DebtCoder.swift */; };
 		CBCCC43E2232D17200535D57 /* DefaultDebtCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCCC43D2232D17200535D57 /* DefaultDebtCoder.swift */; };
+		CBCDEBFC224C9AC900889748 /* MockCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEBFB224C9AC900889748 /* MockCacheProvider.swift */; };
+		CBCDEBFE224C9B1000889748 /* MockCacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEBFD224C9B1000889748 /* MockCacheModel.swift */; };
+		CBCDEC02224C9BAF00889748 /* MockStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC01224C9BAF00889748 /* MockStorageModel.swift */; };
+		CBCDEC04224CB78000889748 /* MockStorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC03224CB77F00889748 /* MockStorageContext.swift */; };
+		CBCDEC06224CBCDF00889748 /* MockStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC05224CBCDF00889748 /* MockStorageManager.swift */; };
+		CBCDEC08224CBE9100889748 /* MockCacheContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC07224CBE9100889748 /* MockCacheContextFactory.swift */; };
+		CBCDEC0C224CC28000889748 /* MockCacheContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC0B224CC28000889748 /* MockCacheContext.swift */; };
+		CBCDEC0F224CC44100889748 /* MockUserAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC0E224CC44100889748 /* MockUserAccountManager.swift */; };
+		CBCDEC12224CC4CD00889748 /* MockUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC11224CC4CD00889748 /* MockUserAccount.swift */; };
+		CBCDEC15224CC74400889748 /* MockConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC14224CC74400889748 /* MockConversationManager.swift */; };
+		CBCDEC18224CC79600889748 /* MockConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC17224CC79600889748 /* MockConversation.swift */; };
+		CBCDEC1B224CC8A100889748 /* MockUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC1A224CC8A100889748 /* MockUserManager.swift */; };
+		CBCDEC1E224CC8CD00889748 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC1D224CC8CD00889748 /* MockUser.swift */; };
+		CBCDEC21224CC94C00889748 /* MockDebtManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC20224CC94C00889748 /* MockDebtManager.swift */; };
+		CBCDEC24224CC97E00889748 /* MockDebt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC23224CC97E00889748 /* MockDebt.swift */; };
+		CBCDEC27224CCCC900889748 /* MockConversationListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC26224CCCC900889748 /* MockConversationListManager.swift */; };
+		CBCDEC2A224CCD3B00889748 /* MockConversationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC29224CCD3B00889748 /* MockConversationList.swift */; };
+		CBCDEC2D224CD0D100889748 /* MockDebtListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC2C224CD0D100889748 /* MockDebtListManager.swift */; };
+		CBCDEC30224CD21600889748 /* MockDebtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC2F224CD21600889748 /* MockDebtList.swift */; };
+		CBCDEC32224CD35B00889748 /* MockCacheManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC31224CD35B00889748 /* MockCacheManagerFactory.swift */; };
 		CBDE71D322436BAF0070F603 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D222436BAF0070F603 /* SettingsTableViewController.swift */; };
 		CBDE71D622436C6E0070F603 /* SettingTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D522436C6E0070F603 /* SettingTableViewModel.swift */; };
 		CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D8224383470070F603 /* SettingTableViewCell.swift */; };
@@ -345,6 +365,7 @@
 		CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessExtractor.swift; sourceTree = "<group>"; };
 		CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccessExtractor.swift; sourceTree = "<group>"; };
 		CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewControllerTests.swift; sourceTree = "<group>"; };
 		CB83DCD1221E9DBA00749486 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		CB913AB6223EBE19005E379D /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
@@ -368,7 +389,6 @@
 		CBAC542321F4A3D7004C8C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBAC542521F4A3D7004C8C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBAC542A21F4A3D7004C8C65 /* RoomDebtsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomDebtsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAC542E21F4A3D7004C8C65 /* RoomDebtsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDebtsTests.swift; sourceTree = "<group>"; };
 		CBAC543021F4A3D7004C8C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBAC544121F4A48A004C8C65 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		CBAC544221F4A48A004C8C65 /* StorageFetchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageFetchRequest.swift; sourceTree = "<group>"; };
@@ -408,6 +428,26 @@
 		CBCCC4382232D07800535D57 /* CreateDebtForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebtForm.swift; sourceTree = "<group>"; };
 		CBCCC43B2232D15C00535D57 /* DebtCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCoder.swift; sourceTree = "<group>"; };
 		CBCCC43D2232D17200535D57 /* DefaultDebtCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtCoder.swift; sourceTree = "<group>"; };
+		CBCDEBFB224C9AC900889748 /* MockCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCacheProvider.swift; sourceTree = "<group>"; };
+		CBCDEBFD224C9B1000889748 /* MockCacheModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCacheModel.swift; sourceTree = "<group>"; };
+		CBCDEC01224C9BAF00889748 /* MockStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageModel.swift; sourceTree = "<group>"; };
+		CBCDEC03224CB77F00889748 /* MockStorageContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageContext.swift; sourceTree = "<group>"; };
+		CBCDEC05224CBCDF00889748 /* MockStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageManager.swift; sourceTree = "<group>"; };
+		CBCDEC07224CBE9100889748 /* MockCacheContextFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCacheContextFactory.swift; sourceTree = "<group>"; };
+		CBCDEC0B224CC28000889748 /* MockCacheContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCacheContext.swift; sourceTree = "<group>"; };
+		CBCDEC0E224CC44100889748 /* MockUserAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserAccountManager.swift; sourceTree = "<group>"; };
+		CBCDEC11224CC4CD00889748 /* MockUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserAccount.swift; sourceTree = "<group>"; };
+		CBCDEC14224CC74400889748 /* MockConversationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConversationManager.swift; sourceTree = "<group>"; };
+		CBCDEC17224CC79600889748 /* MockConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConversation.swift; sourceTree = "<group>"; };
+		CBCDEC1A224CC8A100889748 /* MockUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserManager.swift; sourceTree = "<group>"; };
+		CBCDEC1D224CC8CD00889748 /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
+		CBCDEC20224CC94C00889748 /* MockDebtManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebtManager.swift; sourceTree = "<group>"; };
+		CBCDEC23224CC97E00889748 /* MockDebt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebt.swift; sourceTree = "<group>"; };
+		CBCDEC26224CCCC900889748 /* MockConversationListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConversationListManager.swift; sourceTree = "<group>"; };
+		CBCDEC29224CCD3B00889748 /* MockConversationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConversationList.swift; sourceTree = "<group>"; };
+		CBCDEC2C224CD0D100889748 /* MockDebtListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebtListManager.swift; sourceTree = "<group>"; };
+		CBCDEC2F224CD21600889748 /* MockDebtList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebtList.swift; sourceTree = "<group>"; };
+		CBCDEC31224CD35B00889748 /* MockCacheManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCacheManagerFactory.swift; sourceTree = "<group>"; };
 		CBDE71D222436BAF0070F603 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		CBDE71D522436C6E0070F603 /* SettingTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewModel.swift; sourceTree = "<group>"; };
 		CBDE71D8224383470070F603 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -932,6 +972,30 @@
 			path = Access;
 			sourceTree = "<group>";
 		};
+		CB7D566D224BE1180014B42B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB7D566E224BE1D00014B42B /* Authorization */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CB7D566E224BE1D00014B42B /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CB7D566F224BE1D70014B42B /* Welcome */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CB7D566F224BE1D70014B42B /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		CB83DCCF221E9DA200749486 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1071,7 +1135,10 @@
 		CBAC542D21F4A3D7004C8C65 /* RoomDebtsTests */ = {
 			isa = PBXGroup;
 			children = (
-				CBAC542E21F4A3D7004C8C65 /* RoomDebtsTests.swift */,
+				CBCDEC09224CC25700889748 /* Models */,
+				CBCDEBF9224C9AB200889748 /* Services */,
+				CBCDEBFF224C9B9B00889748 /* Tools */,
+				CB7D566D224BE1180014B42B /* ViewControllers */,
 				CBAC543021F4A3D7004C8C65 /* Info.plist */,
 			);
 			path = RoomDebtsTests;
@@ -1355,6 +1422,167 @@
 				CBCCC43D2232D17200535D57 /* DefaultDebtCoder.swift */,
 			);
 			path = Debt;
+			sourceTree = "<group>";
+		};
+		CBCDEBF9224C9AB200889748 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEBFA224C9ABE00889748 /* Cache */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CBCDEBFA224C9ABE00889748 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC13224CC73A00889748 /* Conversation */,
+				CBCDEC25224CCCBA00889748 /* ConversationList */,
+				CBCDEC1F224CC93F00889748 /* Debt */,
+				CBCDEC2B224CD0BE00889748 /* DebtList */,
+				CBCDEC19224CC89400889748 /* User */,
+				CBCDEC0D224CC35800889748 /* UserAccount */,
+				CBCDEBFB224C9AC900889748 /* MockCacheProvider.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		CBCDEBFF224C9B9B00889748 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC00224C9BA000889748 /* Storage */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		CBCDEC00224C9BA000889748 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC03224CB77F00889748 /* MockStorageContext.swift */,
+				CBCDEC05224CBCDF00889748 /* MockStorageManager.swift */,
+				CBCDEC01224C9BAF00889748 /* MockStorageModel.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		CBCDEC09224CC25700889748 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC0A224CC27700889748 /* Cache */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBCDEC0A224CC27700889748 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC16224CC78800889748 /* Conversation */,
+				CBCDEC28224CCD2D00889748 /* ConversationList */,
+				CBCDEC22224CC97900889748 /* Debt */,
+				CBCDEC2E224CD20C00889748 /* DebtList */,
+				CBCDEC1C224CC8C600889748 /* User */,
+				CBCDEC10224CC4B200889748 /* UserAccount */,
+				CBCDEC0B224CC28000889748 /* MockCacheContext.swift */,
+				CBCDEC07224CBE9100889748 /* MockCacheContextFactory.swift */,
+				CBCDEC31224CD35B00889748 /* MockCacheManagerFactory.swift */,
+				CBCDEBFD224C9B1000889748 /* MockCacheModel.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		CBCDEC0D224CC35800889748 /* UserAccount */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC0E224CC44100889748 /* MockUserAccountManager.swift */,
+			);
+			path = UserAccount;
+			sourceTree = "<group>";
+		};
+		CBCDEC10224CC4B200889748 /* UserAccount */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC11224CC4CD00889748 /* MockUserAccount.swift */,
+			);
+			path = UserAccount;
+			sourceTree = "<group>";
+		};
+		CBCDEC13224CC73A00889748 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC14224CC74400889748 /* MockConversationManager.swift */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		CBCDEC16224CC78800889748 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC17224CC79600889748 /* MockConversation.swift */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		CBCDEC19224CC89400889748 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC1A224CC8A100889748 /* MockUserManager.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		CBCDEC1C224CC8C600889748 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC1D224CC8CD00889748 /* MockUser.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		CBCDEC1F224CC93F00889748 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC20224CC94C00889748 /* MockDebtManager.swift */,
+			);
+			path = Debt;
+			sourceTree = "<group>";
+		};
+		CBCDEC22224CC97900889748 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC23224CC97E00889748 /* MockDebt.swift */,
+			);
+			path = Debt;
+			sourceTree = "<group>";
+		};
+		CBCDEC25224CCCBA00889748 /* ConversationList */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC26224CCCC900889748 /* MockConversationListManager.swift */,
+			);
+			path = ConversationList;
+			sourceTree = "<group>";
+		};
+		CBCDEC28224CCD2D00889748 /* ConversationList */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC29224CCD3B00889748 /* MockConversationList.swift */,
+			);
+			path = ConversationList;
+			sourceTree = "<group>";
+		};
+		CBCDEC2B224CD0BE00889748 /* DebtList */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC2C224CD0D100889748 /* MockDebtListManager.swift */,
+			);
+			path = DebtList;
+			sourceTree = "<group>";
+		};
+		CBCDEC2E224CD20C00889748 /* DebtList */ = {
+			isa = PBXGroup;
+			children = (
+				CBCDEC2F224CD21600889748 /* MockDebtList.swift */,
+			);
+			path = DebtList;
 			sourceTree = "<group>";
 		};
 		CBD7281C222FCDAA00D1C684 /* Formatters */ = {
@@ -1935,7 +2163,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBAC542F21F4A3D7004C8C65 /* RoomDebtsTests.swift in Sources */,
+				CBCDEC02224C9BAF00889748 /* MockStorageModel.swift in Sources */,
+				CBCDEBFC224C9AC900889748 /* MockCacheProvider.swift in Sources */,
+				CBCDEC24224CC97E00889748 /* MockDebt.swift in Sources */,
+				CBCDEC18224CC79600889748 /* MockConversation.swift in Sources */,
+				CBCDEC0F224CC44100889748 /* MockUserAccountManager.swift in Sources */,
+				CBCDEC08224CBE9100889748 /* MockCacheContextFactory.swift in Sources */,
+				CBCDEC1B224CC8A100889748 /* MockUserManager.swift in Sources */,
+				CBCDEBFE224C9B1000889748 /* MockCacheModel.swift in Sources */,
+				CBCDEC0C224CC28000889748 /* MockCacheContext.swift in Sources */,
+				CBCDEC21224CC94C00889748 /* MockDebtManager.swift in Sources */,
+				CBCDEC32224CD35B00889748 /* MockCacheManagerFactory.swift in Sources */,
+				CBCDEC30224CD21600889748 /* MockDebtList.swift in Sources */,
+				CBCDEC06224CBCDF00889748 /* MockStorageManager.swift in Sources */,
+				CBCDEC2D224CD0D100889748 /* MockDebtListManager.swift in Sources */,
+				CB7D5671224BE1FA0014B42B /* WelcomeViewControllerTests.swift in Sources */,
+				CBCDEC15224CC74400889748 /* MockConversationManager.swift in Sources */,
+				CBCDEC12224CC4CD00889748 /* MockUserAccount.swift in Sources */,
+				CBCDEC27224CCCC900889748 /* MockConversationListManager.swift in Sources */,
+				CBCDEC1E224CC8CD00889748 /* MockUser.swift in Sources */,
+				CBCDEC2A224CCD3B00889748 /* MockConversationList.swift in Sources */,
+				CBCDEC04224CB78000889748 /* MockStorageContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

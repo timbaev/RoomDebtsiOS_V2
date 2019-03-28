@@ -12,37 +12,37 @@ public extension UIColor {
     
     // MARK: - Initializers
     
-    public convenience init(red: CGFloat, green: CGFloat, blue: CGFloat) {
+    convenience init(red: CGFloat, green: CGFloat, blue: CGFloat) {
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
     
-    public convenience init(redByte: UInt8, greenByte: UInt8, blueByte: UInt8, alphaByte: UInt8) {
+    convenience init(redByte: UInt8, greenByte: UInt8, blueByte: UInt8, alphaByte: UInt8) {
         self.init(red: CGFloat(redByte) / 255.0,
                   green: CGFloat(greenByte) / 255.0,
                   blue: CGFloat(blueByte) / 255.0,
                   alpha: CGFloat(alphaByte) / 255.0)
     }
     
-    public convenience init(redByte: UInt8, greenByte: UInt8, blueByte: UInt8, alpha: CGFloat = 1.0) {
+    convenience init(redByte: UInt8, greenByte: UInt8, blueByte: UInt8, alpha: CGFloat = 1.0) {
         self.init(red: CGFloat(redByte) / 255.0,
                   green: CGFloat(greenByte) / 255.0,
                   blue: CGFloat(blueByte) / 255.0,
                   alpha: alpha)
     }
     
-    public convenience init(white: CGFloat) {
+    convenience init(white: CGFloat) {
         self.init(white: white, alpha: 1.0)
     }
     
-    public convenience init(whiteByte: UInt, alphaByte: UInt8) {
+    convenience init(whiteByte: UInt, alphaByte: UInt8) {
         self.init(white: CGFloat(whiteByte) / 255.0, alpha: CGFloat(alphaByte) / 255.0)
     }
     
-    public convenience init(whiteByte: UInt, alpha: CGFloat = 1.0) {
+    convenience init(whiteByte: UInt, alpha: CGFloat = 1.0) {
         self.init(white: CGFloat(whiteByte) / 255.0, alpha: alpha)
     }
     
-    public convenience init(withRGBHex hex: UInt32) {
+    convenience init(withRGBHex hex: UInt32) {
         self.init(redByte: UInt8((hex >> 16) & 255),
                   greenByte: UInt8((hex >> 8) & 255),
                   blueByte: UInt8(hex & 255))

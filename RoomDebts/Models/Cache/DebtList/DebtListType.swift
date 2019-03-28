@@ -57,9 +57,9 @@ enum DebtListType {
 
 extension DebtListType: Hashable {
 
-    // MARK: - Instance Properties
+    // MARK: - Instance Methods
 
-    var hashValue: Int {
-        return Int(self.rawValue)
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.rawValue)
     }
 }

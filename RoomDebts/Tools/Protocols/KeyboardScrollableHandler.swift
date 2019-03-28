@@ -25,7 +25,7 @@ public extension KeyboardScrollableHandler {
     
     // MARK: - Instance Methods
     
-    public func handle(keyboardHeight: CGFloat, view: UIView) {
+    func handle(keyboardHeight: CGFloat, view: UIView) {
         let viewHeight = self.scrollableView.convert(CGPoint(x: 0.0, y: view.bounds.height), from: view).y
         
         let keyboardHeight = max((keyboardHeight - (viewHeight - self.scrollableView.bounds.height)), 0.0)

@@ -56,7 +56,7 @@ public extension Event where T == Void {
     
     // MARK: - Instance Methods
     
-    public func emit() {
+    func emit() {
         self.emit(data: Void())
     }
 }

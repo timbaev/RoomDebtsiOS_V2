@@ -48,6 +48,7 @@ disabled_rules:
   - cyclomatic_complexity
   - unused_setter_value
   - pattern_matching_keywords
+  - lower_acl_than_parent # error in swift 5
 
 opt_in_rules:
   - anyobject_protocol
@@ -103,7 +104,6 @@ opt_in_rules:
   - legacy_nsgeometry_functions
   - legacy_random
   - let_var_whitespace # doesn't work as it should
-  - lower_acl_than_parent
   - mark
   - modifier_order
   - multiline_parameters

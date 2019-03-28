@@ -24,7 +24,7 @@ public extension KeyboardHandler where Self: AnyObject {
     
     // MARK: - Instance Methods
     
-    public func unsubscribeFromKeyboardNotifications() {
+    func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -55,7 +55,7 @@ public extension KeyboardHandler where Self: UIViewController {
     
     // MARK: -
     
-    public func subscribeToKeyboardNotifications() {
+    func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
                                                object: nil,
                                                queue: nil,
