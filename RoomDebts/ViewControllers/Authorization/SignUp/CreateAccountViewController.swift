@@ -111,26 +111,30 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
         }
     }
 
-    // MARK: - UIVeiwController
+    // MARK: -
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    private func configTextFieldsPlaceholder() {
         self.firstNameTextField.attributedPlaceholder = NSAttributedString(string: "First Name".localized(), attributes: [.font: Fonts.regular(ofSize: 17), .foregroundColor: Colors.white.withAlphaComponent(0.5)])
 
         self.lastNameTextField.attributedPlaceholder = NSAttributedString(string: "Last Name".localized(), attributes: [.font: Fonts.regular(ofSize: 17), .foregroundColor: Colors.white.withAlphaComponent(0.5)])
 
         self.phoneNumberTextField.attributedPlaceholder = NSAttributedString(string: "Phone Number".localized(), attributes: [.font: Fonts.regular(ofSize: 17), .foregroundColor: Colors.white.withAlphaComponent(0.5)])
+    }
 
+    private func configTextFieldsTarget() {
         self.firstNameTextField.addTarget(self, action: #selector(self.onTextFieldDidChange(_:)), for: .editingChanged)
         self.lastNameTextField.addTarget(self, action: #selector(self.onTextFieldDidChange(_:)), for: .editingChanged)
+    }
 
+    private func configPhoneNumberTextField() {
         self.phoneNumberTextField.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "(###) ###-##-##")
         self.phoneNumberTextField.prefix = "+7 "
         self.phoneNumberTextField.textDidChangeBlock = { [unowned self] textField in
             self.updateNextButtonState()
         }
+    }
 
+    private func configPhoneNumberTextFieldToolbar() {
         let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
 
         doneToolbar.barStyle = .black
@@ -146,6 +150,17 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
         doneToolbar.sizeToFit()
 
         self.phoneNumberTextField.inputAccessoryView = doneToolbar
+    }
+
+    // MARK: - UIVeiwController
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.configTextFieldsPlaceholder()
+        self.configTextFieldsTarget()
+        self.configPhoneNumberTextField()
+        self.configPhoneNumberTextFieldToolbar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
