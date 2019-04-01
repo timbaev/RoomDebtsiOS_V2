@@ -95,6 +95,8 @@
 		CB4EB1A6222EE08200FF2232 /* CreateDebtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4EB1A5222EE08200FF2232 /* CreateDebtViewController.swift */; };
 		CB5953B0222D46EF0079D56B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5953AF222D46EF0079D56B /* Messages.swift */; };
 		CB6D6DAF2243655F0047196A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB6D6DAE2243655F0047196A /* Settings.storyboard */; };
+		CB6D9381224FB5D9004EA6A7 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D9380224FB5D9004EA6A7 /* FatalErrorUtil.swift */; };
+		CB6D9384224FB7F3004EA6A7 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D9383224FB7F3004EA6A7 /* XCTestCaseExtension.swift */; };
 		CB714B892222C7D7007961C6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B882222C7D7007961C6 /* UserTableViewCell.swift */; };
 		CB714B8B2222C9D6007961C6 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8A2222C9D6007961C6 /* UserAPI.swift */; };
 		CB714B8E2222CAE8007961C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8D2222CAE8007961C6 /* UserService.swift */; };
@@ -117,6 +119,7 @@
 		CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */; };
 		CB7ACE47222AF3D6004628A4 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */; };
 		CB7D5671224BE1FA0014B42B /* WelcomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */; };
+		CB812FB4224D142B00F17EAE /* CreateAccountViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB812FB3224D142B00F17EAE /* CreateAccountViewControllerTests.swift */; };
 		CB83DCD2221E9DBA00749486 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB83DCD1221E9DBA00749486 /* Search.storyboard */; };
 		CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */; };
 		CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB6223EBE19005E379D /* ConfigurableCell.swift */; };
@@ -195,6 +198,7 @@
 		CBCDEC2D224CD0D100889748 /* MockDebtListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC2C224CD0D100889748 /* MockDebtListManager.swift */; };
 		CBCDEC30224CD21600889748 /* MockDebtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC2F224CD21600889748 /* MockDebtList.swift */; };
 		CBCDEC32224CD35B00889748 /* MockCacheManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC31224CD35B00889748 /* MockCacheManagerFactory.swift */; };
+		CBDB48CC2250F92A00FD6EA9 /* MockAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDB48CB2250F92A00FD6EA9 /* MockAccountService.swift */; };
 		CBDE71D322436BAF0070F603 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D222436BAF0070F603 /* SettingsTableViewController.swift */; };
 		CBDE71D622436C6E0070F603 /* SettingTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D522436C6E0070F603 /* SettingTableViewModel.swift */; };
 		CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D8224383470070F603 /* SettingTableViewCell.swift */; };
@@ -344,6 +348,8 @@
 		CB4EB1A5222EE08200FF2232 /* CreateDebtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebtViewController.swift; sourceTree = "<group>"; };
 		CB5953AF222D46EF0079D56B /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		CB6D6DAE2243655F0047196A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		CB6D9380224FB5D9004EA6A7 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
+		CB6D9383224FB7F3004EA6A7 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
 		CB714B882222C7D7007961C6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		CB714B8A2222C9D6007961C6 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CB714B8D2222CAE8007961C6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -366,6 +372,7 @@
 		CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccessExtractor.swift; sourceTree = "<group>"; };
 		CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewControllerTests.swift; sourceTree = "<group>"; };
+		CB812FB3224D142B00F17EAE /* CreateAccountViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewControllerTests.swift; sourceTree = "<group>"; };
 		CB83DCD1221E9DBA00749486 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		CB913AB6223EBE19005E379D /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
@@ -448,6 +455,7 @@
 		CBCDEC2C224CD0D100889748 /* MockDebtListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebtListManager.swift; sourceTree = "<group>"; };
 		CBCDEC2F224CD21600889748 /* MockDebtList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebtList.swift; sourceTree = "<group>"; };
 		CBCDEC31224CD35B00889748 /* MockCacheManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCacheManagerFactory.swift; sourceTree = "<group>"; };
+		CBDB48CB2250F92A00FD6EA9 /* MockAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountService.swift; sourceTree = "<group>"; };
 		CBDE71D222436BAF0070F603 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		CBDE71D522436C6E0070F603 /* SettingTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewModel.swift; sourceTree = "<group>"; };
 		CBDE71D8224383470070F603 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -855,6 +863,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		CB6D9382224FB7E0004EA6A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CB6D9383224FB7F3004EA6A7 /* XCTestCaseExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CB714B872222C7CB007961C6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -983,6 +999,7 @@
 		CB7D566E224BE1D00014B42B /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				CB812FB1224D13D300F17EAE /* SignUp */,
 				CB7D566F224BE1D70014B42B /* Welcome */,
 			);
 			path = Authorization;
@@ -994,6 +1011,14 @@
 				CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		CB812FB1224D13D300F17EAE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CB812FB3224D142B00F17EAE /* CreateAccountViewControllerTests.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		CB83DCCF221E9DA200749486 /* Search */ = {
@@ -1135,6 +1160,7 @@
 		CBAC542D21F4A3D7004C8C65 /* RoomDebtsTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB6D9382224FB7E0004EA6A7 /* Extensions */,
 				CBCDEC09224CC25700889748 /* Models */,
 				CBCDEBF9224C9AB200889748 /* Services */,
 				CBCDEBFF224C9B9B00889748 /* Tools */,
@@ -1221,6 +1247,7 @@
 				CB16A96521F85D6900B74DE0 /* KeychainManager.swift */,
 				CBAC545821F4A4E5004C8C65 /* Log.swift */,
 				CBEB2DC7222C4BE000653B11 /* ImageDownloader.swift */,
+				CB6D9380224FB5D9004EA6A7 /* FatalErrorUtil.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1427,6 +1454,7 @@
 		CBCDEBF9224C9AB200889748 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CBDB48C92250F91B00FD6EA9 /* Account */,
 				CBCDEBFA224C9ABE00889748 /* Cache */,
 			);
 			path = Services;
@@ -1592,6 +1620,22 @@
 				CB03CBCF22369EDB00104251 /* ISO8601Formatter.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		CBDB48C92250F91B00FD6EA9 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				CBDB48CA2250F92000FD6EA9 /* Service */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		CBDB48CA2250F92000FD6EA9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CBDB48CB2250F92A00FD6EA9 /* MockAccountService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		CBDE71D422436C600070F603 /* Settings */ = {
@@ -2032,6 +2076,7 @@
 				CBC86B86223A53EB003C50F6 /* DebtList.swift in Sources */,
 				CB5953B0222D46EF0079D56B /* Messages.swift in Sources */,
 				CBAC545121F4A48A004C8C65 /* CoreDataStorageManager.swift in Sources */,
+				CB6D9381224FB5D9004EA6A7 /* FatalErrorUtil.swift in Sources */,
 				CBAC545E21F4A525004C8C65 /* LoggedTabBarController.swift in Sources */,
 				CBC86B8D223A58DB003C50F6 /* DebtListManager.swift in Sources */,
 				CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */,
@@ -2169,9 +2214,12 @@
 				CBCDEC18224CC79600889748 /* MockConversation.swift in Sources */,
 				CBCDEC0F224CC44100889748 /* MockUserAccountManager.swift in Sources */,
 				CBCDEC08224CBE9100889748 /* MockCacheContextFactory.swift in Sources */,
+				CB6D9384224FB7F3004EA6A7 /* XCTestCaseExtension.swift in Sources */,
 				CBCDEC1B224CC8A100889748 /* MockUserManager.swift in Sources */,
 				CBCDEBFE224C9B1000889748 /* MockCacheModel.swift in Sources */,
+				CB812FB4224D142B00F17EAE /* CreateAccountViewControllerTests.swift in Sources */,
 				CBCDEC0C224CC28000889748 /* MockCacheContext.swift in Sources */,
+				CBDB48CC2250F92A00FD6EA9 /* MockAccountService.swift in Sources */,
 				CBCDEC21224CC94C00889748 /* MockDebtManager.swift in Sources */,
 				CBCDEC32224CD35B00889748 /* MockCacheManagerFactory.swift in Sources */,
 				CBCDEC30224CD21600889748 /* MockDebtList.swift in Sources */,

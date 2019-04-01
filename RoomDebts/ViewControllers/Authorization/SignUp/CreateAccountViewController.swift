@@ -34,20 +34,24 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
 
     // MARK: - Instance Properties
 
-    @IBOutlet private weak var firstNameTextField: UITextField!
-    @IBOutlet private weak var lastNameTextField: UITextField!
-    @IBOutlet private weak var phoneNumberTextField: PhoneFormattedTextField!
+    @IBOutlet private(set) weak var firstNameTextField: UITextField!
+    @IBOutlet private(set) weak var lastNameTextField: UITextField!
+    @IBOutlet private(set) weak var phoneNumberTextField: PhoneFormattedTextField!
 
-    @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var nextButton: PrimaryButton!
+    @IBOutlet private(set) weak var scrollView: UIScrollView!
+    @IBOutlet private(set) weak var nextButton: PrimaryButton!
 
-    @IBOutlet private var textFields: [UITextField]!
+    @IBOutlet private(set) var textFields: [UITextField]!
 
-    @IBOutlet private weak var bottomSpacerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private(set) weak var bottomSpacerHeightConstraint: NSLayoutConstraint!
 
     // MARK: -
 
     private(set) var shouldApplyData = true
+
+    // MARK: -
+
+    var accountService: AccountService = Services.accountService
 
     // MARK: - Initializers
 
@@ -58,35 +62,35 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
     // MARK: - Instance Methods
 
     @objc private func onTextFieldDidChange(_ sender: UITextField) {
-        Log.i(sender.text ?? "")
+        Log.i(sender.text)
 
         self.updateNextButtonState()
     }
 
     @objc private func onToolbarDoneButtonTouchUpInside(_ sender: UIBarButtonItem) {
-        Log.i(sender.title ?? "")
+        Log.i(sender.title)
 
         self.phoneNumberTextField.resignFirstResponder()
     }
 
-    @IBAction private func onTextButtonTouchUpInside(_ sender: PrimaryButton) {
-        Log.i(sender.title(for: .normal) ?? "")
+    @IBAction private func onNextButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i(sender.title(for: .normal))
 
-        guard let firstName = self.firstNameTextField.text else {
+        guard self.firstNameTextField.hasText, let firstName = self.firstNameTextField.text else {
             return
         }
 
-        guard let lastName = self.lastNameTextField.text else {
+        guard self.lastNameTextField.hasText, let lastName = self.lastNameTextField.text else {
             return
         }
 
-        guard let phoneNumber = self.phoneNumberTextField.phoneNumber() else {
+        guard self.phoneNumberTextField.hasText, let phoneNumber = self.phoneNumberTextField.phoneNumber() else {
             return
         }
 
         self.startAnimating(type: .ballScaleMultiple)
 
-        Services.accountService.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { [weak self] in
+        self.accountService.create(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { [weak self] in
             guard let viewController = self else {
                 return
             }
@@ -104,7 +108,7 @@ class CreateAccountViewController: LoggedViewController, NVActivityIndicatorView
     }
 
     private func updateNextButtonState() {
-        if self.firstNameTextField.text.isNotEmpty, self.lastNameTextField.text.isNotEmpty, self.phoneNumberTextField.phoneNumberWithoutPrefix()?.count == Constants.phoneNumberLength {
+        if self.firstNameTextField.hasText, self.lastNameTextField.hasText, self.phoneNumberTextField.phoneNumberWithoutPrefix()?.count == Constants.phoneNumberLength {
             self.nextButton.isEnabled = true
         } else {
             self.nextButton.isEnabled = false

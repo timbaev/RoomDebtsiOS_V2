@@ -535,7 +535,7 @@ private_action:
 
 private_outlet:
   severity: error
-  allow_private_set: false
+  allow_private_set: true
 
 private_over_fileprivate:
   severity: error
