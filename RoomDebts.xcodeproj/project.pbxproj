@@ -43,6 +43,8 @@
 		CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A99522062C5D007ECB86 /* DataExtensions.swift */; };
 		CB391D5B2222832800EB4EDD /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */; };
 		CB3ADFCB223A370900495E05 /* DebtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3ADFCA223A370900495E05 /* DebtTableViewCell.swift */; };
+		CB44E413225CB51100D59821 /* Checks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB44E412225CB51100D59821 /* Checks.storyboard */; };
+		CB44E416225CBE4E00D59821 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB44E415225CBE4E00D59821 /* CheckTableViewCell.swift */; };
 		CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE421F70B3700FB98EE /* EndPointType.swift */; };
 		CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE621F70B7600FB98EE /* HTTPMethod.swift */; };
 		CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE821F70C0900FB98EE /* HTTPTask.swift */; };
@@ -218,6 +220,13 @@
 		CBEB2DC8222C4BE000653B11 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB2DC7222C4BE000653B11 /* ImageDownloader.swift */; };
 		CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */; };
 		CBF277EE21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */; };
+		CBFD5FE0225F67B8000F711C /* ChecksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FD9225F67B8000F711C /* ChecksPresenter.swift */; };
+		CBFD5FE1225F67B8000F711C /* ChecksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDA225F67B8000F711C /* ChecksRouter.swift */; };
+		CBFD5FE2225F67B8000F711C /* ChecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */; };
+		CBFD5FE3225F67B8000F711C /* ChecksProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDC225F67B8000F711C /* ChecksProtocols.swift */; };
+		CBFD5FE4225F67B8000F711C /* ChecksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDD225F67B8000F711C /* ChecksInteractor.swift */; };
+		CBFD5FE5225F67B8000F711C /* ChecksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDE225F67B8000F711C /* ChecksViewModel.swift */; };
+		CBFD5FE6225F67B8000F711C /* ChecksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDF225F67B8000F711C /* ChecksConfigurator.swift */; };
 		CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */; };
 		CBFDBAA421F5B9FE0017ED61 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBA9A21F5B9FE0017ED61 /* Rubik-Black.ttf */; };
 		CBFDBAA521F5B9FE0017ED61 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBA9B21F5B9FE0017ED61 /* Rubik-Medium.ttf */; };
@@ -296,6 +305,8 @@
 		CB37A99522062C5D007ECB86 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
 		CB3ADFCA223A370900495E05 /* DebtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtTableViewCell.swift; sourceTree = "<group>"; };
+		CB44E412225CB51100D59821 /* Checks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checks.storyboard; sourceTree = "<group>"; };
+		CB44E415225CBE4E00D59821 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
 		CB472CE421F70B3700FB98EE /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		CB472CE621F70B7600FB98EE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		CB472CE821F70C0900FB98EE /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -475,6 +486,13 @@
 		CBEB2DC7222C4BE000653B11 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCoder.swift; sourceTree = "<group>"; };
 		CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPhoneNumberCoder.swift; sourceTree = "<group>"; };
+		CBFD5FD9225F67B8000F711C /* ChecksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksPresenter.swift; sourceTree = "<group>"; };
+		CBFD5FDA225F67B8000F711C /* ChecksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksRouter.swift; sourceTree = "<group>"; };
+		CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksViewController.swift; sourceTree = "<group>"; };
+		CBFD5FDC225F67B8000F711C /* ChecksProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksProtocols.swift; sourceTree = "<group>"; };
+		CBFD5FDD225F67B8000F711C /* ChecksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksInteractor.swift; sourceTree = "<group>"; };
+		CBFD5FDE225F67B8000F711C /* ChecksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksViewModel.swift; sourceTree = "<group>"; };
+		CBFD5FDF225F67B8000F711C /* ChecksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksConfigurator.swift; sourceTree = "<group>"; };
 		CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CBFDBA9A21F5B9FE0017ED61 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		CBFDBA9B21F5B9FE0017ED61 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
@@ -698,6 +716,37 @@
 				CBC86B89223A568B003C50F6 /* DefaultDebtListExtension.swift */,
 			);
 			path = DebtList;
+			sourceTree = "<group>";
+		};
+		CB44E410225CB4FD00D59821 /* Checks */ = {
+			isa = PBXGroup;
+			children = (
+				CB44E411225CB50700D59821 /* Storyboard */,
+				CBFD5FDF225F67B8000F711C /* ChecksConfigurator.swift */,
+				CBFD5FDD225F67B8000F711C /* ChecksInteractor.swift */,
+				CBFD5FD9225F67B8000F711C /* ChecksPresenter.swift */,
+				CBFD5FDC225F67B8000F711C /* ChecksProtocols.swift */,
+				CBFD5FDA225F67B8000F711C /* ChecksRouter.swift */,
+				CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */,
+				CBFD5FDE225F67B8000F711C /* ChecksViewModel.swift */,
+			);
+			path = Checks;
+			sourceTree = "<group>";
+		};
+		CB44E411225CB50700D59821 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CB44E412225CB51100D59821 /* Checks.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CB44E414225CBE3D00D59821 /* Checks */ = {
+			isa = PBXGroup;
+			children = (
+				CB44E415225CBE4E00D59821 /* CheckTableViewCell.swift */,
+			);
+			path = Checks;
 			sourceTree = "<group>";
 		};
 		CB472CE221F70A6200FB98EE /* Networking */ = {
@@ -1174,6 +1223,7 @@
 			isa = PBXGroup;
 			children = (
 				CBFDBAAE21F608D20017ED61 /* Authorization */,
+				CB44E410225CB4FD00D59821 /* Checks */,
 				CBAC547421F4CC4F004C8C65 /* Conversations */,
 				CBA02E19222D8D10009683A5 /* CreateDebt */,
 				CBA02E13222D842A009683A5 /* Debts */,
@@ -1371,6 +1421,7 @@
 		CBAC547821F4CD69004C8C65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB44E414225CBE3D00D59821 /* Checks */,
 				CBEB2DC0222C1DE600653B11 /* Conversation */,
 				CB3ADFC9223A36F900495E05 /* Debts */,
 				CB714B872222C7CB007961C6 /* Search */,
@@ -1877,6 +1928,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBAC542421F4A3D7004C8C65 /* LaunchScreen.storyboard in Resources */,
+				CB44E413225CB51100D59821 /* Checks.storyboard in Resources */,
 				CBFDBAA721F5B9FE0017ED61 /* Rubik-BoldItalic.ttf in Resources */,
 				CB6D6DAF2243655F0047196A /* Settings.storyboard in Resources */,
 				CBFDBAA621F5B9FE0017ED61 /* Rubik-Regular.ttf in Resources */,
@@ -2038,11 +2090,13 @@
 				CBA02E18222D84C0009683A5 /* DebtsTableViewController.swift in Sources */,
 				CB9C4436222683F30052F512 /* ConversationManager.swift in Sources */,
 				CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */,
+				CB44E416225CBE4E00D59821 /* CheckTableViewCell.swift in Sources */,
 				CB472CF421F7113400FB98EE /* JSONParameterEncoder.swift in Sources */,
 				CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */,
 				CB098EC82225207800FDD47C /* DefaultConversationService.swift in Sources */,
 				CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */,
 				CB714B952222D863007961C6 /* User.swift in Sources */,
+				CBFD5FE4225F67B8000F711C /* ChecksInteractor.swift in Sources */,
 				CB9C4438222684640052F512 /* DefaultConversationManager.swift in Sources */,
 				CBC86B88223A540A003C50F6 /* DebtListType.swift in Sources */,
 				CBCCC4392232D07800535D57 /* CreateDebtForm.swift in Sources */,
@@ -2100,6 +2154,7 @@
 				CBCCC4342232CE7200535D57 /* DefaultDebtService.swift in Sources */,
 				CB71C3D521F9B74A008FDD0B /* DefaultConfirmCoder.swift in Sources */,
 				CBDE71E72243CCB60070F603 /* HTTPStatusCode.swift in Sources */,
+				CBFD5FE1225F67B8000F711C /* ChecksRouter.swift in Sources */,
 				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
 				CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */,
 				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,
@@ -2127,6 +2182,7 @@
 				CBFF85B121F8F0E4002B7FCD /* Access.swift in Sources */,
 				CBFF85AB21F896DC002B7FCD /* VerificationCodeViewController.swift in Sources */,
 				CB03CBD022369EDB00104251 /* ISO8601Formatter.swift in Sources */,
+				CBFD5FE6225F67B8000F711C /* ChecksConfigurator.swift in Sources */,
 				CBAC547A21F4CD76004C8C65 /* GradientView.swift in Sources */,
 				CB472D0121F72D3C00FB98EE /* NetworkConfig.swift in Sources */,
 				CB714DE22222D9CB007961C6 /* DefaultUserCoder.swift in Sources */,
@@ -2140,12 +2196,14 @@
 				CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */,
 				CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
+				CBFD5FE5225F67B8000F711C /* ChecksViewModel.swift in Sources */,
 				CB03CBDC2236D4C700104251 /* DefaultDebtManager.swift in Sources */,
 				CBDE71E3224396930070F603 /* EditAccountViewController.swift in Sources */,
 				CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */,
 				CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */,
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
 				CBFDBACC21F660030017ED61 /* KeyboardScrollableHandler.swift in Sources */,
+				CBFD5FE3225F67B8000F711C /* ChecksProtocols.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
 				CB098ECE2225310000FDD47C /* ConversationExtractor.swift in Sources */,
 				CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */,
@@ -2193,8 +2251,10 @@
 				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
 				CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */,
 				CB0ECA45222989F9000B902E /* DefaultConversationListManager.swift in Sources */,
+				CBFD5FE0225F67B8000F711C /* ChecksPresenter.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,
 				CB37A9922206289A007ECB86 /* MimeType.swift in Sources */,
+				CBFD5FE2225F67B8000F711C /* ChecksViewController.swift in Sources */,
 				CB03CBDA2236D4A500104251 /* DebtManager.swift in Sources */,
 				CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */,
 				CBAC546B21F4ACCB004C8C65 /* Models.swift in Sources */,
