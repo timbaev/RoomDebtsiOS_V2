@@ -51,4 +51,3 @@ extension CheckTableViewCell: ConfigurableCell {
         self.declineButton.isHidden = viewModel.isButtonsHidden
     }
 }
-

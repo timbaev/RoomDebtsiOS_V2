@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DefaultCheck" representedClassName="DefaultCheck" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rawImageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="store" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalSum" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawCreator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="checksCreator" inverseEntity="DefaultUser" syncable="YES"/>
+    </entity>
     <entity name="DefaultConversation" representedClassName="DefaultConversation" syncable="YES" codeGenerationType="class">
         <attribute name="debtorUID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -35,6 +45,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rawImageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="checksCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultCheck" inverseName="rawCreator" inverseEntity="DefaultCheck" syncable="YES"/>
         <relationship name="conversationsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawCreator" inverseEntity="DefaultConversation" syncable="YES"/>
         <relationship name="conversationsOpponent" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawOpponent" inverseEntity="DefaultConversation" syncable="YES"/>
         <relationship name="debtsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultDebt" inverseName="rawCreator" inverseEntity="DefaultDebt" syncable="YES"/>
@@ -51,7 +62,8 @@
         <element name="DefaultConversationList" positionX="-54" positionY="63" width="128" height="75"/>
         <element name="DefaultDebt" positionX="-54" positionY="72" width="128" height="180"/>
         <element name="DefaultDebtList" positionX="-54" positionY="90" width="128" height="90"/>
-        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="150"/>
+        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="165"/>
         <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DefaultCheck" positionX="-54" positionY="99" width="128" height="165"/>
     </elements>
 </model>
