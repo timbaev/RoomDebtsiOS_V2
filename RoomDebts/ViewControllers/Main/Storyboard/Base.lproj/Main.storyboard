@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5mD-MF-b6H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5mD-MF-b6H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -78,15 +78,28 @@
             </objects>
             <point key="canvasLocation" x="-372" y="1186"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Checks-->
+        <scene sceneID="dBb-s6-ax3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Checks" id="bLt-0R-eFc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="NAK-Ox-ypz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fM-AG-Mep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="1169"/>
+        </scene>
+        <!--Main Navigation Controller-->
         <scene sceneID="M0L-qG-VcA">
             <objects>
-                <navigationController id="ay5-kK-eMo" sceneMemberID="viewController">
+                <navigationController id="ay5-kK-eMo" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="CheckIcon" selectedImage="CheckSelectedIcon" id="elG-VF-dUB" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="km1-0X-ZVl">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="bLt-0R-eFc" kind="relationship" relationship="rootViewController" id="b3x-vs-bhs"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmu-3a-CGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
