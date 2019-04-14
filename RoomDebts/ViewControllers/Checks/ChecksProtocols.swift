@@ -20,6 +20,8 @@ protocol ChecksDataStore: AnyObject { }
 protocol ChecksBusinessLogic: AnyObject {
 
     // MARK: - Instance Methods
+
+    func createCheck(with metadata: String)
 }
 
 protocol ChecksPresentationLogic: AnyObject {
@@ -27,7 +29,12 @@ protocol ChecksPresentationLogic: AnyObject {
     // MARK: - Instance Methods
 }
 
-protocol ChecksRoutingLogic: AnyObject { }
+protocol ChecksRoutingLogic: AnyObject {
+
+    // MARK: - Instance Methods
+
+    func showQRScanner()
+}
 
 protocol ChecksViewDisplayLogic: AnyObject {
 

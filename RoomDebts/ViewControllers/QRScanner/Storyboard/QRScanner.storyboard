@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5a-Xa-c9X">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Scanner View Controller-->
+        <scene sceneID="Dgb-ge-l6T">
+            <objects>
+                <viewController id="L5a-Xa-c9X" customClass="QRScannerViewController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zyx-lb-cHU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-vr-gmW">
+                                <rect key="frame" x="84" y="325" width="246" height="246"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopLeftCorner" translatesAutoresizingMaskIntoConstraints="NO" id="mhj-ku-bQz">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="cor-nJ-VZn"/>
+                                            <constraint firstAttribute="width" constant="23" id="ur9-0j-zC8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopRightCorner" translatesAutoresizingMaskIntoConstraints="NO" id="NYP-DA-B2F">
+                                        <rect key="frame" x="223" y="0.0" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="An6-GE-f9p"/>
+                                            <constraint firstAttribute="width" constant="23" id="wZs-sC-D8N"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BottomRightCorner" translatesAutoresizingMaskIntoConstraints="NO" id="Rsg-re-59O">
+                                        <rect key="frame" x="223" y="223" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="23" id="71G-ST-8oh"/>
+                                            <constraint firstAttribute="height" constant="23" id="cin-W0-EUc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BottomLeftCorner" translatesAutoresizingMaskIntoConstraints="NO" id="L67-1E-XES">
+                                        <rect key="frame" x="0.0" y="223" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="iRP-yv-2qq"/>
+                                            <constraint firstAttribute="width" constant="23" id="mU2-gI-hoM"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="1KY-21-E0S"/>
+                                    <constraint firstAttribute="width" constant="246" id="245-Xq-jZG"/>
+                                    <constraint firstItem="NYP-DA-B2F" firstAttribute="top" secondItem="tKz-vr-gmW" secondAttribute="top" id="AuP-kW-KoL"/>
+                                    <constraint firstItem="mhj-ku-bQz" firstAttribute="top" secondItem="tKz-vr-gmW" secondAttribute="top" id="GBh-US-2A5"/>
+                                    <constraint firstAttribute="trailing" secondItem="NYP-DA-B2F" secondAttribute="trailing" id="JPH-Xf-9eE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rsg-re-59O" secondAttribute="trailing" id="QqS-ky-N7G"/>
+                                    <constraint firstItem="L67-1E-XES" firstAttribute="leading" secondItem="tKz-vr-gmW" secondAttribute="leading" id="XKt-i5-njq"/>
+                                    <constraint firstAttribute="bottom" secondItem="L67-1E-XES" secondAttribute="bottom" id="bQh-Xt-Nvo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rsg-re-59O" secondAttribute="bottom" id="c0s-NZ-8lq"/>
+                                    <constraint firstItem="mhj-ku-bQz" firstAttribute="leading" secondItem="tKz-vr-gmW" secondAttribute="leading" id="hz2-vb-8Tc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="11"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt Scanning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzl-nU-C4I">
+                                <rect key="frame" x="133.5" y="67" width="147" height="21.5"/>
+                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place the QR code inside area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UR-Zl-oVH">
+                                <rect key="frame" x="97.5" y="272" width="219" height="19"/>
+                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdv-Xo-czo">
+                                <rect key="frame" x="22" y="71" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="0hD-Xt-dxD"/>
+                                    <constraint firstAttribute="width" constant="14" id="7Mg-HL-k6k"/>
+                                </constraints>
+                                <state key="normal" image="CloseIcon"/>
+                                <connections>
+                                    <action selector="onCloseButtonTouchUpInside:" destination="L5a-Xa-c9X" eventType="touchUpInside" id="blt-Kv-jSY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tKz-vr-gmW" firstAttribute="top" secondItem="7UR-Zl-oVH" secondAttribute="bottom" constant="34" id="3LX-h4-RAO"/>
+                            <constraint firstItem="tKz-vr-gmW" firstAttribute="centerY" secondItem="Zyx-lb-cHU" secondAttribute="centerY" id="864-3A-Rnr"/>
+                            <constraint firstItem="zdv-Xo-czo" firstAttribute="centerY" secondItem="Uzl-nU-C4I" secondAttribute="centerY" id="DSN-oc-xBh"/>
+                            <constraint firstItem="Uzl-nU-C4I" firstAttribute="top" secondItem="Lxs-dD-eSy" secondAttribute="top" constant="23" id="HlL-gg-CYg"/>
+                            <constraint firstItem="7UR-Zl-oVH" firstAttribute="centerX" secondItem="Zyx-lb-cHU" secondAttribute="centerX" id="J5S-Cv-ART"/>
+                            <constraint firstItem="zdv-Xo-czo" firstAttribute="leading" secondItem="Lxs-dD-eSy" secondAttribute="leading" constant="22" id="OAP-TJ-lgp"/>
+                            <constraint firstItem="7UR-Zl-oVH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lxs-dD-eSy" secondAttribute="leading" constant="16" id="jp8-ay-NJ3"/>
+                            <constraint firstItem="tKz-vr-gmW" firstAttribute="centerX" secondItem="Zyx-lb-cHU" secondAttribute="centerX" id="qWW-Zv-Gx4"/>
+                            <constraint firstItem="Lxs-dD-eSy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7UR-Zl-oVH" secondAttribute="trailing" constant="16" id="uPI-FZ-JlZ"/>
+                            <constraint firstItem="Uzl-nU-C4I" firstAttribute="centerX" secondItem="Zyx-lb-cHU" secondAttribute="centerX" id="y1e-gQ-COD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lxs-dD-eSy"/>
+                    </view>
+                    <connections>
+                        <outlet property="centerView" destination="tKz-vr-gmW" id="ckU-9v-ZZx"/>
+                        <segue destination="QIe-Je-4Xx" kind="unwind" identifier="FinishScanning" unwindAction="onScanningFinished:" id="LaX-B9-tZc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHd-cz-c8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QIe-Je-4Xx" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="114.49275362318842" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BottomLeftCorner" width="23" height="23"/>
+        <image name="BottomRightCorner" width="23" height="23"/>
+        <image name="CloseIcon" width="14" height="14"/>
+        <image name="TopLeftCorner" width="23" height="23"/>
+        <image name="TopRightCorner" width="23" height="23"/>
+    </resources>
+</document>

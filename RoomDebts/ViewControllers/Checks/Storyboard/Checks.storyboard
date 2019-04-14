@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Checks-->
+        <!--View Controller-->
         <scene sceneID="xW3-H3-0k2">
             <objects>
                 <viewController title="Checks" id="FXM-sa-TKm" customClass="ChecksViewController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,11 +231,25 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="xLn-m6-sdU" id="Iiu-Mf-zLQ"/>
+                        <segue destination="EeC-Y3-Jc0" kind="presentation" identifier="ShowQRScanner" id="h2r-sN-Q5M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQJ-y3-wQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="oSA-Wd-3h1" customClass="ChecksConfigurator" customModule="RoomDebts" customModuleProvider="target">
+                    <connections>
+                        <outlet property="viewController" destination="FXM-sa-TKm" id="DvG-3S-o9L"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-60.869565217391312" y="8.7053571428571423"/>
+        </scene>
+        <!--QRScanner-->
+        <scene sceneID="kjU-9F-mY4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QRScanner" id="EeC-Y3-Jc0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bft-hR-8Ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="582" y="9"/>
         </scene>
     </scenes>
     <resources>

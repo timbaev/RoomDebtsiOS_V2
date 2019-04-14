@@ -25,6 +25,12 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic {
 
     @objc private func onPlusButtonTouchUpInside(_ sender: UIBarButtonItem) {
         Log.i()
+
+        self.router.showQRScanner()
+    }
+
+    @IBAction private func onScanningFinished(_ segue: UIStoryboardSegue) {
+        Log.i(segue.identifier)
     }
 
     // MARK: -
@@ -43,5 +49,20 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic {
         super.viewDidLoad()
 
         self.configurePlusBarButtonItem()
+    }
+}
+
+// MARK: - DictionaryReceiver
+
+extension ChecksViewController: DictionaryReceiver {
+
+    // MARK: - Instance Methods
+
+    func apply(dictionary: [String: Any]) {
+        guard let metadata = dictionary["QRCodeMetadata"] as? String else {
+            return
+        }
+
+        self.interactor.createCheck(with: metadata)
     }
 }

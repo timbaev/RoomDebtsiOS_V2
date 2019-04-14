@@ -10,9 +10,24 @@ import Foundation
 
 final class ChecksRouter: ChecksRoutingLogic, ChecksDataPassing {
 
+    // MARK: - Nested Types
+
+    private enum Segues {
+
+        // MARK: - Type Properties
+
+        static let showQRScanner = "ShowQRScanner"
+    }
+
     // MARK: - Instance Properties
 
     weak var viewController: ChecksViewController!
 
     var dataStore: ChecksDataStore!
+
+    // MARK: - Instance Methods
+
+    func showQRScanner() {
+        self.viewController.performSegue(withIdentifier: Segues.showQRScanner, sender: self.viewController)
+    }
 }

@@ -182,6 +182,8 @@
 		CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */; };
 		CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */; };
 		CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */; };
+		CBBF79B9226241E800752AE4 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF79B8226241E800752AE4 /* QRScannerViewController.swift */; };
+		CBBF79BB2262550800752AE4 /* QRScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBF79BA2262550800752AE4 /* QRScanner.storyboard */; };
 		CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */; };
 		CBC86B86223A53EB003C50F6 /* DebtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B85223A53EB003C50F6 /* DebtList.swift */; };
 		CBC86B88223A540A003C50F6 /* DebtListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B87223A540A003C50F6 /* DebtListType.swift */; };
@@ -462,6 +464,8 @@
 		CBAC547B21F4D93B004C8C65 /* NoneColorTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneColorTabBarItem.swift; sourceTree = "<group>"; };
 		CBAC547E21F4DC39004C8C65 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		CBAC548021F4DC84004C8C65 /* LoggedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedNavigationController.swift; sourceTree = "<group>"; };
+		CBBF79B8226241E800752AE4 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		CBBF79BA2262550800752AE4 /* QRScanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRScanner.storyboard; sourceTree = "<group>"; };
 		CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtTableViewModel.swift; sourceTree = "<group>"; };
 		CBC86B85223A53EB003C50F6 /* DebtList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtList.swift; sourceTree = "<group>"; };
 		CBC86B87223A540A003C50F6 /* DebtListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtListType.swift; sourceTree = "<group>"; };
@@ -1309,6 +1313,7 @@
 		CBAC543921F4A3E3004C8C65 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBBF79B62262419C00752AE4 /* QRScanner */,
 				CBFDBAAE21F608D20017ED61 /* Authorization */,
 				CB44E410225CB4FD00D59821 /* Checks */,
 				CBAC547421F4CC4F004C8C65 /* Conversations */,
@@ -1527,6 +1532,23 @@
 				CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CBBF79B62262419C00752AE4 /* QRScanner */ = {
+			isa = PBXGroup;
+			children = (
+				CBBF79B7226241DB00752AE4 /* Storyboard */,
+				CBBF79B8226241E800752AE4 /* QRScannerViewController.swift */,
+			);
+			path = QRScanner;
+			sourceTree = "<group>";
+		};
+		CBBF79B7226241DB00752AE4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBBF79BA2262550800752AE4 /* QRScanner.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		CBC20097223F6E5300D0DF6A /* ViewModels */ = {
@@ -2023,6 +2045,7 @@
 				CB6D6DAF2243655F0047196A /* Settings.storyboard in Resources */,
 				CBFDBAA621F5B9FE0017ED61 /* Rubik-Regular.ttf in Resources */,
 				CBAC547721F4CC77004C8C65 /* Conversations.storyboard in Resources */,
+				CBBF79BB2262550800752AE4 /* QRScanner.storyboard in Resources */,
 				CBA02E16222D8440009683A5 /* Debts.storyboard in Resources */,
 				CB71C3DB21F9D90F008FDD0B /* SignIn.storyboard in Resources */,
 				CBFDBAA821F5B9FE0017ED61 /* Rubik-Light.ttf in Resources */,
@@ -2176,6 +2199,7 @@
 				CB714B892222C7D7007961C6 /* UserTableViewCell.swift in Sources */,
 				CB714DE42222DA18007961C6 /* Coder.swift in Sources */,
 				CB472CEC21F70C9F00FB98EE /* ParameterEncoding.swift in Sources */,
+				CBBF79B9226241E800752AE4 /* QRScannerViewController.swift in Sources */,
 				CB37A994220629EA007ECB86 /* MediaData.swift in Sources */,
 				CB472D1D21F74BF700FB98EE /* CacheContextType.swift in Sources */,
 				CB117BAE2204B8D000C20905 /* AvatarViewController.swift in Sources */,

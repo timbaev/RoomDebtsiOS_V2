@@ -16,4 +16,8 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
     var checkService: CheckService!
 
     // MARK: - ChecksBusinessLogic
+
+    func createCheck(with metadata: String) {
+        Log.v(metadata)
+    }
 }

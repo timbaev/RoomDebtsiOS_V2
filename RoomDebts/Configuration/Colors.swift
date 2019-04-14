@@ -85,4 +85,6 @@ enum Colors {
 
     static let placeholder = UIColor(redByte: 170, greenByte: 170, blueByte: 170)
     static let textPlaceholder = UIColor(redByte: 255, greenByte: 255, blueByte: 255, alpha: 0.6)
+
+    static let scannerBackground = UIColor(redByte: 51, greenByte: 51, blueByte: 61)
 }
