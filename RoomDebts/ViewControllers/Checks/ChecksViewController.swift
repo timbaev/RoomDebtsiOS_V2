@@ -9,16 +9,27 @@
 import UIKit
 import NVActivityIndicatorView
 
-class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorMessagePresenter, NVActivityIndicatorViewable {
+class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorMessagePresenter, NVActivityIndicatorViewable, EmptyStateViewable {
+
+    // MARK: - Typealiases
+
+    private typealias CheckCellConfiguarator = TableCellConfigurator<CheckTableViewCell, ChecksViewModel>
 
     // MARK: - Instance Properties
 
     @IBOutlet private weak var tableView: UITableView!
 
+    private weak var tableRefreshControl: UIRefreshControl!
+
     // MARK: -
 
     var interactor: ChecksBusinessLogic!
     var router: ChecksRoutingLogic!
+
+    // MARK: -
+
+    var emptyStateContainerView = UIView()
+    var emptyStateView = EmptyStateView()
 
     // MARK: - Instance Methods
 
