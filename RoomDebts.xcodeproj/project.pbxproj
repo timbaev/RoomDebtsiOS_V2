@@ -1313,7 +1313,6 @@
 		CBAC543921F4A3E3004C8C65 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CBBF79B62262419C00752AE4 /* QRScanner */,
 				CBFDBAAE21F608D20017ED61 /* Authorization */,
 				CB44E410225CB4FD00D59821 /* Checks */,
 				CBAC547421F4CC4F004C8C65 /* Conversations */,
@@ -1322,6 +1321,7 @@
 				CBDE71DE224393CB0070F603 /* EditAccount */,
 				CBAC543D21F4A410004C8C65 /* LaunchScreen */,
 				CBAC543A21F4A3EE004C8C65 /* Main */,
+				CBBF79B62262419C00752AE4 /* QRScanner */,
 				CB83DCCF221E9DA200749486 /* Search */,
 				CB6D6DAC224365290047196A /* Settings */,
 			);

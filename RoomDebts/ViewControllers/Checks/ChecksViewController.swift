@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic {
+class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
     // MARK: - Instance Properties
 
@@ -18,8 +19,6 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic {
 
     var interactor: ChecksBusinessLogic!
     var router: ChecksRoutingLogic!
-
-    // MARK: - ChecksViewDisplayLogic
 
     // MARK: - Instance Methods
 
@@ -41,6 +40,24 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic {
         plusBarButtonItem.tintColor = Colors.plusBarItem
 
         self.navigationItem.rightBarButtonItem = plusBarButtonItem
+    }
+
+    // MARK: - ChecksViewDisplayLogic
+
+    func displayMessage(with error: WebError) {
+        self.showMessage(withError: error)
+    }
+
+    func displayMessage(with title: String, message: String) {
+        self.showMessage(withTitle: title, message: message)
+    }
+
+    func displayLoadingIndicator() {
+        self.startAnimating(type: .ballScaleMultiple)
+    }
+
+    func hideLoadingIndicator() {
+        self.stopAnimating()
     }
 
     // MARK: - UIViewController

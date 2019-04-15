@@ -25,6 +25,7 @@ class ChecksConfigurator: NSObject {
         viewController.router = router
 
         interactor.presenter = presenter
+        interactor.checkService = Services.checkService
 
         presenter.viewController = viewController
 

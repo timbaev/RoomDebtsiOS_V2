@@ -27,6 +27,12 @@ protocol ChecksBusinessLogic: AnyObject {
 protocol ChecksPresentationLogic: AnyObject {
 
     // MARK: - Instance Methods
+
+    func showMessage(with error: WebError)
+    func showMessage(with title: String, message: String)
+
+    func showLoadingIndicator()
+    func hideLoadingIndicator()
 }
 
 protocol ChecksRoutingLogic: AnyObject {
@@ -39,4 +45,10 @@ protocol ChecksRoutingLogic: AnyObject {
 protocol ChecksViewDisplayLogic: AnyObject {
 
     // MARK: - Instance Methods
+
+    func displayMessage(with error: WebError)
+    func displayMessage(with title: String, message: String)
+
+    func displayLoadingIndicator()
+    func hideLoadingIndicator()
 }
