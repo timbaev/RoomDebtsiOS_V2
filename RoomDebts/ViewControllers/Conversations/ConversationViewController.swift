@@ -150,12 +150,6 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
 
     // MARK: -
 
-    private func configEmptyState() {
-        self.emptyStateView.textColor = Colors.white
-        self.emptyStateView.activityIndicatorColor = Colors.white
-        self.emptyStateView.backgroundColor = Colors.emptyState
-    }
-
     private func configTableRefreshControl() {
         let tableRefreshControl = UIRefreshControl()
 

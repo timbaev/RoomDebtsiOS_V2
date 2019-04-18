@@ -28,6 +28,8 @@ protocol EmptyStateViewable {
     func showLoadingState(with title: String?, message: String)
 
     func hideEmptyState()
+
+    func configEmptyState()
 }
 
 // MARK: -
@@ -35,6 +37,12 @@ protocol EmptyStateViewable {
 extension EmptyStateViewable where Self: UIViewController {
 
     // MARK: - Instance Methods
+
+    func configEmptyState() {
+        self.emptyStateView.textColor = Colors.white
+        self.emptyStateView.activityIndicatorColor = Colors.white
+        self.emptyStateView.backgroundColor = Colors.emptyState
+    }
 
     func initialize() {
         self.emptyStateContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +60,8 @@ extension EmptyStateViewable where Self: UIViewController {
         self.emptyStateView.translatesAutoresizingMaskIntoConstraints = false
 
         self.emptyStateContainerView.addSubview(self.emptyStateView)
+
+        self.configEmptyState()
 
         NSLayoutConstraint.activate([self.emptyStateContainerView.topAnchor.constraint(equalTo: view.topAnchor),
                                      self.emptyStateContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

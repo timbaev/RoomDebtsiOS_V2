@@ -17,4 +17,5 @@ protocol CellConfigurator {
     // MARK: - Instance Methods
 
     func configure(cell: UIView)
+    func targetImageView(of cell: UIView) -> UIImageView?
 }

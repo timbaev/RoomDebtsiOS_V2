@@ -13,13 +13,26 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
 
     // MARK: - Typealiases
 
-    private typealias CheckCellConfiguarator = TableCellConfigurator<CheckTableViewCell, ChecksViewModel>
+    private typealias CheckCellConfiguarator = TableCellConfigurator<CheckTableViewCell, CheckViewModel>
+
+    // MARK: - Nested Types
+
+    private enum Constants {
+
+        // MARK: - Type Properties
+
+        static let checkCellIdentifier = "CheckCell"
+    }
 
     // MARK: - Instance Properties
 
     @IBOutlet private weak var tableView: UITableView!
 
     private weak var tableRefreshControl: UIRefreshControl!
+
+    // MARK: -
+
+    private var items: [CheckCellConfiguarator] = []
 
     // MARK: -
 
@@ -32,6 +45,12 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
     var emptyStateView = EmptyStateView()
 
     // MARK: - Instance Methods
+
+    @objc private func onTableRefreshControlRequested(_ sender: Any) {
+        Log.i()
+
+        self.interactor.fetchChecks()
+    }
 
     @objc private func onPlusButtonTouchUpInside(_ sender: UIBarButtonItem) {
         Log.i()
@@ -53,6 +72,20 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
         self.navigationItem.rightBarButtonItem = plusBarButtonItem
     }
 
+    private func configureTableRefreshControl() {
+        let tableRefreshControl = UIRefreshControl()
+
+        tableRefreshControl.tintColor = Colors.white
+
+        tableRefreshControl.addTarget(self,
+                                      action: #selector(self.onTableRefreshControlRequested(_:)),
+                                      for: .valueChanged)
+
+        self.tableView.refreshControl = tableRefreshControl
+        
+        self.tableRefreshControl = tableRefreshControl
+    }
+
     // MARK: - ChecksViewDisplayLogic
 
     func displayMessage(with error: WebError) {
@@ -71,12 +104,51 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
         self.stopAnimating()
     }
 
+    func displayLoadingState(with title: String, message: String) {
+        self.showLoadingState(with: title, message: message)
+    }
+
+    func displayEmptyState(with message: String, actionTitle action: String) {
+        let action = EmptyStateAction(title: action, onClicked: { [unowned self] in
+            self.router.showQRScanner()
+        })
+
+        self.showNoDataState(with: message, action: action)
+    }
+
+    func displayEmptyState(with image: UIImage, title: String, message: String, actionTitle: String) {
+        let action = EmptyStateAction(title: actionTitle, onClicked: { [unowned self] in
+            self.interactor.fetchChecks()
+        })
+
+        self.showEmptyState(image: image, title: title, message: message, action: action)
+    }
+
+    func displayChecks(with viewModels: [CheckViewModel]) {
+        self.items = viewModels.map { CheckCellConfiguarator(item: $0) }
+
+        self.tableView.reloadData()
+    }
+
+    func endRefreshing() {
+        if self.tableRefreshControl.isRefreshing {
+            self.tableRefreshControl.endRefreshing()
+        }
+
+        if self.isAnimating {
+            self.stopAnimating()
+        }
+    }
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.interactor.fetchChecks()
+
         self.configurePlusBarButtonItem()
+        self.configureTableRefreshControl()
     }
 }
 
@@ -92,5 +164,51 @@ extension ChecksViewController: DictionaryReceiver {
         }
 
         self.interactor.createCheck(with: metadata)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension ChecksViewController: UITableViewDataSource {
+
+    // MARK: - Instance Methods
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.checkCellIdentifier, for: indexPath)
+
+        self.items[indexPath.row].configure(cell: cell)
+
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ChecksViewController: UITableViewDelegate {
+
+    // MARK: - Instance Methods
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let targetImageView = self.items[indexPath.row].targetImageView(of: cell) else {
+            return
+        }
+
+        guard let imageURL = self.items[indexPath.row].item.imageURL else {
+            return
+        }
+
+        ImageDownloader.shared.loadImage(for: imageURL, in: targetImageView)
+    }
+
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let targetImageView = self.items[indexPath.row].targetImageView(of: cell) else {
+            return
+        }
+
+        ImageDownloader.shared.cancelLoad(in: targetImageView)
     }
 }

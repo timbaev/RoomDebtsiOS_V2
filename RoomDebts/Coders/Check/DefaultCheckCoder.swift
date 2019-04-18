@@ -52,7 +52,7 @@ struct DefaultCheckCoder: CheckCoder {
             return false
         }
 
-        guard let rawStatus: String = JSONKeys.store <~~ json else {
+        guard let rawStatus: String = JSONKeys.status <~~ json else {
             return false
         }
 

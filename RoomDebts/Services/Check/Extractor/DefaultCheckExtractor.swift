@@ -42,4 +42,16 @@ struct DefaultCheckExtractor: CheckExtractor {
 
         return check
     }
+
+    func extractCheckList(from json: [JSON], withListType listType: CheckListType, cacheContext: CacheContext) throws -> CheckList {
+        let checkList = cacheContext.checkListManager.firstOrNew(withListType: listType)
+
+        checkList.clearChecks()
+
+        try json.forEach { checkList.append(check: try self.extractCheck(from: $0, cacheContext: cacheContext)) }
+
+        cacheContext.save()
+
+        return checkList
+    }
 }

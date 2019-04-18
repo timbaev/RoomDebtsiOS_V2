@@ -22,6 +22,7 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         // MARK: - Type Properties
 
         static let showCreateDebt = "ShowCreateDebt"
+        static let unauthorized = "Unauthorized"
     }
 
     // MARK: -
@@ -62,6 +63,7 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
 
     deinit {
         self.unsubscribeFromDebtsEvents()
+        self.unsubscribeFromUserAccountEvents()
     }
 
     // MARK: - Instance Methods
@@ -117,6 +119,9 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
                                     action: action)
             }
 
+        case .unauthorized:
+            self.performSegue(withIdentifier: Segues.unauthorized, sender: self)
+
         default:
             if self.debtList?.isEmpty ?? true {
                 self.showEmptyState(image: #imageLiteral(resourceName: "ErrorWarning.pdf"),
@@ -147,13 +152,23 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         Services.cacheViewContext.debtManager.objectsChangedEvent.disconnect(self)
     }
 
-    // MARK: -
+    private func subscribeToUserAccountEvents() {
+        self.unsubscribeFromUserAccountEvents()
 
-    private func configEmptyState() {
-        self.emptyStateView.textColor = Colors.white
-        self.emptyStateView.activityIndicatorColor = Colors.white
-        self.emptyStateView.backgroundColor = Colors.emptyState
+        let userAccountManager = Services.cacheViewContext.userAccountManager
+
+        userAccountManager.objectsChangedEvent.connect(self, handler: { [weak self] _ in
+            self?.shouldApplyData = true
+        })
+
+        userAccountManager.startObserving()
     }
+
+    private func unsubscribeFromUserAccountEvents() {
+        Services.cacheViewContext.userAccountManager.objectsChangedEvent.disconnect(self)
+    }
+
+    // MARK: -
 
     private func configTableRefreshControl() {
         let tableRefreshControl = UIRefreshControl()
@@ -420,6 +435,7 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
         self.configPlusBarButtonItem()
 
         self.subscribeToDebtsEvents()
+        self.subscribeToUserAccountEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -12,6 +12,13 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
     // MARK: - Instance Properties
 
+    private var checkList = Services.cacheViewContext.checkListManager.firstOrNew(withListType: .all)
+    private var checkListType: CheckListType = .unknown
+
+    private var isRefreshingData = false
+
+    // MARK: -
+
     var presenter: ChecksPresentationLogic!
     var checkService: CheckService!
 
@@ -60,6 +67,49 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
         return nil
     }
 
+    private func handle(stateError error: WebError) {
+        let actionTitle = "Try Again".localized()
+
+        switch error {
+        case .connection, .timeOut:
+            if self.checkList.isEmpty {
+                self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorInternet.pdf"),
+                                              title: Messages.internetConncetionTitle,
+                                              message: Messages.internetConnection,
+                                              actionTitle: actionTitle)
+            } else {
+                self.presenter.showMessage(with: Messages.internetConncetionTitle, message: Messages.internetConnection)
+            }
+
+        case .badRequest:
+            if let message = error.message {
+                if self.checkList.isEmpty {
+                    self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorWarning"),
+                                                  title: Messages.unknownErrorTitle,
+                                                  message: message,
+                                                  actionTitle: actionTitle)
+                } else {
+                    self.presenter.showMessage(with: Messages.unknownErrorTitle, message: message)
+                }
+            } else {
+                self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorWarning"),
+                                              title: Messages.unknownErrorTitle,
+                                              message: Messages.unknownError,
+                                              actionTitle: actionTitle)
+            }
+
+        default:
+            if self.checkList.isEmpty {
+                self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorWarning"),
+                                              title: Messages.unknownErrorTitle,
+                                              message: Messages.unknownError,
+                                              actionTitle: actionTitle)
+            } else {
+                self.presenter.showMessage(with: Messages.unknownErrorTitle, message: Messages.unknownError)
+            }
+        }
+    }
+
     // MARK: - ChecksBusinessLogic
 
     func createCheck(with metadata: String) {
@@ -83,6 +133,35 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
             interactor.presenter.hideLoadingIndicator()
             interactor.presenter.showMessage(with: error)
+        })
+    }
+
+    func fetchChecks() {
+        if self.checkList.isEmpty {
+            self.presenter.showLoadingState(with: "Loading checks".localized(),
+                                            message: "We are loading list of checks. Please wait a bit".localized())
+        } else {
+            self.presenter.showChecks(with: self.checkList)
+        }
+
+        self.checkService.fetch(success: { [weak self] checkList in
+            guard let `self` = self else {
+                return
+            }
+
+            self.checkList = checkList
+
+            if checkList.isEmpty {
+                self.presenter.showEmptyState(with: "Checks not exists".localized(), actionTitle: "Scan New Check".localized())
+            } else {
+                self.presenter.hideEmptyState()
+            }
+
+            self.presenter.stopRefreshing()
+
+            self.presenter.showChecks(with: checkList)
+        }, failure: { [weak self] error in
+            self?.handle(stateError: error)
         })
     }
 }

@@ -33,4 +33,20 @@ struct DefaultCheckService: CheckService {
             }
         }, failure: failure)
     }
+
+    func fetch(success: @escaping (CheckList) -> Void, failure: @escaping (WebError) -> Void) {
+        self.router.jsonArray(.fetch, success: { response in
+            do {
+                let checkList = try self.checkExtractor.extractCheckList(from: response.content, withListType: .all, cacheContext: Services.cacheViewContext)
+
+                success(checkList)
+            } catch {
+                if let webError = error as? WebError {
+                    failure(webError)
+                } else {
+                    Log.e(error.localizedDescription)
+                }
+            }
+        }, failure: failure)
+    }
 }

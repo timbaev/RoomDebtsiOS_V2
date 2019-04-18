@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ConfigurableCell {
 
@@ -14,7 +14,22 @@ protocol ConfigurableCell {
 
     associatedtype DataType
 
+    // MARK: - Instance Properties
+
+    var targetImageView: UIImageView? { get }
+
     // MARK: - Instance Methods
 
     func configure(data: DataType)
+}
+
+// MARK: -
+
+extension ConfigurableCell {
+
+    // MARK: - Instance Properties
+
+    var targetImageView: UIImageView? {
+        return nil
+    }
 }

@@ -19,35 +19,26 @@ class CheckTableViewCell: UITableViewCell {
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var dateTimeLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
-    @IBOutlet private weak var acceptButton: RoundedButton!
-    @IBOutlet private weak var declineButton: RoundedButton!
-
-    // MARK: -
-
-    var onAcceptButtonClick: (() -> Void)?
-    var onDeclineButtonClick: (() -> Void)?
-
-    // MARK: -
-
-    var avatarImageViewTarget: UIImageView {
-        return self.avatarImageView
-    }
 }
 
 // MARK: - ConfigurableCell
 
 extension CheckTableViewCell: ConfigurableCell {
 
+    // MARK: - Instance Properties
+
+    var targetImageView: UIImageView? {
+        return self.avatarImageView
+    }
+
     // MARK: - Instance Methods
 
-    func configure(data viewModel: ChecksViewModel) {
+    func configure(data viewModel: CheckViewModel) {
         self.storeLabel.text = viewModel.store
         self.statusLabel.text = viewModel.status
         self.rejectStatusLabel.text = viewModel.rejectStatus
         self.priceLabel.text = viewModel.price
         self.dateTimeLabel.text = viewModel.dateTime
         self.addressLabel.text = viewModel.address
-        self.acceptButton.isHidden = viewModel.isButtonsHidden
-        self.declineButton.isHidden = viewModel.isButtonsHidden
     }
 }

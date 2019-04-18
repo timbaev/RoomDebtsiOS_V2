@@ -188,6 +188,9 @@
 		CBC62F5E2264D6720000B588 /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F5D2264D6720000B588 /* CheckList.swift */; };
 		CBC62F602264D68B0000B588 /* CheckListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F5F2264D68B0000B588 /* CheckListType.swift */; };
 		CBC62F622264D6F70000B588 /* DefaultCheckListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F612264D6F70000B588 /* DefaultCheckListExtension.swift */; };
+		CBC62F652264DCBE0000B588 /* CheckListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F642264DCBE0000B588 /* CheckListManager.swift */; };
+		CBC62F672264DD400000B588 /* DefaultCheckListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F662264DD400000B588 /* DefaultCheckListManager.swift */; };
+		CBC62F692264E1C80000B588 /* CheckDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F682264E1C80000B588 /* CheckDateFormatter.swift */; };
 		CBC86B86223A53EB003C50F6 /* DebtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B85223A53EB003C50F6 /* DebtList.swift */; };
 		CBC86B88223A540A003C50F6 /* DebtListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B87223A540A003C50F6 /* DebtListType.swift */; };
 		CBC86B8A223A568B003C50F6 /* DefaultDebtListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86B89223A568B003C50F6 /* DefaultDebtListExtension.swift */; };
@@ -244,7 +247,7 @@
 		CBFD5FE2225F67B8000F711C /* ChecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */; };
 		CBFD5FE3225F67B8000F711C /* ChecksProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDC225F67B8000F711C /* ChecksProtocols.swift */; };
 		CBFD5FE4225F67B8000F711C /* ChecksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDD225F67B8000F711C /* ChecksInteractor.swift */; };
-		CBFD5FE5225F67B8000F711C /* ChecksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDE225F67B8000F711C /* ChecksViewModel.swift */; };
+		CBFD5FE5225F67B8000F711C /* CheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDE225F67B8000F711C /* CheckViewModel.swift */; };
 		CBFD5FE6225F67B8000F711C /* ChecksConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDF225F67B8000F711C /* ChecksConfigurator.swift */; };
 		CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */; };
 		CBFDBAA421F5B9FE0017ED61 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBFDBA9A21F5B9FE0017ED61 /* Rubik-Black.ttf */; };
@@ -473,6 +476,9 @@
 		CBC62F5D2264D6720000B588 /* CheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckList.swift; sourceTree = "<group>"; };
 		CBC62F5F2264D68B0000B588 /* CheckListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListType.swift; sourceTree = "<group>"; };
 		CBC62F612264D6F70000B588 /* DefaultCheckListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCheckListExtension.swift; sourceTree = "<group>"; };
+		CBC62F642264DCBE0000B588 /* CheckListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListManager.swift; sourceTree = "<group>"; };
+		CBC62F662264DD400000B588 /* DefaultCheckListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCheckListManager.swift; sourceTree = "<group>"; };
+		CBC62F682264E1C80000B588 /* CheckDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDateFormatter.swift; sourceTree = "<group>"; };
 		CBC86B85223A53EB003C50F6 /* DebtList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtList.swift; sourceTree = "<group>"; };
 		CBC86B87223A540A003C50F6 /* DebtListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtListType.swift; sourceTree = "<group>"; };
 		CBC86B89223A568B003C50F6 /* DefaultDebtListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDebtListExtension.swift; sourceTree = "<group>"; };
@@ -529,7 +535,7 @@
 		CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksViewController.swift; sourceTree = "<group>"; };
 		CBFD5FDC225F67B8000F711C /* ChecksProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksProtocols.swift; sourceTree = "<group>"; };
 		CBFD5FDD225F67B8000F711C /* ChecksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksInteractor.swift; sourceTree = "<group>"; };
-		CBFD5FDE225F67B8000F711C /* ChecksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksViewModel.swift; sourceTree = "<group>"; };
+		CBFD5FDE225F67B8000F711C /* CheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewModel.swift; sourceTree = "<group>"; };
 		CBFD5FDF225F67B8000F711C /* ChecksConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksConfigurator.swift; sourceTree = "<group>"; };
 		CBFDBA9721F5B9DC0017ED61 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CBFDBA9A21F5B9FE0017ED61 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
@@ -766,7 +772,7 @@
 				CBFD5FDC225F67B8000F711C /* ChecksProtocols.swift */,
 				CBFD5FDA225F67B8000F711C /* ChecksRouter.swift */,
 				CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */,
-				CBFD5FDE225F67B8000F711C /* ChecksViewModel.swift */,
+				CBFD5FDE225F67B8000F711C /* CheckViewModel.swift */,
 			);
 			path = Checks;
 			sourceTree = "<group>";
@@ -1579,11 +1585,21 @@
 		CBC62F5C2264D65B0000B588 /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
+				CBC62F632264DCAF0000B588 /* Manager */,
 				CBC62F5D2264D6720000B588 /* CheckList.swift */,
 				CBC62F5F2264D68B0000B588 /* CheckListType.swift */,
 				CBC62F612264D6F70000B588 /* DefaultCheckListExtension.swift */,
 			);
 			path = CheckList;
+			sourceTree = "<group>";
+		};
+		CBC62F632264DCAF0000B588 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CBC62F642264DCBE0000B588 /* CheckListManager.swift */,
+				CBC62F662264DD400000B588 /* DefaultCheckListManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		CBC86B8B223A58D0003C50F6 /* Manager */ = {
@@ -1796,6 +1812,7 @@
 		CBD7281C222FCDAA00D1C684 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
+				CBC62F682264E1C80000B588 /* CheckDateFormatter.swift */,
 				CB18CA3622315A190027E905 /* DebtDateFormatter.swift */,
 				CB03CBCF22369EDB00104251 /* ISO8601Formatter.swift */,
 			);
@@ -2243,6 +2260,7 @@
 				CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
 				CB472D0721F72F7800FB98EE /* AccountService.swift in Sources */,
+				CBC62F672264DD400000B588 /* DefaultCheckListManager.swift in Sources */,
 				CB71C3D321F9B71E008FDD0B /* ConfirmCoder.swift in Sources */,
 				CB472D3F21F75B0800FB98EE /* DefaultCacheManagerFactory.swift in Sources */,
 				CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */,
@@ -2286,6 +2304,7 @@
 				CB71C3D021F9AFFB008FDD0B /* AuthRouter.swift in Sources */,
 				CB4EB174222E3D6B00FF2232 /* PlaceholderTextView.swift in Sources */,
 				CBDE71D322436BAF0070F603 /* SettingsTableViewController.swift in Sources */,
+				CBC62F692264E1C80000B588 /* CheckDateFormatter.swift in Sources */,
 				CBFDBABC21F638AB0017ED61 /* CreateAccountViewController.swift in Sources */,
 				CBDE71E52243CBCB0070F603 /* HTTPResponse.swift in Sources */,
 				CB03CBE12236D65000104251 /* DefaultDebtExtractor.swift in Sources */,
@@ -2310,6 +2329,7 @@
 				CBCCC43E2232D17200535D57 /* DefaultDebtCoder.swift in Sources */,
 				CB098EC62225206600FDD47C /* ConversationService.swift in Sources */,
 				CB714DE72222DC39007961C6 /* UserExtractor.swift in Sources */,
+				CBC62F652264DCBE0000B588 /* CheckListManager.swift in Sources */,
 				CB03CBDF2236D53A00104251 /* DebtExtractor.swift in Sources */,
 				CB472CF721F711E400FB98EE /* HeaderKeys.swift in Sources */,
 				CBEB2DBF222C1CEC00653B11 /* RoundedButton.swift in Sources */,
@@ -2338,7 +2358,7 @@
 				CB472D0F21F73A3100FB98EE /* WebError.swift in Sources */,
 				CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */,
 				CB472D4B21F765E700FB98EE /* ErrorMessagePresenter.swift in Sources */,
-				CBFD5FE5225F67B8000F711C /* ChecksViewModel.swift in Sources */,
+				CBFD5FE5225F67B8000F711C /* CheckViewModel.swift in Sources */,
 				CB5D828922620AF2005F971A /* EncodableExtension.swift in Sources */,
 				CB03CBDC2236D4C700104251 /* DefaultDebtManager.swift in Sources */,
 				CBDE71E3224396930070F603 /* EditAccountViewController.swift in Sources */,

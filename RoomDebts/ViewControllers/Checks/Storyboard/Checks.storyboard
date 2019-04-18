@@ -10,9 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Rubik-Medium.ttf">
-            <string>Rubik-Medium</string>
-        </array>
         <array key="Rubik-Regular.ttf">
             <string>Rubik-Regular</string>
         </array>
@@ -31,20 +28,20 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CheckCell" rowHeight="210" id="uUH-09-J6b" customClass="CheckTableViewCell" customModule="RoomDebts" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="210"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CheckCell" rowHeight="157" id="uUH-09-J6b" customClass="CheckTableViewCell" customModule="RoomDebts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uUH-09-J6b" id="TYF-iB-J8I">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4C-2N-v2r">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="187"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                                     <subviews>
                                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnc-3B-WQb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="187"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="odS-Vu-xBm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="187"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReceiptIcon" translatesAutoresizingMaskIntoConstraints="NO" id="tPE-ev-ME0" customClass="RoundedImageView" customModule="RoomDebts" customModuleProvider="target">
@@ -102,51 +99,6 @@
                                                                         <color key="textColor" white="1" alpha="0.68999999999999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="L2y-oY-oSA">
-                                                                        <rect key="frame" x="70.5" y="134" width="273" height="39"/>
-                                                                        <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4C-R5-l1F" customClass="RoundedButton" customModule="RoomDebts" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="114" height="39"/>
-                                                                                <color key="backgroundColor" red="0.32549019610000002" green="1" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="width" constant="114" id="5H2-lS-5eo"/>
-                                                                                    <constraint firstAttribute="height" constant="39" id="SPZ-Ok-5K5"/>
-                                                                                </constraints>
-                                                                                <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="17"/>
-                                                                                <state key="normal" title="ACCEPT">
-                                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                </state>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                        <real key="value" value="8"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                                <connections>
-                                                                                    <action selector="onAcceptButtonTouchUpInside:" destination="uUH-09-J6b" eventType="touchUpInside" id="5Mv-J2-1fp"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Um-XZ-ECQ" customClass="RoundedButton" customModule="RoomDebts" customModuleProvider="target">
-                                                                                <rect key="frame" x="159" y="0.0" width="114" height="39"/>
-                                                                                <color key="backgroundColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="width" constant="114" id="96g-bP-Rth"/>
-                                                                                    <constraint firstAttribute="height" constant="39" id="XtS-Ku-cbf"/>
-                                                                                </constraints>
-                                                                                <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="17"/>
-                                                                                <state key="normal" title="DECLINE">
-                                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                </state>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                        <real key="value" value="8"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                                <connections>
-                                                                                    <action selector="onDeclineButtonTouchUpInside:" destination="uUH-09-J6b" eventType="touchUpInside" id="ybt-uk-hoK"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                        </subviews>
-                                                                    </stackView>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="SC0-bg-Pnm" firstAttribute="leading" secondItem="XVs-fZ-2da" secondAttribute="leading" id="AeJ-9Q-4po"/>
@@ -154,17 +106,15 @@
                                                                     <constraint firstItem="mmo-g9-uur" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wxc-kq-LbN" secondAttribute="trailing" constant="16" id="IvN-ke-Llf"/>
                                                                     <constraint firstItem="SC0-bg-Pnm" firstAttribute="top" secondItem="XVs-fZ-2da" secondAttribute="bottom" constant="8" id="JTS-L1-AF6"/>
                                                                     <constraint firstItem="XVs-fZ-2da" firstAttribute="top" secondItem="KmP-gx-m7b" secondAttribute="bottom" constant="8" id="NOq-Wt-doL"/>
-                                                                    <constraint firstItem="L2y-oY-oSA" firstAttribute="centerX" secondItem="odS-Vu-xBm" secondAttribute="centerX" id="O6N-u2-i7c"/>
                                                                     <constraint firstItem="5fR-iA-D2f" firstAttribute="top" secondItem="odS-Vu-xBm" secondAttribute="top" constant="13" id="O8H-Ze-dgb"/>
                                                                     <constraint firstItem="mmo-g9-uur" firstAttribute="centerY" secondItem="tPE-ev-ME0" secondAttribute="centerY" id="R77-hr-TEb"/>
                                                                     <constraint firstItem="g3t-Dq-u99" firstAttribute="leading" secondItem="5fR-iA-D2f" secondAttribute="leading" id="Ssc-a7-jTM"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="SC0-bg-Pnm" secondAttribute="bottom" constant="16" id="VSk-H3-j2B"/>
                                                                     <constraint firstItem="KmP-gx-m7b" firstAttribute="top" secondItem="g3t-Dq-u99" secondAttribute="bottom" constant="8" id="W1k-uL-Ien"/>
                                                                     <constraint firstItem="Wxc-kq-LbN" firstAttribute="top" secondItem="5fR-iA-D2f" secondAttribute="bottom" constant="5" id="WQW-9x-A5g"/>
-                                                                    <constraint firstItem="L2y-oY-oSA" firstAttribute="top" secondItem="SC0-bg-Pnm" secondAttribute="bottom" constant="16" id="b6F-He-ZBM"/>
                                                                     <constraint firstItem="Wxc-kq-LbN" firstAttribute="leading" secondItem="g3t-Dq-u99" secondAttribute="trailing" constant="4" id="c5Y-ph-MZy"/>
                                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SC0-bg-Pnm" secondAttribute="trailing" constant="16" id="dvG-sV-39U"/>
                                                                     <constraint firstAttribute="trailing" secondItem="KmP-gx-m7b" secondAttribute="trailing" id="e13-0s-Dbc"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="L2y-oY-oSA" secondAttribute="bottom" constant="14" id="efY-xz-klc"/>
                                                                     <constraint firstItem="g3t-Dq-u99" firstAttribute="top" secondItem="5fR-iA-D2f" secondAttribute="bottom" constant="5" id="gfV-iq-hac"/>
                                                                     <constraint firstAttribute="trailing" secondItem="mmo-g9-uur" secondAttribute="trailing" constant="8" id="gpS-0C-iOW"/>
                                                                     <constraint firstItem="tPE-ev-ME0" firstAttribute="leading" secondItem="odS-Vu-xBm" secondAttribute="leading" constant="10" id="hhT-9v-H2S"/>
@@ -196,19 +146,20 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="acceptButton" destination="A4C-R5-l1F" id="V9K-ZW-Oeo"/>
-                                            <outlet property="addressLabel" destination="SC0-bg-Pnm" id="sYw-gc-2WT"/>
-                                            <outlet property="avatarImageView" destination="tPE-ev-ME0" id="n3K-vi-pCC"/>
-                                            <outlet property="dateTimeLabel" destination="XVs-fZ-2da" id="0MB-MB-zrb"/>
-                                            <outlet property="declineButton" destination="1Um-XZ-ECQ" id="dEI-8g-EFg"/>
-                                            <outlet property="opponentNameLabel" destination="5fR-iA-D2f" id="fLE-Ct-xn2"/>
-                                            <outlet property="priceLabel" destination="mmo-g9-uur" id="A9a-9E-Vmq"/>
-                                            <outlet property="rejectStatusLabel" destination="Wxc-kq-LbN" id="iBs-ug-Qlz"/>
-                                            <outlet property="statusLabel" destination="g3t-Dq-u99" id="ZsD-WK-zIx"/>
-                                            <outlet property="storeLabel" destination="5fR-iA-D2f" id="Awn-uk-kZi"/>
+                                            <outlet property="addressLabel" destination="SC0-bg-Pnm" id="ZlT-SU-Ng1"/>
+                                            <outlet property="avatarImageView" destination="tPE-ev-ME0" id="ZQ4-2I-nR5"/>
+                                            <outlet property="dateTimeLabel" destination="XVs-fZ-2da" id="m8i-wO-0lP"/>
+                                            <outlet property="priceLabel" destination="mmo-g9-uur" id="if2-kU-op0"/>
+                                            <outlet property="rejectStatusLabel" destination="Wxc-kq-LbN" id="Ocq-lT-9EN"/>
+                                            <outlet property="statusLabel" destination="g3t-Dq-u99" id="Jnr-hj-35f"/>
+                                            <outlet property="storeLabel" destination="5fR-iA-D2f" id="MYI-vZ-MtQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="FXM-sa-TKm" id="E6h-1H-QY9"/>
+                                    <outlet property="delegate" destination="FXM-sa-TKm" id="6UV-iC-4xo"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

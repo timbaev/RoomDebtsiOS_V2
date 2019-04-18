@@ -49,6 +49,10 @@ final class DefaultCacheContext: CacheContext {
         return self.model.managerFactory.createDebtListManager(with: self)
     }()
 
+    private(set) lazy var checkListManager: CheckListManager = { [unowned self] in
+        return self.model.managerFactory.createCheckListManager(with: self)
+    }()
+
     // MARK: -
 
     var type: CacheContextType {

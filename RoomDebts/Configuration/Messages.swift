@@ -12,7 +12,7 @@ enum Messages {
 
     // MARK: - Type Properties
 
-    static let unknownError = "RoomDebts app requires an internet connection to provide offers. Please check your connection and try again.".localized()
+    static let unknownError = "RoomDebts can’t process your request at the moment. \n Please, try again later.".localized()
     static let unknownErrorTitle = "Something went wrong".localized()
 
     static let internetConnection = "RoomDebts app requires an internet connection to provide offers. Please check your connection and try again.".localized()

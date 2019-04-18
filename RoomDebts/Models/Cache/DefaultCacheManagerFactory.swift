@@ -41,4 +41,8 @@ struct DefaultCacheManagerFactory: CacheManagerFactory {
     func createDebtListManager(with context: CacheContext) -> DebtListManager {
         return DefaultDebtListManager<DefaultDebtList>(context: context)
     }
+
+    func createCheckListManager(with context: CacheContext) -> CheckListManager {
+        return DefaultCheckListManager<DefaultCheckList>(context: context)
+    }
 }

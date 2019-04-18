@@ -25,6 +25,7 @@ protocol CacheContext: AnyObject {
 
     var conversationListManager: ConversationListManager { get }
     var debtListManager: DebtListManager { get }
+    var checkListManager: CheckListManager { get }
 
     var type: CacheContextType { get }
 

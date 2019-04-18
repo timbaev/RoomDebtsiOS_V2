@@ -13,4 +13,5 @@ protocol CheckService {
     // MARK: - Instance Methods
 
     func create(with form: CreateCheckForm, success: @escaping (Check) -> Void, failure: @escaping (WebError) -> Void)
+    func fetch(success: @escaping (CheckList) -> Void, failure: @escaping (WebError) -> Void)
 }

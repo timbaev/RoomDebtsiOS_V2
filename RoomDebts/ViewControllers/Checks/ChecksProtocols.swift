@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ChecksDataPassing: AnyObject {
 
@@ -22,6 +22,7 @@ protocol ChecksBusinessLogic: AnyObject {
     // MARK: - Instance Methods
 
     func createCheck(with metadata: String)
+    func fetchChecks()
 }
 
 protocol ChecksPresentationLogic: AnyObject {
@@ -33,6 +34,15 @@ protocol ChecksPresentationLogic: AnyObject {
 
     func showLoadingIndicator()
     func hideLoadingIndicator()
+
+    func showLoadingState(with title: String, message: String)
+    func showEmptyState(with message: String, actionTitle: String)
+    func showEmptyState(with image: UIImage, title: String, message: String, actionTitle: String)
+    func hideEmptyState()
+
+    func showChecks(with list: CheckList)
+
+    func stopRefreshing()
 }
 
 protocol ChecksRoutingLogic: AnyObject {
@@ -51,4 +61,13 @@ protocol ChecksViewDisplayLogic: AnyObject {
 
     func displayLoadingIndicator()
     func hideLoadingIndicator()
+
+    func displayLoadingState(with title: String, message: String)
+    func displayEmptyState(with message: String, actionTitle action: String)
+    func displayEmptyState(with image: UIImage, title: String, message: String, actionTitle: String)
+    func hideEmptyState()
+
+    func displayChecks(with viewModels: [CheckViewModel])
+
+    func endRefreshing()
 }
