@@ -82,7 +82,7 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
                                       for: .valueChanged)
 
         self.tableView.refreshControl = tableRefreshControl
-        
+
         self.tableRefreshControl = tableRefreshControl
     }
 

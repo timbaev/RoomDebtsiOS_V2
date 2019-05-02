@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DefaultCheck" representedClassName="DefaultCheck" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -45,6 +45,20 @@
         <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="rawDebts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultDebt" inverseName="rawList" inverseEntity="DefaultDebt" syncable="YES"/>
     </entity>
+    <entity name="DefaultProduct" representedClassName="DefaultProduct" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sum" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawLists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultProductList" inverseName="rawProducts" inverseEntity="DefaultProductList" syncable="YES"/>
+        <relationship name="rawSelectedUsers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultUser" inverseName="productsSelection" inverseEntity="DefaultUser" syncable="YES"/>
+    </entity>
+    <entity name="DefaultProductList" representedClassName="DefaultProductList" syncable="YES" codeGenerationType="class">
+        <attribute name="checkUID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawProducts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultProduct" inverseName="rawLists" inverseEntity="DefaultProduct" syncable="YES"/>
+        <relationship name="rawUsers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultUser" inverseName="productLists" inverseEntity="DefaultUser" syncable="YES"/>
+    </entity>
     <entity name="DefaultUser" representedClassName="DefaultUser" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -54,6 +68,8 @@
         <relationship name="conversationsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawCreator" inverseEntity="DefaultConversation" syncable="YES"/>
         <relationship name="conversationsOpponent" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawOpponent" inverseEntity="DefaultConversation" syncable="YES"/>
         <relationship name="debtsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultDebt" inverseName="rawCreator" inverseEntity="DefaultDebt" syncable="YES"/>
+        <relationship name="productLists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultProductList" inverseName="rawUsers" inverseEntity="DefaultProductList" syncable="YES"/>
+        <relationship name="productsSelection" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultProduct" inverseName="rawSelectedUsers" inverseEntity="DefaultProduct" syncable="YES"/>
     </entity>
     <entity name="DefaultUserAccount" representedClassName="DefaultUserAccount" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -64,12 +80,14 @@
     </entity>
     <elements>
         <element name="DefaultCheck" positionX="-54" positionY="99" width="128" height="180"/>
+        <element name="DefaultCheckList" positionX="-54" positionY="108" width="128" height="75"/>
         <element name="DefaultConversation" positionX="-54" positionY="36" width="128" height="165"/>
         <element name="DefaultConversationList" positionX="-54" positionY="63" width="128" height="75"/>
         <element name="DefaultDebt" positionX="-54" positionY="72" width="128" height="180"/>
         <element name="DefaultDebtList" positionX="-54" positionY="90" width="128" height="90"/>
-        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="165"/>
+        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="195"/>
         <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="DefaultCheckList" positionX="-54" positionY="108" width="128" height="75"/>
+        <element name="DefaultProduct" positionX="-54" positionY="117" width="128" height="135"/>
+        <element name="DefaultProductList" positionX="-45" positionY="126" width="128" height="105"/>
     </elements>
 </model>

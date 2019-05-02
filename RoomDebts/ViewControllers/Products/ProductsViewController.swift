@@ -51,7 +51,7 @@ extension ProductsViewController: DictionaryReceiver {
 
     // MARK: - Instance Methods
 
-    func apply(dictionary: [String : Any]) {
+    func apply(dictionary: [String: Any]) {
         guard let check = dictionary["check"] as? Check else {
             return
         }

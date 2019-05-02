@@ -37,6 +37,11 @@
 		CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB16A96521F85D6900B74DE0 /* KeychainManager.swift */; };
 		CB18CA2F2230F0260027E905 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB18CA2E2230F0260027E905 /* CurrencyView.swift */; };
 		CB18CA3722315A190027E905 /* DebtDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB18CA3622315A190027E905 /* DebtDateFormatter.swift */; };
+		CB1C83CA227B7E2C00D10324 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C83C9227B7E2C00D10324 /* Product.swift */; };
+		CB1C83CC227B7E7800D10324 /* DefaultProductExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C83CB227B7E7800D10324 /* DefaultProductExtension.swift */; };
+		CB1C83CF227B811700D10324 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C83CE227B811700D10324 /* ProductList.swift */; };
+		CB1C83D1227B813E00D10324 /* ProductListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C83D0227B813E00D10324 /* ProductListType.swift */; };
+		CB1C83D3227B824A00D10324 /* DefaultProductListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C83D2227B824A00D10324 /* DefaultProductListExtension.swift */; };
 		CB320B4222420BE1006AA4D6 /* ConversationTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */; };
 		CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */; };
 		CB37A9922206289A007ECB86 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A9912206289A007ECB86 /* MimeType.swift */; };
@@ -323,6 +328,11 @@
 		CB16A96521F85D6900B74DE0 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		CB18CA2E2230F0260027E905 /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		CB18CA3622315A190027E905 /* DebtDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtDateFormatter.swift; sourceTree = "<group>"; };
+		CB1C83C9227B7E2C00D10324 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CB1C83CB227B7E7800D10324 /* DefaultProductExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductExtension.swift; sourceTree = "<group>"; };
+		CB1C83CE227B811700D10324 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		CB1C83D0227B813E00D10324 /* ProductListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListType.swift; sourceTree = "<group>"; };
+		CB1C83D2227B824A00D10324 /* DefaultProductListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductListExtension.swift; sourceTree = "<group>"; };
 		CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewModel.swift; sourceTree = "<group>"; };
 		CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParameterEncoder.swift; sourceTree = "<group>"; };
 		CB37A9912206289A007ECB86 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
@@ -718,6 +728,25 @@
 				CB117BB02204C14B00C20905 /* VerificationCodeSourceScreen.swift */,
 			);
 			path = VerificationCode;
+			sourceTree = "<group>";
+		};
+		CB1C83C8227B7E1E00D10324 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				CB1C83CB227B7E7800D10324 /* DefaultProductExtension.swift */,
+				CB1C83C9227B7E2C00D10324 /* Product.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		CB1C83CD227B80E800D10324 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				CB1C83D2227B824A00D10324 /* DefaultProductListExtension.swift */,
+				CB1C83CE227B811700D10324 /* ProductList.swift */,
+				CB1C83D0227B813E00D10324 /* ProductListType.swift */,
+			);
+			path = ProductList;
 			sourceTree = "<group>";
 		};
 		CB320B4022420B5B006AA4D6 /* Conversations */ = {
@@ -1457,6 +1486,8 @@
 				CB0ECA3C222983EF000B902E /* ConversationList */,
 				CB03CBD12236CCAD00104251 /* Debt */,
 				CB3ADFCC223A411600495E05 /* DebtList */,
+				CB1C83C8227B7E1E00D10324 /* Product */,
+				CB1C83CD227B80E800D10324 /* ProductList */,
 				CB714B912222CBC1007961C6 /* User */,
 				CBAC546321F4A6E3004C8C65 /* UserAccount */,
 				CB472D1821F74B6F00FB98EE /* CacheContext.swift */,
@@ -2239,6 +2270,7 @@
 				CB5D829222620DCD005F971A /* Check.swift in Sources */,
 				CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */,
 				CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */,
+				CB1C83D3227B824A00D10324 /* DefaultProductListExtension.swift in Sources */,
 				CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */,
 				CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */,
 				CB472D2621F74C1E00FB98EE /* EventConnection.swift in Sources */,
@@ -2277,9 +2309,11 @@
 				CB5D828522620A21005F971A /* CheckCoder.swift in Sources */,
 				CB9C4438222684640052F512 /* DefaultConversationManager.swift in Sources */,
 				CBC86B88223A540A003C50F6 /* DebtListType.swift in Sources */,
+				CB1C83CF227B811700D10324 /* ProductList.swift in Sources */,
 				CBCCC4392232D07800535D57 /* CreateDebtForm.swift in Sources */,
 				CB5D82A022621089005F971A /* DefaultCheckManager.swift in Sources */,
 				CB472D0321F72DF700FB98EE /* Result.swift in Sources */,
+				CB1C83D1227B813E00D10324 /* ProductListType.swift in Sources */,
 				CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */,
 				CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
@@ -2292,6 +2326,7 @@
 				CBDE71D622436C6E0070F603 /* SettingTableViewModel.swift in Sources */,
 				CB117BB12204C14B00C20905 /* VerificationCodeSourceScreen.swift in Sources */,
 				CBFDBABE21F63A670017ED61 /* StringExtension.swift in Sources */,
+				CB1C83CC227B7E7800D10324 /* DefaultProductExtension.swift in Sources */,
 				CB472D2E21F7586E00FB98EE /* Coders.swift in Sources */,
 				CBE2F8832227E98B006B0FA4 /* UIAlertControllerExtension.swift in Sources */,
 				CB9C4433222681B80052F512 /* DefaultConversationExtension.swift in Sources */,
@@ -2353,6 +2388,7 @@
 				CBCCC43E2232D17200535D57 /* DefaultDebtCoder.swift in Sources */,
 				CB098EC62225206600FDD47C /* ConversationService.swift in Sources */,
 				CB714DE72222DC39007961C6 /* UserExtractor.swift in Sources */,
+				CB1C83CA227B7E2C00D10324 /* Product.swift in Sources */,
 				CBC62F652264DCBE0000B588 /* CheckListManager.swift in Sources */,
 				CB03CBDF2236D53A00104251 /* DebtExtractor.swift in Sources */,
 				CB472CF721F711E400FB98EE /* HeaderKeys.swift in Sources */,
