@@ -232,6 +232,8 @@
 		CBDE71E3224396930070F603 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71E2224396930070F603 /* EditAccountViewController.swift */; };
 		CBDE71E52243CBCB0070F603 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71E42243CBCB0070F603 /* HTTPResponse.swift */; };
 		CBDE71E72243CCB60070F603 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71E62243CCB60070F603 /* HTTPStatusCode.swift */; };
+		CBE1C4FD227B70BE008DBAF4 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE1C4FC227B70BE008DBAF4 /* Products.storyboard */; };
+		CBE1C4FF227B7462008DBAF4 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1C4FE227B7462008DBAF4 /* ProductsViewController.swift */; };
 		CBE2F8832227E98B006B0FA4 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */; };
 		CBE31EA022207B96006EF081 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31E9F22207B96006EF081 /* RoundedImageView.swift */; };
 		CBE31EA222207D94006EF081 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE31EA122207D94006EF081 /* SearchViewController.swift */; };
@@ -520,6 +522,8 @@
 		CBDE71E2224396930070F603 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		CBDE71E42243CBCB0070F603 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
 		CBDE71E62243CCB60070F603 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		CBE1C4FC227B70BE008DBAF4 /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
+		CBE1C4FE227B7462008DBAF4 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		CBE31E9F22207B96006EF081 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		CBE31EA122207D94006EF081 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -1333,6 +1337,7 @@
 				CBDE71DE224393CB0070F603 /* EditAccount */,
 				CBAC543D21F4A410004C8C65 /* LaunchScreen */,
 				CBAC543A21F4A3EE004C8C65 /* Main */,
+				CBE1C4FA227B70A3008DBAF4 /* Products */,
 				CBBF79B62262419C00752AE4 /* QRScanner */,
 				CB83DCCF221E9DA200749486 /* Search */,
 				CB6D6DAC224365290047196A /* Settings */,
@@ -1870,6 +1875,23 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		CBE1C4FA227B70A3008DBAF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBE1C4FB227B70B0008DBAF4 /* Storyboard */,
+				CBE1C4FE227B7462008DBAF4 /* ProductsViewController.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		CBE1C4FB227B70B0008DBAF4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBE1C4FC227B70BE008DBAF4 /* Products.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CBEB2DC0222C1DE600653B11 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -2073,6 +2095,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBE1C4FD227B70BE008DBAF4 /* Products.storyboard in Resources */,
 				CBAC542421F4A3D7004C8C65 /* LaunchScreen.storyboard in Resources */,
 				CB44E413225CB51100D59821 /* Checks.storyboard in Resources */,
 				CBFDBAA721F5B9FE0017ED61 /* Rubik-BoldItalic.ttf in Resources */,
@@ -2243,6 +2266,7 @@
 				CBA02E18222D84C0009683A5 /* DebtsTableViewController.swift in Sources */,
 				CB9C4436222683F30052F512 /* ConversationManager.swift in Sources */,
 				CB472D1521F743BD00FB98EE /* DefaultUserAccountCoder.swift in Sources */,
+				CBE1C4FF227B7462008DBAF4 /* ProductsViewController.swift in Sources */,
 				CB44E416225CBE4E00D59821 /* CheckTableViewCell.swift in Sources */,
 				CB472CF421F7113400FB98EE /* JSONParameterEncoder.swift in Sources */,
 				CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */,

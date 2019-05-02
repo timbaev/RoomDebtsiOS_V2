@@ -36,6 +36,16 @@ protocol EmptyStateViewable {
 
 extension EmptyStateViewable where Self: UIViewController {
 
+    // MARK: - Instance Properties
+
+    var emptyStateContainerView: UIView {
+        return UIView()
+    }
+
+    var emptyStateView: EmptyStateView {
+        return EmptyStateView()
+    }
+
     // MARK: - Instance Methods
 
     func configEmptyState() {
