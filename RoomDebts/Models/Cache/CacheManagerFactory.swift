@@ -17,8 +17,12 @@ protocol CacheManagerFactory {
     func createUserManager(with context: CacheContext) -> UserManager
     func createDebtManager(with context: CacheContext) -> DebtManager
     func createCheckManager(with context: CacheContext) -> CheckManager
+    func createProductManager(with context: CacheContext) -> ProductManager
+
+    // MARK: -
 
     func createConversationListManager(with context: CacheContext) -> ConversationListManager
     func createDebtListManager(with context: CacheContext) -> DebtListManager
     func createCheckListManager(with context: CacheContext) -> CheckListManager
+    func createProductListManager(with context: CacheContext) -> ProductListManager
 }

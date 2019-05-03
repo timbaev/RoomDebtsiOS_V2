@@ -39,6 +39,10 @@ final class DefaultCacheContext: CacheContext {
         return self.model.managerFactory.createCheckManager(with: self)
     }()
 
+    private(set) lazy var productManager: ProductManager = { [unowned self] in
+        return self.model.managerFactory.createProductManager(with: self)
+    }()
+
     // MARK: -
 
     private(set) lazy var conversationListManager: ConversationListManager = { [unowned self] in
@@ -51,6 +55,10 @@ final class DefaultCacheContext: CacheContext {
 
     private(set) lazy var checkListManager: CheckListManager = { [unowned self] in
         return self.model.managerFactory.createCheckListManager(with: self)
+    }()
+
+    private(set) lazy var productListManager: ProductListManager = { [unowned self] in
+        return self.model.managerFactory.createProductListManager(with: self)
     }()
 
     // MARK: -

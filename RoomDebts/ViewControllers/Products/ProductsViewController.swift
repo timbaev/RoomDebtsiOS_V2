@@ -20,6 +20,9 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable {
 
     private var check: Check?
 
+    private var productList: ProductList!
+    private var productlistType: ProductListType = .unknown
+
     private var shouldApplyData = true
 
     // MARK: - Instance Methods
@@ -37,6 +40,18 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable {
             self.shouldApplyData = true
         }
     }
+
+    private func apply(productList: ProductList) {
+        Log.i(productList.count)
+    }
+
+    private func apply(productListType: ProductListType) {
+        Log.i(productListType.checkUID)
+
+        self.productlistType = productListType
+    }
+
+    // MARK: - UIViewController
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

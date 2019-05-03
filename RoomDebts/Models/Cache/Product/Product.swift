@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Product {
+protocol Product: AnyObject {
 
     // MARK: - Instance Properties
 

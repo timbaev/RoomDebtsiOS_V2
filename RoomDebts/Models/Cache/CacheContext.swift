@@ -22,10 +22,14 @@ protocol CacheContext: AnyObject {
     var userManager: UserManager { get }
     var debtManager: DebtManager { get }
     var checkManager: CheckManager { get }
+    var productManager: ProductManager { get }
+
+    // MARK: -
 
     var conversationListManager: ConversationListManager { get }
     var debtListManager: DebtListManager { get }
     var checkListManager: CheckListManager { get }
+    var productListManager: ProductListManager { get }
 
     var type: CacheContextType { get }
 
