@@ -8,4 +8,9 @@
 
 import Foundation
 
-protocol ProductService { }
+protocol ProductService {
+
+    // MARK: - Instance Methods
+
+    func fetch(with checkUID: Int64, result: @escaping (Swift.Result<ProductList, WebError>) -> Void)
+}
