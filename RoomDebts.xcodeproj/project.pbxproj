@@ -150,6 +150,12 @@
 		CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB6223EBE19005E379D /* ConfigurableCell.swift */; };
 		CB913AB9223EBF6D005E379D /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB8223EBF6D005E379D /* CellConfigurator.swift */; };
 		CB913ABB223EBFE7005E379D /* TableCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */; };
+		CB94D83C227C3C94006F39EF /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94D83B227C3C94006F39EF /* ProductService.swift */; };
+		CB94D83E227C3CA2006F39EF /* DefaultProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94D83D227C3CA2006F39EF /* DefaultProductService.swift */; };
+		CB94D841227C3E19006F39EF /* ProductExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94D840227C3E19006F39EF /* ProductExtractor.swift */; };
+		CB94D843227C3E29006F39EF /* DefaultProductExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94D842227C3E29006F39EF /* DefaultProductExtractor.swift */; };
+		CB94D846227C3E6B006F39EF /* ProductCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94D845227C3E6B006F39EF /* ProductCoder.swift */; };
+		CB94D848227C3E7D006F39EF /* DefaultProductCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94D847227C3E7D006F39EF /* DefaultProductCoder.swift */; };
 		CB9C442F222680E00052F512 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C442E222680E00052F512 /* Conversation.swift */; };
 		CB9C44312226813F0052F512 /* ConversationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C44302226813F0052F512 /* ConversationStatus.swift */; };
 		CB9C4433222681B80052F512 /* DefaultConversationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C4432222681B80052F512 /* DefaultConversationExtension.swift */; };
@@ -445,6 +451,12 @@
 		CB913AB6223EBE19005E379D /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		CB913AB8223EBF6D005E379D /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellConfigurator.swift; sourceTree = "<group>"; };
+		CB94D83B227C3C94006F39EF /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		CB94D83D227C3CA2006F39EF /* DefaultProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductService.swift; sourceTree = "<group>"; };
+		CB94D840227C3E19006F39EF /* ProductExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductExtractor.swift; sourceTree = "<group>"; };
+		CB94D842227C3E29006F39EF /* DefaultProductExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductExtractor.swift; sourceTree = "<group>"; };
+		CB94D845227C3E6B006F39EF /* ProductCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCoder.swift; sourceTree = "<group>"; };
+		CB94D847227C3E7D006F39EF /* DefaultProductCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductCoder.swift; sourceTree = "<group>"; };
 		CB9C442E222680E00052F512 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		CB9C44302226813F0052F512 /* ConversationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationStatus.swift; sourceTree = "<group>"; };
 		CB9C4432222681B80052F512 /* DefaultConversationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationExtension.swift; sourceTree = "<group>"; };
@@ -922,6 +934,7 @@
 				CB5D828A22620C1B005F971A /* Check */,
 				CB098EC42225205600FDD47C /* Conversation */,
 				CBCCC42F2232CE5000535D57 /* Debt */,
+				CB94D839227C3C7B006F39EF /* Product */,
 				CB714B8C2222CA8D007961C6 /* User */,
 			);
 			path = Services;
@@ -956,6 +969,7 @@
 				CB71C3D121F9B708008FDD0B /* Confirm */,
 				CB098EBF22251E9300FDD47C /* Conversation */,
 				CBCCC43A2232D14D00535D57 /* Debt */,
+				CB94D844227C3E58006F39EF /* Product */,
 				CBF277EA21FAFA37008E516C /* PhoneNumber */,
 				CB472D1121F7430A00FB98EE /* UserAccount */,
 				CB714DDE2222D9A6007961C6 /* UserCoder */,
@@ -1267,6 +1281,42 @@
 				CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CB94D839227C3C7B006F39EF /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				CB94D83F227C3E0F006F39EF /* Extractor */,
+				CB94D83A227C3C85006F39EF /* Service */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		CB94D83A227C3C85006F39EF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CB94D83B227C3C94006F39EF /* ProductService.swift */,
+				CB94D83D227C3CA2006F39EF /* DefaultProductService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CB94D83F227C3E0F006F39EF /* Extractor */ = {
+			isa = PBXGroup;
+			children = (
+				CB94D840227C3E19006F39EF /* ProductExtractor.swift */,
+				CB94D842227C3E29006F39EF /* DefaultProductExtractor.swift */,
+			);
+			path = Extractor;
+			sourceTree = "<group>";
+		};
+		CB94D844227C3E58006F39EF /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				CB94D845227C3E6B006F39EF /* ProductCoder.swift */,
+				CB94D847227C3E7D006F39EF /* DefaultProductCoder.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		CB9C442D222680C30052F512 /* Conversation */ = {
@@ -2312,6 +2362,7 @@
 				CB472D0921F72F8600FB98EE /* DefaultAccountService.swift in Sources */,
 				CBCCC4362232CE9E00535D57 /* DebtAPI.swift in Sources */,
 				CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */,
+				CB94D83E227C3CA2006F39EF /* DefaultProductService.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
 				CBC62F5E2264D6720000B588 /* CheckList.swift in Sources */,
 				CB1C83DD227B866B00D10324 /* DefaultProductListManager.swift in Sources */,
@@ -2370,11 +2421,13 @@
 				CB03CBD72236D40700104251 /* DefaultDebtExtension.swift in Sources */,
 				CBCCC4322232CE6500535D57 /* DebtService.swift in Sources */,
 				CB098ECB2225305C00FDD47C /* DefaultUserExtension.swift in Sources */,
+				CB94D841227C3E19006F39EF /* ProductExtractor.swift in Sources */,
 				CBDE71DD224386DE0070F603 /* LogoutTableViewModel.swift in Sources */,
 				CBC86B86223A53EB003C50F6 /* DebtList.swift in Sources */,
 				CB5953B0222D46EF0079D56B /* Messages.swift in Sources */,
 				CBAC545121F4A48A004C8C65 /* CoreDataStorageManager.swift in Sources */,
 				CB6D9381224FB5D9004EA6A7 /* FatalErrorUtil.swift in Sources */,
+				CB94D846227C3E6B006F39EF /* ProductCoder.swift in Sources */,
 				CBAC545E21F4A525004C8C65 /* LoggedTabBarController.swift in Sources */,
 				CBC86B8D223A58DB003C50F6 /* DebtListManager.swift in Sources */,
 				CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */,
@@ -2414,6 +2467,7 @@
 				CB472D2821F74C3800FB98EE /* DefaultUserAccountsManager.swift in Sources */,
 				CBDE71DB2243855C0070F603 /* LogoutTableViewCell.swift in Sources */,
 				CBAC547C21F4D93B004C8C65 /* NoneColorTabBarItem.swift in Sources */,
+				CB94D83C227C3C94006F39EF /* ProductService.swift in Sources */,
 				CBCCC43E2232D17200535D57 /* DefaultDebtCoder.swift in Sources */,
 				CB098EC62225206600FDD47C /* ConversationService.swift in Sources */,
 				CB714DE72222DC39007961C6 /* UserExtractor.swift in Sources */,
@@ -2426,6 +2480,7 @@
 				CBAC541F21F4A3D4004C8C65 /* RoomDebts.xcdatamodeld in Sources */,
 				CB391D5B2222832800EB4EDD /* UISearchBarExtensions.swift in Sources */,
 				CBFDBAC021F63FA20017ED61 /* PrimaryButton.swift in Sources */,
+				CB94D848227C3E7D006F39EF /* DefaultProductCoder.swift in Sources */,
 				CBAC545421F4A48A004C8C65 /* StorageContext.swift in Sources */,
 				CBAC547221F4CAB2004C8C65 /* Colors.swift in Sources */,
 				CB714B902222CAFC007961C6 /* DefaultUserService.swift in Sources */,
@@ -2459,6 +2514,7 @@
 				CBFD5FE3225F67B8000F711C /* ChecksProtocols.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
 				CB098ECE2225310000FDD47C /* ConversationExtractor.swift in Sources */,
+				CB94D843227C3E29006F39EF /* DefaultProductExtractor.swift in Sources */,
 				CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */,
 				CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */,
 				CB71C3CC21F9A236008FDD0B /* AuthAPI.swift in Sources */,

@@ -24,8 +24,28 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable {
     private var productlistType: ProductListType = .unknown
 
     private var shouldApplyData = true
+    private var isRefreshingData = false
 
     // MARK: - Instance Methods
+
+    private func refreshProductList() {
+        Log.i()
+
+        guard let check = self.check else {
+            return
+        }
+
+        self.isRefreshingData = true
+
+        if !self.tableRefreshControl.isRefreshing {
+            if (self.productList.isEmpty) || (!self.emptyStateContainerView.isHidden) {
+                self.showLoadingState(with: "Loading products".localized(),
+                                      message: "We are loading list of products. Please wait a bit".localized())
+            }
+        }
+    }
+
+    // MARK: -
 
     private func apply(check: Check) {
         Log.i(check.uid)
@@ -49,6 +69,12 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable {
         Log.i(productListType.checkUID)
 
         self.productlistType = productListType
+
+        if let productList = Services.cacheViewContext.productListManager.first(withListType: productListType) {
+            self.apply(productList: productList)
+        }
+
+        
     }
 
     // MARK: - UIViewController

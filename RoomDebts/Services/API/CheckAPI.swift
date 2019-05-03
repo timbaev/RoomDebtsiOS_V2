@@ -14,6 +14,7 @@ enum CheckAPI {
 
     case create(form: CreateCheckForm)
     case fetch
+    case fetchCheck(uid: Int64)
 }
 
 // MARK: - EndPointType
@@ -28,6 +29,9 @@ extension CheckAPI: EndPointType {
         switch self {
         case .create, .fetch:
             return basePath
+
+        case .fetchCheck(let uid):
+            return basePath + "/\(uid)"
         }
     }
 
@@ -36,7 +40,7 @@ extension CheckAPI: EndPointType {
         case .create:
             return .post
 
-        case .fetch:
+        case .fetch, .fetchCheck:
             return .get
         }
     }
@@ -46,7 +50,7 @@ extension CheckAPI: EndPointType {
         case .create(let form):
             return .requestParameters(bodyParameters: Coders.checkCoder.encode(form: form), urlParameters: nil)
 
-        case .fetch:
+        case .fetch, .fetchCheck:
             return .request
         }
     }
