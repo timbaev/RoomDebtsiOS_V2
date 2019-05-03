@@ -1295,8 +1295,8 @@
 		CB94D83A227C3C85006F39EF /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CB94D83B227C3C94006F39EF /* ProductService.swift */,
 				CB94D83D227C3CA2006F39EF /* DefaultProductService.swift */,
+				CB94D83B227C3C94006F39EF /* ProductService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1304,8 +1304,8 @@
 		CB94D83F227C3E0F006F39EF /* Extractor */ = {
 			isa = PBXGroup;
 			children = (
-				CB94D840227C3E19006F39EF /* ProductExtractor.swift */,
 				CB94D842227C3E29006F39EF /* DefaultProductExtractor.swift */,
+				CB94D840227C3E19006F39EF /* ProductExtractor.swift */,
 			);
 			path = Extractor;
 			sourceTree = "<group>";

@@ -11,4 +11,6 @@ import Foundation
 protocol ProductExtractor {
 
     // MARK: - Instance Methods
+
+    func extractProductList(from json: JSON, withListType listType: ProductListType, cacheContext: CacheContext) throws -> ProductList
 }

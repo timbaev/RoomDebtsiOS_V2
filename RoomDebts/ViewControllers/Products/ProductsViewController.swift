@@ -73,8 +73,6 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable {
         if let productList = Services.cacheViewContext.productListManager.first(withListType: productListType) {
             self.apply(productList: productList)
         }
-
-        
     }
 
     // MARK: - UIViewController
