@@ -150,6 +150,12 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
         self.configurePlusBarButtonItem()
         self.configureTableRefreshControl()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        self.router.prepare(for: segue, sender: sender)
+    }
 }
 
 // MARK: - DictionaryReceiver
@@ -210,5 +216,9 @@ extension ChecksViewController: UITableViewDelegate {
         }
 
         ImageDownloader.shared.cancelLoad(in: targetImageView)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.router.showProducts(with: indexPath)
     }
 }

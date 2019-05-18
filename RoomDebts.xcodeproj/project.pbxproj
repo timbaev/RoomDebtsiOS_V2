@@ -107,6 +107,10 @@
 		CB4EB1A6222EE08200FF2232 /* CreateDebtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4EB1A5222EE08200FF2232 /* CreateDebtViewController.swift */; };
 		CB517A4D2260890B009BCCE0 /* CheckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB517A4C2260890B009BCCE0 /* CheckAPI.swift */; };
 		CB5953B0222D46EF0079D56B /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5953AF222D46EF0079D56B /* Messages.swift */; };
+		CB59649E227C793100E94FF2 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59649D227C793100E94FF2 /* ProductTableViewCell.swift */; };
+		CB5964A0227CC7DD00E94FF2 /* ProductUsersCollectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59649F227CC7DD00E94FF2 /* ProductUsersCollectionDatasource.swift */; };
+		CB5964A2227CC91D00E94FF2 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5964A1227CC91D00E94FF2 /* UserCollectionViewCell.swift */; };
+		CB5964A4227CC9C300E94FF2 /* CollectionCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5964A3227CC9C300E94FF2 /* CollectionCellConfigurator.swift */; };
 		CB5D828522620A21005F971A /* CheckCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D828422620A21005F971A /* CheckCoder.swift */; };
 		CB5D828722620A37005F971A /* DefaultCheckCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D828622620A37005F971A /* DefaultCheckCoder.swift */; };
 		CB5D828922620AF2005F971A /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D828822620AF2005F971A /* EncodableExtension.swift */; };
@@ -200,6 +204,8 @@
 		CBBF79B9226241E800752AE4 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF79B8226241E800752AE4 /* QRScannerViewController.swift */; };
 		CBBF79BB2262550800752AE4 /* QRScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBF79BA2262550800752AE4 /* QRScanner.storyboard */; };
 		CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */; };
+		CBC5081F227C7297001D6D41 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5081E227C7297001D6D41 /* ProductViewModel.swift */; };
+		CBC50822227C7453001D6D41 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC50821227C7453001D6D41 /* UserViewModel.swift */; };
 		CBC62F5E2264D6720000B588 /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F5D2264D6720000B588 /* CheckList.swift */; };
 		CBC62F602264D68B0000B588 /* CheckListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F5F2264D68B0000B588 /* CheckListType.swift */; };
 		CBC62F622264D6F70000B588 /* DefaultCheckListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC62F612264D6F70000B588 /* DefaultCheckListExtension.swift */; };
@@ -408,6 +414,10 @@
 		CB4EB1A5222EE08200FF2232 /* CreateDebtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebtViewController.swift; sourceTree = "<group>"; };
 		CB517A4C2260890B009BCCE0 /* CheckAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAPI.swift; sourceTree = "<group>"; };
 		CB5953AF222D46EF0079D56B /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		CB59649D227C793100E94FF2 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		CB59649F227CC7DD00E94FF2 /* ProductUsersCollectionDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUsersCollectionDatasource.swift; sourceTree = "<group>"; };
+		CB5964A1227CC91D00E94FF2 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB5964A3227CC9C300E94FF2 /* CollectionCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellConfigurator.swift; sourceTree = "<group>"; };
 		CB5D828422620A21005F971A /* CheckCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCoder.swift; sourceTree = "<group>"; };
 		CB5D828622620A37005F971A /* DefaultCheckCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCheckCoder.swift; sourceTree = "<group>"; };
 		CB5D828822620AF2005F971A /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
@@ -505,6 +515,8 @@
 		CBBF79B8226241E800752AE4 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		CBBF79BA2262550800752AE4 /* QRScanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRScanner.storyboard; sourceTree = "<group>"; };
 		CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtTableViewModel.swift; sourceTree = "<group>"; };
+		CBC5081E227C7297001D6D41 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		CBC50821227C7453001D6D41 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CBC62F5D2264D6720000B588 /* CheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckList.swift; sourceTree = "<group>"; };
 		CBC62F5F2264D68B0000B588 /* CheckListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListType.swift; sourceTree = "<group>"; };
 		CBC62F612264D6F70000B588 /* DefaultCheckListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCheckListExtension.swift; sourceTree = "<group>"; };
@@ -1277,6 +1289,7 @@
 			isa = PBXGroup;
 			children = (
 				CB913AB8223EBF6D005E379D /* CellConfigurator.swift */,
+				CB5964A3227CC9C300E94FF2 /* CollectionCellConfigurator.swift */,
 				CB913AB6223EBE19005E379D /* ConfigurableCell.swift */,
 				CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */,
 			);
@@ -1645,6 +1658,7 @@
 				CB44E414225CBE3D00D59821 /* Checks */,
 				CBEB2DC0222C1DE600653B11 /* Conversation */,
 				CB3ADFC9223A36F900495E05 /* Debts */,
+				CBC50824227C7902001D6D41 /* Products */,
 				CB714B872222C7CB007961C6 /* Search */,
 				CBDE71D7224383370070F603 /* Settings */,
 				CB913AB4223EBDFF005E379D /* Tools */,
@@ -1683,7 +1697,9 @@
 			children = (
 				CB320B4022420B5B006AA4D6 /* Conversations */,
 				CBC20098223F6E5B00D0DF6A /* Debts */,
+				CBC5081D227C7284001D6D41 /* Product */,
 				CBDE71D422436C600070F603 /* Settings */,
+				CBC50820227C7446001D6D41 /* User */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1694,6 +1710,32 @@
 				CBC20099223F6E6F00D0DF6A /* DebtTableViewModel.swift */,
 			);
 			path = Debts;
+			sourceTree = "<group>";
+		};
+		CBC5081D227C7284001D6D41 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				CBC5081E227C7297001D6D41 /* ProductViewModel.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		CBC50820227C7446001D6D41 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CBC50821227C7453001D6D41 /* UserViewModel.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		CBC50824227C7902001D6D41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB59649D227C793100E94FF2 /* ProductTableViewCell.swift */,
+				CB59649F227CC7DD00E94FF2 /* ProductUsersCollectionDatasource.swift */,
+				CB5964A1227CC91D00E94FF2 /* UserCollectionViewCell.swift */,
+			);
+			path = Products;
 			sourceTree = "<group>";
 		};
 		CBC62F5C2264D65B0000B588 /* CheckList */ = {
@@ -2348,6 +2390,7 @@
 				CB5D829222620DCD005F971A /* Check.swift in Sources */,
 				CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */,
 				CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */,
+				CB5964A2227CC91D00E94FF2 /* UserCollectionViewCell.swift in Sources */,
 				CB1C83D3227B824A00D10324 /* DefaultProductListExtension.swift in Sources */,
 				CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */,
 				CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */,
@@ -2406,6 +2449,7 @@
 				CBDE71D622436C6E0070F603 /* SettingTableViewModel.swift in Sources */,
 				CB117BB12204C14B00C20905 /* VerificationCodeSourceScreen.swift in Sources */,
 				CBFDBABE21F63A670017ED61 /* StringExtension.swift in Sources */,
+				CBC50822227C7453001D6D41 /* UserViewModel.swift in Sources */,
 				CB1C83CC227B7E7800D10324 /* DefaultProductExtension.swift in Sources */,
 				CB472D2E21F7586E00FB98EE /* Coders.swift in Sources */,
 				CBE2F8832227E98B006B0FA4 /* UIAlertControllerExtension.swift in Sources */,
@@ -2511,6 +2555,8 @@
 				CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */,
 				CB472CFE21F72C8A00FB98EE /* NetworkEnvironment.swift in Sources */,
 				CBFDBACC21F660030017ED61 /* KeyboardScrollableHandler.swift in Sources */,
+				CB5964A4227CC9C300E94FF2 /* CollectionCellConfigurator.swift in Sources */,
+				CBC5081F227C7297001D6D41 /* ProductViewModel.swift in Sources */,
 				CBFD5FE3225F67B8000F711C /* ChecksProtocols.swift in Sources */,
 				CBAC545721F4A48A004C8C65 /* StorageContextType.swift in Sources */,
 				CB098ECE2225310000FDD47C /* ConversationExtractor.swift in Sources */,
@@ -2566,10 +2612,12 @@
 				CBC86B8F223A595C003C50F6 /* DefaultDebtListManager.swift in Sources */,
 				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
 				CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */,
+				CB5964A0227CC7DD00E94FF2 /* ProductUsersCollectionDatasource.swift in Sources */,
 				CB0ECA45222989F9000B902E /* DefaultConversationListManager.swift in Sources */,
 				CBFD5FE0225F67B8000F711C /* ChecksPresenter.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,
 				CB37A9922206289A007ECB86 /* MimeType.swift in Sources */,
+				CB59649E227C793100E94FF2 /* ProductTableViewCell.swift in Sources */,
 				CBFD5FE2225F67B8000F711C /* ChecksViewController.swift in Sources */,
 				CB03CBDA2236D4A500104251 /* DebtManager.swift in Sources */,
 				CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */,

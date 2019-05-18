@@ -47,7 +47,7 @@
     </entity>
     <entity name="DefaultProduct" representedClassName="DefaultProduct" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sum" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="rawLists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultProductList" inverseName="rawProducts" inverseEntity="DefaultProductList" syncable="YES"/>
@@ -85,9 +85,9 @@
         <element name="DefaultConversationList" positionX="-54" positionY="63" width="128" height="75"/>
         <element name="DefaultDebt" positionX="-54" positionY="72" width="128" height="180"/>
         <element name="DefaultDebtList" positionX="-54" positionY="90" width="128" height="90"/>
-        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="195"/>
-        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="DefaultProduct" positionX="-54" positionY="117" width="128" height="135"/>
         <element name="DefaultProductList" positionX="-45" positionY="126" width="128" height="105"/>
+        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="195"/>
+        <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

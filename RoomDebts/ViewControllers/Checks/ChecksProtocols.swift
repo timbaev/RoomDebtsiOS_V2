@@ -15,7 +15,12 @@ protocol ChecksDataPassing: AnyObject {
     var dataStore: ChecksDataStore! { get }
 }
 
-protocol ChecksDataStore: AnyObject { }
+protocol ChecksDataStore: AnyObject {
+
+    // MARK: - Instance Properties
+
+    var checks: [Check] { get }
+}
 
 protocol ChecksBusinessLogic: AnyObject {
 
@@ -50,6 +55,8 @@ protocol ChecksRoutingLogic: AnyObject {
     // MARK: - Instance Methods
 
     func showQRScanner()
+    func showProducts(with indexPath: IndexPath)
+    func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
 protocol ChecksViewDisplayLogic: AnyObject {

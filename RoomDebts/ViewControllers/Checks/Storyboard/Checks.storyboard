@@ -183,6 +183,7 @@
                     <connections>
                         <outlet property="tableView" destination="xLn-m6-sdU" id="Iiu-Mf-zLQ"/>
                         <segue destination="EeC-Y3-Jc0" kind="presentation" identifier="ShowQRScanner" id="h2r-sN-Q5M"/>
+                        <segue destination="Fb1-Mt-UKk" kind="show" identifier="ShowProducts" id="qOE-Fj-gtT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQJ-y3-wQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,7 +201,15 @@
                 <viewControllerPlaceholder storyboardName="QRScanner" id="EeC-Y3-Jc0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bft-hR-8Ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="9"/>
+            <point key="canvasLocation" x="581" y="72"/>
+        </scene>
+        <!--Products-->
+        <scene sceneID="b3F-Gc-Yyn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Products" id="Fb1-Mt-UKk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ev7-uy-QqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="-66"/>
         </scene>
     </scenes>
     <resources>

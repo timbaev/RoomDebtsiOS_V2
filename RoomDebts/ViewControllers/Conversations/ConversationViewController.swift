@@ -31,6 +31,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         // MARK: - Type Properties
 
         static let showDebts = "ShowDebts"
+        static let unauthorized = "Unauthorized"
     }
 
     // MARK: - Instance Properties
@@ -101,6 +102,9 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
                                     message: Messages.unknownError,
                                     action: action)
             }
+
+        case .unauthorized:
+            self.performSegue(withIdentifier: Segues.unauthorized, sender: self)
 
         default:
             if self.conversationList?.isEmpty ?? true {

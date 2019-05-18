@@ -45,7 +45,7 @@ class DefaultProductCoder: ProductCoder {
             return false
         }
 
-        guard let quantity: Int16 = JSONKeys.quantity <~~ json else {
+        guard let quantity: Double = JSONKeys.quantity <~~ json else {
             return false
         }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFz-Xa-KLu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFz-Xa-KLu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -236,11 +236,20 @@
                     <connections>
                         <outlet property="tableView" destination="QzB-dv-9VE" id="zEY-Q4-rcd"/>
                         <segue destination="tsp-zt-qf8" kind="show" identifier="ShowDebts" id="S2x-uL-w99"/>
+                        <segue destination="HzH-ys-DFN" kind="presentation" identifier="Unauthorized" id="Pxc-P9-td0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkn-3R-nvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="77.599999999999994" y="136.28185907046478"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="wEg-mY-fdu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Welcome" id="HzH-ys-DFN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FqW-yk-Dpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="29"/>
         </scene>
         <!--Debts-->
         <scene sceneID="0Tg-OI-lNu">
@@ -248,7 +257,7 @@
                 <viewControllerPlaceholder storyboardName="Debts" id="tsp-zt-qf8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bo0-rL-vqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="743" y="136"/>
+            <point key="canvasLocation" x="642" y="198"/>
         </scene>
     </scenes>
     <resources>

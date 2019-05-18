@@ -17,6 +17,10 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
     private var isRefreshingData = false
 
+    // MARK: - ChecksDataStore
+
+    var checks: [Check] = []
+
     // MARK: -
 
     var presenter: ChecksPresentationLogic!
@@ -141,6 +145,8 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
             self.presenter.showLoadingState(with: "Loading checks".localized(),
                                             message: "We are loading list of checks. Please wait a bit".localized())
         } else {
+            self.checks = self.checkList.checks
+
             self.presenter.showChecks(with: self.checkList)
         }
 
@@ -150,6 +156,7 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
             }
 
             self.checkList = checkList
+            self.checks = checkList.checks
 
             if checkList.isEmpty {
                 self.presenter.showEmptyState(with: "Checks not exists".localized(), actionTitle: "Scan New Check".localized())

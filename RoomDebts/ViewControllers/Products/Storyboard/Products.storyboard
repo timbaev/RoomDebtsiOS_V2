@@ -34,7 +34,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConversationCell" rowHeight="180" id="yla-TD-sxp" customClass="ConversationTableViewCell" customModule="RoomDebts" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="180" id="yla-TD-sxp" customClass="ProductTableViewCell" customModule="RoomDebts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yla-TD-sxp" id="OSK-F1-50d">
@@ -56,7 +56,7 @@
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.75₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-bO-njE">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="4.75₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-bO-njE">
                                                                         <rect key="frame" x="353.5" y="11" width="44.5" height="20"/>
                                                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,7 +74,7 @@
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtM-q0-9iA">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtM-q0-9iA" userLabel="SeparatorView">
                                                                         <rect key="frame" x="10" y="67.5" width="404" height="2"/>
                                                                         <color key="backgroundColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
@@ -84,6 +84,9 @@
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AkM-uR-UUq">
                                                                         <rect key="frame" x="0.0" y="75.5" width="414" height="65.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="65.5" id="Vbr-08-8vq"/>
+                                                                        </constraints>
                                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="17" id="bxZ-7c-zFI">
                                                                             <size key="itemSize" width="45" height="60"/>
                                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -91,7 +94,7 @@
                                                                             <inset key="sectionInset" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wUY-Rv-MDK">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCell" id="wUY-Rv-MDK" customClass="UserCollectionViewCell" customModule="RoomDebts" customModuleProvider="target">
                                                                                 <rect key="frame" x="12" y="3" width="45" height="60"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -126,6 +129,10 @@
                                                                                     <constraint firstAttribute="trailing" secondItem="fTS-LP-vfy" secondAttribute="trailing" id="x1P-G3-nFH"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="OnS-jp-OjY" secondAttribute="bottom" id="yL4-zP-MaN"/>
                                                                                 </constraints>
+                                                                                <connections>
+                                                                                    <outlet property="avatarImageView" destination="fTS-LP-vfy" id="RZX-Xx-Dmj"/>
+                                                                                    <outlet property="nameLabel" destination="OnS-jp-OjY" id="jcz-VJ-iTo"/>
+                                                                                </connections>
                                                                             </collectionViewCell>
                                                                         </cells>
                                                                     </collectionView>
@@ -170,8 +177,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="collectionView" destination="AkM-uR-UUq" id="WKs-PI-0JN"/>
+                                            <outlet property="nameLabel" destination="Vho-3X-XgI" id="6fy-Tj-4v8"/>
+                                            <outlet property="priceLabel" destination="4Ne-bO-njE" id="0a5-KO-2Nb"/>
+                                            <outlet property="quantityLabel" destination="KQo-kK-l5p" id="PXL-fU-jRt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MxQ-Jn-tGO" id="ZwB-MX-PI2"/>
+                                    <outlet property="delegate" destination="MxQ-Jn-tGO" id="GgL-P4-53K"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,11 +210,20 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="RGT-5j-K7r" id="QPV-Sd-Jei"/>
+                        <segue destination="OAW-Rl-i5O" kind="presentation" identifier="Unauthorized" id="Neb-jc-AbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rs8-Uv-21U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="96.428571428571431"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="MsF-Uv-zVd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Welcome" id="OAW-Rl-i5O" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKE-WQ-KRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="96"/>
         </scene>
     </scenes>
 </document>

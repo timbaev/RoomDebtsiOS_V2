@@ -14,7 +14,7 @@ protocol Product: AnyObject {
 
     var uid: Int64 { get set }
 
-    var quantity: Int16 { get set }
+    var quantity: Double { get set }
     var name: String? { get set }
     var sum: Double { get set }
 
