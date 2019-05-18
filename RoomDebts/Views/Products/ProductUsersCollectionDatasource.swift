@@ -27,6 +27,8 @@ class ProductUsersCollectionDatasource: NSObject, UICollectionViewDataSource, UI
 
     private let items: [UserCellConfigurator]
 
+    private var selectedIndexPaths = Set<IndexPath>()
+
     // MARK: - Initializers
 
     init(usersViewModel: [UserViewModel]) {
@@ -58,6 +60,20 @@ class ProductUsersCollectionDatasource: NSObject, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let targetImageView = self.items[indexPath.row].targetImageView(of: cell) {
             ImageDownloader.shared.cancelLoad(in: targetImageView)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if self.selectedIndexPaths.contains(indexPath) {
+            collectionView.deselectItem(at: indexPath, animated: true)
+
+            self.selectedIndexPaths.remove(indexPath)
+
+            return false
+        } else {
+            self.selectedIndexPaths.insert(indexPath)
+
+            return true
         }
     }
 }

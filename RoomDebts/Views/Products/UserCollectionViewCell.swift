@@ -15,6 +15,30 @@ class UserCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var avatarImageView: RoundedImageView!
     @IBOutlet private weak var nameLabel: UILabel!
 
+    // MARK: -
+
+    override var isSelected: Bool {
+        didSet {
+            self.applyState()
+        }
+    }
+
+    // MARK: - Instance Methods
+
+    private func applyState() {
+        if self.isSelected {
+            self.avatarImageView.layer.borderColor = Colors.selectedProductUser.cgColor
+
+            self.nameLabel.font = Fonts.medium(ofSize: 12)
+            self.nameLabel.textColor = Colors.selectedProductUser
+        } else {
+            self.avatarImageView.layer.borderColor = Colors.clear.cgColor
+
+            self.nameLabel.font = Fonts.light(ofSize: 12)
+            self.nameLabel.textColor = Colors.white
+        }
+    }
+
     // MARK: - UICollectionViewCell
 
     override func awakeFromNib() {
