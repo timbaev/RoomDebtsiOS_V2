@@ -21,6 +21,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         // MARK: - Type Properties
 
         static let unauthorized = "Unauthorized"
+        static let showParticipants = "ShowParticipants"
     }
 
     // MARK: -
@@ -61,6 +62,16 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         Log.i()
 
         self.refreshProductList()
+    }
+
+    @objc private func onParticipantsBarButtonItemTouchUpInside(_ sender: UIBarButtonItem) {
+        Log.i()
+
+        guard let check = self.check else {
+            return
+        }
+
+        self.performSegue(withIdentifier: Segues.showParticipants, sender: (check: check, users: self.productList.users))
     }
 
     // MARK: -
@@ -217,12 +228,22 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         self.tableRefreshControl = tableRefreshControl
     }
 
+    private func configureParticipantsBarButtonItem() {
+        let participantsBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ParticipantsIcon.pdf"),
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(self.onParticipantsBarButtonItemTouchUpInside(_:)))
+
+        self.navigationItem.rightBarButtonItem = participantsBarButtonItem
+    }
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configureTableRefreshControl()
+        self.configureParticipantsBarButtonItem()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -231,6 +252,32 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         if self.shouldApplyData, let check = self.check {
             self.apply(check: check)
             self.apply(productListType: .check(uid: check.uid))
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        switch segue.identifier {
+        case Segues.showParticipants:
+            guard let data = sender as? (check: Check, users: [User]) else {
+                fatalError()
+            }
+
+            let dictionaryReceiver: DictionaryReceiver?
+
+            if let navigationController = segue.destination as? UINavigationController {
+                dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+            } else {
+                dictionaryReceiver = segue.destination as? DictionaryReceiver
+            }
+
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["check": data.check, "users": data.users])
+            }
+
+        default:
+            break
         }
     }
 }

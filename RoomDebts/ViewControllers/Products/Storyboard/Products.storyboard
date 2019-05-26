@@ -240,6 +240,7 @@
                     <connections>
                         <outlet property="tableView" destination="RGT-5j-K7r" id="QPV-Sd-Jei"/>
                         <segue destination="OAW-Rl-i5O" kind="presentation" identifier="Unauthorized" id="Neb-jc-AbG"/>
+                        <segue destination="PYl-aq-87c" kind="show" identifier="ShowParticipants" id="2bw-eR-zo0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rs8-Uv-21U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,6 +254,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKE-WQ-KRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="704" y="96"/>
+        </scene>
+        <!--Participants-->
+        <scene sceneID="oQF-tV-7Bq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Participants" id="PYl-aq-87c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j9r-Dh-ebr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717" y="-17"/>
         </scene>
     </scenes>
 </document>

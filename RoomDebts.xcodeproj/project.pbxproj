@@ -31,6 +31,10 @@
 		CB0ECA43222985A1000B902E /* ConversationListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0ECA42222985A1000B902E /* ConversationListManager.swift */; };
 		CB0ECA45222989F9000B902E /* DefaultConversationListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0ECA44222989F9000B902E /* DefaultConversationListManager.swift */; };
 		CB0ECA4722298C1D000B902E /* DefaultConversationListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0ECA4622298C1D000B902E /* DefaultConversationListExtension.swift */; };
+		CB10909B22993E68002E660A /* ParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB10909A22993E68002E660A /* ParticipantsViewController.swift */; };
+		CB10909E22994415002E660A /* AddParticipantsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB10909D22994415002E660A /* AddParticipantsControl.swift */; };
+		CB1090A0229944CB002E660A /* ParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB10909F229944CB002E660A /* ParticipantTableViewCell.swift */; };
+		CB1090A32299457D002E660A /* ParticipantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1090A22299457D002E660A /* ParticipantViewModel.swift */; };
 		CB117BAC2204B72B00C20905 /* Avatar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB117BAB2204B72B00C20905 /* Avatar.storyboard */; };
 		CB117BAE2204B8D000C20905 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB117BAD2204B8D000C20905 /* AvatarViewController.swift */; };
 		CB117BB12204C14B00C20905 /* VerificationCodeSourceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB117BB02204C14B00C20905 /* VerificationCodeSourceScreen.swift */; };
@@ -151,6 +155,7 @@
 		CB812FB4224D142B00F17EAE /* CreateAccountViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB812FB3224D142B00F17EAE /* CreateAccountViewControllerTests.swift */; };
 		CB83DCD2221E9DBA00749486 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB83DCD1221E9DBA00749486 /* Search.storyboard */; };
 		CB83E0D8221EFC6B001ADE12 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */; };
+		CB89CFD22293D7C900DEC187 /* Participants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB89CFD12293D7C900DEC187 /* Participants.storyboard */; };
 		CB913AB7223EBE19005E379D /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB6223EBE19005E379D /* ConfigurableCell.swift */; };
 		CB913AB9223EBF6D005E379D /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913AB8223EBF6D005E379D /* CellConfigurator.swift */; };
 		CB913ABB223EBFE7005E379D /* TableCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */; };
@@ -338,6 +343,10 @@
 		CB0ECA42222985A1000B902E /* ConversationListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListManager.swift; sourceTree = "<group>"; };
 		CB0ECA44222989F9000B902E /* DefaultConversationListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationListManager.swift; sourceTree = "<group>"; };
 		CB0ECA4622298C1D000B902E /* DefaultConversationListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationListExtension.swift; sourceTree = "<group>"; };
+		CB10909A22993E68002E660A /* ParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewController.swift; sourceTree = "<group>"; };
+		CB10909D22994415002E660A /* AddParticipantsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantsControl.swift; sourceTree = "<group>"; };
+		CB10909F229944CB002E660A /* ParticipantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantTableViewCell.swift; sourceTree = "<group>"; };
+		CB1090A22299457D002E660A /* ParticipantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantViewModel.swift; sourceTree = "<group>"; };
 		CB117BAB2204B72B00C20905 /* Avatar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Avatar.storyboard; sourceTree = "<group>"; };
 		CB117BAD2204B8D000C20905 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		CB117BB02204C14B00C20905 /* VerificationCodeSourceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeSourceScreen.swift; sourceTree = "<group>"; };
@@ -458,6 +467,7 @@
 		CB812FB3224D142B00F17EAE /* CreateAccountViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewControllerTests.swift; sourceTree = "<group>"; };
 		CB83DCD1221E9DBA00749486 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		CB89CFD12293D7C900DEC187 /* Participants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Participants.storyboard; sourceTree = "<group>"; };
 		CB913AB6223EBE19005E379D /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		CB913AB8223EBF6D005E379D /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		CB913ABA223EBFE7005E379D /* TableCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellConfigurator.swift; sourceTree = "<group>"; };
@@ -735,6 +745,23 @@
 				CB0ECA44222989F9000B902E /* DefaultConversationListManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		CB10909C22994203002E660A /* Participants */ = {
+			isa = PBXGroup;
+			children = (
+				CB10909D22994415002E660A /* AddParticipantsControl.swift */,
+				CB10909F229944CB002E660A /* ParticipantTableViewCell.swift */,
+			);
+			path = Participants;
+			sourceTree = "<group>";
+		};
+		CB1090A122994570002E660A /* Participants */ = {
+			isa = PBXGroup;
+			children = (
+				CB1090A22299457D002E660A /* ParticipantViewModel.swift */,
+			);
+			path = Participants;
 			sourceTree = "<group>";
 		};
 		CB117BA92204B6EB00C20905 /* Avatar */ = {
@@ -1277,6 +1304,23 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		CB89CFCF2293D7A500DEC187 /* Participants */ = {
+			isa = PBXGroup;
+			children = (
+				CB89CFD02293D7BC00DEC187 /* Storyboard */,
+				CB10909A22993E68002E660A /* ParticipantsViewController.swift */,
+			);
+			path = Participants;
+			sourceTree = "<group>";
+		};
+		CB89CFD02293D7BC00DEC187 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CB89CFD12293D7C900DEC187 /* Participants.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CB913AB4223EBDFF005E379D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -1457,6 +1501,7 @@
 				CBDE71DE224393CB0070F603 /* EditAccount */,
 				CBAC543D21F4A410004C8C65 /* LaunchScreen */,
 				CBAC543A21F4A3EE004C8C65 /* Main */,
+				CB89CFCF2293D7A500DEC187 /* Participants */,
 				CBE1C4FA227B70A3008DBAF4 /* Products */,
 				CBBF79B62262419C00752AE4 /* QRScanner */,
 				CB83DCCF221E9DA200749486 /* Search */,
@@ -1658,6 +1703,7 @@
 				CB44E414225CBE3D00D59821 /* Checks */,
 				CBEB2DC0222C1DE600653B11 /* Conversation */,
 				CB3ADFC9223A36F900495E05 /* Debts */,
+				CB10909C22994203002E660A /* Participants */,
 				CBC50824227C7902001D6D41 /* Products */,
 				CB714B872222C7CB007961C6 /* Search */,
 				CBDE71D7224383370070F603 /* Settings */,
@@ -1695,6 +1741,7 @@
 		CBC20097223F6E5300D0DF6A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CB1090A122994570002E660A /* Participants */,
 				CB320B4022420B5B006AA4D6 /* Conversations */,
 				CBC20098223F6E5B00D0DF6A /* Debts */,
 				CBC5081D227C7284001D6D41 /* Product */,
@@ -2246,6 +2293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB89CFD22293D7C900DEC187 /* Participants.storyboard in Resources */,
 				CBE1C4FD227B70BE008DBAF4 /* Products.storyboard in Resources */,
 				CBAC542421F4A3D7004C8C65 /* LaunchScreen.storyboard in Resources */,
 				CB44E413225CB51100D59821 /* Checks.storyboard in Resources */,
@@ -2390,6 +2438,7 @@
 				CB5D829222620DCD005F971A /* Check.swift in Sources */,
 				CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */,
 				CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */,
+				CB10909E22994415002E660A /* AddParticipantsControl.swift in Sources */,
 				CB5964A2227CC91D00E94FF2 /* UserCollectionViewCell.swift in Sources */,
 				CB1C83D3227B824A00D10324 /* DefaultProductListExtension.swift in Sources */,
 				CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */,
@@ -2406,6 +2455,7 @@
 				CBCCC4362232CE9E00535D57 /* DebtAPI.swift in Sources */,
 				CB71C3D721F9CDAB008FDD0B /* WelcomeViewController.swift in Sources */,
 				CB94D83E227C3CA2006F39EF /* DefaultProductService.swift in Sources */,
+				CB1090A0229944CB002E660A /* ParticipantTableViewCell.swift in Sources */,
 				CBFDBACE21F660030017ED61 /* KeyboardHandler.swift in Sources */,
 				CBC62F5E2264D6720000B588 /* CheckList.swift in Sources */,
 				CB1C83DD227B866B00D10324 /* DefaultProductListManager.swift in Sources */,
@@ -2441,6 +2491,7 @@
 				CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
 				CB472D0721F72F7800FB98EE /* AccountService.swift in Sources */,
+				CB1090A32299457D002E660A /* ParticipantViewModel.swift in Sources */,
 				CBC62F672264DD400000B588 /* DefaultCheckListManager.swift in Sources */,
 				CB71C3D321F9B71E008FDD0B /* ConfirmCoder.swift in Sources */,
 				CB472D3F21F75B0800FB98EE /* DefaultCacheManagerFactory.swift in Sources */,
@@ -2501,6 +2552,7 @@
 				CBFD5FE1225F67B8000F711C /* ChecksRouter.swift in Sources */,
 				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
 				CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */,
+				CB10909B22993E68002E660A /* ParticipantsViewController.swift in Sources */,
 				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,
 				CB714DE02222D9B8007961C6 /* UserCoder.swift in Sources */,
 				CB472D2521F74C1E00FB98EE /* EventListener.swift in Sources */,

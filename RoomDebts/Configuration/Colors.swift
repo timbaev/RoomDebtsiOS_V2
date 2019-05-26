@@ -89,4 +89,6 @@ enum Colors {
     static let scannerBackground = UIColor(redByte: 51, greenByte: 51, blueByte: 61)
 
     static let selectedProductUser = UIColor(redByte: 115, greenByte: 199, blueByte: 255)
+
+    static let addParticipantsButton = UIColor(redByte: 201, greenByte: 166, blueByte: 253)
 }
