@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class ParticipantsViewController: LoggedViewController {
+class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
 
     // MARK: - Typealiases
 
@@ -44,6 +45,16 @@ class ParticipantsViewController: LoggedViewController {
 
     @objc private func onSaveBarButtonItemTouchUpInside(_ sender: UIBarButtonItem) {
         Log.i()
+
+        guard let storeName = self.storeTextField.text else {
+            return
+        }
+
+        self.storeTextField.resignFirstResponder()
+
+        self.startAnimating(type: .ballScaleMultiple)
+
+        self.updateStoreName(storeName)
     }
 
     @objc private func onStoreTextFieldDidChange(_ sender: UITextField) {
@@ -64,6 +75,32 @@ class ParticipantsViewController: LoggedViewController {
 
     private func updateSaveBarButtonItemState() {
         self.navigationItem.rightBarButtonItem?.isEnabled = (self.storeTextField.hasText && self.storeTextField.text != self.check?.store)
+    }
+
+    // MARK: -
+
+    private func updateStoreName(_ storeName: String) {
+        guard let check = self.check else {
+            return
+        }
+
+        Services.checkService.update(storeName: storeName, for: check, result: { [weak self] result in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+
+            switch result {
+            case .success(let check):
+                viewController.check = check
+
+                viewController.updateSaveBarButtonItemState()
+
+            case .failure(let error):
+                viewController.showMessage(withError: error)
+            }
+        })
     }
 
     // MARK: -

@@ -12,19 +12,29 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
     // MARK: - Instance Properties
 
-    private var checkList = Services.cacheViewContext.checkListManager.firstOrNew(withListType: .all)
+    private var checkList: CheckList?
     private var checkListType: CheckListType = .unknown
 
     private var isRefreshingData = false
+    private var shouldApplyData = true
 
     // MARK: - ChecksDataStore
 
     var checks: [Check] = []
 
+    // MARK: - Initializers
+
+    deinit {
+        self.unsubscribeFromCheckEvents()
+    }
+
     // MARK: -
 
     var presenter: ChecksPresentationLogic!
+
     var checkService: CheckService!
+    var checkManager: CheckManager!
+    var checkListManager: CheckListManager!
 
     // MARK: - Instance Methods
 
@@ -76,7 +86,7 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
         switch error {
         case .connection, .timeOut:
-            if self.checkList.isEmpty {
+            if self.checkList?.isEmpty ?? true {
                 self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorInternet.pdf"),
                                               title: Messages.internetConncetionTitle,
                                               message: Messages.internetConnection,
@@ -87,7 +97,7 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
         case .badRequest:
             if let message = error.message {
-                if self.checkList.isEmpty {
+                if self.checkList?.isEmpty ?? true {
                     self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorWarning"),
                                                   title: Messages.unknownErrorTitle,
                                                   message: message,
@@ -103,7 +113,7 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
             }
 
         default:
-            if self.checkList.isEmpty {
+            if self.checkList?.isEmpty ?? true {
                 self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorWarning"),
                                               title: Messages.unknownErrorTitle,
                                               message: Messages.unknownError,
@@ -112,6 +122,27 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
                 self.presenter.showMessage(with: Messages.unknownErrorTitle, message: Messages.unknownError)
             }
         }
+    }
+
+    // MARK: -
+
+    private func subscribeToCheckEvents() {
+        self.unsubscribeFromCheckEvents()
+
+        self.checkManager.objectsChangedEvent.connect(self, handler: { [weak self] check in
+            if let checkList = self?.checkListManager.first(withListType: .all) {
+                self?.checkList = checkList
+                self?.checks = checkList.checks
+
+                self?.presenter.showChecks(with: checkList)
+            }
+        })
+
+        self.checkManager.startObserving()
+    }
+
+    private func unsubscribeFromCheckEvents() {
+        self.checkManager.objectsChangedEvent.disconnect(self)
     }
 
     // MARK: - ChecksBusinessLogic
@@ -141,13 +172,16 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
     }
 
     func fetchChecks() {
-        if self.checkList.isEmpty {
+        let checkList = self.checkListManager.firstOrNew(withListType: .all)
+
+        if checkList.isEmpty {
             self.presenter.showLoadingState(with: "Loading checks".localized(),
                                             message: "We are loading list of checks. Please wait a bit".localized())
         } else {
-            self.checks = self.checkList.checks
+            self.checks = checkList.checks
+            self.checkList = checkList
 
-            self.presenter.showChecks(with: self.checkList)
+            self.presenter.showChecks(with: checkList)
         }
 
         self.checkService.fetch(success: { [weak self] checkList in
@@ -155,8 +189,10 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
                 return
             }
 
-            self.checkList = checkList
+            self.subscribeToCheckEvents()
+
             self.checks = checkList.checks
+            self.checkList = checkList
 
             if checkList.isEmpty {
                 self.presenter.showEmptyState(with: "Checks not exists".localized(), actionTitle: "Scan New Check".localized())

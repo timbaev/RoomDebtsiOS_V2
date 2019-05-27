@@ -56,6 +56,12 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
     var emptyStateContainerView = UIView()
     var emptyStateView = EmptyStateView()
 
+    // MARK: - Initializers
+
+    deinit {
+        self.unsubscribeFromCheckEvents()
+    }
+
     // MARK: - Instance Methods
 
     @objc private func onTableRefreshControlRequested(_ sender: Any) {
@@ -215,6 +221,29 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
     // MARK: -
 
+    private func subscribeToCheckEvents() {
+        self.unsubscribeFromCheckEvents()
+
+        let checkManager = Services.cacheViewContext.checkManager
+
+        checkManager.objectsChangedEvent.connect(self, handler: { [weak self] checks in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.check = checks.first
+            viewController.shouldApplyData = true
+        })
+
+        checkManager.startObserving()
+    }
+
+    private func unsubscribeFromCheckEvents() {
+        Services.cacheViewContext.checkManager.objectsChangedEvent.disconnect(self)
+    }
+
+    // MARK: -
+
     private func configureTableRefreshControl() {
         let tableRefreshControl = UIRefreshControl()
 
@@ -244,6 +273,8 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
         self.configureTableRefreshControl()
         self.configureParticipantsBarButtonItem()
+
+        self.subscribeToCheckEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -49,4 +49,23 @@ struct DefaultCheckService: CheckService {
             }
         }, failure: failure)
     }
+
+    func update(storeName store: String, for check: Check, result: @escaping (Swift.Result<Check, WebError>) -> Void) {
+        self.router.jsonObject(.update(store: store, checkUID: check.uid), success: { response in
+            do {
+                let check = try self.checkExtractor.extractCheck(from: response.content, cacheContext: Services.cacheViewContext)
+
+                result(.success(check))
+            } catch {
+                if let webError = error as? WebError {
+                    result(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    result(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            result(.failure(error))
+        })
+    }
 }

@@ -26,6 +26,8 @@ class ChecksConfigurator: NSObject {
 
         interactor.presenter = presenter
         interactor.checkService = Services.checkService
+        interactor.checkManager = Services.cacheViewContext.checkManager
+        interactor.checkListManager = Services.cacheViewContext.checkListManager
 
         presenter.viewController = viewController
 
