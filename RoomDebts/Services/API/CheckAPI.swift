@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum CheckAPI {
 
@@ -16,6 +16,7 @@ enum CheckAPI {
     case fetch
     case fetchCheck(uid: Int64)
     case update(store: String, checkUID: Int64)
+    case upload(image: UIImage, checkUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -36,6 +37,9 @@ extension CheckAPI: EndPointType {
 
         case let .update(_, checkUID):
             return basePath + "/\(checkUID)"
+
+        case let .upload(_, checkUID):
+            return basePath + "/\(checkUID)/image"
         }
     }
 
@@ -47,7 +51,7 @@ extension CheckAPI: EndPointType {
         case .fetch, .fetchCheck:
             return .get
 
-        case .update:
+        case .update, .upload:
             return .put
         }
     }
@@ -59,6 +63,9 @@ extension CheckAPI: EndPointType {
 
         case let .update(store, _):
             return .requestParameters(bodyParameters: ["store": store], urlParameters: nil)
+
+        case let .upload(image, _):
+            return .upload(image: image, imageName: "check.jpg", mimeType: .jpeg)
 
         case .fetch, .fetchCheck:
             return .request

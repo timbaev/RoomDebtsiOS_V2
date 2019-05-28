@@ -34,6 +34,10 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     // MARK: -
 
+    private let imagePicker: ImagePicker = DefaultImagePicker()
+
+    // MARK: -
+
     private var check: Check?
     private var users: [User]?
 
@@ -52,8 +56,6 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
         self.storeTextField.resignFirstResponder()
 
-        self.startAnimating(type: .ballScaleMultiple)
-
         self.updateStoreName(storeName)
     }
 
@@ -65,6 +67,10 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     @IBAction private func onChangePhotoButtonTouchUpInside(_ sender: UIButton) {
         Log.i()
+
+        self.imagePicker.presentPickerActionSheet(from: self, selectedImage: { [unowned self] image in
+            self.updateImage(image)
+        })
     }
 
     @IBAction private func onAddParticipantsControlTouchUpInside(_ sender: AddParticipantsControl) {
@@ -84,6 +90,8 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
             return
         }
 
+        self.startAnimating(type: .ballScaleMultiple)
+
         Services.checkService.update(storeName: storeName, for: check, result: { [weak self] result in
             guard let viewController = self else {
                 return
@@ -96,6 +104,31 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
                 viewController.check = check
 
                 viewController.updateSaveBarButtonItemState()
+
+            case .failure(let error):
+                viewController.showMessage(withError: error)
+            }
+        })
+    }
+
+    private func updateImage(_ image: UIImage) {
+        guard let check = self.check else {
+            return
+        }
+
+        self.startAnimating(type: .ballScaleMultiple)
+
+        Services.checkService.upload(image: image, for: check, result: { [weak self] result in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+
+            switch result {
+            case .success(let check):
+                viewController.check = check
+                viewController.checkImageView.image = image
 
             case .failure(let error):
                 viewController.showMessage(withError: error)

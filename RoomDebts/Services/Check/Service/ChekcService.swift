@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol CheckService {
 
@@ -15,4 +15,5 @@ protocol CheckService {
     func create(with form: CreateCheckForm, success: @escaping (Check) -> Void, failure: @escaping (WebError) -> Void)
     func fetch(success: @escaping (CheckList) -> Void, failure: @escaping (WebError) -> Void)
     func update(storeName store: String, for check: Check, result: @escaping (Swift.Result<Check, WebError>) -> Void)
+    func upload(image: UIImage, for check: Check, result: @escaping (Swift.Result<Check, WebError>) -> Void)
 }

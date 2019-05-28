@@ -43,7 +43,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AvatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="MKr-7g-Q7c" customClass="RoundedImageView" customModule="RoomDebts" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AvatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="MKr-7g-Q7c" customClass="RoundedImageView" customModule="RoomDebts" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="16" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="OJm-KA-zoU"/>
@@ -94,12 +94,23 @@
                                                         </constraints>
                                                         <viewLayoutGuide key="safeArea" id="Xru-1D-7eO"/>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNU-r7-tYa">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNU-r7-tYa" customClass="Button" customModule="RoomDebts" customModuleProvider="target">
                                                         <rect key="frame" x="4.5" y="74" width="73" height="0.0"/>
                                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="11"/>
                                                         <state key="normal" title="Change Photo">
                                                             <color key="titleColor" red="0.78823529410000004" green="0.65098039220000004" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="bottomOutset">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="topOutset">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultTitleColor">
+                                                                <color key="value" red="0.78823529410000004" green="0.65098039220000004" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="onChangePhotoButtonTouchUpInside:" destination="VEw-A8-YE7" eventType="touchUpInside" id="hp3-AJ-Uut"/>
                                                         </connections>

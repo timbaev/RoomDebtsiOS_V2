@@ -211,6 +211,10 @@ extension ChecksViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard !self.items.isEmpty else {
+            return
+        }
+
         guard let targetImageView = self.items[indexPath.row].targetImageView(of: cell) else {
             return
         }

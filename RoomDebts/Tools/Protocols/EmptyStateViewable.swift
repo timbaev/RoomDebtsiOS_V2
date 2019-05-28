@@ -102,9 +102,7 @@ extension EmptyStateViewable where Self: UIViewController {
     }
 
     func showLoadingState(with title: String?, message: String) {
-        if self.emptyStateContainerView.isHidden {
-            self.showEmptyState(title: title, message: message)
-        }
+        self.showEmptyState(title: title, message: message)
 
         self.emptyStateView.showActivityIndicator()
     }

@@ -127,6 +127,8 @@
 		CB5D829B22620FB3005F971A /* DefaultCheckExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D829A22620FB3005F971A /* DefaultCheckExtractor.swift */; };
 		CB5D829E22621055005F971A /* CheckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D829D22621055005F971A /* CheckManager.swift */; };
 		CB5D82A022621089005F971A /* DefaultCheckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D829F22621089005F971A /* DefaultCheckManager.swift */; };
+		CB5DD291229D07D9006ED7BC /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5DD290229D07D9006ED7BC /* UIImageExtension.swift */; };
+		CB5DD293229D0A49006ED7BC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5DD292229D0A49006ED7BC /* Button.swift */; };
 		CB6D6DAF2243655F0047196A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB6D6DAE2243655F0047196A /* Settings.storyboard */; };
 		CB6D9381224FB5D9004EA6A7 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D9380224FB5D9004EA6A7 /* FatalErrorUtil.swift */; };
 		CB6D9384224FB7F3004EA6A7 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D9383224FB7F3004EA6A7 /* XCTestCaseExtension.swift */; };
@@ -150,6 +152,8 @@
 		CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3DC21F9DA94008FDD0B /* PhoneNumberViewController.swift */; };
 		CB71C3E921FA56DF008FDD0B /* AccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */; };
 		CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */; };
+		CB799208229BBD9A005D6210 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB799207229BBD9A005D6210 /* ImagePicker.swift */; };
+		CB79920A229BBDB2005D6210 /* DefaultImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB799209229BBDB2005D6210 /* DefaultImagePicker.swift */; };
 		CB7ACE47222AF3D6004628A4 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */; };
 		CB7D5671224BE1FA0014B42B /* WelcomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */; };
 		CB812FB4224D142B00F17EAE /* CreateAccountViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB812FB3224D142B00F17EAE /* CreateAccountViewControllerTests.swift */; };
@@ -439,6 +443,8 @@
 		CB5D829A22620FB3005F971A /* DefaultCheckExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCheckExtractor.swift; sourceTree = "<group>"; };
 		CB5D829D22621055005F971A /* CheckManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckManager.swift; sourceTree = "<group>"; };
 		CB5D829F22621089005F971A /* DefaultCheckManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCheckManager.swift; sourceTree = "<group>"; };
+		CB5DD290229D07D9006ED7BC /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		CB5DD292229D0A49006ED7BC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		CB6D6DAE2243655F0047196A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CB6D9380224FB5D9004EA6A7 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
 		CB6D9383224FB7F3004EA6A7 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
@@ -462,6 +468,8 @@
 		CB71C3DC21F9DA94008FDD0B /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessExtractor.swift; sourceTree = "<group>"; };
 		CB71C3EA21FA571B008FDD0B /* DefaultAccessExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccessExtractor.swift; sourceTree = "<group>"; };
+		CB799207229BBD9A005D6210 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CB799209229BBDB2005D6210 /* DefaultImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImagePicker.swift; sourceTree = "<group>"; };
 		CB7ACE46222AF3D6004628A4 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		CB7D5670224BE1FA0014B42B /* WelcomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewControllerTests.swift; sourceTree = "<group>"; };
 		CB812FB3224D142B00F17EAE /* CreateAccountViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewControllerTests.swift; sourceTree = "<group>"; };
@@ -1051,6 +1059,7 @@
 		CB4EB1A2222EDF5700FF2232 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB5DD292229D0A49006ED7BC /* Button.swift */,
 				CB4EB1A3222EDF6100FF2232 /* TextField.swift */,
 			);
 			path = View;
@@ -1252,6 +1261,15 @@
 				CB71C3E821FA56DF008FDD0B /* AccessExtractor.swift */,
 			);
 			path = Access;
+			sourceTree = "<group>";
+		};
+		CB799206229BBD84005D6210 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				CB799207229BBD9A005D6210 /* ImagePicker.swift */,
+				CB799209229BBDB2005D6210 /* DefaultImagePicker.swift */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 		CB7D566D224BE1180014B42B /* ViewControllers */ = {
@@ -1563,6 +1581,7 @@
 			children = (
 				CB472D1E21F74C1E00FB98EE /* Event */,
 				CBAC546E21F4CA9D004C8C65 /* Extensions */,
+				CB799206229BBD84005D6210 /* ImagePicker */,
 				CB472CE221F70A6200FB98EE /* Networking */,
 				CBFDBAC821F660030017ED61 /* Protocols */,
 				CBAC544021F4A48A004C8C65 /* Storage */,
@@ -1674,6 +1693,7 @@
 				CBFDBABD21F63A670017ED61 /* StringExtension.swift */,
 				CBE2F8822227E98B006B0FA4 /* UIAlertControllerExtension.swift */,
 				CBAC546F21F4CAA8004C8C65 /* UIColorExtension.swift */,
+				CB5DD290229D07D9006ED7BC /* UIImageExtension.swift */,
 				CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */,
 				CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */,
 			);
@@ -2438,6 +2458,7 @@
 				CB5D829222620DCD005F971A /* Check.swift in Sources */,
 				CB71C3EB21FA571B008FDD0B /* DefaultAccessExtractor.swift in Sources */,
 				CB472D2421F74C1E00FB98EE /* EventListenerConnection.swift in Sources */,
+				CB799208229BBD9A005D6210 /* ImagePicker.swift in Sources */,
 				CB10909E22994415002E660A /* AddParticipantsControl.swift in Sources */,
 				CB5964A2227CC91D00E94FF2 /* UserCollectionViewCell.swift in Sources */,
 				CB1C83D3227B824A00D10324 /* DefaultProductListExtension.swift in Sources */,
@@ -2489,6 +2510,7 @@
 				CB1C83D1227B813E00D10324 /* ProductListType.swift in Sources */,
 				CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */,
 				CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */,
+				CB5DD293229D0A49006ED7BC /* Button.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
 				CB472D0721F72F7800FB98EE /* AccountService.swift in Sources */,
 				CB1090A32299457D002E660A /* ParticipantViewModel.swift in Sources */,
@@ -2527,6 +2549,7 @@
 				CBC86B8D223A58DB003C50F6 /* DebtListManager.swift in Sources */,
 				CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */,
 				CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */,
+				CB5DD291229D07D9006ED7BC /* UIImageExtension.swift in Sources */,
 				CB0ECA3E22298402000B902E /* ConversationList.swift in Sources */,
 				CB472D2C21F7566A00FB98EE /* DefaultUserAccountExtractor.swift in Sources */,
 				CBAC545621F4A48A004C8C65 /* StorageModel.swift in Sources */,
@@ -2567,6 +2590,7 @@
 				CBCCC43E2232D17200535D57 /* DefaultDebtCoder.swift in Sources */,
 				CB098EC62225206600FDD47C /* ConversationService.swift in Sources */,
 				CB714DE72222DC39007961C6 /* UserExtractor.swift in Sources */,
+				CB79920A229BBDB2005D6210 /* DefaultImagePicker.swift in Sources */,
 				CB1C83CA227B7E2C00D10324 /* Product.swift in Sources */,
 				CBC62F652264DCBE0000B588 /* CheckListManager.swift in Sources */,
 				CB03CBDF2236D53A00104251 /* DebtExtractor.swift in Sources */,
