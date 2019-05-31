@@ -41,4 +41,18 @@ struct DefaultUserExrtactor: UserExtractor {
 
         return user
     }
+
+    func extractUserList(from json: [JSON], withListType listType: UserListType, cacheContext: CacheContext) throws -> UserList {
+        let userList = cacheContext.userListManager.firstOrNew(withListType: listType)
+
+        userList.clearUsers()
+
+        try json.forEach {
+            userList.append(user: try self.extractUser(from: $0, cacheContext: cacheContext))
+        }
+
+        cacheContext.save()
+
+        return userList
+    }
 }

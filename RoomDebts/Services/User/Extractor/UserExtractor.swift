@@ -14,4 +14,5 @@ protocol UserExtractor {
 
     func extractSearchUsers(from json: [[String: Any]]) throws -> [User]
     func extractUser(from json: [String: Any], cacheContext: CacheContext) throws -> User
+    func extractUserList(from json: [JSON], withListType listType: UserListType, cacheContext: CacheContext) throws -> UserList
 }

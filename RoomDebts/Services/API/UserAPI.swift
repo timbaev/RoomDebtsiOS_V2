@@ -13,6 +13,7 @@ enum UserAPI {
     // MARK: - Enumeration Cases
 
     case search(keyword: String)
+    case invite
 }
 
 extension UserAPI: EndPointType {
@@ -25,19 +26,22 @@ extension UserAPI: EndPointType {
         switch self {
         case .search(let keyword):
             return basePath + "/search/\(keyword)"
+
+        case .invite:
+            return basePath + "/invite"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .search:
+        case .search, .invite:
             return .get
         }
     }
 
     var task: HTTPTask {
         switch self {
-        case .search:
+        case .search, .invite:
             return .request
         }
     }

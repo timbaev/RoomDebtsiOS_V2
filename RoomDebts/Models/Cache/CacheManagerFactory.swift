@@ -25,4 +25,5 @@ protocol CacheManagerFactory {
     func createDebtListManager(with context: CacheContext) -> DebtListManager
     func createCheckListManager(with context: CacheContext) -> CheckListManager
     func createProductListManager(with context: CacheContext) -> ProductListManager
+    func createUserListManager(with context: CacheContext) -> UserListManager
 }

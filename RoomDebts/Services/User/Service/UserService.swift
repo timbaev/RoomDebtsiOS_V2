@@ -13,4 +13,5 @@ protocol UserService {
     // MARK: - Instance Methods
 
     func search(keyword: String, success: @escaping ([User]) -> Void, failure: @escaping (WebError) -> Void)
+    func fetchInviteList(response: @escaping (Swift.Result<UserList, WebError>) -> Void)
 }

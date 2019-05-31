@@ -70,6 +70,7 @@
         <relationship name="debtsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultDebt" inverseName="rawCreator" inverseEntity="DefaultDebt" syncable="YES"/>
         <relationship name="productLists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultProductList" inverseName="rawUsers" inverseEntity="DefaultProductList" syncable="YES"/>
         <relationship name="productsSelection" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultProduct" inverseName="rawSelectedUsers" inverseEntity="DefaultProduct" syncable="YES"/>
+        <relationship name="userLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DefaultUserList" inverseName="rawUsers" inverseEntity="DefaultUserList" syncable="YES"/>
     </entity>
     <entity name="DefaultUserAccount" representedClassName="DefaultUserAccount" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -77,6 +78,10 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rawAvatarURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="DefaultUserList" representedClassName="DefaultUserList" syncable="YES" codeGenerationType="class">
+        <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawUsers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultUser" inverseName="userLists" inverseEntity="DefaultUser" syncable="YES"/>
     </entity>
     <elements>
         <element name="DefaultCheck" positionX="-54" positionY="99" width="128" height="180"/>
@@ -87,7 +92,8 @@
         <element name="DefaultDebtList" positionX="-54" positionY="90" width="128" height="90"/>
         <element name="DefaultProduct" positionX="-54" positionY="117" width="128" height="135"/>
         <element name="DefaultProductList" positionX="-45" positionY="126" width="128" height="105"/>
-        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="195"/>
+        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="210"/>
         <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DefaultUserList" positionX="-54" positionY="117" width="128" height="75"/>
     </elements>
 </model>

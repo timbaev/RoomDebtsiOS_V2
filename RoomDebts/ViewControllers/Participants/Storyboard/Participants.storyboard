@@ -299,11 +299,20 @@
                         <outlet property="checkImageView" destination="MKr-7g-Q7c" id="38m-aK-MeB"/>
                         <outlet property="storeTextField" destination="W9b-ro-EGS" id="bNh-KP-f2e"/>
                         <outlet property="tableView" destination="gow-6R-jiW" id="6NI-Ws-JZa"/>
+                        <segue destination="xnO-lb-6Y2" kind="presentation" identifier="ShowAddParticipants" id="AxK-Ef-aKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgS-wl-ytj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="111.59420289855073" y="76.339285714285708"/>
+        </scene>
+        <!--AddParticipants-->
+        <scene sceneID="e26-r0-ZV9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddParticipants" id="xnO-lb-6Y2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3x-Bm-jUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="748" y="76"/>
         </scene>
     </scenes>
     <resources>

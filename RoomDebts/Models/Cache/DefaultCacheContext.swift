@@ -61,6 +61,10 @@ final class DefaultCacheContext: CacheContext {
         return self.model.managerFactory.createProductListManager(with: self)
     }()
 
+    private(set) lazy var userListManager: UserListManager = { [unowned self] in
+        return self.model.managerFactory.createUserListManager(with: self)
+    }()
+
     // MARK: -
 
     var type: CacheContextType {

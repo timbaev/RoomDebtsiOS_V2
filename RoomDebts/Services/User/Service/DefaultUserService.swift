@@ -31,4 +31,23 @@ struct DefaultUserService: UserService {
             }
         }, failure: failure)
     }
+
+    func fetchInviteList(response: @escaping (Swift.Result<UserList, WebError>) -> Void) {
+        self.router.jsonArray(.invite, success: { httpResponse in
+            do {
+                let userList = try self.userExtractor.extractUserList(from: httpResponse.content, withListType: .all, cacheContext: Services.cacheViewContext)
+
+                response(.success(userList))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
+        })
+    }
 }

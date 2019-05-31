@@ -53,4 +53,8 @@ struct DefaultCacheManagerFactory: CacheManagerFactory {
     func createProductListManager(with context: CacheContext) -> ProductListManager {
         return DefaultProductListManager<DefaultProductList>(context: context)
     }
+
+    func createUserListManager(with context: CacheContext) -> UserListManager {
+        return DefaultUserListManager<DefaultUserList>(context: context)
+    }
 }

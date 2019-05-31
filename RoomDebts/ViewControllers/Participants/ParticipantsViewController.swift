@@ -25,6 +25,15 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
         static let participantsSectionIndex = 1
     }
 
+    // MARK: -
+
+    private enum Segues {
+
+        // MARK: - Type Properties
+
+        static let showAddParticipants = "ShowAddParticipants"
+    }
+
     // MARK: - Instance Properties
 
     @IBOutlet private weak var tableView: UITableView!
@@ -75,6 +84,12 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     @IBAction private func onAddParticipantsControlTouchUpInside(_ sender: AddParticipantsControl) {
         Log.i()
+
+        guard let checkUsers = self.users else {
+            return
+        }
+
+        self.performSegue(withIdentifier: Segues.showAddParticipants, sender: checkUsers)
     }
 
     // MARK: -
@@ -216,6 +231,32 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
         super.viewWillDisappear(animated)
 
         self.unsubscribeFromKeyboardNotifications()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        switch segue.identifier {
+        case Segues.showAddParticipants:
+            guard let checkUser = sender as? [User] else {
+                fatalError()
+            }
+
+            let dictionaryReceiver: DictionaryReceiver?
+
+            if let navigationController = segue.destination as? UINavigationController {
+                dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+            } else {
+                dictionaryReceiver = segue.destination as? DictionaryReceiver
+            }
+
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["checkUsers": checkUser])
+            }
+
+        default:
+            return
+        }
     }
 }
 
