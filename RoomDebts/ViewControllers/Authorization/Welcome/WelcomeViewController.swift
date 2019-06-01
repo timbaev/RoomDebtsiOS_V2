@@ -16,5 +16,6 @@ class WelcomeViewController: LoggedViewController {
         super.viewDidLoad()
 
         Services.cacheProvider.model.viewContext.clear()
+        KeychainManager.shared.clear()
     }
 }

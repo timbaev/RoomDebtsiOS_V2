@@ -60,6 +60,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
     deinit {
         self.unsubscribeFromCheckEvents()
+        self.unsubscribeFromProductListEvents()
     }
 
     // MARK: - Instance Methods
@@ -77,7 +78,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             return
         }
 
-        self.performSegue(withIdentifier: Segues.showParticipants, sender: (check: check, users: self.productList.users))
+        self.performSegue(withIdentifier: Segues.showParticipants, sender: check)
     }
 
     // MARK: -
@@ -242,6 +243,28 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         Services.cacheViewContext.checkManager.objectsChangedEvent.disconnect(self)
     }
 
+    private func subscribeToProductListEvents() {
+        self.unsubscribeFromProductListEvents()
+
+        let productListManager = Services.cacheViewContext.productListManager
+
+        productListManager.objectsChangedEvent.connect(self, handler: { [weak self] productLists in
+            guard let viewController = self else {
+                return
+            }
+
+            if viewController.view.window == nil {
+                viewController.shouldApplyData = true
+            }
+        })
+
+        productListManager.startObserving()
+    }
+
+    private func unsubscribeFromProductListEvents() {
+        Services.cacheViewContext.productListManager.objectsChangedEvent.disconnect(self)
+    }
+
     // MARK: -
 
     private func configureTableRefreshControl() {
@@ -275,6 +298,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         self.configureParticipantsBarButtonItem()
 
         self.subscribeToCheckEvents()
+        self.subscribeToProductListEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -291,7 +315,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
         switch segue.identifier {
         case Segues.showParticipants:
-            guard let data = sender as? (check: Check, users: [User]) else {
+            guard let check = sender as? Check else {
                 fatalError()
             }
 
@@ -304,7 +328,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             }
 
             if let dictionaryReceiver = dictionaryReceiver {
-                dictionaryReceiver.apply(dictionary: ["check": data.check, "users": data.users])
+                dictionaryReceiver.apply(dictionary: ["check": check])
             }
 
         default:

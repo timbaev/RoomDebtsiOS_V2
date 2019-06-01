@@ -17,6 +17,7 @@ enum CheckAPI {
     case fetchCheck(uid: Int64)
     case update(store: String, checkUID: Int64)
     case upload(image: UIImage, checkUID: Int64)
+    case participants(userUIDs: [Int64], checkUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -40,12 +41,15 @@ extension CheckAPI: EndPointType {
 
         case let .upload(_, checkUID):
             return basePath + "/\(checkUID)/image"
+
+        case let .participants(_, checkUID):
+            return basePath + "/\(checkUID)/participants"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .create:
+        case .create, .participants:
             return .post
 
         case .fetch, .fetchCheck:
@@ -63,6 +67,9 @@ extension CheckAPI: EndPointType {
 
         case let .update(store, _):
             return .requestParameters(bodyParameters: ["store": store], urlParameters: nil)
+
+        case let .participants(userUIDs, _):
+            return .requestParameters(bodyParameters: ["userIDs": userUIDs], urlParameters: nil)
 
         case let .upload(image, _):
             return .upload(image: image, imageName: "check.jpg", mimeType: .jpeg)

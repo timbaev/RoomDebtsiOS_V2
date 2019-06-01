@@ -31,6 +31,6 @@ extension ParticipantTableViewCell: ConfigurableCell {
 
     func configure(data viewModel: ParticipantViewModel) {
         self.nameLabel.text = viewModel.name
-        self.creatorLabel.isHighlighted = viewModel.isCreatorLabelHidden
+        self.creatorLabel.isHidden = viewModel.isCreatorLabelHidden
     }
 }

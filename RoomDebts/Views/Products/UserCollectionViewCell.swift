@@ -46,6 +46,12 @@ class UserCollectionViewCell: UICollectionViewCell {
 
         self.avatarImageView.layer.borderWidth = 2
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.avatarImageView.image = #imageLiteral(resourceName: "AvatarPlaceholder.pdf")
+    }
 }
 
 // MARK: - ConfigurableCell

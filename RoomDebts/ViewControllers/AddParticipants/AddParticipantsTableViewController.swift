@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class AddParticipantsTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter {
+class AddParticipantsTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
     // MARK: - Typealiases
 
@@ -35,6 +36,8 @@ class AddParticipantsTableViewController: LoggedViewController, EmptyStateViewab
     private var userListType: UserListType = .unknown
 
     private var checkUsers: [User]?
+    private var check: Check?
+
     private var selectedUsers: [User] = []
 
     private var items: [AddParticipantCellConfigurator] = []
@@ -63,6 +66,16 @@ class AddParticipantsTableViewController: LoggedViewController, EmptyStateViewab
 
     @IBAction private func onDoneBarButtonItemTouchUpInside(_ sender: UIBarButtonItem) {
         Log.i()
+
+        let userUIDs = self.selectedUsers.map { $0.uid }
+
+        self.addPrticipants(userUIDs: userUIDs)
+    }
+
+    // MARK: -
+
+    private func updateDoneBarButtonItemState() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = !self.selectedUsers.isEmpty
     }
 
     // MARK: -
@@ -179,6 +192,30 @@ class AddParticipantsTableViewController: LoggedViewController, EmptyStateViewab
         })
     }
 
+    private func addPrticipants(userUIDs: [Int64]) {
+        guard let check = self.check else {
+            return
+        }
+
+        self.startAnimating()
+
+        Services.checkService.addParticipants(userUIDs: userUIDs, for: check, response: { [weak self] result in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+
+            switch result {
+            case .success:
+                viewController.dismiss(animated: true)
+
+            case .failure(let error):
+                viewController.handle(stateError: error)
+            }
+        })
+    }
+
     // MARK: -
 
     private func apply(userList: UserList, canShowState: Bool = true) {
@@ -223,12 +260,15 @@ class AddParticipantsTableViewController: LoggedViewController, EmptyStateViewab
         let userList = Services.cacheViewContext.userListManager.firstOrNew(withListType: userListType)
 
         self.apply(userList: userList, canShowState: false)
+
+        self.refreshUserList()
     }
 
-    private func apply(checkUsers: [User]) {
-        Log.i(checkUsers.count)
+    private func apply(checkUsers: [User], check: Check) {
+        Log.i("\(checkUsers.count), \(check.uid)")
 
         self.checkUsers = checkUsers
+        self.check = check
     }
 
     // MARK: - UIViewController
@@ -283,12 +323,30 @@ extension AddParticipantsTableViewController: UITableViewDelegate {
         let user = self.userList[indexPath.row]
 
         self.selectedUsers.append(user)
+
+        self.updateDoneBarButtonItemState()
     }
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let user = self.userList[indexPath.row]
 
         self.selectedUsers.removeAll(where: { $0.uid == user.uid })
+
+        self.updateDoneBarButtonItemState()
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let item = self.items[indexPath.row]
+
+        if let imageURL = item.item.imageURL, let imageView = item.targetImageView(of: cell) {
+            ImageDownloader.shared.loadImage(for: imageURL, in: imageView)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let imageView = self.items[indexPath.row].targetImageView(of: cell) {
+            ImageDownloader.shared.cancelLoad(in: imageView)
+        }
     }
 }
 
@@ -299,10 +357,10 @@ extension AddParticipantsTableViewController: DictionaryReceiver {
     // MARK: - Instance Methods
 
     func apply(dictionary: [String: Any]) {
-        guard let checkUsers = dictionary["checkUsers"] as? [User] else {
+        guard let checkUsers = dictionary["checkUsers"] as? [User], let check = dictionary["check"] as? Check else {
             return
         }
 
-        self.apply(checkUsers: checkUsers)
+        self.apply(checkUsers: checkUsers, check: check)
     }
 }

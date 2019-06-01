@@ -29,10 +29,18 @@ class AddParticipantTableViewCell: UITableViewCell {
 
 extension AddParticipantTableViewCell: ConfigurableCell {
 
+    // MARK: - Instance Properties
+
+    var targetImageView: UIImageView? {
+        return self.avatarImageView
+    }
+
     // MARK: - Instance Methods
 
     func configure(data viewModel: AddParticipantViewModel) {
         self.nameLabel.text = viewModel.fullName
         self.nameLabel.textColor = viewModel.nameTextColor
+
+        self.isUserInteractionEnabled = viewModel.isUserInteractionEnabled
     }
 }

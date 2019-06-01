@@ -54,6 +54,12 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     private var shouldApplyData = true
 
+    // MARK: - Initializers
+
+    deinit {
+        self.unsubscribeFromProductListEvents()
+    }
+
     // MARK: - Instance Methods
 
     @objc private func onSaveBarButtonItemTouchUpInside(_ sender: UIBarButtonItem) {
@@ -153,8 +159,11 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     // MARK: -
 
-    private func apply(check: Check, users: [User]) {
-        Log.i("\(check.uid), \(users.count)")
+    private func apply(check: Check) {
+        Log.i("\(check.uid)")
+
+        let productList = Services.cacheViewContext.productListManager.firstOrNew(withListType: .check(uid: check.uid))
+        let users = productList.users
 
         self.check = check
         self.users = users
@@ -192,6 +201,24 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     // MARK: -
 
+    private func subscribeToProductListEvents() {
+        self.unsubscribeFromProductListEvents()
+
+        let productListManager = Services.cacheViewContext.productListManager
+
+        productListManager.objectsChangedEvent.connect(self, handler: { [weak self] _ in
+            self?.shouldApplyData = true
+        })
+
+        productListManager.startObserving()
+    }
+
+    private func unsubscribeFromProductListEvents() {
+        Services.cacheViewContext.productListManager.objectsChangedEvent.disconnect(self)
+    }
+
+    // MARK: -
+
     private func configureSaveBarButtonItem() {
         let saveBarButtonItem = UIBarButtonItem(title: "Save".localized(),
                                                 style: .done,
@@ -217,13 +244,14 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
         self.configureStoreTextField()
 
         self.subscribeToKeyboardNotifications()
+        self.subscribeToProductListEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if self.shouldApplyData, let check = self.check, let users = self.users {
-            self.apply(check: check, users: users)
+        if self.shouldApplyData, let check = self.check {
+            self.apply(check: check)
         }
     }
 
@@ -238,7 +266,11 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
         switch segue.identifier {
         case Segues.showAddParticipants:
-            guard let checkUser = sender as? [User] else {
+            guard let checkUsers = sender as? [User] else {
+                fatalError()
+            }
+
+            guard let check = self.check else {
                 fatalError()
             }
 
@@ -251,7 +283,7 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
             }
 
             if let dictionaryReceiver = dictionaryReceiver {
-                dictionaryReceiver.apply(dictionary: ["checkUsers": checkUser])
+                dictionaryReceiver.apply(dictionary: ["checkUsers": checkUsers, "check": check])
             }
 
         default:
@@ -267,11 +299,11 @@ extension ParticipantsViewController: DictionaryReceiver {
     // MARK: - Instance Methods
 
     func apply(dictionary: [String: Any]) {
-        guard let check = dictionary["check"] as? Check, let users = dictionary["users"] as? [User] else {
+        guard let check = dictionary["check"] as? Check else {
             return
         }
 
-        self.apply(check: check, users: users)
+        self.apply(check: check)
     }
 }
 

@@ -54,7 +54,7 @@ struct DefaultAccountService: AccountService {
     }
 
     func uploadAvatar(image: UIImage, success: @escaping (UserAccount) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.avatar(image: image), success: { response in
+        self.router.jsonObject(.avatar(image: image.resized()), success: { response in
             do {
                 let userAccount = try self.userAccountExtractor.extractUserAccount(from: response.content, context: Services.cacheViewContext)
 

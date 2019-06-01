@@ -15,6 +15,7 @@ struct DefaultCheckService: CheckService {
     private let router = AuthRouter<CheckAPI>()
 
     let checkExtractor: CheckExtractor
+    let productExtractor: ProductExtractor
 
     // MARK: - Instance Methods
 
@@ -85,6 +86,25 @@ struct DefaultCheckService: CheckService {
             }
         }, failure: { error in
             result(.failure(error))
+        })
+    }
+
+    func addParticipants(userUIDs: [Int64], for check: Check, response: @escaping (Swift.Result<ProductList, WebError>) -> Void) {
+        self.router.jsonObject(.participants(userUIDs: userUIDs, checkUID: check.uid), success: { httpResponse in
+            do {
+                let productList = try self.productExtractor.extractProductList(from: httpResponse.content, withListType: .check(uid: check.uid), cacheContext: Services.cacheViewContext)
+
+                response(.success(productList))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
         })
     }
 }

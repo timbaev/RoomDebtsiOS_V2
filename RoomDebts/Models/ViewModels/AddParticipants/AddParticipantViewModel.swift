@@ -17,6 +17,7 @@ struct AddParticipantViewModel {
     let imageURL: URL?
 
     let nameTextColor: UIColor
+    let isUserInteractionEnabled: Bool
 
     // MARK: -
 
@@ -37,8 +38,10 @@ struct AddParticipantViewModel {
 
         if isEnabled {
             self.nameTextColor = Colors.white
+            self.isUserInteractionEnabled = true
         } else {
             self.nameTextColor = Colors.white.withAlphaComponent(0.5)
+            self.isUserInteractionEnabled = false
         }
     }
 }
