@@ -25,4 +25,12 @@ extension DefaultUser: User {
             self.rawImageURL = newValue?.absoluteString
         }
     }
+
+    var fullName: String? {
+        if let firstName = self.firstName, let lastName = self.lastName {
+            return "\(firstName) \(lastName)"
+        } else {
+            return nil
+        }
+    }
 }

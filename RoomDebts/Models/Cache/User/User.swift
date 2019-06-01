@@ -17,4 +17,6 @@ protocol User: AnyObject {
     var firstName: String? { get set }
     var lastName: String? { get set }
     var imageURL: URL? { get set }
+
+    var fullName: String? { get }
 }

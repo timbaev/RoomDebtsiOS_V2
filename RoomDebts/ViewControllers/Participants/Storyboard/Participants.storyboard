@@ -267,7 +267,6 @@
                                             <outlet property="avatarImageView" destination="pPJ-qR-wt2" id="UFM-uc-9Ee"/>
                                             <outlet property="creatorLabel" destination="9Th-aV-CVn" id="UiF-yq-HAf"/>
                                             <outlet property="nameLabel" destination="izg-4M-vV0" id="gnG-Jy-LsE"/>
-                                            <outlet property="separatorView" destination="C0Z-aA-STo" id="CUg-vz-410"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

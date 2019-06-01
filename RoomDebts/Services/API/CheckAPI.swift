@@ -18,6 +18,7 @@ enum CheckAPI {
     case update(store: String, checkUID: Int64)
     case upload(image: UIImage, checkUID: Int64)
     case participants(userUIDs: [Int64], checkUID: Int64)
+    case removeParticipant(userUID: Int64, checkUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -44,6 +45,9 @@ extension CheckAPI: EndPointType {
 
         case let .participants(_, checkUID):
             return basePath + "/\(checkUID)/participants"
+
+        case let .removeParticipant(_, checkUID):
+            return basePath + "/\(checkUID)/participants"
         }
     }
 
@@ -57,6 +61,9 @@ extension CheckAPI: EndPointType {
 
         case .update, .upload:
             return .put
+
+        case .removeParticipant:
+            return .delete
         }
     }
 
@@ -70,6 +77,9 @@ extension CheckAPI: EndPointType {
 
         case let .participants(userUIDs, _):
             return .requestParameters(bodyParameters: ["userIDs": userUIDs], urlParameters: nil)
+
+        case let .removeParticipant(userUID, _):
+            return .requestParameters(bodyParameters: nil, urlParameters: ["userID": userUID])
 
         case let .upload(image, _):
             return .upload(image: image, imageName: "check.jpg", mimeType: .jpeg)

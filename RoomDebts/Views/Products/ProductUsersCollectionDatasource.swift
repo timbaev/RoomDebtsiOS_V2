@@ -58,6 +58,10 @@ class ProductUsersCollectionDatasource: NSObject, UICollectionViewDataSource, UI
     }
 
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard indexPath.row < self.items.count else {
+            return
+        }
+
         if let targetImageView = self.items[indexPath.row].targetImageView(of: cell) {
             ImageDownloader.shared.cancelLoad(in: targetImageView)
         }

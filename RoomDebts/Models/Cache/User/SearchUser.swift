@@ -16,4 +16,14 @@ class SearchUser: User {
     var firstName: String?
     var lastName: String?
     var imageURL: URL?
+
+    // MARK: -
+
+    var fullName: String? {
+        if let firstName = self.firstName, let lastName = self.lastName {
+            return "\(firstName) \(lastName)"
+        } else {
+            return nil
+        }
+    }
 }

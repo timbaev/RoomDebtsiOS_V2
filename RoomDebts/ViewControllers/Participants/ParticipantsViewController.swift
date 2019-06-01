@@ -111,7 +111,7 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
             return
         }
 
-        self.startAnimating(type: .ballScaleMultiple)
+        self.startAnimating()
 
         Services.checkService.update(storeName: storeName, for: check, result: { [weak self] result in
             guard let viewController = self else {
@@ -137,7 +137,7 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
             return
         }
 
-        self.startAnimating(type: .ballScaleMultiple)
+        self.startAnimating()
 
         Services.checkService.upload(image: image, for: check, result: { [weak self] result in
             guard let viewController = self else {
@@ -157,15 +157,57 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
         })
     }
 
+    private func removeParticipant(user: User) {
+        guard let check = self.check else {
+            return
+        }
+
+        self.startAnimating()
+
+        Services.checkService.removeParticipant(userUID: user.uid, for: check, response: { [weak self] result in
+            guard let viewController = self else {
+                return
+            }
+
+            viewController.stopAnimating()
+
+            switch result {
+            case .success(let productList):
+                viewController.apply(users: productList.users)
+
+            case .failure(let error):
+                viewController.showMessage(withError: error)
+            }
+        })
+    }
+
     // MARK: -
 
     private func apply(check: Check) {
-        Log.i("\(check.uid)")
-
-        let productList = Services.cacheViewContext.productListManager.firstOrNew(withListType: .check(uid: check.uid))
-        let users = productList.users
+        Log.i(check.uid)
 
         self.check = check
+
+        let productList = Services.cacheViewContext.productListManager.firstOrNew(withListType: .check(uid: check.uid))
+
+        self.apply(users: productList.users)
+
+        if self.isViewLoaded {
+            self.storeTextField.text = check.store
+
+            if let checkImageURL = check.imageURL {
+                ImageDownloader.shared.loadImage(for: checkImageURL, in: self.checkImageView)
+            }
+
+            self.shouldApplyData = false
+        } else {
+            self.shouldApplyData = true
+        }
+    }
+
+    private func apply(users: [User]) {
+        Log.i(users.count)
+
         self.users = users
 
         self.items = users.map {
@@ -175,7 +217,7 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
                 fullName = "\(firstName) \(lastName)"
             }
 
-            let userIsCleator = (check.creator?.uid == $0.uid)
+            let userIsCleator = (self.check?.creator?.uid == $0.uid)
 
             let viewModel = ParticipantViewModel(avatarURL: $0.imageURL,
                                                  name: fullName,
@@ -185,12 +227,6 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
         }
 
         if self.isViewLoaded {
-            self.storeTextField.text = check.store
-
-            if let checkImageURL = check.imageURL {
-                ImageDownloader.shared.loadImage(for: checkImageURL, in: self.checkImageView)
-            }
-
             self.tableView.reloadData()
 
             self.shouldApplyData = false
@@ -367,10 +403,41 @@ extension ParticipantsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.row < self.items.count else {
+            return
+        }
+
          let cellConfigurator = self.items[indexPath.row]
 
         if let targetImageView = cellConfigurator.targetImageView(of: cell) {
             ImageDownloader.shared.cancelLoad(in: targetImageView)
         }
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let users = self.users else {
+            return false
+        }
+
+        return users[indexPath.row].uid != Services.userAccount?.uid
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else {
+            return
+        }
+
+        guard let user = self.users?[indexPath.row] else {
+            return
+        }
+
+        UIAlertController.Builder()
+            .withTitle("Confirmation".localized())
+            .withMessage("Delete \(user.fullName ?? "participant") from check?".localized())
+            .addDeleteAction(handler: { [unowned self] action in
+                self.removeParticipant(user: user)
+            })
+            .addCancelAction()
+            .show(in: self)
     }
 }
