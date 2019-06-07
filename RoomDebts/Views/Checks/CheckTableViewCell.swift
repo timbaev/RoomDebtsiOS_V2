@@ -35,6 +35,7 @@ extension CheckTableViewCell: ConfigurableCell {
 
     func configure(data viewModel: CheckViewModel) {
         self.storeLabel.text = viewModel.store
+        self.statusLabel.textColor = viewModel.statusTextColor
         self.statusLabel.text = viewModel.status
         self.rejectStatusLabel.text = viewModel.rejectStatus
         self.priceLabel.text = viewModel.price

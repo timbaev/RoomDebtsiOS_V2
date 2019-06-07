@@ -37,6 +37,9 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
     @IBOutlet private weak var tableView: UITableView!
 
+    @IBOutlet private weak var calculateButton: PrimaryButton!
+    @IBOutlet private weak var reviewsButton: PrimaryButton!
+
     private weak var tableRefreshControl: UIRefreshControl!
 
     // MARK: -
@@ -176,6 +179,21 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         if self.isViewLoaded {
             self.navigationItem.title = check.store
 
+            switch check.status {
+            case .some(.accepted):
+                self.calculateButton.isHidden = true
+
+            case .some(.calculated), .some(.rejected):
+                self.calculateButton.setTitle("Recalculate".localized(), for: .normal)
+
+            case .some(.notCalculated):
+                self.reviewsButton.isHidden = true
+
+            case .none:
+                self.calculateButton.isHidden = true
+                self.reviewsButton.isHidden = true
+            }
+
             self.shouldApplyData = false
         } else {
             self.shouldApplyData = true
@@ -308,6 +326,23 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             self.apply(check: check)
             self.apply(productListType: .check(uid: check.uid))
         }
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        guard let footerView = self.tableView.tableFooterView else {
+            return
+        }
+
+        let size = footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+
+        if footerView.frame.size.height != size.height {
+            footerView.frame.size.height = size.height
+        }
+
+        self.tableView.tableFooterView = footerView
+        self.tableView.layoutIfNeeded()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct CheckViewModel {
 
@@ -19,4 +19,5 @@ struct CheckViewModel {
     let price: String?
     let dateTime: String?
     let address: String?
+    let statusTextColor: UIColor
 }

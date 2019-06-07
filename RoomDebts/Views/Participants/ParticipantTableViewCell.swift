@@ -15,6 +15,14 @@ class ParticipantTableViewCell: UITableViewCell {
     @IBOutlet private weak var avatarImageView: RoundedImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var creatorLabel: UILabel!
+
+    // MARK: - UITableViewCell
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.avatarImageView.image = nil
+    }
 }
 
 // MARK: - ConfigurableCell

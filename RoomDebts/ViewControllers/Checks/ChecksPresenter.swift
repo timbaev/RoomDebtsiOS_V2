@@ -51,22 +51,28 @@ final class ChecksPresenter: ChecksPresentationLogic {
     func showChecks(with list: CheckList) {
         let checkViewModels = list.checks.map { check -> CheckViewModel in
             let status: String?
+            let statusTextColor: UIColor
 
             switch check.status {
             case .some(.accepted):
                 status = "Accepted".localized()
+                statusTextColor = Colors.green
 
             case .some(.calculated):
                 status = "Calculated".localized()
+                statusTextColor = Colors.darkOrange
 
             case .some(.notCalculated):
                 status = "Not calculated".localized()
+                statusTextColor = Colors.white.withAlphaComponent(0.69)
 
             case .some(.rejected):
                 status = "Rejected".localized()
+                statusTextColor = Colors.red
 
             case .none:
                 status = nil
+                statusTextColor = Colors.white.withAlphaComponent(0.69)
             }
 
             let price = String(format: "%.2f₽", check.totalSum)
@@ -79,7 +85,7 @@ final class ChecksPresenter: ChecksPresentationLogic {
                 dateTime = nil
             }
 
-            return CheckViewModel(imageURL: check.imageURL, store: check.store, status: status, rejectStatus: nil, price: price, dateTime: dateTime, address: check.address)
+            return CheckViewModel(imageURL: check.imageURL, store: check.store, status: status, rejectStatus: nil, price: price, dateTime: dateTime, address: check.address, statusTextColor: statusTextColor)
         }
 
         self.viewController.displayChecks(with: checkViewModels)

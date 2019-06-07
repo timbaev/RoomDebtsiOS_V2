@@ -42,24 +42,37 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="NeK-xd-YU4">
-                                    <rect key="frame" x="0.0" y="208" width="414" height="82"/>
+                                    <rect key="frame" x="0.0" y="208" width="414" height="140"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-w5-0PQ" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="16" width="382" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="cvO-Zy-iN9"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="17"/>
-                                            <state key="normal" title="Calculate"/>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5e7-1Q-hW4">
+                                            <rect key="frame" x="16" y="16" width="382" height="108"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-w5-0PQ" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="cvO-Zy-iN9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="17"/>
+                                                    <state key="normal" title="Calculate"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zje-ie-sl7" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="58" width="382" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="dxE-xH-EIo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="17"/>
+                                                    <state key="normal" title="Reviews"/>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="NbB-w5-0PQ" secondAttribute="bottom" constant="16" id="1qw-cz-cCs"/>
-                                        <constraint firstItem="NbB-w5-0PQ" firstAttribute="leading" secondItem="NeK-xd-YU4" secondAttribute="leading" constant="16" id="Kem-Po-sgz"/>
-                                        <constraint firstAttribute="trailing" secondItem="NbB-w5-0PQ" secondAttribute="trailing" constant="16" id="pxc-8i-k29"/>
-                                        <constraint firstItem="NbB-w5-0PQ" firstAttribute="top" secondItem="NeK-xd-YU4" secondAttribute="top" constant="16" id="zBh-j7-v2g"/>
+                                        <constraint firstItem="5e7-1Q-hW4" firstAttribute="top" secondItem="NeK-xd-YU4" secondAttribute="top" constant="16" id="SFT-ZR-Upp"/>
+                                        <constraint firstItem="5e7-1Q-hW4" firstAttribute="leading" secondItem="NeK-xd-YU4" secondAttribute="leading" constant="16" id="VLj-3A-Edq"/>
+                                        <constraint firstAttribute="trailing" secondItem="5e7-1Q-hW4" secondAttribute="trailing" constant="16" id="Vd5-mA-K3a"/>
+                                        <constraint firstAttribute="bottom" secondItem="5e7-1Q-hW4" secondAttribute="bottom" constant="16" id="lFt-2y-Wo5"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -91,7 +104,7 @@
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02F-x6-V2Q">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02F-x6-V2Q">
                                                                         <rect key="frame" x="10" y="39.5" width="72" height="20"/>
                                                                         <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -238,6 +251,8 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="calculateButton" destination="NbB-w5-0PQ" id="cJh-Tm-2Q9"/>
+                        <outlet property="reviewsButton" destination="zje-ie-sl7" id="cJ6-mb-dPI"/>
                         <outlet property="tableView" destination="RGT-5j-K7r" id="QPV-Sd-Jei"/>
                         <segue destination="OAW-Rl-i5O" kind="presentation" identifier="Unauthorized" id="Neb-jc-AbG"/>
                         <segue destination="PYl-aq-87c" kind="show" identifier="ShowParticipants" id="2bw-eR-zo0"/>
