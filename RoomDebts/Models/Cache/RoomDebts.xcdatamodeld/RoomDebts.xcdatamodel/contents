@@ -15,6 +15,20 @@
         <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="rawChecks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultCheck" inverseName="rawList" inverseEntity="DefaultCheck" syncable="YES"/>
     </entity>
+    <entity name="DefaultCheckUser" representedClassName="DefaultCheckUser" syncable="YES" codeGenerationType="class">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reviewDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultCheckUserList" inverseName="rawCheckUsers" inverseEntity="DefaultCheckUserList" syncable="YES"/>
+        <relationship name="rawUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultUser" inverseName="checkUser" inverseEntity="DefaultUser" syncable="YES"/>
+    </entity>
+    <entity name="DefaultCheckUserList" representedClassName="DefaultCheckUserList" syncable="YES" codeGenerationType="class">
+        <attribute name="checkUID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="listRawType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rawCheckUsers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultCheckUser" inverseName="lists" inverseEntity="DefaultCheckUser" syncable="YES"/>
+    </entity>
     <entity name="DefaultConversation" representedClassName="DefaultConversation" syncable="YES" codeGenerationType="class">
         <attribute name="debtorUID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -65,6 +79,7 @@
         <attribute name="rawImageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="checksCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultCheck" inverseName="rawCreator" inverseEntity="DefaultCheck" syncable="YES"/>
+        <relationship name="checkUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultCheckUser" inverseName="rawUser" inverseEntity="DefaultCheckUser" syncable="YES"/>
         <relationship name="conversationsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawCreator" inverseEntity="DefaultConversation" syncable="YES"/>
         <relationship name="conversationsOpponent" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultConversation" inverseName="rawOpponent" inverseEntity="DefaultConversation" syncable="YES"/>
         <relationship name="debtsCreator" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DefaultDebt" inverseName="rawCreator" inverseEntity="DefaultDebt" syncable="YES"/>
@@ -92,8 +107,10 @@
         <element name="DefaultDebtList" positionX="-54" positionY="90" width="128" height="90"/>
         <element name="DefaultProduct" positionX="-54" positionY="117" width="128" height="135"/>
         <element name="DefaultProductList" positionX="-45" positionY="126" width="128" height="105"/>
-        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="210"/>
+        <element name="DefaultUser" positionX="-63" positionY="18" width="128" height="225"/>
         <element name="DefaultUserAccount" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="DefaultUserList" positionX="-54" positionY="117" width="128" height="75"/>
+        <element name="DefaultCheckUser" positionX="-54" positionY="117" width="128" height="150"/>
+        <element name="DefaultCheckUserList" positionX="-45" positionY="126" width="128" height="90"/>
     </elements>
 </model>

@@ -16,6 +16,7 @@ struct DefaultCheckService: CheckService {
 
     let checkExtractor: CheckExtractor
     let productExtractor: ProductExtractor
+    let checkUserExtractor: CheckUserExtractor
 
     // MARK: - Instance Methods
 
@@ -114,6 +115,25 @@ struct DefaultCheckService: CheckService {
                 let productList = try self.productExtractor.extractProductList(from: httpResponse.content, withListType: .check(uid: check.uid), cacheContext: Services.cacheViewContext)
 
                 response(.success(productList))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
+        })
+    }
+
+    func calculate(check checkUID: Int64, selectedProducts: [Product.ID: [User.ID]], response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
+        self.router.jsonArray(.calculate(selectedProducts: selectedProducts, checkUID: checkUID), success: { httpResponse in
+            do {
+                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
+
+                response(.success(checkUserList))
             } catch {
                 if let webError = error as? WebError {
                     response(.failure(webError))

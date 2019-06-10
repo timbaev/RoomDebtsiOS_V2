@@ -18,6 +18,7 @@ protocol CacheManagerFactory {
     func createDebtManager(with context: CacheContext) -> DebtManager
     func createCheckManager(with context: CacheContext) -> CheckManager
     func createProductManager(with context: CacheContext) -> ProductManager
+    func createCheckUserManager(with context: CacheContext) -> CheckUserManager
 
     // MARK: -
 
@@ -26,4 +27,5 @@ protocol CacheManagerFactory {
     func createCheckListManager(with context: CacheContext) -> CheckListManager
     func createProductListManager(with context: CacheContext) -> ProductListManager
     func createUserListManager(with context: CacheContext) -> UserListManager
+    func createCheckUserListManager(with conext: CacheContext) -> CheckUserListManager
 }

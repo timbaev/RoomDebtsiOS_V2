@@ -7,12 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter {
-
-    // MARK: - Typealiases
-
-    private typealias ProductCellConfigurator = TableCellConfigurator<ProductTableViewCell, ProductViewModel>
+class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
     // MARK: - Nested Types
 
@@ -49,10 +46,10 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
     private var productList: ProductList!
     private var productlistType: ProductListType = .unknown
 
-    private var items: [ProductCellConfigurator] = []
-
     private var shouldApplyData = true
     private var isRefreshingData = false
+
+    private var selectedProducts: [Product.ID: [User.ID]] = [:]
 
     // MARK: - EmptyStateViewable
 
@@ -82,6 +79,26 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         }
 
         self.performSegue(withIdentifier: Segues.showParticipants, sender: check)
+    }
+
+    @IBAction private func onCalculateButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i()
+
+        guard let check = self.check else {
+            return
+        }
+
+        if check.status == .some(.calculated) || check.status == .some(.rejected) {
+            UIAlertController.Builder()
+                .preferredStyle(.actionSheet)
+                .withTitle("Recalculate".localized())
+                .withMessage("Previous calculation results will be lost. And approvals will be cancel.".localized())
+                .addDefaultAction(withTitle: "Recalculate".localized(), handler: { action in
+
+                })
+                .addCancelAction()
+                .show(in: self)
+        }
     }
 
     // MARK: -
@@ -135,6 +152,28 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
     }
 
     // MARK: -
+
+    private func calculate(check: Check) {
+        Log.i()
+
+        self.startAnimating()
+
+        Services.checkService.calculate(check: check.uid, selectedProducts: self.selectedProducts, response: { [weak self] result in
+            guard let `self` = self else {
+                return
+            }
+
+            self.stopAnimating()
+
+            switch result {
+            case .success(let checkUserList):
+                break
+
+            case .failure(let error):
+                self.handle(stateError: error)
+            }
+        })
+    }
 
     private func refreshProductList() {
         Log.i()
@@ -205,11 +244,11 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
         self.productList = productList
 
-        self.items = productList.allProducts.map {
-            let viewModel = ProductViewModel(product: $0, checkUsers: productList.users)
-
-            return ProductCellConfigurator(item: viewModel)
+        productList.allProducts.forEach { product in
+            self.selectedProducts[product.uid] = product.selectedUsers.map { $0.uid }
         }
+
+        self.updateCalculateButtonState()
 
         if productList.isEmpty && canShowState {
             self.showNoDataState(with: "Products not exists".localized())
@@ -281,6 +320,33 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
     private func unsubscribeFromProductListEvents() {
         Services.cacheViewContext.productListManager.objectsChangedEvent.disconnect(self)
+    }
+
+    // MARK: -
+
+    private func updateCalculateButtonState() {
+        let productUIDs = self.productList.allProducts.map { $0.uid }
+        let selectedProductUIDs = Array(self.selectedProducts.filter { !$1.isEmpty }.keys)
+
+        self.calculateButton.isEnabled = productUIDs.sorted().elementsEqual(selectedProductUIDs.sorted())
+    }
+
+    // MARK: -
+
+    private func configure(productTableCell cell: ProductTableViewCell, at indexPath: IndexPath) {
+        let product = self.productList[indexPath.row]
+        let checkUsers = self.productList.users
+        let viewModel = ProductViewModel(product: product, checkUsers: checkUsers)
+
+        cell.configure(data: viewModel)
+
+        cell.onSelectedProductUserIndexPathsUpdated = { [unowned self] indexPaths in
+            self.selectedProducts[product.uid] = indexPaths.map { checkUsers[$0.row].uid }
+
+            product.selectedUsers = indexPaths.map { checkUsers[$0.row] }
+
+            self.updateCalculateButtonState()
+        }
     }
 
     // MARK: -
@@ -394,13 +460,13 @@ extension ProductsViewController: UITableViewDataSource {
     // MARK: - Instance Methods
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return self.productList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.productTableCellIdentifier, for: indexPath)
 
-        self.items[indexPath.row].configure(cell: cell)
+        self.configure(productTableCell: cell as! ProductTableViewCell, at: indexPath)
 
         return cell
     }

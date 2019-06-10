@@ -27,12 +27,31 @@ class ProductUsersCollectionDatasource: NSObject, UICollectionViewDataSource, UI
 
     private let items: [UserCellConfigurator]
 
-    private var selectedIndexPaths = Set<IndexPath>()
+    // MARK: -
+
+    private var selectedIndexPaths = Set<IndexPath>() {
+        didSet {
+            self.onSelectedIndexPathsUpdated?(self.selectedIndexPaths)
+        }
+    }
+
+    // MARK: -
+
+    var onSelectedIndexPathsUpdated: ((Set<IndexPath>) -> Void)?
 
     // MARK: - Initializers
 
     init(usersViewModel: [UserViewModel]) {
         self.items = usersViewModel.map { UserCellConfigurator(item: $0) }
+        let selectedIndexPaths = usersViewModel.enumerated().compactMap { index, userViewModel -> IndexPath? in
+            if userViewModel.isSelected {
+                return IndexPath(row: index, section: 0)
+            } else {
+                return nil
+            }
+        }
+
+        self.selectedIndexPaths = Set<IndexPath>(selectedIndexPaths)
     }
 
     // MARK: - UICollectionViewDataSource
@@ -68,16 +87,20 @@ class ProductUsersCollectionDatasource: NSObject, UICollectionViewDataSource, UI
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            return false
+        }
+
         if self.selectedIndexPaths.contains(indexPath) {
-            collectionView.deselectItem(at: indexPath, animated: true)
+            cell.isSelected = false
 
             self.selectedIndexPaths.remove(indexPath)
-
-            return false
         } else {
             self.selectedIndexPaths.insert(indexPath)
 
-            return true
+            cell.isSelected = true
         }
+
+        return false
     }
 }

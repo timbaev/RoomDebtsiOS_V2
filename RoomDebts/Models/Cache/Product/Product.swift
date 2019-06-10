@@ -10,9 +10,13 @@ import Foundation
 
 protocol Product: AnyObject {
 
+    // MARK: - Typealiases
+
+    typealias ID = Int64
+
     // MARK: - Instance Properties
 
-    var uid: Int64 { get set }
+    var uid: ID { get set }
 
     var quantity: Double { get set }
     var name: String? { get set }

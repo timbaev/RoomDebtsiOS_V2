@@ -68,9 +68,7 @@ extension UserCollectionViewCell: ConfigurableCell {
 
     func configure(data viewModel: UserViewModel) {
         self.nameLabel.text = viewModel.name
-        self.nameLabel.font = viewModel.nameFont
-        self.nameLabel.textColor = viewModel.nameColor
 
-        self.avatarImageView.layer.borderColor = viewModel.borderColor.cgColor
+        self.isSelected = viewModel.isSelected
     }
 }

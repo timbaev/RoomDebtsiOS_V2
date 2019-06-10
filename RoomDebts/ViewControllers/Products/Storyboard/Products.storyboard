@@ -48,13 +48,16 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5e7-1Q-hW4">
                                             <rect key="frame" x="16" y="16" width="382" height="108"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-w5-0PQ" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-w5-0PQ" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="cvO-Zy-iN9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="17"/>
                                                     <state key="normal" title="Calculate"/>
+                                                    <connections>
+                                                        <action selector="onCalculateButtonTouchUpInside:" destination="MxQ-Jn-tGO" eventType="touchUpInside" id="H36-fq-5za"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zje-ie-sl7" customClass="PrimaryButton" customModule="RoomDebts" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="58" width="382" height="50"/>

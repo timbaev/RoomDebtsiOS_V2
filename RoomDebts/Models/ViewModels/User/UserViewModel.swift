@@ -14,24 +14,13 @@ struct UserViewModel {
 
     let imageURL: URL?
     let name: String?
-    let borderColor: UIColor
-    let nameFont: UIFont
-    let nameColor: UIColor
+    let isSelected: Bool
 
     // MARK: - Initializers
 
     init(user: User, isSelected: Bool) {
         self.imageURL = user.imageURL
         self.name = user.firstName
-
-        if isSelected {
-            self.borderColor = Colors.selectedProductUser
-            self.nameFont = Fonts.medium(ofSize: 12)
-            self.nameColor = Colors.selectedProductUser
-        } else {
-            self.borderColor = Colors.clear
-            self.nameFont = Fonts.light(ofSize: 12)
-            self.nameColor = Colors.white
-        }
+        self.isSelected = isSelected
     }
 }

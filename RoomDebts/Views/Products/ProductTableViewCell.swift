@@ -19,12 +19,11 @@ class ProductTableViewCell: UITableViewCell {
 
     // MARK: -
 
-    var datasource: ProductUsersCollectionDatasource?
-}
+    private var datasource: ProductUsersCollectionDatasource?
 
-// MARK: - ConfigurableCell
+    // MARK: -
 
-extension ProductTableViewCell: ConfigurableCell {
+    var onSelectedProductUserIndexPathsUpdated: ((Set<IndexPath>) -> Void)?
 
     // MARK: - Instance Methods
 
@@ -38,5 +37,9 @@ extension ProductTableViewCell: ConfigurableCell {
         self.collectionView.dataSource = self.datasource
         self.collectionView.delegate = self.datasource
         self.collectionView.reloadData()
+
+        self.datasource?.onSelectedIndexPathsUpdated = { [unowned self] selectedIndexPaths in
+            self.onSelectedProductUserIndexPathsUpdated?(selectedIndexPaths)
+        }
     }
 }

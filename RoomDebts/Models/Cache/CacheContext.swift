@@ -23,6 +23,7 @@ protocol CacheContext: AnyObject {
     var debtManager: DebtManager { get }
     var checkManager: CheckManager { get }
     var productManager: ProductManager { get }
+    var checkUserManager: CheckUserManager { get }
 
     // MARK: -
 
@@ -31,6 +32,7 @@ protocol CacheContext: AnyObject {
     var checkListManager: CheckListManager { get }
     var productListManager: ProductListManager { get }
     var userListManager: UserListManager { get }
+    var checkUserListManager: CheckUserListManager { get }
 
     var type: CacheContextType { get }
 
