@@ -21,4 +21,5 @@ enum Coders {
     static let debtCoder: DebtCoder = DefaultDebtCoder()
     static let checkCoder: CheckCoder = DefaultCheckCoder()
     static let productCoder: ProductCoder = DefaultProductCoder()
+    static let checkUserCoder: CheckUserCoder = DefaultCheckUserCoder()
 }

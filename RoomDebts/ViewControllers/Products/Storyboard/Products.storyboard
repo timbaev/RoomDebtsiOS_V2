@@ -66,6 +66,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="17"/>
                                                     <state key="normal" title="Reviews"/>
+                                                    <connections>
+                                                        <action selector="onReviewsButtonTouchUpInside:" destination="MxQ-Jn-tGO" eventType="touchUpInside" id="pMn-ew-g1A"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -259,6 +262,7 @@
                         <outlet property="tableView" destination="RGT-5j-K7r" id="QPV-Sd-Jei"/>
                         <segue destination="OAW-Rl-i5O" kind="presentation" identifier="Unauthorized" id="Neb-jc-AbG"/>
                         <segue destination="PYl-aq-87c" kind="show" identifier="ShowParticipants" id="2bw-eR-zo0"/>
+                        <segue destination="xtU-ni-cqH" kind="show" identifier="ShowReviews" id="NI5-e8-HEk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rs8-Uv-21U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,6 +276,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKE-WQ-KRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="704" y="96"/>
+        </scene>
+        <!--Reviews-->
+        <scene sceneID="kP8-2o-Fze">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reviews" id="xtU-ni-cqH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Unw-2D-oQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="184"/>
         </scene>
         <!--Participants-->
         <scene sceneID="oQF-tV-7Bq">

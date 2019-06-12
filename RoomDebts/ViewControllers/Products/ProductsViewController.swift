@@ -19,6 +19,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
         static let unauthorized = "Unauthorized"
         static let showParticipants = "ShowParticipants"
+        static let showReviews = "ShowReviews"
     }
 
     // MARK: -
@@ -49,7 +50,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
     private var shouldApplyData = true
     private var isRefreshingData = false
 
-    private var selectedProducts: [Product.ID: [User.ID]] = [:]
+    private var selectedProducts: [Product.UID: [User.UID]] = [:]
 
     // MARK: - EmptyStateViewable
 
@@ -92,13 +93,19 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             UIAlertController.Builder()
                 .preferredStyle(.actionSheet)
                 .withTitle("Recalculate".localized())
-                .withMessage("Previous calculation results will be lost. And approvals will be cancel.".localized())
-                .addDefaultAction(withTitle: "Recalculate".localized(), handler: { action in
-
+                .withMessage("Previous calculation results will be lost and approvals will be cancel.".localized())
+                .addDefaultAction(withTitle: "Recalculate".localized(), handler: { [unowned self] action in
+                    self.calculate(check: check)
                 })
                 .addCancelAction()
                 .show(in: self)
         }
+    }
+
+    @IBAction private func onReviewsButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i()
+
+        self.performSegue(withIdentifier: Segues.showReviews, sender: self)
     }
 
     // MARK: -
@@ -167,7 +174,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
             switch result {
             case .success(let checkUserList):
-                break
+                self.performSegue(withIdentifier: Segues.showReviews, sender: checkUserList)
 
             case .failure(let error):
                 self.handle(stateError: error)
@@ -414,22 +421,37 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
+        let dictionaryReceiver: DictionaryReceiver?
+
+        if let navigationController = segue.destination as? UINavigationController {
+            dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+        } else {
+            dictionaryReceiver = segue.destination as? DictionaryReceiver
+        }
+
         switch segue.identifier {
         case Segues.showParticipants:
             guard let check = sender as? Check else {
                 fatalError()
             }
 
-            let dictionaryReceiver: DictionaryReceiver?
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["check": check])
+            }
 
-            if let navigationController = segue.destination as? UINavigationController {
-                dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
-            } else {
-                dictionaryReceiver = segue.destination as? DictionaryReceiver
+        case Segues.showReviews:
+            guard let check = self.check else {
+                fatalError()
+            }
+
+            var dictionary: [String: Any] = ["check": check]
+
+            if let checkUserList = sender as? CheckUserList {
+                dictionary["checkUserList"] = checkUserList
             }
 
             if let dictionaryReceiver = dictionaryReceiver {
-                dictionaryReceiver.apply(dictionary: ["check": check])
+                dictionaryReceiver.apply(dictionary: dictionary)
             }
 
         default:

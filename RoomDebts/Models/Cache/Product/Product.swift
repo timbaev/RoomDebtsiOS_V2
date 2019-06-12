@@ -12,11 +12,11 @@ protocol Product: AnyObject {
 
     // MARK: - Typealiases
 
-    typealias ID = Int64
+    typealias UID = Int64
 
     // MARK: - Instance Properties
 
-    var uid: ID { get set }
+    var uid: UID { get set }
 
     var quantity: Double { get set }
     var name: String? { get set }

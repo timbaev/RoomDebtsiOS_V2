@@ -128,8 +128,33 @@ struct DefaultCheckService: CheckService {
         })
     }
 
-    func calculate(check checkUID: Int64, selectedProducts: [Product.ID: [User.ID]], response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
-        self.router.jsonArray(.calculate(selectedProducts: selectedProducts, checkUID: checkUID), success: { httpResponse in
+    func calculate(check checkUID: Int64, selectedProducts: [Product.UID: [User.UID]], response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
+        var jsonSelectedProducts: [String: [User.UID]] = [:]
+
+        selectedProducts.forEach { productUID, userUIDs in
+            jsonSelectedProducts["\(productUID)"] = userUIDs
+        }
+
+        self.router.jsonArray(.calculate(selectedProducts: jsonSelectedProducts, checkUID: checkUID), success: { httpResponse in
+            do {
+                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
+
+                response(.success(checkUserList))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
+        })
+    }
+
+    func fetchReviews(for checkUID: Int64, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
+        self.router.jsonArray(.reviews(checkUID: checkUID), success: { httpResponse in
             do {
                 let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
 

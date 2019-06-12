@@ -6,7 +6,7 @@
 //  Copyright © 2019 Timur Shafigullin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum CheckUserStatus: String {
 
@@ -15,4 +15,19 @@ enum CheckUserStatus: String {
     case accepted
     case review
     case rejected
+
+    // MARK: - Instance Properties
+
+    var image: UIImage {
+        switch self {
+        case .accepted:
+            return #imageLiteral(resourceName: "CheckApproveIcon.pdf")
+
+        case .review:
+            return #imageLiteral(resourceName: "CheckReviewIcon.pdf")
+
+        case .rejected:
+            return #imageLiteral(resourceName: "CheckRejectIcon.pdf")
+        }
+    }
 }

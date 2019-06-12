@@ -19,7 +19,8 @@ enum CheckAPI {
     case upload(image: UIImage, checkUID: Int64)
     case participants(userUIDs: [Int64], checkUID: Int64)
     case removeParticipant(userUID: Int64, checkUID: Int64)
-    case calculate(selectedProducts: [Int64: [Int64]], checkUID: Int64)
+    case calculate(selectedProducts: [String: [Int64]], checkUID: Int64)
+    case reviews(checkUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -52,6 +53,9 @@ extension CheckAPI: EndPointType {
 
         case let .calculate(_, checkUID):
             return basePath + "/\(checkUID)/calculate"
+
+        case .reviews(let checkUID):
+            return basePath + "/\(checkUID)/reviews"
         }
     }
 
@@ -60,7 +64,7 @@ extension CheckAPI: EndPointType {
         case .create, .participants, .calculate:
             return .post
 
-        case .fetch, .fetchCheck:
+        case .fetch, .fetchCheck, .reviews:
             return .get
 
         case .update, .upload:
@@ -91,7 +95,7 @@ extension CheckAPI: EndPointType {
         case let .upload(image, _):
             return .upload(image: image, imageName: "check.jpg", mimeType: .jpeg)
 
-        case .fetch, .fetchCheck:
+        case .fetch, .fetchCheck, .reviews:
             return .request
         }
     }

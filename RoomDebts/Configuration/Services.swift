@@ -19,7 +19,11 @@ enum Services {
 
     static let conversationService: ConversationService = DefaultConversationService(conversationExtractor: Services.conversationExtractor)
     static let debtService: DebtService = DefaultDebtService(debtExtractor: Services.debtExtractor)
-    static let checkService: CheckService = DefaultCheckService(checkExtractor: Services.checkExtractor, productExtractor: Services.productExtractor)
+
+    static let checkService: CheckService = DefaultCheckService(checkExtractor: Services.checkExtractor,
+                                                                productExtractor: Services.productExtractor,
+                                                                checkUserExtractor: Services.checkUserExtractor)
+
     static let productService: ProductService = DefaultProductService(productExtractor: Services.productExtractor)
 
     // MARK: -
@@ -27,6 +31,7 @@ enum Services {
     static let userAccountExtractor: UserAccountExtractor = DefaultUserAccountExtractor(userAccountCoder: Coders.userAccountCoder)
     static let accessExtactor: AccessExtractor = DefaultAccessExtractor(accessCoder: Coders.accessCoder)
     static let userExtractor: UserExtractor = DefaultUserExrtactor(userCoder: Coders.userCoder)
+
     static let conversationExtractor: ConversationExtractor = DefaultConversationExtractor(conversationCoder: Coders.conversationCoder,
                                                                                            userCoder: Coders.userCoder,
                                                                                            userExtractor: Services.userExtractor)
@@ -39,7 +44,11 @@ enum Services {
                                                                       userCoder: Coders.userCoder,
                                                                       userExtractor: Services.userExtractor)
 
-    static let productExtractor: ProductExtractor = DefaultProductExtractor(productCoder: Coders.productCoder, userExtractor: Services.userExtractor)
+    static let productExtractor: ProductExtractor = DefaultProductExtractor(productCoder: Coders.productCoder,
+                                                                            userExtractor: Services.userExtractor)
+
+    static let checkUserExtractor: CheckUserExtractor = DefaultCheckUserExtractor(userExtractor: Services.userExtractor,
+                                                                                  checkUserCoder: Coders.checkUserCoder)
 
     // MARK: -
 

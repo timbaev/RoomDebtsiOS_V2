@@ -141,6 +141,7 @@
 		CB67D20B22AD02F900CDB89E /* CheckUserCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB67D20A22AD02F900CDB89E /* CheckUserCoder.swift */; };
 		CB67D20D22AD030600CDB89E /* DefaultCheckUserCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB67D20C22AD030600CDB89E /* DefaultCheckUserCoder.swift */; };
 		CB67D21022AD08B400CDB89E /* CheckUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB67D20F22AD08B400CDB89E /* CheckUserManager.swift */; };
+		CB68530B22B0DD8A00989A6D /* SectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68530A22B0DD8A00989A6D /* SectionHeaderTableViewCell.swift */; };
 		CB6D6DAF2243655F0047196A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB6D6DAE2243655F0047196A /* Settings.storyboard */; };
 		CB6D9381224FB5D9004EA6A7 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D9380224FB5D9004EA6A7 /* FatalErrorUtil.swift */; };
 		CB6D9384224FB7F3004EA6A7 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D9383224FB7F3004EA6A7 /* XCTestCaseExtension.swift */; };
@@ -298,6 +299,11 @@
 		CBEB2DC8222C4BE000653B11 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB2DC7222C4BE000653B11 /* ImageDownloader.swift */; };
 		CBF277EC21FAFA65008E516C /* PhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */; };
 		CBF277EE21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */; };
+		CBFB80BB22AF846D000DB32A /* Reviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFB80BA22AF846D000DB32A /* Reviews.storyboard */; };
+		CBFB80BD22AF8C94000DB32A /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB80BC22AF8C94000DB32A /* ReviewTableViewController.swift */; };
+		CBFB80CC22B02BBF000DB32A /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB80CB22B02BBF000DB32A /* TotalTableViewCell.swift */; };
+		CBFB80CE22B03530000DB32A /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB80CD22B03530000DB32A /* ReviewTableViewCell.swift */; };
+		CBFB80D022B037EF000DB32A /* ReviewDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB80CF22B037EF000DB32A /* ReviewDateFormatter.swift */; };
 		CBFD5FE0225F67B8000F711C /* ChecksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FD9225F67B8000F711C /* ChecksPresenter.swift */; };
 		CBFD5FE1225F67B8000F711C /* ChecksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDA225F67B8000F711C /* ChecksRouter.swift */; };
 		CBFD5FE2225F67B8000F711C /* ChecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */; };
@@ -481,6 +487,7 @@
 		CB67D20A22AD02F900CDB89E /* CheckUserCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserCoder.swift; sourceTree = "<group>"; };
 		CB67D20C22AD030600CDB89E /* DefaultCheckUserCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCheckUserCoder.swift; sourceTree = "<group>"; };
 		CB67D20F22AD08B400CDB89E /* CheckUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserManager.swift; sourceTree = "<group>"; };
+		CB68530A22B0DD8A00989A6D /* SectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CB6D6DAE2243655F0047196A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CB6D9380224FB5D9004EA6A7 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
 		CB6D9383224FB7F3004EA6A7 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
@@ -642,6 +649,11 @@
 		CBEB2DC7222C4BE000653B11 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		CBF277EB21FAFA65008E516C /* PhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCoder.swift; sourceTree = "<group>"; };
 		CBF277ED21FAFAA2008E516C /* DefaultPhoneNumberCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPhoneNumberCoder.swift; sourceTree = "<group>"; };
+		CBFB80BA22AF846D000DB32A /* Reviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reviews.storyboard; sourceTree = "<group>"; };
+		CBFB80BC22AF8C94000DB32A /* ReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		CBFB80CB22B02BBF000DB32A /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
+		CBFB80CD22B03530000DB32A /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		CBFB80CF22B037EF000DB32A /* ReviewDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDateFormatter.swift; sourceTree = "<group>"; };
 		CBFD5FD9225F67B8000F711C /* ChecksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksPresenter.swift; sourceTree = "<group>"; };
 		CBFD5FDA225F67B8000F711C /* ChecksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksRouter.swift; sourceTree = "<group>"; };
 		CBFD5FDB225F67B8000F711C /* ChecksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksViewController.swift; sourceTree = "<group>"; };
@@ -1659,6 +1671,7 @@
 				CB89CFCF2293D7A500DEC187 /* Participants */,
 				CBE1C4FA227B70A3008DBAF4 /* Products */,
 				CBBF79B62262419C00752AE4 /* QRScanner */,
+				CBFB80B822AF8454000DB32A /* Reviews */,
 				CB83DCCF221E9DA200749486 /* Search */,
 				CB6D6DAC224365290047196A /* Settings */,
 			);
@@ -1867,6 +1880,7 @@
 				CB3ADFC9223A36F900495E05 /* Debts */,
 				CB10909C22994203002E660A /* Participants */,
 				CBC50824227C7902001D6D41 /* Products */,
+				CBFB80CA22B02BA9000DB32A /* Reviews */,
 				CB714B872222C7CB007961C6 /* Search */,
 				CBDE71D7224383370070F603 /* Settings */,
 				CB913AB4223EBDFF005E379D /* Tools */,
@@ -1879,6 +1893,7 @@
 				CBEB2DBE222C1CEC00653B11 /* RoundedButton.swift */,
 				CBE31E9F22207B96006EF081 /* RoundedImageView.swift */,
 				CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */,
+				CB68530A22B0DD8A00989A6D /* SectionHeaderTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2197,6 +2212,7 @@
 				CBC62F682264E1C80000B588 /* CheckDateFormatter.swift */,
 				CB18CA3622315A190027E905 /* DebtDateFormatter.swift */,
 				CB03CBCF22369EDB00104251 /* ISO8601Formatter.swift */,
+				CBFB80CF22B037EF000DB32A /* ReviewDateFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -2318,6 +2334,32 @@
 				CBFF85A821F89234002B7FCD /* VerificationCode.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CBFB80B822AF8454000DB32A /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				CBFB80B922AF845C000DB32A /* Storyboard */,
+				CBFB80BC22AF8C94000DB32A /* ReviewTableViewController.swift */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		CBFB80B922AF845C000DB32A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBFB80BA22AF846D000DB32A /* Reviews.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CBFB80CA22B02BA9000DB32A /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				CBFB80CD22B03530000DB32A /* ReviewTableViewCell.swift */,
+				CBFB80CB22B02BBF000DB32A /* TotalTableViewCell.swift */,
+			);
+			path = Reviews;
 			sourceTree = "<group>";
 		};
 		CBFDBA9921F5B9E60017ED61 /* Fonts */ = {
@@ -2493,6 +2535,7 @@
 				CBE1C4FD227B70BE008DBAF4 /* Products.storyboard in Resources */,
 				CBAC542421F4A3D7004C8C65 /* LaunchScreen.storyboard in Resources */,
 				CB44E413225CB51100D59821 /* Checks.storyboard in Resources */,
+				CBFB80BB22AF846D000DB32A /* Reviews.storyboard in Resources */,
 				CBFDBAA721F5B9FE0017ED61 /* Rubik-BoldItalic.ttf in Resources */,
 				CB6D6DAF2243655F0047196A /* Settings.storyboard in Resources */,
 				CBFDBAA621F5B9FE0017ED61 /* Rubik-Regular.ttf in Resources */,
@@ -2759,11 +2802,13 @@
 				CBCCC4342232CE7200535D57 /* DefaultDebtService.swift in Sources */,
 				CB71C3D521F9B74A008FDD0B /* DefaultConfirmCoder.swift in Sources */,
 				CBDE71E72243CCB60070F603 /* HTTPStatusCode.swift in Sources */,
+				CBFB80BD22AF8C94000DB32A /* ReviewTableViewController.swift in Sources */,
 				CBFD5FE1225F67B8000F711C /* ChecksRouter.swift in Sources */,
 				CB472D3921F7598700FB98EE /* DefaultCacheSession.swift in Sources */,
 				CBFF85BB21F8F913002B7FCD /* DefaultAccessCoder.swift in Sources */,
 				CB10909B22993E68002E660A /* ParticipantsViewController.swift in Sources */,
 				CB472CE921F70C0900FB98EE /* HTTPTask.swift in Sources */,
+				CBFB80D022B037EF000DB32A /* ReviewDateFormatter.swift in Sources */,
 				CB714DE02222D9B8007961C6 /* UserCoder.swift in Sources */,
 				CB472D2521F74C1E00FB98EE /* EventListener.swift in Sources */,
 				CB320B4222420BE1006AA4D6 /* ConversationTableViewModel.swift in Sources */,
@@ -2780,6 +2825,7 @@
 				CB098EC62225206600FDD47C /* ConversationService.swift in Sources */,
 				CB714DE72222DC39007961C6 /* UserExtractor.swift in Sources */,
 				CB79920A229BBDB2005D6210 /* DefaultImagePicker.swift in Sources */,
+				CB68530B22B0DD8A00989A6D /* SectionHeaderTableViewCell.swift in Sources */,
 				CB1C83CA227B7E2C00D10324 /* Product.swift in Sources */,
 				CBC62F652264DCBE0000B588 /* CheckListManager.swift in Sources */,
 				CB03CBDF2236D53A00104251 /* DebtExtractor.swift in Sources */,
@@ -2832,6 +2878,7 @@
 				CB16A96621F85D6900B74DE0 /* KeychainManager.swift in Sources */,
 				CBAC541721F4A3D4004C8C65 /* AppDelegate.swift in Sources */,
 				CBA3600F22AC337B00BF6FAB /* CheckUserListType.swift in Sources */,
+				CBFB80CE22B03530000DB32A /* ReviewTableViewCell.swift in Sources */,
 				CB71C3CC21F9A236008FDD0B /* AuthAPI.swift in Sources */,
 				CBEB2DC2222C1DF100653B11 /* ConversationTableViewCell.swift in Sources */,
 				CBCCC43C2232D15C00535D57 /* DebtCoder.swift in Sources */,
@@ -2860,6 +2907,7 @@
 				CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */,
 				CB472D2321F74C1E00FB98EE /* Event.swift in Sources */,
 				CB472D4921F764BA00FB98EE /* UIViewControllerExtension.swift in Sources */,
+				CBFB80CC22B02BBF000DB32A /* TotalTableViewCell.swift in Sources */,
 				CB472CEE21F70DFD00FB98EE /* ParameterEncoder.swift in Sources */,
 				CB67D20B22AD02F900CDB89E /* CheckUserCoder.swift in Sources */,
 				CB472D3821F7598700FB98EE /* CacheProvider.swift in Sources */,
