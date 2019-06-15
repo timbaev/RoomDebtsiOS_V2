@@ -327,7 +327,7 @@
                         <outlet property="rejectButton" destination="jqG-H4-szM" id="Ejf-lN-KvP"/>
                         <outlet property="tableView" destination="TCT-PS-Lih" id="mMZ-17-Ep7"/>
                         <segue destination="ga2-DP-siU" kind="presentation" identifier="Unauthorized" id="H67-pj-Lo7"/>
-                        <segue destination="Kmj-bD-mT3" kind="presentation" identifier="ShowRejectReason" id="QUM-xA-2Ni"/>
+                        <segue destination="Kmj-bD-mT3" kind="presentation" identifier="ShowRejectReason" animates="NO" id="QUM-xA-2Ni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxF-dC-Ycv" userLabel="First Responder" sceneMemberID="firstResponder"/>

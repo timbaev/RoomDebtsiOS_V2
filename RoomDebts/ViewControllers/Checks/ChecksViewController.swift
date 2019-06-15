@@ -145,10 +145,14 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.interactor.fetchChecks()
-
         self.configurePlusBarButtonItem()
         self.configureTableRefreshControl()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.interactor.fetchChecks()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

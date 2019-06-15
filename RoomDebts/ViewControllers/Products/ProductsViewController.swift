@@ -240,6 +240,10 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
                 self.reviewsButton.isHidden = true
             }
 
+            if check.creator?.uid != Services.userAccount?.uid {
+                self.calculateButton.isHidden = true
+            }
+
             self.shouldApplyData = false
         } else {
             self.shouldApplyData = true
@@ -333,9 +337,12 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
     private func updateCalculateButtonState() {
         let productUIDs = self.productList.allProducts.map { $0.uid }
-        let selectedProductUIDs = Array(self.selectedProducts.filter { !$1.isEmpty }.keys)
+        let userUIDs = self.productList.users.map { $0.uid }
 
-        self.calculateButton.isEnabled = productUIDs.sorted().elementsEqual(selectedProductUIDs.sorted())
+        let selectedProductUIDs = Array(self.selectedProducts.filter { !$1.isEmpty }.keys)
+        let selectedUserUIDs = self.selectedProducts.values.flatMap { $0 }.unique()
+
+        self.calculateButton.isEnabled = (productUIDs.sorted().elementsEqual(selectedProductUIDs.sorted()) && userUIDs.sorted().elementsEqual(selectedUserUIDs.sorted()))
     }
 
     // MARK: -
@@ -343,7 +350,8 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
     private func configure(productTableCell cell: ProductTableViewCell, at indexPath: IndexPath) {
         let product = self.productList[indexPath.row]
         let checkUsers = self.productList.users
-        let viewModel = ProductViewModel(product: product, checkUsers: checkUsers)
+        let userIsCreator = (self.check?.creator?.uid == Services.userAccount?.uid)
+        let viewModel = ProductViewModel(product: product, checkUsers: checkUsers, allowUserSelection: userIsCreator)
 
         cell.configure(data: viewModel)
 

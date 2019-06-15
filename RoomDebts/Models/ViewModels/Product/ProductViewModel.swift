@@ -16,10 +16,11 @@ struct ProductViewModel {
     let price: String
     let quantity: String
     let users: [UserViewModel]
+    let allowUserSelection: Bool
 
     // MARK: - Initializers
 
-    init(product: Product, checkUsers: [User]) {
+    init(product: Product, checkUsers: [User], allowUserSelection: Bool) {
         self.name = product.name
         self.price = String(format: "%.2f₽", product.sum)
         self.quantity = String(format: "%.2f", product.quantity)
@@ -28,5 +29,7 @@ struct ProductViewModel {
             return UserViewModel(user: user,
                                  isSelected: product.selectedUsers.contains(where: { $0.uid == user.uid }))
         }
+
+        self.allowUserSelection = allowUserSelection
     }
 }

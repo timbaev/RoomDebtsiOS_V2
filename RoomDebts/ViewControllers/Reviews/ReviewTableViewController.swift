@@ -263,7 +263,8 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
 
         self.checkUserList = checkUserList
         self.reviews = checkUserList.checkUsers.filter {
-            $0.status == .some(.accepted) || $0.status == .some(.rejected)
+            $0.user?.uid != self.check?.creator?.uid
+                && ($0.status == .some(.accepted) || $0.status == .some(.rejected))
         }
 
         if self.isViewLoaded {

@@ -36,6 +36,7 @@ class ProductTableViewCell: UITableViewCell {
 
         self.collectionView.dataSource = self.datasource
         self.collectionView.delegate = self.datasource
+        self.collectionView.allowsSelection = viewModel.allowUserSelection
         self.collectionView.reloadData()
 
         self.datasource?.onSelectedIndexPathsUpdated = { [unowned self] selectedIndexPaths in

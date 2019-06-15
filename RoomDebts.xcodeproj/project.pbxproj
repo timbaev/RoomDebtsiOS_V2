@@ -280,6 +280,7 @@
 		CBCDEC2D224CD0D100889748 /* MockDebtListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC2C224CD0D100889748 /* MockDebtListManager.swift */; };
 		CBCDEC30224CD21600889748 /* MockDebtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC2F224CD21600889748 /* MockDebtList.swift */; };
 		CBCDEC32224CD35B00889748 /* MockCacheManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDEC31224CD35B00889748 /* MockCacheManagerFactory.swift */; };
+		CBD982BD22B582BF004D668C /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD982BC22B582BF004D668C /* ArrayExtension.swift */; };
 		CBDB48CC2250F92A00FD6EA9 /* MockAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDB48CB2250F92A00FD6EA9 /* MockAccountService.swift */; };
 		CBDD9ADC22A1260A00A0FFCB /* AddParticipants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDD9ADB22A1260A00A0FFCB /* AddParticipants.storyboard */; };
 		CBDE71D322436BAF0070F603 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE71D222436BAF0070F603 /* SettingsTableViewController.swift */; };
@@ -634,6 +635,7 @@
 		CBCDEC2C224CD0D100889748 /* MockDebtListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebtListManager.swift; sourceTree = "<group>"; };
 		CBCDEC2F224CD21600889748 /* MockDebtList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDebtList.swift; sourceTree = "<group>"; };
 		CBCDEC31224CD35B00889748 /* MockCacheManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCacheManagerFactory.swift; sourceTree = "<group>"; };
+		CBD982BC22B582BF004D668C /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		CBDB48CB2250F92A00FD6EA9 /* MockAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountService.swift; sourceTree = "<group>"; };
 		CBDD9ADB22A1260A00A0FFCB /* AddParticipants.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddParticipants.storyboard; sourceTree = "<group>"; };
 		CBDE71D222436BAF0070F603 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -1871,6 +1873,7 @@
 		CBAC546E21F4CA9D004C8C65 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CBD982BC22B582BF004D668C /* ArrayExtension.swift */,
 				CBFDBACF21F660E10017ED61 /* CGRectExtension.swift */,
 				CB37A99522062C5D007ECB86 /* DataExtensions.swift */,
 				CB5D828822620AF2005F971A /* EncodableExtension.swift */,
@@ -2765,6 +2768,7 @@
 				CB472D0321F72DF700FB98EE /* Result.swift in Sources */,
 				CB1C83D1227B813E00D10324 /* ProductListType.swift in Sources */,
 				CB472CF221F70F0D00FB98EE /* URLParameterEncoder.swift in Sources */,
+				CBD982BD22B582BF004D668C /* ArrayExtension.swift in Sources */,
 				CBDE71D9224383470070F603 /* SettingTableViewCell.swift in Sources */,
 				CB5DD293229D0A49006ED7BC /* Button.swift in Sources */,
 				CBAC545021F4A48A004C8C65 /* CoreDataStorageModel.swift in Sources */,
