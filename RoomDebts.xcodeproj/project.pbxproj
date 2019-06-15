@@ -57,6 +57,7 @@
 		CB1CC2CD22A12B1A000CE50F /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1CC2CC22A12B1A000CE50F /* UserList.swift */; };
 		CB1CC2CF22A12B2D000CE50F /* UserListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1CC2CE22A12B2D000CE50F /* UserListType.swift */; };
 		CB1CC2D122A12BC6000CE50F /* DefaultUserListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1CC2D022A12BC6000CE50F /* DefaultUserListExtension.swift */; };
+		CB2061C922B502660061D70D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2061C822B502660061D70D /* RoundButton.swift */; };
 		CB320B4222420BE1006AA4D6 /* ConversationTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */; };
 		CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */; };
 		CB37A9922206289A007ECB86 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A9912206289A007ECB86 /* MimeType.swift */; };
@@ -189,6 +190,9 @@
 		CB9C4438222684640052F512 /* DefaultConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C4437222684640052F512 /* DefaultConversationManager.swift */; };
 		CB9C443B2226B3310052F512 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C443A2226B3310052F512 /* UserManager.swift */; };
 		CB9C443D2226B34E0052F512 /* DefaultUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C443C2226B34E0052F512 /* DefaultUserManager.swift */; };
+		CB9E2E8F22B2DB140042514E /* RejectReason.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9E2E8E22B2DB140042514E /* RejectReason.storyboard */; };
+		CB9E2E9122B2DEF40042514E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E2E9022B2DEF40042514E /* View.swift */; };
+		CB9E2E9322B2E28B0042514E /* RejectReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E2E9222B2E28B0042514E /* RejectReasonViewController.swift */; };
 		CBA02E16222D8440009683A5 /* Debts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA02E15222D8440009683A5 /* Debts.storyboard */; };
 		CBA02E18222D84C0009683A5 /* DebtsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA02E17222D84C0009683A5 /* DebtsTableViewController.swift */; };
 		CBA02E1C222D8D35009683A5 /* CreateDebt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA02E1B222D8D35009683A5 /* CreateDebt.storyboard */; };
@@ -403,6 +407,7 @@
 		CB1CC2CC22A12B1A000CE50F /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		CB1CC2CE22A12B2D000CE50F /* UserListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListType.swift; sourceTree = "<group>"; };
 		CB1CC2D022A12BC6000CE50F /* DefaultUserListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserListExtension.swift; sourceTree = "<group>"; };
+		CB2061C822B502660061D70D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewModel.swift; sourceTree = "<group>"; };
 		CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParameterEncoder.swift; sourceTree = "<group>"; };
 		CB37A9912206289A007ECB86 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
@@ -535,6 +540,9 @@
 		CB9C4437222684640052F512 /* DefaultConversationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationManager.swift; sourceTree = "<group>"; };
 		CB9C443A2226B3310052F512 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		CB9C443C2226B34E0052F512 /* DefaultUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserManager.swift; sourceTree = "<group>"; };
+		CB9E2E8E22B2DB140042514E /* RejectReason.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RejectReason.storyboard; sourceTree = "<group>"; };
+		CB9E2E9022B2DEF40042514E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		CB9E2E9222B2E28B0042514E /* RejectReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectReasonViewController.swift; sourceTree = "<group>"; };
 		CBA02E15222D8440009683A5 /* Debts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Debts.storyboard; sourceTree = "<group>"; };
 		CBA02E17222D84C0009683A5 /* DebtsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsTableViewController.swift; sourceTree = "<group>"; };
 		CBA02E1B222D8D35009683A5 /* CreateDebt.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateDebt.storyboard; sourceTree = "<group>"; };
@@ -1151,7 +1159,12 @@
 			isa = PBXGroup;
 			children = (
 				CB5DD292229D0A49006ED7BC /* Button.swift */,
+				CB2061C822B502660061D70D /* RoundButton.swift */,
+				CBEB2DBE222C1CEC00653B11 /* RoundedButton.swift */,
+				CBE31E9F22207B96006EF081 /* RoundedImageView.swift */,
+				CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */,
 				CB4EB1A3222EDF6100FF2232 /* TextField.swift */,
+				CB9E2E9022B2DEF40042514E /* View.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1549,6 +1562,23 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		CB9E2E8C22B2DAFC0042514E /* RejectReason */ = {
+			isa = PBXGroup;
+			children = (
+				CB9E2E8D22B2DB070042514E /* Storyboard */,
+				CB9E2E9222B2E28B0042514E /* RejectReasonViewController.swift */,
+			);
+			path = RejectReason;
+			sourceTree = "<group>";
+		};
+		CB9E2E8D22B2DB070042514E /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CB9E2E8E22B2DB140042514E /* RejectReason.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CBA02E13222D842A009683A5 /* Debts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1671,6 +1701,7 @@
 				CB89CFCF2293D7A500DEC187 /* Participants */,
 				CBE1C4FA227B70A3008DBAF4 /* Products */,
 				CBBF79B62262419C00752AE4 /* QRScanner */,
+				CB9E2E8C22B2DAFC0042514E /* RejectReason */,
 				CBFB80B822AF8454000DB32A /* Reviews */,
 				CB83DCCF221E9DA200749486 /* Search */,
 				CB6D6DAC224365290047196A /* Settings */,
@@ -1890,9 +1921,6 @@
 				CBAC547921F4CD76004C8C65 /* GradientView.swift */,
 				CB4EB173222E3D6B00FF2232 /* PlaceholderTextView.swift */,
 				CBFDBABF21F63FA20017ED61 /* PrimaryButton.swift */,
-				CBEB2DBE222C1CEC00653B11 /* RoundedButton.swift */,
-				CBE31E9F22207B96006EF081 /* RoundedImageView.swift */,
-				CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */,
 				CB68530A22B0DD8A00989A6D /* SectionHeaderTableViewCell.swift */,
 			);
 			path = Views;
@@ -2555,6 +2583,7 @@
 				CBFF85A921F89234002B7FCD /* VerificationCode.storyboard in Resources */,
 				CBFDBAAC21F5B9FE0017ED61 /* Rubik-BlackItalic.ttf in Resources */,
 				CB83DCD2221E9DBA00749486 /* Search.storyboard in Resources */,
+				CB9E2E8F22B2DB140042514E /* RejectReason.storyboard in Resources */,
 				CBFDBAAB21F5B9FE0017ED61 /* Rubik-LightItalic.ttf in Resources */,
 				CBA02E1C222D8D35009683A5 /* CreateDebt.storyboard in Resources */,
 				CBFDBAAD21F5B9FE0017ED61 /* Rubik-Bold.ttf in Resources */,
@@ -2584,6 +2613,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RoomDebts/Pods-RoomDebts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
+				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
@@ -2595,6 +2625,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
@@ -2772,6 +2803,8 @@
 				CBAC545121F4A48A004C8C65 /* CoreDataStorageManager.swift in Sources */,
 				CB6D9381224FB5D9004EA6A7 /* FatalErrorUtil.swift in Sources */,
 				CB94D846227C3E6B006F39EF /* ProductCoder.swift in Sources */,
+				CB9E2E9122B2DEF40042514E /* View.swift in Sources */,
+				CB9E2E9322B2E28B0042514E /* RejectReasonViewController.swift in Sources */,
 				CBAC545E21F4A525004C8C65 /* LoggedTabBarController.swift in Sources */,
 				CBC86B8D223A58DB003C50F6 /* DebtListManager.swift in Sources */,
 				CBAC544E21F4A48A004C8C65 /* StorageFetchRequest.swift in Sources */,
@@ -2781,6 +2814,7 @@
 				CB472D2C21F7566A00FB98EE /* DefaultUserAccountExtractor.swift in Sources */,
 				CBAC545621F4A48A004C8C65 /* StorageModel.swift in Sources */,
 				CB714DE92222DC4A007961C6 /* DefaultUserExtractor.swift in Sources */,
+				CB2061C922B502660061D70D /* RoundButton.swift in Sources */,
 				CB472D4521F75CAE00FB98EE /* DefaultCacheContext.swift in Sources */,
 				CB472D4321F75C8700FB98EE /* DefaultCacheModel.swift in Sources */,
 				CB472CF021F70E1600FB98EE /* NetworkError.swift in Sources */,

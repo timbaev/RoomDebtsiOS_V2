@@ -39,6 +39,16 @@ class TotalTableViewCell: UITableViewCell {
         }
     }
 
+    var reviewStatusImageColor: UIColor {
+        get {
+            return self.reviewStatusImageView.tintColor
+        }
+
+        set {
+            self.reviewStatusImageView.tintColor = newValue
+        }
+    }
+
     var total: String? {
         get {
             return self.totalLabel.text

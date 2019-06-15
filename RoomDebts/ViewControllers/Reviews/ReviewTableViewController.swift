@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class ReviewTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter {
+class ReviewTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
     // MARK: - Nested Types
 
@@ -17,6 +18,7 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
         // MARK: - Type Properties
 
         static let unauthorized = "Unauthorized"
+        static let showRejectReason = "ShowRejectReason"
     }
 
     // MARK: -
@@ -31,6 +33,8 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
 
         static let resultsSectionIndex = 0
         static let reviewsSectionIndex = 1
+
+        static let sectionCount = 2
     }
 
     // MARK: - Instance Properties
@@ -39,6 +43,9 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
 
     @IBOutlet private weak var checkStatusLabel: UILabel!
     @IBOutlet private weak var checkStatusImageView: UIImageView!
+
+    @IBOutlet private weak var approveButton: RoundedButton!
+    @IBOutlet private weak var rejectButton: RoundedButton!
 
     private weak var tableRefreshControl: UIRefreshControl!
 
@@ -65,6 +72,30 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
         Log.i()
 
         self.refreshReviews()
+    }
+
+    @IBAction private func onApproveButtonTouchUpInside(_ sender: RoundedButton) {
+        Log.i()
+
+        guard let check = self.check else {
+            return
+        }
+
+        self.approve(check: check)
+    }
+
+    @IBAction private func onRejectButtonTouchUpInside(_ sender: RoundedButton) {
+        Log.i()
+
+        guard let check = self.check else {
+            return
+        }
+
+        let onSendButtonClicked: (String) -> Void = { [unowned self] message in
+            self.reject(check: check, message: message)
+        }
+
+        self.performSegue(withIdentifier: Segues.showRejectReason, sender: onSendButtonClicked)
     }
 
     // MARK: -
@@ -115,6 +146,66 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
                 self.showMessage(withTitle: Messages.unknownErrorTitle, message: Messages.unknownError)
             }
         }
+    }
+
+    // MARK: -
+
+    private func approve(check: Check) {
+        self.startAnimating()
+
+        Services.checkService.approve(for: check.uid, response: { [weak self] result in
+            guard let `self` = self else {
+                return
+            }
+
+            self.refreshCheck(check)
+
+            switch result {
+            case .success(let checkUserList):
+                self.apply(checkUserList: checkUserList)
+
+            case .failure(let error):
+                self.handle(stateError: error)
+            }
+        })
+    }
+
+    private func reject(check: Check, message: String) {
+        self.startAnimating()
+
+        Services.checkService.reject(for: check.uid, message: message, response: { [weak self] result in
+            guard let `self` = self else {
+                return
+            }
+
+            self.refreshCheck(check)
+
+            switch result {
+            case .success(let checkUserList):
+                self.apply(checkUserList: checkUserList)
+
+            case .failure(let error):
+                self.handle(stateError: error)
+            }
+        })
+    }
+
+    private func refreshCheck(_ check: Check) {
+        Services.checkService.fetch(check: check.uid, response: { [weak self] result in
+            guard let `self` = self else {
+                return
+            }
+
+            self.stopAnimating()
+
+            switch result {
+            case .success(let check):
+                self.apply(check: check)
+
+            case .failure(let error):
+                self.handle(stateError: error)
+            }
+        })
     }
 
     private func refreshReviews() {
@@ -184,6 +275,15 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
 
             if self.tableRefreshControl.isRefreshing {
                 self.tableRefreshControl.endRefreshing()
+            }
+
+            if let userUID = Services.userAccount?.uid {
+                let checkUser = Services.cacheViewContext.checkUserManager.first(withUserUID: userUID)
+
+                if checkUser?.status != .some(.review) {
+                    self.approveButton.isHidden = true
+                    self.rejectButton.isHidden = true
+                }
             }
 
             self.isRefreshingData = false
@@ -282,6 +382,32 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
             self.apply(checkUserListType: .check(uid: check.uid))
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        switch segue.identifier {
+        case Segues.showRejectReason:
+            guard let block = sender as? (String) -> Void else {
+                return
+            }
+
+            let dictionaryReceiver: DictionaryReceiver?
+
+            if let navigationController = segue.destination as? UINavigationController {
+                dictionaryReceiver = navigationController.viewControllers.first as? DictionaryReceiver
+            } else {
+                dictionaryReceiver = segue.destination as? DictionaryReceiver
+            }
+
+            if let dictionaryReceiver = dictionaryReceiver {
+                dictionaryReceiver.apply(dictionary: ["onSendButtonClicked": block])
+            }
+
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - DictionaryReceiver
@@ -306,6 +432,14 @@ extension ReviewTableViewController: DictionaryReceiver {
 extension ReviewTableViewController: UITableViewDataSource {
 
     // MARK: - Instance Methods
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if self.reviews.isEmpty {
+            return 1
+        } else {
+            return Constants.sectionCount
+        }
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {

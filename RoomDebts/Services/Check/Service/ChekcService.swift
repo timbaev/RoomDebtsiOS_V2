@@ -20,4 +20,7 @@ protocol CheckService {
     func removeParticipant(userUID: Int64, for check: Check, response: @escaping (Swift.Result<ProductList, WebError>) -> Void)
     func calculate(check checkUID: Int64, selectedProducts: [Product.UID: [User.UID]], response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void)
     func fetchReviews(for checkUID: Int64, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void)
+    func approve(for checkUID: Int64, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void)
+    func reject(for checkUID: Int64, message: String, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void)
+    func fetch(check uid: Int64, response: @escaping (Swift.Result<Check, WebError>) -> Void)
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoundedButton: UIButton {
+@IBDesignable class RoundedButton: UIButton {
 
     // MARK: - Instance Properties
 

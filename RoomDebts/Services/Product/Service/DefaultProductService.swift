@@ -19,7 +19,7 @@ struct DefaultProductService: ProductService {
     // MARK: - Instance Methods
 
     func fetch(with checkUID: Int64, result: @escaping (Swift.Result<ProductList, WebError>) -> Void) {
-        self.router.jsonObject(.fetchCheck(uid: checkUID), success: { response in
+        self.router.jsonObject(.fetchProducts(uid: checkUID), success: { response in
             do {
                 let productList = try self.productExtractor.extractProductList(from: response.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
 

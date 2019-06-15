@@ -13,14 +13,17 @@ enum CheckAPI {
     // MARK: - Enumeration Cases
 
     case create(form: CreateCheckForm)
-    case fetch
-    case fetchCheck(uid: Int64)
+    case fetchAll
+    case fetchProducts(uid: Int64)
+    case fetch(checkUID: Int64)
     case update(store: String, checkUID: Int64)
     case upload(image: UIImage, checkUID: Int64)
     case participants(userUIDs: [Int64], checkUID: Int64)
     case removeParticipant(userUID: Int64, checkUID: Int64)
     case calculate(selectedProducts: [String: [Int64]], checkUID: Int64)
     case reviews(checkUID: Int64)
+    case approve(checkUID: Int64)
+    case reject(comment: String, checkUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -33,11 +36,14 @@ extension CheckAPI: EndPointType {
         let basePath = "/v1/checks"
 
         switch self {
-        case .create, .fetch:
+        case .create, .fetchAll:
             return basePath
 
-        case .fetchCheck(let uid):
-            return basePath + "/\(uid)"
+        case .fetch(let checkUID):
+            return basePath + "/\(checkUID)"
+
+        case .fetchProducts(let uid):
+            return basePath + "/\(uid)/products"
 
         case let .update(_, checkUID):
             return basePath + "/\(checkUID)"
@@ -56,6 +62,12 @@ extension CheckAPI: EndPointType {
 
         case .reviews(let checkUID):
             return basePath + "/\(checkUID)/reviews"
+
+        case .approve(let checkUID):
+            return basePath + "/\(checkUID)/approve"
+
+        case let .reject(_, checkUID):
+            return basePath + "/\(checkUID)/reject"
         }
     }
 
@@ -64,10 +76,10 @@ extension CheckAPI: EndPointType {
         case .create, .participants, .calculate:
             return .post
 
-        case .fetch, .fetchCheck, .reviews:
+        case .fetchAll, .fetchProducts, .reviews, .fetch:
             return .get
 
-        case .update, .upload:
+        case .update, .upload, .approve, .reject:
             return .put
 
         case .removeParticipant:
@@ -92,10 +104,13 @@ extension CheckAPI: EndPointType {
         case let .calculate(selectedProducts, _):
             return .requestParameters(bodyParameters: ["selectedProducts": selectedProducts], urlParameters: nil)
 
+        case let .reject(comment, _):
+            return .requestParameters(bodyParameters: ["comment": comment], urlParameters: nil)
+
         case let .upload(image, _):
             return .upload(image: image, imageName: "check.jpg", mimeType: .jpeg)
 
-        case .fetch, .fetchCheck, .reviews:
+        case .fetchAll, .fetchProducts, .reviews, .approve, .fetch:
             return .request
         }
     }

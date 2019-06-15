@@ -37,7 +37,7 @@ struct DefaultCheckService: CheckService {
     }
 
     func fetch(success: @escaping (CheckList) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonArray(.fetch, success: { response in
+        self.router.jsonArray(.fetchAll, success: { response in
             do {
                 let checkList = try self.checkExtractor.extractCheckList(from: response.content, withListType: .all, cacheContext: Services.cacheViewContext)
 
@@ -159,6 +159,63 @@ struct DefaultCheckService: CheckService {
                 let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
 
                 response(.success(checkUserList))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
+        })
+    }
+
+    func approve(for checkUID: Int64, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
+        self.router.jsonArray(.approve(checkUID: checkUID), success: { httpResponse in
+            do {
+                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
+
+                response(.success(checkUserList))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
+        })
+    }
+
+    func reject(for checkUID: Int64, message: String, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
+        self.router.jsonArray(.reject(comment: message, checkUID: checkUID), success: { httpResponse in
+            do {
+                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
+
+                response(.success(checkUserList))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
+        })
+    }
+
+    func fetch(check uid: Int64, response: @escaping (Swift.Result<Check, WebError>) -> Void) {
+        self.router.jsonObject(.fetch(checkUID: uid), success: { httpResponse in
+            do {
+                let check = try self.checkExtractor.extractCheck(from: httpResponse.content, cacheContext: Services.cacheViewContext)
+
+                response(.success(check))
             } catch {
                 if let webError = error as? WebError {
                     response(.failure(webError))

@@ -35,6 +35,10 @@ class DefaultCheckUserManager<Object>: CheckUserManager, StorageContextObserver 
         return NSPredicate(format: "uid == %d", uid)
     }
 
+    private func createPredicate(withUserUID uid: Int64) -> NSPredicate {
+        return NSPredicate(format: "rawUser.uid == %d", uid)
+    }
+
     private func filter(objects: [StorageObject]) -> [Object] {
         return objects.compactMap({ object in
             return object as? Object
@@ -47,6 +51,12 @@ class DefaultCheckUserManager<Object>: CheckUserManager, StorageContextObserver 
         return self.storageManager.first(Object.self,
                                          sortDescriptors: self.sortDescriptors,
                                          predicate: self.createPredicate(withUID: uid))
+    }
+
+    func first(withUserUID uid: Int64) -> CheckUser? {
+        return self.storageManager.first(Object.self,
+                                         sortDescriptors: self.sortDescriptors,
+                                         predicate: self.createPredicate(withUserUID: uid))
     }
 
     func append(withUID uid: Int64) -> CheckUser {

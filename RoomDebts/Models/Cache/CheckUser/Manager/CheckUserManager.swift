@@ -26,6 +26,7 @@ protocol CheckUserManager {
     func firstOrNew(withUID uid: Int64) -> CheckUser
 
     func first(withUID uid: Int64) -> CheckUser?
+    func first(withUserUID uid: Int64) -> CheckUser?
 
     func append(withUID uid: Int64) -> CheckUser
     func append() -> CheckUser

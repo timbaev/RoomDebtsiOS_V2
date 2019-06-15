@@ -41,6 +41,7 @@
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckRejectIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xQI-Ft-tWS">
                                             <rect key="frame" x="97.5" y="18.5" width="20" height="20"/>
+                                            <color key="tintColor" red="1" green="0.14509803921568626" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="9Qe-0C-tHt"/>
                                                 <constraint firstAttribute="height" constant="20" id="EiB-5g-1u7"/>
@@ -53,6 +54,66 @@
                                         <constraint firstItem="xQI-Ft-tWS" firstAttribute="leading" secondItem="y5d-es-eln" secondAttribute="trailing" constant="8" id="y8W-Ec-sKZ"/>
                                         <constraint firstItem="xQI-Ft-tWS" firstAttribute="centerY" secondItem="y3r-5h-ooV" secondAttribute="centerY" id="yL5-sH-8VO"/>
                                         <constraint firstItem="y5d-es-eln" firstAttribute="centerY" secondItem="y3r-5h-ooV" secondAttribute="centerY" id="zmu-9t-rc7"/>
+                                    </constraints>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="xbH-Bh-0tb">
+                                    <rect key="frame" x="0.0" y="233" width="414" height="140"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NWx-CW-trc">
+                                            <rect key="frame" x="16" y="16" width="382" height="108"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UA7-o8-B5N" customClass="RoundedButton" customModule="RoomDebts" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                    <color key="backgroundColor" red="0.32549019607843138" green="1" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="xTo-jV-feu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="17"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                                    <state key="normal" title="APPROVE" image="CheckApproveSmallIcon">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onApproveButtonTouchUpInside:" destination="Gfd-Ij-rk1" eventType="touchUpInside" id="ibX-g5-tdk"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqG-H4-szM" customClass="RoundedButton" customModule="RoomDebts" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="58" width="382" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="BIo-HV-2B0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="17"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                                    <state key="normal" title="REJECT" image="CheckRejectSmallIcon">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onRejectButtonTouchUpInside:" destination="Gfd-Ij-rk1" eventType="touchUpInside" id="mUX-s7-Krx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="NWx-CW-trc" firstAttribute="top" secondItem="xbH-Bh-0tb" secondAttribute="top" constant="16" id="93E-uj-DVo"/>
+                                        <constraint firstItem="NWx-CW-trc" firstAttribute="leading" secondItem="xbH-Bh-0tb" secondAttribute="leading" constant="16" id="bAU-0s-dMs"/>
+                                        <constraint firstAttribute="trailing" secondItem="NWx-CW-trc" secondAttribute="trailing" constant="16" id="d0G-Ih-V7q"/>
+                                        <constraint firstAttribute="bottom" secondItem="NWx-CW-trc" secondAttribute="bottom" constant="16" id="dhi-gJ-VgI"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -109,6 +170,7 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckApproveIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ueF-nQ-kDJ">
                                                     <rect key="frame" x="171.5" y="11.5" width="20" height="20"/>
+                                                    <color key="tintColor" red="0.48627450980392156" green="0.73333333333333328" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="BaZ-Yi-B2C"/>
                                                         <constraint firstAttribute="width" constant="20" id="dSf-CK-CzQ"/>
@@ -160,14 +222,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wBx-WI-Zfa">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wBx-WI-Zfa">
                                                     <rect key="frame" x="16" y="14" width="382" height="49"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-xO-UzR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="191" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckApproveIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pRQ-rS-sZM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                    <color key="tintColor" red="0.48627450980392156" green="0.73333333333333328" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="21r-QJ-Bkz"/>
                                                                         <constraint firstAttribute="width" constant="20" id="BXa-Lj-9es"/>
@@ -191,13 +254,14 @@
                                                                 <constraint firstItem="Att-Au-uCW" firstAttribute="leading" secondItem="pRQ-rS-sZM" secondAttribute="trailing" constant="8" id="30C-LK-Xhb"/>
                                                                 <constraint firstItem="pRQ-rS-sZM" firstAttribute="leading" secondItem="hQY-xO-UzR" secondAttribute="leading" id="TJt-50-RXY"/>
                                                                 <constraint firstItem="pRQ-rS-sZM" firstAttribute="top" secondItem="hQY-xO-UzR" secondAttribute="top" id="TTd-Bt-jIT"/>
+                                                                <constraint firstItem="Att-Au-uCW" firstAttribute="centerY" secondItem="pRQ-rS-sZM" secondAttribute="centerY" id="WlM-nq-JKy"/>
+                                                                <constraint firstAttribute="bottom" secondItem="pRQ-rS-sZM" secondAttribute="bottom" constant="4" id="svF-JH-qBq"/>
                                                                 <constraint firstItem="ge7-HL-g1b" firstAttribute="leading" secondItem="Att-Au-uCW" secondAttribute="trailing" constant="4" id="uwC-60-hLn"/>
-                                                                <constraint firstItem="Att-Au-uCW" firstAttribute="centerY" secondItem="pRQ-rS-sZM" secondAttribute="centerY" id="z3g-ht-mpp"/>
                                                                 <constraint firstItem="ge7-HL-g1b" firstAttribute="centerY" secondItem="Att-Au-uCW" secondAttribute="centerY" id="zQ0-WP-XMY"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn't buy this chocolate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz9-1O-b20">
-                                                            <rect key="frame" x="0.0" y="32" width="166.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="32" width="382" height="17"/>
                                                             <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -257,15 +321,26 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="approveButton" destination="UA7-o8-B5N" id="mUR-mv-2LM"/>
                         <outlet property="checkStatusImageView" destination="xQI-Ft-tWS" id="uxi-5z-ZXE"/>
                         <outlet property="checkStatusLabel" destination="y5d-es-eln" id="kGb-VJ-SYq"/>
+                        <outlet property="rejectButton" destination="jqG-H4-szM" id="Ejf-lN-KvP"/>
                         <outlet property="tableView" destination="TCT-PS-Lih" id="mMZ-17-Ep7"/>
                         <segue destination="ga2-DP-siU" kind="presentation" identifier="Unauthorized" id="H67-pj-Lo7"/>
+                        <segue destination="Kmj-bD-mT3" kind="presentation" identifier="ShowRejectReason" id="QUM-xA-2Ni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxF-dC-Ycv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124.6376811594203" y="114.50892857142857"/>
+        </scene>
+        <!--RejectReason-->
+        <scene sceneID="vbK-1t-OE4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RejectReason" id="Kmj-bD-mT3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgK-Ok-6c9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="46"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="YHQ-z3-QM0">
@@ -273,12 +348,14 @@
                 <viewControllerPlaceholder storyboardName="Welcome" id="ga2-DP-siU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYt-sr-g5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705" y="115"/>
+            <point key="canvasLocation" x="702" y="181"/>
         </scene>
     </scenes>
     <resources>
         <image name="AvatarPlaceholder" width="100" height="100"/>
         <image name="CheckApproveIcon" width="56" height="56"/>
+        <image name="CheckApproveSmallIcon" width="20" height="20"/>
         <image name="CheckRejectIcon" width="20" height="20"/>
+        <image name="CheckRejectSmallIcon" width="17" height="17"/>
     </resources>
 </document>

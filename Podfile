@@ -13,6 +13,7 @@ target 'RoomDebts' do
   pod 'Gloss', '~> 2.0'
   pod 'Kingfisher', '~> 5.0'
   pod 'SwiftLint'
+  pod 'KMPlaceholderTextView', '~> 1.4.0'
 
   target 'RoomDebtsTests' do
     inherit! :search_paths
