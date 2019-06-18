@@ -12,6 +12,20 @@ extension UITableView {
 
     // MARK: - Instance Methods
 
+    func sizeHeaderToFit() {
+        guard let headerView = self.tableHeaderView else {
+            return
+        }
+
+        let size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+
+        if headerView.frame.size.height != size.height {
+            headerView.frame.size.height = size.height
+        }
+
+        self.tableHeaderView = headerView
+    }
+
     func sizeFooterToFit() {
         guard let footerView = self.tableFooterView else {
             return

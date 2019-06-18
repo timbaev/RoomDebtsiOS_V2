@@ -354,7 +354,11 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         let product = self.productList[indexPath.row]
         let checkUsers = self.productList.users
         let userIsCreator = (self.check?.creator?.uid == Services.userAccount?.uid)
-        let viewModel = ProductViewModel(product: product, checkUsers: checkUsers, allowUserSelection: userIsCreator)
+        let checkIsClosed = (self.check?.status == .some(.closed))
+
+        let viewModel = ProductViewModel(product: product,
+                                         checkUsers: checkUsers,
+                                         allowUserSelection: !checkIsClosed && userIsCreator)
 
         cell.configure(data: viewModel)
 

@@ -40,6 +40,9 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     @IBOutlet private weak var checkImageView: RoundedImageView!
     @IBOutlet private weak var storeTextField: TextField!
+    @IBOutlet private weak var changePhotoButton: Button!
+
+    @IBOutlet private weak var addParticipantsControl: AddParticipantsControl!
 
     // MARK: -
 
@@ -199,6 +202,12 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
                 ImageDownloader.shared.loadImage(for: checkImageURL, in: self.checkImageView)
             }
 
+            if check.status == .some(.closed) {
+                self.storeTextField.isEnabled = false
+                self.changePhotoButton.isHidden = true
+                self.addParticipantsControl.isHidden = true
+            }
+
             self.shouldApplyData = false
         } else {
             self.shouldApplyData = true
@@ -295,6 +304,12 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
         super.viewWillDisappear(animated)
 
         self.unsubscribeFromKeyboardNotifications()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.tableView.sizeHeaderToFit()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -415,6 +430,10 @@ extension ParticipantsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard self.check?.status != .some(.closed) else {
+            return false
+        }
+
         guard let users = self.users else {
             return false
         }
