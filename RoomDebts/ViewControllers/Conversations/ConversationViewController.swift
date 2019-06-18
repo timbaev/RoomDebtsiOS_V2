@@ -218,7 +218,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         }
 
         cell.onMoreButtonClick = { [unowned self] in
-            self.showActions(for: conversation, userIsCreator: viewModel.userIsCreator)
+            self.showActions(for: conversation, userIsCreator: viewModel.isUserCreator)
         }
     }
 

@@ -16,16 +16,16 @@ class ConversationTableViewModel {
 
     // MARK: -
 
-    var userIsCreator: Bool {
+    var isUserCreator: Bool {
         return self.conversation.creator?.uid == Services.userAccount?.uid
     }
 
-    var userIsDebtor: Bool {
+    var isUserDebtor: Bool {
         return self.conversation.debtorUID == Services.userAccount?.uid
     }
 
     var opponent: User? {
-        return self.userIsCreator ? self.conversation.opponent : self.conversation.creator
+        return self.isUserCreator ? self.conversation.opponent : self.conversation.creator
     }
 
     // MARK: -
@@ -68,7 +68,7 @@ class ConversationTableViewModel {
             self.isShowActions = false
 
             if conversation.price > 0 {
-                if userIsDebtor {
+                if self.isUserDebtor {
                     self.status = "Repay".localized()
                     self.priceTextColor = Colors.red
                 } else {
@@ -81,9 +81,9 @@ class ConversationTableViewModel {
             }
 
         case .invited?, .repayRequest?, .deleteRequest?:
-            self.status = conversation.status?.description(userIsCreator: userIsCreator)
-            self.isShowActions = !userIsCreator
-            self.isMoreButtonHidden = (!userIsCreator && conversation.status == .repayRequest)
+            self.status = conversation.status?.description(userIsCreator: self.isUserCreator)
+            self.isShowActions = !self.isUserCreator
+            self.isMoreButtonHidden = (!isUserCreator && conversation.status == .repayRequest)
 
         case nil:
             self.status = nil
