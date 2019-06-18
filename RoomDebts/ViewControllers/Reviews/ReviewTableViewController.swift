@@ -99,6 +99,16 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
         self.performSegue(withIdentifier: Segues.showRejectReason, sender: onSendButtonClicked)
     }
 
+    @IBAction private func onDistributeButtonTouchUpInside(_ sender: PrimaryButton) {
+        Log.i()
+
+        guard let check = self.check else {
+            return
+        }
+
+        self.distribute(check: check)
+    }
+
     // MARK: -
 
     private func handle(stateError error: WebError, retryHandler: (() -> Void)? = nil) {
@@ -209,6 +219,26 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
         })
     }
 
+    private func distribute(check: Check) {
+        self.startAnimating()
+
+        Services.checkService.distribute(check: check.uid, response: { [weak self] result in
+            guard let self = self else {
+                return
+            }
+
+            self.stopAnimating()
+
+            switch result {
+            case .success(let check):
+                self.apply(check: check)
+
+            case .failure(let error):
+                self.handle(stateError: error)
+            }
+        })
+    }
+
     private func refreshReviews() {
         Log.i()
 
@@ -253,7 +283,7 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
             self.checkStatusLabel.text = check.status?.title
             self.checkStatusImageView.image = check.status?.image
 
-            if check.status == .some(.closed), check.creator?.uid == Services.userAccount?.uid {
+            if check.status == .some(.accepted), check.creator?.uid == Services.userAccount?.uid {
                 self.distributeButton.isHidden = false
             } else {
                 self.distributeButton.isHidden = true
@@ -291,6 +321,9 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
                 if checkUser?.status != .some(.review) {
                     self.approveButton.isHidden = true
                     self.rejectButton.isHidden = true
+                } else {
+                    self.approveButton.isHidden = false
+                    self.rejectButton.isHidden = false
                 }
             }
 

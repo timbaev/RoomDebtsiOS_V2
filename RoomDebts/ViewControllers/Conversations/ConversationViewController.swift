@@ -169,6 +169,24 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         Services.cacheViewContext.userAccountManager.objectsChangedEvent.disconnect(self)
     }
 
+    private func subscribeToCheckEvents() {
+        self.unsubscribeFromCheckEvents()
+
+        let checkManager = Services.cacheViewContext.checkManager
+
+        checkManager.objectsChangedEvent.connect(self, handler: { [weak self] checks in
+            let closedChecks = checks.filter { $0.status == .some(.closed) }
+
+            if !closedChecks.isEmpty {
+                self?.shouldApplyData = true
+            }
+        })
+    }
+
+    private func unsubscribeFromCheckEvents() {
+        Services.cacheViewContext.checkManager.objectsChangedEvent.disconnect(self)
+    }
+
     // MARK: -
 
     private func configTableRefreshControl() {

@@ -23,4 +23,5 @@ protocol CheckService {
     func approve(for checkUID: Int64, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void)
     func reject(for checkUID: Int64, message: String, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void)
     func fetch(check uid: Int64, response: @escaping (Swift.Result<Check, WebError>) -> Void)
+    func distribute(check uid: Int64, response: @escaping (Swift.Result<Check, WebError>) -> Void)
 }

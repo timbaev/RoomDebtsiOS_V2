@@ -24,6 +24,7 @@ enum CheckAPI {
     case reviews(checkUID: Int64)
     case approve(checkUID: Int64)
     case reject(comment: String, checkUID: Int64)
+    case distribute(checkUID: Int64)
 }
 
 // MARK: - EndPointType
@@ -68,12 +69,15 @@ extension CheckAPI: EndPointType {
 
         case let .reject(_, checkUID):
             return basePath + "/\(checkUID)/reject"
+
+        case .distribute(let checkUID):
+            return basePath + "/\(checkUID)/distribute"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .create, .participants, .calculate:
+        case .create, .participants, .calculate, .distribute:
             return .post
 
         case .fetchAll, .fetchProducts, .reviews, .fetch:
@@ -110,7 +114,7 @@ extension CheckAPI: EndPointType {
         case let .upload(image, _):
             return .upload(image: image, imageName: "check.jpg", mimeType: .jpeg)
 
-        case .fetchAll, .fetchProducts, .reviews, .approve, .fetch:
+        case .fetchAll, .fetchProducts, .reviews, .approve, .fetch, .distribute:
             return .request
         }
     }

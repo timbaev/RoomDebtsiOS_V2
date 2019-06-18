@@ -228,4 +228,23 @@ struct DefaultCheckService: CheckService {
             response(.failure(error))
         })
     }
+
+    func distribute(check uid: Int64, response: @escaping (Swift.Result<Check, WebError>) -> Void) {
+        self.router.jsonObject(.distribute(checkUID: uid), success: { httpResponse in
+            do {
+                let check = try self.checkExtractor.extractCheck(from: httpResponse.content, cacheContext: Services.cacheViewContext)
+
+                response(.success(check))
+            } catch {
+                if let webError = error as? WebError {
+                    response(.failure(webError))
+                } else {
+                    Log.e(error.localizedDescription)
+                    response(.failure(WebError.unknown))
+                }
+            }
+        }, failure: { error in
+            response(.failure(error))
+        })
+    }
 }

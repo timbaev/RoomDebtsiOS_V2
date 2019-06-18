@@ -73,6 +73,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="17"/>
                                                     <state key="normal" title="Distribute"/>
+                                                    <connections>
+                                                        <action selector="onDistributeButtonTouchUpInside:" destination="Gfd-Ij-rk1" eventType="touchUpInside" id="WEk-VG-Pd6"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UA7-o8-B5N" customClass="RoundedButton" customModule="RoomDebts" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="58" width="382" height="50"/>
