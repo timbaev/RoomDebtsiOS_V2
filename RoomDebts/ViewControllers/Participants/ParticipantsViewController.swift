@@ -55,6 +55,10 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     private var items: [ParticipantCellConfigurator] = []
 
+    private var isUserCreator: Bool {
+        return check?.creator?.uid == Services.userAccount?.uid
+    }
+
     private var shouldApplyData = true
 
     // MARK: - Initializers
@@ -202,7 +206,7 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
                 ImageDownloader.shared.loadImage(for: checkImageURL, in: self.checkImageView)
             }
 
-            if check.status == .some(.closed) {
+            if check.status == .some(.closed) || !self.isUserCreator {
                 self.storeTextField.isEnabled = false
                 self.changePhotoButton.isHidden = true
                 self.addParticipantsControl.isHidden = true
@@ -430,7 +434,7 @@ extension ParticipantsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        guard self.check?.status != .some(.closed) else {
+        guard self.check?.status != .some(.closed) || self.isUserCreator else {
             return false
         }
 

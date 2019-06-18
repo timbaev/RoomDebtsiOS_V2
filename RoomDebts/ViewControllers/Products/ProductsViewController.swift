@@ -52,6 +52,10 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
     private var selectedProducts: [Product.UID: [User.UID]] = [:]
 
+    private var isUserCreator: Bool {
+        return self.check?.creator?.uid == Services.userAccount?.uid
+    }
+
     // MARK: - EmptyStateViewable
 
     var emptyStateContainerView = UIView()
@@ -243,7 +247,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
                 self.reviewsButton.isHidden = true
             }
 
-            if check.creator?.uid != Services.userAccount?.uid {
+            if !self.isUserCreator {
                 self.calculateButton.isHidden = true
             }
 
