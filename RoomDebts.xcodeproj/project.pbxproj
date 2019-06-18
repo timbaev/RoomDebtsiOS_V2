@@ -65,6 +65,7 @@
 		CB37A99622062C5D007ECB86 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A99522062C5D007ECB86 /* DataExtensions.swift */; };
 		CB391D5B2222832800EB4EDD /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */; };
 		CB3ADFCB223A370900495E05 /* DebtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3ADFCA223A370900495E05 /* DebtTableViewCell.swift */; };
+		CB42856122B8247100F666D9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42856022B8247100F666D9 /* UITableViewExtension.swift */; };
 		CB44E413225CB51100D59821 /* Checks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB44E412225CB51100D59821 /* Checks.storyboard */; };
 		CB44E416225CBE4E00D59821 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB44E415225CBE4E00D59821 /* CheckTableViewCell.swift */; };
 		CB472CE521F70B3700FB98EE /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB472CE421F70B3700FB98EE /* EndPointType.swift */; };
@@ -416,6 +417,7 @@
 		CB37A99522062C5D007ECB86 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensions.swift; sourceTree = "<group>"; };
 		CB3ADFCA223A370900495E05 /* DebtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtTableViewCell.swift; sourceTree = "<group>"; };
+		CB42856022B8247100F666D9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		CB44E412225CB51100D59821 /* Checks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checks.storyboard; sourceTree = "<group>"; };
 		CB44E415225CBE4E00D59821 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
 		CB472CE421F70B3700FB98EE /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
@@ -1883,6 +1885,7 @@
 				CBAC546F21F4CAA8004C8C65 /* UIColorExtension.swift */,
 				CB5DD290229D07D9006ED7BC /* UIImageExtension.swift */,
 				CB391D5A2222832800EB4EDD /* UISearchBarExtensions.swift */,
+				CB42856022B8247100F666D9 /* UITableViewExtension.swift */,
 				CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
@@ -2940,6 +2943,7 @@
 				CB1C83D6227B859500D10324 /* ProductManager.swift in Sources */,
 				CBA3600D22AC335200BF6FAB /* CheckUserList.swift in Sources */,
 				CBB8869E22A12E06005BC5CA /* UserListManager.swift in Sources */,
+				CB42856122B8247100F666D9 /* UITableViewExtension.swift in Sources */,
 				CBAC545321F4A48A004C8C65 /* CoreDataStorageContext.swift in Sources */,
 				CBEB2DC6222C32A100653B11 /* EmptyStateViewable.swift in Sources */,
 				CBAC548121F4DC84004C8C65 /* LoggedNavigationController.swift in Sources */,

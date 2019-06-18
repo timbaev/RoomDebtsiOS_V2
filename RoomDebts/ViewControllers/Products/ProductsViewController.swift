@@ -235,6 +235,9 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             case .some(.notCalculated):
                 self.reviewsButton.isHidden = true
 
+            case .some(.closed):
+                self.calculateButton.isHidden = true
+
             case .none:
                 self.calculateButton.isHidden = true
                 self.reviewsButton.isHidden = true

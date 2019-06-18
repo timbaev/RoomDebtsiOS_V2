@@ -63,12 +63,16 @@ extension CacheContext {
         self.conversationManager.clear()
         self.userManager.clear()
         self.debtManager.clear()
+        self.checkManager.clear()
+        self.productManager.clear()
+        self.checkUserManager.clear()
 
         self.conversationListManager.clear()
         self.debtListManager.clear()
         self.checkListManager.clear()
         self.productListManager.clear()
         self.userListManager.clear()
+        self.checkUserListManager.clear()
 
         self.save()
     }

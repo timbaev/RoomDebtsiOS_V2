@@ -46,6 +46,7 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
 
     @IBOutlet private weak var approveButton: RoundedButton!
     @IBOutlet private weak var rejectButton: RoundedButton!
+    @IBOutlet private weak var distributeButton: PrimaryButton!
 
     private weak var tableRefreshControl: UIRefreshControl!
 
@@ -252,6 +253,12 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
             self.checkStatusLabel.text = check.status?.title
             self.checkStatusImageView.image = check.status?.image
 
+            if check.status == .some(.closed), check.creator?.uid == Services.userAccount?.uid {
+                self.distributeButton.isHidden = false
+            } else {
+                self.distributeButton.isHidden = true
+            }
+
             self.shouldApplyData = false
         } else {
             self.shouldApplyData = true
@@ -278,7 +285,7 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
                 self.tableRefreshControl.endRefreshing()
             }
 
-            if let userUID = Services.userAccount?.uid {
+            if let userUID = Services.userAccount?.uid, !checkUserList.isEmpty {
                 let checkUser = Services.cacheViewContext.checkUserManager.first(withUserUID: userUID)
 
                 if checkUser?.status != .some(.review) {
@@ -286,6 +293,8 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
                     self.rejectButton.isHidden = true
                 }
             }
+
+            self.tableView.sizeFooterToFit()
 
             self.isRefreshingData = false
 
@@ -445,7 +454,7 @@ extension ReviewTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case Constants.resultsSectionIndex:
-            return self.checkUserList.count
+            return self.checkUserList?.count ?? 0
 
         case Constants.reviewsSectionIndex:
             return self.reviews.count

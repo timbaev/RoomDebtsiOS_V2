@@ -39,6 +39,8 @@ struct DefaultUserExrtactor: UserExtractor {
             throw WebError(code: .badResponse)
         }
 
+        cacheContext.save()
+
         return user
     }
 

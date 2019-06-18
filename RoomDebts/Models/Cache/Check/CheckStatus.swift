@@ -16,6 +16,7 @@ enum CheckStatus: String {
     case calculated
     case notCalculated
     case rejected
+    case closed
 
     // MARK: - Instance Properties
 
@@ -32,6 +33,9 @@ enum CheckStatus: String {
 
         case .rejected:
             return #imageLiteral(resourceName: "CheckRejectIcon.pdf")
+
+        case .closed:
+            return #imageLiteral(resourceName: "CheckApproveIcon.pdf")
         }
     }
 
@@ -48,6 +52,9 @@ enum CheckStatus: String {
 
         case .rejected:
             return "Rejected".localized()
+
+        case .closed:
+            return "Closed".localized()
         }
     }
 }
