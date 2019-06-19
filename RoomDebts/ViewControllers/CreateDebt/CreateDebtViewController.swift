@@ -283,6 +283,8 @@ class CreateDebtViewController: LoggedViewController, NVActivityIndicatorViewabl
 
             self.createButton.setTitle("Update".localized(), for: .normal)
 
+            self.navigationItem.title = "Edit Debt".localized()
+
             self.updateCreateButtonState()
 
             self.shouldApplyData = false

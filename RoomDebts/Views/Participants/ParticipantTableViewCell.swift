@@ -21,7 +21,7 @@ class ParticipantTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        self.avatarImageView.image = nil
+        self.avatarImageView.image = #imageLiteral(resourceName: "AvatarPlaceholder.pdf")
     }
 }
 

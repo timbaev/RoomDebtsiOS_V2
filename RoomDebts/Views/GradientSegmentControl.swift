@@ -12,6 +12,10 @@ class GradientSegmentControl: UISegmentedControl {
 
     // MARK: - Instance Properties
 
+    private weak var gradientBorderLayer: CALayer?
+
+    // MARK: -
+
     override var selectedSegmentIndex: Int {
         didSet {
             self.updateGradientBackground()
@@ -54,16 +58,8 @@ class GradientSegmentControl: UISegmentedControl {
         }
     }
 
-    // MARK: -
-
-    private func initialize() {
-        self.addTarget(self, action: #selector(self.onSegmentControlValueChanged(_:)), for: .valueChanged)
-
-        self.setTitleTextAttributes([.font: Fonts.regular(ofSize: 17),
-                                     .foregroundColor: Colors.white], for: .normal)
-
-        self.setTitleTextAttributes([.font: Fonts.regular(ofSize: 17),
-                                     .foregroundColor: Colors.white], for: .selected)
+    private func configureGradientBorder() {
+        self.gradientBorderLayer?.removeFromSuperlayer()
 
         let cornerRadius = self.bounds.height / 2
 
@@ -88,6 +84,20 @@ class GradientSegmentControl: UISegmentedControl {
 
         self.layer.addSublayer(gradient)
 
+        self.gradientBorderLayer = gradient
+    }
+
+    // MARK: -
+
+    private func initialize() {
+        self.addTarget(self, action: #selector(self.onSegmentControlValueChanged(_:)), for: .valueChanged)
+
+        self.setTitleTextAttributes([.font: Fonts.regular(ofSize: 17),
+                                     .foregroundColor: Colors.white], for: .normal)
+
+        self.setTitleTextAttributes([.font: Fonts.regular(ofSize: 17),
+                                     .foregroundColor: Colors.white], for: .selected)
+
         self.updateGradientBackground()
     }
 
@@ -97,5 +107,6 @@ class GradientSegmentControl: UISegmentedControl {
         super.layoutSubviews()
 
         self.updateGradientBackground()
+        self.configureGradientBorder()
     }
 }

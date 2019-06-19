@@ -41,21 +41,14 @@ extension EmptyStateViewable where Self: UIViewController {
     func configEmptyState() {
         self.emptyStateView.textColor = Colors.white
         self.emptyStateView.activityIndicatorColor = Colors.white
-        self.emptyStateView.backgroundColor = Colors.emptyState
+        self.emptyStateView.firstColor = Colors.Background.first
+        self.emptyStateView.secondColor = Colors.Background.second
     }
 
     func initialize() {
         self.emptyStateContainerView.translatesAutoresizingMaskIntoConstraints = false
 
-        let view: UIView
-
-        if let navigationView = self.navigationController?.view {
-            view = navigationView
-        } else {
-            view = self.view
-        }
-
-        view.addSubview(self.emptyStateContainerView)
+        self.view.addSubview(self.emptyStateContainerView)
 
         self.emptyStateView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -63,10 +56,10 @@ extension EmptyStateViewable where Self: UIViewController {
 
         self.configEmptyState()
 
-        NSLayoutConstraint.activate([self.emptyStateContainerView.topAnchor.constraint(equalTo: view.topAnchor),
-                                     self.emptyStateContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                                     self.emptyStateContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-                                     self.emptyStateContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
+        NSLayoutConstraint.activate([self.emptyStateContainerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+                                     self.emptyStateContainerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                                     self.emptyStateContainerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+                                     self.emptyStateContainerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)])
 
         NSLayoutConstraint.activate([self.emptyStateView.topAnchor.constraint(equalTo: self.emptyStateContainerView.topAnchor),
                                      self.emptyStateView.leadingAnchor.constraint(equalTo: self.emptyStateContainerView.leadingAnchor),
@@ -94,11 +87,11 @@ extension EmptyStateViewable where Self: UIViewController {
     }
 
     func showNoDataState(with message: String) {
-        self.showEmptyState(title: nil, message: message)
+        self.showEmptyState(image: #imageLiteral(resourceName: "NotFoundIcon.pdf"), title: nil, message: message, action: nil)
     }
 
     func showNoDataState(with message: String, action: EmptyStateAction?) {
-        self.showEmptyState(image: nil, title: nil, message: message, action: action)
+        self.showEmptyState(image: #imageLiteral(resourceName: "NotFoundIcon.pdf"), title: nil, message: message, action: action)
     }
 
     func showLoadingState(with title: String?, message: String) {

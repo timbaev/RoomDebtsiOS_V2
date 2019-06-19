@@ -25,7 +25,7 @@ struct EmptyStateAction {
     }
 }
 
-@IBDesignable final class EmptyStateView: UIView {
+@IBDesignable final class EmptyStateView: GradientView {
 
     // MARK: - Instance Properties
 

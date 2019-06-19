@@ -230,10 +230,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             self.navigationItem.title = check.store
 
             switch check.status {
-            case .some(.accepted):
-                self.calculateButton.isHidden = true
-
-            case .some(.calculated), .some(.rejected):
+            case .some(.calculated), .some(.rejected), .some(.accepted):
                 self.calculateButton.setTitle("Recalculate".localized(), for: .normal)
 
             case .some(.notCalculated):

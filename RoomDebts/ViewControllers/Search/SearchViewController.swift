@@ -132,6 +132,18 @@ class SearchViewController: LoggedViewController, ErrorMessagePresenter, NVActiv
         self.configSearchController()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.definesPresentationContext = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.definesPresentationContext = false
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
