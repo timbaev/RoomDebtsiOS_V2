@@ -270,6 +270,10 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
     // MARK: -
 
     private func configureSaveBarButtonItem() {
+        guard self.isUserCreator else {
+            return
+        }
+
         let saveBarButtonItem = UIBarButtonItem(title: "Save".localized(),
                                                 style: .done,
                                                 target: self,
