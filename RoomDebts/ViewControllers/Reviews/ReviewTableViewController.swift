@@ -166,11 +166,12 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
         self.startAnimating()
 
         firstly {
-            when(fulfilled: Services.checkService.approve(for: check.uid),
-                 Services.checkService.fetch(check: check.uid))
+            Services.checkService.approve(for: check.uid)
+        }.then { checkUserList in
+            Services.checkService.fetch(check: check.uid).map { ($0, checkUserList) }
         }.ensure {
             self.stopAnimating()
-        }.done { checkUserList, check in
+        }.done { check, checkUserList in
             self.apply(check: check)
             self.apply(checkUserList: checkUserList)
         }.catch { error in
@@ -182,11 +183,12 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
         self.startAnimating()
 
         firstly {
-            when(fulfilled: Services.checkService.reject(for: check.uid, message: message),
-                 Services.checkService.fetch(check: check.uid))
+            Services.checkService.reject(for: check.uid, message: message)
+        }.then { checkUserList in
+            Services.checkService.fetch(check: check.uid).map { ($0, checkUserList) }
         }.ensure {
             self.stopAnimating()
-        }.done { checkUserList, check in
+        }.done { check, checkUserList in
             self.apply(check: check)
             self.apply(checkUserList: checkUserList)
         }.catch { error in

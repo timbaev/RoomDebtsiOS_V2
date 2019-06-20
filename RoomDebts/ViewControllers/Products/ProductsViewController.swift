@@ -49,6 +49,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
     private var productlistType: ProductListType = .unknown
 
     private var shouldApplyData = true
+    private var shouldRefreshCheck = false
     private var isRefreshingData = false
 
     private var selectedProducts: [Product.UID: [User.UID]] = [:]
@@ -97,13 +98,15 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
         if check.status == .some(.calculated) || check.status == .some(.rejected) {
             UIAlertController.Builder()
                 .preferredStyle(.actionSheet)
-                .withTitle("Recalculate".localized())
+                .withTitle("Resetting calculations".localized())
                 .withMessage("Previous calculation results will be lost and approvals will be cancel.".localized())
                 .addDefaultAction(withTitle: "Recalculate".localized(), handler: { [unowned self] action in
                     self.calculate(check: check)
                 })
                 .addCancelAction()
                 .show(in: self)
+        } else {
+            self.calculate(check: check)
         }
     }
 
@@ -172,10 +175,30 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
         firstly {
             Services.checkService.calculate(check: check.uid, selectedProducts: self.selectedProducts)
+        }.then { checkUserList in
+            Services.checkService.fetch(check: check.uid).map { ($0, checkUserList) }
         }.ensure {
             self.stopAnimating()
-        }.done { checkUserList in
+        }.done { check, checkUserList in
+            self.apply(check: check)
+
             self.performSegue(withIdentifier: Segues.showReviews, sender: checkUserList)
+        }.catch { error in
+             self.handle(stateError: error)
+        }
+    }
+
+    private func refresh(check: Check) {
+        Log.i(check.uid)
+
+        self.startAnimating()
+
+        firstly {
+            Services.checkService.fetch(check: check.uid)
+        }.ensure {
+            self.stopAnimating()
+        }.done { check in
+            self.apply(check: check)
         }.catch { error in
             self.handle(stateError: error)
         }
@@ -227,8 +250,10 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             switch check.status {
             case .some(.calculated), .some(.rejected), .some(.accepted):
                 self.calculateButton.setTitle("Recalculate".localized(), for: .normal)
+                self.reviewsButton.isHidden = false
 
             case .some(.notCalculated):
+                self.calculateButton.setTitle("Calculate".localized(), for: .normal)
                 self.reviewsButton.isHidden = true
 
             case .some(.closed):
@@ -242,6 +267,8 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             if !self.isUserCreator {
                 self.calculateButton.isHidden = true
             }
+
+            self.tableView.sizeFooterToFit()
 
             self.shouldApplyData = false
         } else {
@@ -322,6 +349,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
             if viewController.view.window == nil {
                 viewController.shouldApplyData = true
+                viewController.shouldRefreshCheck = true
             }
         })
 
@@ -410,23 +438,10 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
             self.apply(check: check)
             self.apply(productListType: .check(uid: check.uid))
         }
-    }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        guard let footerView = self.tableView.tableFooterView else {
-            return
+        if self.shouldRefreshCheck, let check = self.check {
+            self.refresh(check: check)
         }
-
-        let size = footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-
-        if footerView.frame.size.height != size.height {
-            footerView.frame.size.height = size.height
-        }
-
-        self.tableView.tableFooterView = footerView
-        self.tableView.layoutIfNeeded()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -493,7 +508,7 @@ extension ProductsViewController: UITableViewDataSource {
     // MARK: - Instance Methods
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.productList.count
+        return self.productList?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
