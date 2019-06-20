@@ -34,7 +34,7 @@ protocol ChecksPresentationLogic: AnyObject {
 
     // MARK: - Instance Methods
 
-    func showMessage(with error: WebError)
+    func showMessage(with error: Error)
     func showMessage(with title: String, message: String)
 
     func showLoadingIndicator()
@@ -63,7 +63,7 @@ protocol ChecksViewDisplayLogic: AnyObject {
 
     // MARK: - Instance Methods
 
-    func displayMessage(with error: WebError)
+    func displayMessage(with error: Error)
     func displayMessage(with title: String, message: String)
 
     func displayLoadingIndicator()

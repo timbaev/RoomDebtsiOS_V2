@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 struct DefaultCheckService: CheckService {
 
@@ -20,73 +21,67 @@ struct DefaultCheckService: CheckService {
 
     // MARK: - Instance Methods
 
-    func create(with form: CreateCheckForm, success: @escaping (Check) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonObject(.create(form: form), success: { response in
-            do {
-                let check = try self.checkExtractor.extractCheck(from: response.content, cacheContext: Services.cacheViewContext)
-
-                success(check)
-            } catch {
-                if let webError = error as? WebError {
-                    failure(webError)
-                } else {
-                    Log.e(error.localizedDescription)
+    func create(with form: CreateCheckForm) -> Promise<Check> {
+        return Promise(resolver: { seal in
+            self.router.jsonObject(.create(form: form), success: { response in
+                firstly {
+                    self.checkExtractor.extractCheck(from: response.content)
+                }.done { check in
+                    seal.fulfill(check)
+                }.catch { error in
+                    seal.reject(error)
                 }
-            }
-        }, failure: failure)
-    }
-
-    func fetch(success: @escaping (CheckList) -> Void, failure: @escaping (WebError) -> Void) {
-        self.router.jsonArray(.fetchAll, success: { response in
-            do {
-                let checkList = try self.checkExtractor.extractCheckList(from: response.content, withListType: .all, cacheContext: Services.cacheViewContext)
-
-                success(checkList)
-            } catch {
-                if let webError = error as? WebError {
-                    failure(webError)
-                } else {
-                    Log.e(error.localizedDescription)
-                }
-            }
-        }, failure: failure)
-    }
-
-    func update(storeName store: String, for check: Check, result: @escaping (Swift.Result<Check, WebError>) -> Void) {
-        self.router.jsonObject(.update(store: store, checkUID: check.uid), success: { response in
-            do {
-                let check = try self.checkExtractor.extractCheck(from: response.content, cacheContext: Services.cacheViewContext)
-
-                result(.success(check))
-            } catch {
-                if let webError = error as? WebError {
-                    result(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    result(.failure(WebError.unknown))
-                }
-            }
-        }, failure: { error in
-            result(.failure(error))
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 
-    func upload(image: UIImage, for check: Check, result: @escaping (Swift.Result<Check, WebError>) -> Void) {
-        self.router.jsonObject(.upload(image: image.resized(), checkUID: check.uid), success: { response in
-            do {
-                let check = try self.checkExtractor.extractCheck(from: response.content, cacheContext: Services.cacheViewContext)
-
-                result(.success(check))
-            } catch {
-                if let webError = error as? WebError {
-                    result(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    result(.failure(WebError.unknown))
+    func fetchAll() -> Promise<CheckList> {
+        return Promise(resolver: { seal in
+            self.router.jsonArray(.fetchAll, success: { response in
+                firstly {
+                    self.checkExtractor.extractCheckList(from: response.content, withListType: .all)
+                }.done { checkList in
+                    seal.fulfill(checkList)
+                }.catch { error in
+                    seal.reject(error)
                 }
-            }
-        }, failure: { error in
-            result(.failure(error))
+            }, failure: { error in
+                seal.reject(error)
+            })
+        })
+    }
+
+    func update(storeName store: String, for checkUID: Int64) -> Promise<Check> {
+        return Promise(resolver: { seal in
+            self.router.jsonObject(.update(store: store, checkUID: checkUID), success: { response in
+                firstly {
+                    self.checkExtractor.extractCheck(from: response.content)
+                }.done { check in
+                    seal.fulfill(check)
+                }.catch { error in
+                    seal.reject(error)
+                }
+            }, failure: { error in
+                seal.reject(error)
+            })
+        })
+    }
+
+    func upload(image: UIImage, for checkUID: Int64) -> Promise<Check> {
+        return Promise(resolver: { seal in
+            self.router.jsonObject(.upload(image: image.resized(), checkUID: checkUID), success: { response in
+                firstly {
+                    self.checkExtractor.extractCheck(from: response.content)
+                }.done { check in
+                    seal.fulfill(check)
+                }.catch { error in
+                    seal.reject(error)
+                }
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 
@@ -128,123 +123,105 @@ struct DefaultCheckService: CheckService {
         })
     }
 
-    func calculate(check checkUID: Int64, selectedProducts: [Product.UID: [User.UID]], response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
-        var jsonSelectedProducts: [String: [User.UID]] = [:]
+    func calculate(check checkUID: Int64, selectedProducts: [Product.UID: [User.UID]]) -> Promise<CheckUserList> {
+        return Promise(resolver: { seal in
+            var jsonSelectedProducts: [String: [User.UID]] = [:]
 
-        selectedProducts.forEach { productUID, userUIDs in
-            jsonSelectedProducts["\(productUID)"] = userUIDs
-        }
-
-        self.router.jsonArray(.calculate(selectedProducts: jsonSelectedProducts, checkUID: checkUID), success: { httpResponse in
-            do {
-                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
-
-                response(.success(checkUserList))
-            } catch {
-                if let webError = error as? WebError {
-                    response(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    response(.failure(WebError.unknown))
-                }
+            selectedProducts.forEach { productUID, userUIDs in
+                jsonSelectedProducts["\(productUID)"] = userUIDs
             }
-        }, failure: { error in
-            response(.failure(error))
+
+            self.router.jsonArray(.calculate(selectedProducts: jsonSelectedProducts, checkUID: checkUID), success: { response in
+                firstly {
+                    self.checkUserExtractor.extractCheckUserList(from: response.content, withListType: .check(uid: checkUID))
+                }.done { checkUserList in
+                    seal.fulfill(checkUserList)
+                }.catch { error in
+                    seal.reject(error)
+                }
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 
-    func fetchReviews(for checkUID: Int64, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
-        self.router.jsonArray(.reviews(checkUID: checkUID), success: { httpResponse in
-            do {
-                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
-
-                response(.success(checkUserList))
-            } catch {
-                if let webError = error as? WebError {
-                    response(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    response(.failure(WebError.unknown))
+    func fetchReviews(for checkUID: Int64) -> Promise<CheckUserList> {
+        return Promise(resolver: { seal in
+            self.router.jsonArray(.reviews(checkUID: checkUID), success: { response in
+                firstly {
+                    self.checkUserExtractor.extractCheckUserList(from: response.content, withListType: .check(uid: checkUID))
+                }.done { checkUserList in
+                    seal.fulfill(checkUserList)
+                }.catch { error in
+                    seal.reject(error)
                 }
-            }
-        }, failure: { error in
-            response(.failure(error))
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 
-    func approve(for checkUID: Int64, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
-        self.router.jsonArray(.approve(checkUID: checkUID), success: { httpResponse in
-            do {
-                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
-
-                response(.success(checkUserList))
-            } catch {
-                if let webError = error as? WebError {
-                    response(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    response(.failure(WebError.unknown))
+    func approve(for checkUID: Int64) -> Promise<CheckUserList> {
+        return Promise(resolver: { seal in
+            self.router.jsonArray(.approve(checkUID: checkUID), success: { response in
+                firstly {
+                    self.checkUserExtractor.extractCheckUserList(from: response.content, withListType: .check(uid: checkUID))
+                }.done { checkUserList in
+                    seal.fulfill(checkUserList)
+                }.catch { error in
+                    seal.reject(error)
                 }
-            }
-        }, failure: { error in
-            response(.failure(error))
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 
-    func reject(for checkUID: Int64, message: String, response: @escaping (Swift.Result<CheckUserList, WebError>) -> Void) {
-        self.router.jsonArray(.reject(comment: message, checkUID: checkUID), success: { httpResponse in
-            do {
-                let checkUserList = try self.checkUserExtractor.extractCheckUserList(from: httpResponse.content, withListType: .check(uid: checkUID), cacheContext: Services.cacheViewContext)
-
-                response(.success(checkUserList))
-            } catch {
-                if let webError = error as? WebError {
-                    response(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    response(.failure(WebError.unknown))
+    func reject(for checkUID: Int64, message: String) -> Promise<CheckUserList> {
+        return Promise(resolver: { seal in
+            self.router.jsonArray(.reject(comment: message, checkUID: checkUID), success: { response in
+                firstly {
+                    self.checkUserExtractor.extractCheckUserList(from: response.content, withListType: .check(uid: checkUID))
+                }.done { checkUserList in
+                    seal.fulfill(checkUserList)
+                }.catch { error in
+                    seal.reject(error)
                 }
-            }
-        }, failure: { error in
-            response(.failure(error))
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 
-    func fetch(check uid: Int64, response: @escaping (Swift.Result<Check, WebError>) -> Void) {
-        self.router.jsonObject(.fetch(checkUID: uid), success: { httpResponse in
-            do {
-                let check = try self.checkExtractor.extractCheck(from: httpResponse.content, cacheContext: Services.cacheViewContext)
-
-                response(.success(check))
-            } catch {
-                if let webError = error as? WebError {
-                    response(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    response(.failure(WebError.unknown))
+    func fetch(check uid: Int64) -> Promise<Check> {
+        return Promise(resolver: { seal in
+            self.router.jsonObject(.fetch(checkUID: uid), success: { response in
+                firstly {
+                    self.checkExtractor.extractCheck(from: response.content)
+                }.done { check in
+                    seal.fulfill(check)
+                }.catch { error in
+                    seal.reject(error)
                 }
-            }
-        }, failure: { error in
-            response(.failure(error))
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 
-    func distribute(check uid: Int64, response: @escaping (Swift.Result<Check, WebError>) -> Void) {
-        self.router.jsonObject(.distribute(checkUID: uid), success: { httpResponse in
-            do {
-                let check = try self.checkExtractor.extractCheck(from: httpResponse.content, cacheContext: Services.cacheViewContext)
-
-                response(.success(check))
-            } catch {
-                if let webError = error as? WebError {
-                    response(.failure(webError))
-                } else {
-                    Log.e(error.localizedDescription)
-                    response(.failure(WebError.unknown))
+    func distribute(check uid: Int64) -> Promise<Check> {
+        return Promise(resolver: { seal in
+            self.router.jsonObject(.distribute(checkUID: uid), success: { response in
+                firstly {
+                    self.checkExtractor.extractCheck(from: response.content)
+                }.done { check in
+                    seal.fulfill(check)
+                }.catch { error in
+                    seal.reject(error)
                 }
-            }
-        }, failure: { error in
-            response(.failure(error))
+            }, failure: { error in
+                seal.reject(error)
+            })
         })
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import PromiseKit
 
 class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
@@ -114,13 +115,13 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
     // MARK: -
 
-    private func handle(stateError error: WebError, retryHandler: (() -> Void)? = nil) {
+    private func handle(stateError error: Error, retryHandler: (() -> Void)? = nil) {
         let action = EmptyStateAction(title: "Try Again".localized(), onClicked: {
             retryHandler?()
         })
 
-        switch error {
-        case .connection, .timeOut:
+        switch error as? WebError {
+        case .some(.connection), .some(.timeOut):
             if self.productList?.isEmpty ?? true {
                 self.showEmptyState(image: #imageLiteral(resourceName: "ErrorInternet.pdf"),
                                     title: Messages.internetConncetionTitle,
@@ -130,8 +131,8 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
                 self.showMessage(withTitle: Messages.internetConncetionTitle, message: Messages.internetConnection)
             }
 
-        case .badRequest:
-            if let message = error.message {
+        case .some(.badRequest):
+            if let webError = error as? WebError, let message = webError.message {
                 if self.productList?.isEmpty ?? true {
                     self.showEmptyState(image: #imageLiteral(resourceName: "ErrorWarning.pdf"),
                                         title: Messages.unknownErrorTitle,
@@ -147,7 +148,7 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
                                     action: action)
             }
 
-        case .unauthorized:
+        case .some(.badRequest):
             self.performSegue(withIdentifier: Segues.unauthorized, sender: self)
 
         default:
@@ -169,21 +170,15 @@ class ProductsViewController: LoggedViewController, EmptyStateViewable, ErrorMes
 
         self.startAnimating()
 
-        Services.checkService.calculate(check: check.uid, selectedProducts: self.selectedProducts, response: { [weak self] result in
-            guard let `self` = self else {
-                return
-            }
-
+        firstly {
+            Services.checkService.calculate(check: check.uid, selectedProducts: self.selectedProducts)
+        }.ensure {
             self.stopAnimating()
-
-            switch result {
-            case .success(let checkUserList):
-                self.performSegue(withIdentifier: Segues.showReviews, sender: checkUserList)
-
-            case .failure(let error):
-                self.handle(stateError: error)
-            }
-        })
+        }.done { checkUserList in
+            self.performSegue(withIdentifier: Segues.showReviews, sender: checkUserList)
+        }.catch { error in
+            self.handle(stateError: error)
+        }
     }
 
     private func refreshProductList() {

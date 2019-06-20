@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 protocol CacheProvider {
 
@@ -15,4 +16,8 @@ protocol CacheProvider {
     var isModelCaptured: Bool { get }
 
     var model: CacheModel { get }
+
+    // MARK: - Instance Methods
+
+    func captureModel() -> Guarantee<CacheSession>
 }

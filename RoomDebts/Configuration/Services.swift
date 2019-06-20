@@ -40,14 +40,16 @@ enum Services {
                                                                    userCoder: Coders.userCoder,
                                                                    userExtractor: Services.userExtractor)
 
-    static let checkExtractor: CheckExtractor = DefaultCheckExtractor(checkCoder: Coders.checkCoder,
+    static let checkExtractor: CheckExtractor = DefaultCheckExtractor(cacheProvider: Services.cacheProvider,
+                                                                      checkCoder: Coders.checkCoder,
                                                                       userCoder: Coders.userCoder,
                                                                       userExtractor: Services.userExtractor)
 
     static let productExtractor: ProductExtractor = DefaultProductExtractor(productCoder: Coders.productCoder,
                                                                             userExtractor: Services.userExtractor)
 
-    static let checkUserExtractor: CheckUserExtractor = DefaultCheckUserExtractor(userExtractor: Services.userExtractor,
+    static let checkUserExtractor: CheckUserExtractor = DefaultCheckUserExtractor(cacheProvider: Services.cacheProvider,
+                                                                                  userExtractor: Services.userExtractor,
                                                                                   checkUserCoder: Coders.checkUserCoder)
 
     // MARK: -

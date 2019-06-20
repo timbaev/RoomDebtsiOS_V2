@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
@@ -81,11 +82,11 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
         return nil
     }
 
-    private func handle(stateError error: WebError) {
+    private func handle(stateError error: Error) {
         let actionTitle = "Try Again".localized()
 
-        switch error {
-        case .connection, .timeOut:
+        switch error as? WebError {
+        case .some(.connection), .some(.timeOut):
             if self.checkList?.isEmpty ?? true {
                 self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorInternet.pdf"),
                                               title: Messages.internetConncetionTitle,
@@ -95,8 +96,8 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
                 self.presenter.showMessage(with: Messages.internetConncetionTitle, message: Messages.internetConnection)
             }
 
-        case .badRequest:
-            if let message = error.message {
+        case .some(.badRequest):
+            if let webError = error as? WebError, let message = webError.message {
                 if self.checkList?.isEmpty ?? true {
                     self.presenter.showEmptyState(with: #imageLiteral(resourceName: "ErrorWarning"),
                                                   title: Messages.unknownErrorTitle,
@@ -155,20 +156,13 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
 
         self.presenter.showLoadingIndicator()
 
-        self.checkService.create(with: form, success: { [weak self] check in
-            guard let interactor = self else {
-                return
-            }
-
-            interactor.presenter.hideLoadingIndicator()
-        }, failure: { [weak self] error in
-            guard let interactor = self else {
-                return
-            }
-
-            interactor.presenter.hideLoadingIndicator()
-            interactor.presenter.showMessage(with: error)
-        })
+        firstly {
+            self.checkService.create(with: form)
+        }.ensure {
+            self.presenter.hideLoadingIndicator()
+        }.catch { error in
+            self.presenter.showMessage(with: error)
+        }
     }
 
     func fetchChecks() {
@@ -184,11 +178,9 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
             self.presenter.showChecks(with: checkList)
         }
 
-        self.checkService.fetch(success: { [weak self] checkList in
-            guard let `self` = self else {
-                return
-            }
-
+        firstly {
+            self.checkService.fetchAll()
+        }.done { checkList in
             self.subscribeToCheckEvents()
 
             self.checks = checkList.checks
@@ -203,8 +195,8 @@ final class ChecksInteractor: ChecksBusinessLogic, ChecksDataStore {
             self.presenter.stopRefreshing()
 
             self.presenter.showChecks(with: checkList)
-        }, failure: { [weak self] error in
-            self?.handle(stateError: error)
-        })
+        }.catch { error in
+            self.handle(stateError: error)
+        }
     }
 }

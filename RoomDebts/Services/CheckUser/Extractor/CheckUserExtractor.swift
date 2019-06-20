@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import PromiseKit
 
 protocol CheckUserExtractor {
 
     // MARK: - Instance Methods
 
-    func extractCheckUserList(from json: [JSON], withListType listType: CheckUserListType, cacheContext: CacheContext) throws -> CheckUserList
+    func extractCheckUserList(from json: [JSON], withListType listType: CheckUserListType) -> Promise<CheckUserList>
 }

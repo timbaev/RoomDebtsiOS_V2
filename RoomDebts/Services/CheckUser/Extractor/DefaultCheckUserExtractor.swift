@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import PromiseKit
 
 struct DefaultCheckUserExtractor: CheckUserExtractor {
 
     // MARK: - Instance Properties
+
+    let cacheProvider: CacheProvider
 
     let userExtractor: UserExtractor
 
@@ -35,14 +38,11 @@ struct DefaultCheckUserExtractor: CheckUserExtractor {
 
         checkUser.user = try self.userExtractor.extractUser(from: userJSON, cacheContext: cacheContext)
 
-        cacheContext.save()
-
         return checkUser
     }
 
-    // MARK: - CheckUserExtractor
-
-    func extractCheckUserList(from json: [JSON], withListType listType: CheckUserListType, cacheContext: CacheContext) throws -> CheckUserList {
+    @discardableResult
+    private func extractCheckUserList(from json: [JSON], withListType listType: CheckUserListType, cacheContext: CacheContext) throws -> CheckUserList {
         let checkUserList = cacheContext.checkUserListManager.firstOrNew(withListType: listType)
 
         checkUserList.clearCheckUsers()
@@ -51,8 +51,36 @@ struct DefaultCheckUserExtractor: CheckUserExtractor {
             checkUserList.append(checkUser: try self.extractCheckUser(from: $0, cacheContext: cacheContext))
         }
 
-        cacheContext.save()
-
         return checkUserList
+    }
+
+    // MARK: - CheckUserExtractor
+
+    func extractCheckUserList(from json: [JSON], withListType listType: CheckUserListType) -> Promise<CheckUserList> {
+        return Promise(resolver: { seal in
+            firstly {
+                self.cacheProvider.captureModel()
+            }.done { cacheSession in
+                let backgroundContext = cacheSession.model.viewContext.createPrivateQueueChildContext()
+
+                backgroundContext.perform(block: {
+                    do {
+                        try self.extractCheckUserList(from: json, withListType: listType, cacheContext: backgroundContext)
+
+                        backgroundContext.save()
+
+                        cacheSession.model.viewContext.performAndWait(block: {
+                            cacheSession.model.viewContext.save()
+
+                            seal.fulfill(cacheSession.model.viewContext.checkUserListManager.first(withListType: listType)!)
+                        })
+                    } catch {
+                        DispatchQueue.main.async(execute: {
+                            seal.reject(error)
+                        })
+                    }
+                })
+            }
+        })
     }
 }

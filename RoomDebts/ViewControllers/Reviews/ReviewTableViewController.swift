@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import PromiseKit
 
 class ReviewTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
@@ -111,13 +112,13 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
 
     // MARK: -
 
-    private func handle(stateError error: WebError, retryHandler: (() -> Void)? = nil) {
+    private func handle(stateError error: Error, retryHandler: (() -> Void)? = nil) {
         let action = EmptyStateAction(title: "Try Again".localized(), onClicked: {
             retryHandler?()
         })
 
-        switch error {
-        case .connection, .timeOut:
+        switch error as? WebError {
+        case .some(.connection), .some(.timeOut):
             if self.checkUserList?.isEmpty ?? true {
                 self.showEmptyState(image: #imageLiteral(resourceName: "ErrorInternet.pdf"),
                                     title: Messages.internetConncetionTitle,
@@ -127,8 +128,8 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
                 self.showMessage(withTitle: Messages.internetConncetionTitle, message: Messages.internetConnection)
             }
 
-        case .badRequest:
-            if let message = error.message {
+        case .some(.badRequest):
+            if let webError = error as? WebError, let message = webError.message {
                 if self.checkUserList?.isEmpty ?? true {
                     self.showEmptyState(image: #imageLiteral(resourceName: "ErrorWarning.pdf"),
                                         title: Messages.unknownErrorTitle,
@@ -144,7 +145,7 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
                                     action: action)
             }
 
-        case .unauthorized:
+        case .some(.badRequest):
             self.performSegue(withIdentifier: Segues.unauthorized, sender: self)
 
         default:
@@ -164,79 +165,47 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
     private func approve(check: Check) {
         self.startAnimating()
 
-        Services.checkService.approve(for: check.uid, response: { [weak self] result in
-            guard let `self` = self else {
-                return
-            }
-
-            self.refreshCheck(check)
-
-            switch result {
-            case .success(let checkUserList):
-                self.apply(checkUserList: checkUserList)
-
-            case .failure(let error):
-                self.handle(stateError: error)
-            }
-        })
+        firstly {
+            when(fulfilled: Services.checkService.approve(for: check.uid),
+                 Services.checkService.fetch(check: check.uid))
+        }.ensure {
+            self.stopAnimating()
+        }.done { checkUserList, check in
+            self.apply(check: check)
+            self.apply(checkUserList: checkUserList)
+        }.catch { error in
+            self.handle(stateError: error)
+        }
     }
 
     private func reject(check: Check, message: String) {
         self.startAnimating()
 
-        Services.checkService.reject(for: check.uid, message: message, response: { [weak self] result in
-            guard let `self` = self else {
-                return
-            }
-
-            self.refreshCheck(check)
-
-            switch result {
-            case .success(let checkUserList):
-                self.apply(checkUserList: checkUserList)
-
-            case .failure(let error):
-                self.handle(stateError: error)
-            }
-        })
-    }
-
-    private func refreshCheck(_ check: Check) {
-        Services.checkService.fetch(check: check.uid, response: { [weak self] result in
-            guard let `self` = self else {
-                return
-            }
-
+        firstly {
+            when(fulfilled: Services.checkService.reject(for: check.uid, message: message),
+                 Services.checkService.fetch(check: check.uid))
+        }.ensure {
             self.stopAnimating()
-
-            switch result {
-            case .success(let check):
-                self.apply(check: check)
-
-            case .failure(let error):
-                self.handle(stateError: error)
-            }
-        })
+        }.done { checkUserList, check in
+            self.apply(check: check)
+            self.apply(checkUserList: checkUserList)
+        }.catch { error in
+            self.handle(stateError: error)
+        }
     }
 
     private func distribute(check: Check) {
         self.startAnimating()
 
-        Services.checkService.distribute(check: check.uid, response: { [weak self] result in
-            guard let self = self else {
-                return
-            }
-
+        firstly {
+            Services.checkService.distribute(check: check.uid)
+        }.ensure {
             self.stopAnimating()
-
-            switch result {
-            case .success(let check):
-                self.apply(check: check)
-
-            case .failure(let error):
-                self.handle(stateError: error)
-            }
-        })
+        }.done { check in
+            self.apply(check: check)
+        }.catch { error in
+            self.handle(stateError: error)
+        }
     }
 
     private func refreshReviews() {
@@ -255,21 +224,15 @@ class ReviewTableViewController: LoggedViewController, EmptyStateViewable, Error
             }
         }
 
-        Services.checkService.fetchReviews(for: check.uid, response: { [weak self] result in
-            guard let `self` = self else {
-                return
-            }
-
-            switch result {
-            case .success(let checkUserList):
-                self.apply(checkUserList: checkUserList)
-
-            case .failure(let error):
-                self.handle(stateError: error, retryHandler: { [weak self] in
-                    self?.refreshReviews()
-                })
-            }
-        })
+        firstly {
+            Services.checkService.fetchReviews(for: check.uid)
+        }.done { checkUserList in
+            self.apply(checkUserList: checkUserList)
+        }.catch { error in
+            self.handle(stateError: error, retryHandler: { [weak self] in
+                self?.refreshReviews()
+            })
+        }
     }
 
     // MARK: -

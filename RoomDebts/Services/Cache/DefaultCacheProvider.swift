@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 class DefaultCacheProvider<Session: CacheSession>: CacheProvider {
 
@@ -42,5 +43,19 @@ class DefaultCacheProvider<Session: CacheSession>: CacheProvider {
         } else {
             self.isModelCaptured = false
         }
+    }
+
+    // MARK: - CacheProvider
+
+    func captureModel() -> Guarantee<CacheSession> {
+        return Guarantee(resolver: { completion in
+            if self.isModelCaptured {
+                self.captureResolvers.append(completion)
+            } else {
+                self.isModelCaptured = true
+
+                completion(self.createSession())
+            }
+        })
     }
 }

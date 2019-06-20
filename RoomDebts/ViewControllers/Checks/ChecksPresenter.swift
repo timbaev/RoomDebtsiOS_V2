@@ -16,7 +16,7 @@ final class ChecksPresenter: ChecksPresentationLogic {
 
     // MARK: - ChecksPresentationLogic
 
-    func showMessage(with error: WebError) {
+    func showMessage(with error: Error) {
         self.viewController.displayMessage(with: error)
     }
 

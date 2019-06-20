@@ -5,6 +5,15 @@ PODS:
   - NVActivityIndicatorView (4.5.1):
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
+  - PromiseKit (6.8.4):
+    - PromiseKit/CorePromise (= 6.8.4)
+    - PromiseKit/Foundation (= 6.8.4)
+    - PromiseKit/UIKit (= 6.8.4)
+  - PromiseKit/CorePromise (6.8.4)
+  - PromiseKit/Foundation (6.8.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.4):
+    - PromiseKit/CorePromise
   - SwiftKeychainWrapper (3.2.0)
   - SwiftLint (0.30.1)
   - SwiftPhoneNumberFormatter (1.5)
@@ -15,6 +24,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - KMPlaceholderTextView (~> 1.4.0)
   - NVActivityIndicatorView
+  - PromiseKit (~> 6.8)
   - SwiftKeychainWrapper
   - SwiftLint
   - SwiftPhoneNumberFormatter
@@ -26,6 +36,7 @@ SPEC REPOS:
     - Kingfisher
     - KMPlaceholderTextView
     - NVActivityIndicatorView
+    - PromiseKit
     - SwiftKeychainWrapper
     - SwiftLint
     - SwiftPhoneNumberFormatter
@@ -36,11 +47,12 @@ SPEC CHECKSUMS:
   Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
+  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: b74784bd9099b3c2de8f8796bfd71436235bcd35
+PODFILE CHECKSUM: 96a20235f1f851ebde40ec0e2e125fc1e191a033
 
 COCOAPODS: 1.6.1

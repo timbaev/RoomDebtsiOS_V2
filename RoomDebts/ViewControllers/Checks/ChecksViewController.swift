@@ -88,7 +88,7 @@ class ChecksViewController: LoggedViewController, ChecksViewDisplayLogic, ErrorM
 
     // MARK: - ChecksViewDisplayLogic
 
-    func displayMessage(with error: WebError) {
+    func displayMessage(with error: Error) {
         self.showMessage(withError: error)
     }
 

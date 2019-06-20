@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import PromiseKit
 
 protocol CheckExtractor {
 
     // MARK: - Instance Methods
 
-    func extractCheck(from json: JSON, cacheContext: CacheContext) throws -> Check
-    func extractCheckList(from json: [JSON], withListType listType: CheckListType, cacheContext: CacheContext) throws -> CheckList
+    func extractCheck(from json: JSON) -> Promise<Check>
+    func extractCheckList(from json: [JSON], withListType listType: CheckListType) -> Promise<CheckList>
 }

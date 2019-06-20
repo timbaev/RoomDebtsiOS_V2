@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import PromiseKit
 
 class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewable, ErrorMessagePresenter {
 
@@ -76,9 +77,13 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
             return
         }
 
+        guard let check = self.check else {
+            return
+        }
+
         self.storeTextField.resignFirstResponder()
 
-        self.updateStoreName(storeName)
+        self.updateStoreName(storeName, for: check)
     }
 
     @objc private func onStoreTextFieldDidChange(_ sender: UITextField) {
@@ -90,8 +95,12 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
     @IBAction private func onChangePhotoButtonTouchUpInside(_ sender: UIButton) {
         Log.i()
 
+        guard let check = self.check else {
+            return
+        }
+
         self.imagePicker.presentPickerActionSheet(from: self, selectedImage: { [unowned self] image in
-            self.updateImage(image)
+            self.updateImage(image, for: check)
         })
     }
 
@@ -113,55 +122,35 @@ class ParticipantsViewController: LoggedViewController, NVActivityIndicatorViewa
 
     // MARK: -
 
-    private func updateStoreName(_ storeName: String) {
-        guard let check = self.check else {
-            return
-        }
-
+    private func updateStoreName(_ storeName: String, for check: Check) {
         self.startAnimating()
 
-        Services.checkService.update(storeName: storeName, for: check, result: { [weak self] result in
-            guard let viewController = self else {
-                return
-            }
+        firstly {
+            Services.checkService.update(storeName: storeName, for: check.uid)
+        }.ensure {
+            self.stopAnimating()
+        }.done { check in
+            self.check = check
 
-            viewController.stopAnimating()
-
-            switch result {
-            case .success(let check):
-                viewController.check = check
-
-                viewController.updateSaveBarButtonItemState()
-
-            case .failure(let error):
-                viewController.showMessage(withError: error)
-            }
-        })
+            self.updateSaveBarButtonItemState()
+        }.catch { error in
+            self.showMessage(withError: error)
+        }
     }
 
-    private func updateImage(_ image: UIImage) {
-        guard let check = self.check else {
-            return
-        }
-
+    private func updateImage(_ image: UIImage, for check: Check) {
         self.startAnimating()
 
-        Services.checkService.upload(image: image, for: check, result: { [weak self] result in
-            guard let viewController = self else {
-                return
-            }
-
-            viewController.stopAnimating()
-
-            switch result {
-            case .success(let check):
-                viewController.check = check
-                viewController.checkImageView.image = image
-
-            case .failure(let error):
-                viewController.showMessage(withError: error)
-            }
-        })
+        firstly {
+            Services.checkService.upload(image: image, for: check.uid)
+        }.ensure {
+            self.stopAnimating()
+        }.done { check in
+            self.check = check
+            self.checkImageView.image = image
+        }.catch { error in
+            self.showMessage(withError: error)
+        }
     }
 
     private func removeParticipant(user: User) {

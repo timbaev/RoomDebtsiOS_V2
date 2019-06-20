@@ -6,7 +6,7 @@ target 'RoomDebts' do
   use_frameworks!
 
   # Pods for RoomDebts
-  pod "SwiftPhoneNumberFormatter"
+  pod 'SwiftPhoneNumberFormatter'
   pod 'NVActivityIndicatorView'
   pod 'SwiftKeychainWrapper'
   pod 'TextFieldEffects'
@@ -14,6 +14,7 @@ target 'RoomDebts' do
   pod 'Kingfisher', '~> 5.0'
   pod 'SwiftLint'
   pod 'KMPlaceholderTextView', '~> 1.4.0'
+  pod 'PromiseKit', '~> 6.8'
 
   target 'RoomDebtsTests' do
     inherit! :search_paths
