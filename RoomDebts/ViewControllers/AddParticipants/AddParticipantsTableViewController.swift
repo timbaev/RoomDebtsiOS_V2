@@ -234,11 +234,11 @@ class AddParticipantsTableViewController: LoggedViewController, EmptyStateViewab
         }
 
         if userList.isEmpty && canShowState {
-            let action = EmptyStateAction(title: "Create debt conversation", onClicked: { [unowned self] in
+            let action = EmptyStateAction(title: "Create debt conversation".localized(), onClicked: { [unowned self] in
                 self.tabBarController?.selectedIndex = Tabs.search.rawValue
             })
 
-            self.showNoDataState(with: "You have not debt conversations with users", action: action)
+            self.showNoDataState(with: "You have not debt conversations with users".localized(), action: action)
         } else {
             self.hideEmptyState()
         }
