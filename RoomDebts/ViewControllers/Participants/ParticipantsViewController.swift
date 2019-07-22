@@ -461,7 +461,7 @@ extension ParticipantsViewController: UITableViewDelegate {
 
         UIAlertController.Builder()
             .withTitle("Confirmation".localized())
-            .withMessage("Delete \(user.fullName ?? "participant") from check? Previous calculation results will be lost and approvals will be cancel.".localized())
+            .withMessage(String(format: "Delete @% from check? Previous calculation results will be lost and approvals will be cancel.".localized(), user.fullName ?? "participant".localized()))
             .addDeleteAction(handler: { [unowned self] action in
                 self.removeParticipant(user: user)
             })

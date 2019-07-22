@@ -466,6 +466,8 @@
 		CB472D4621F75E4600FB98EE /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		CB472D4821F764BA00FB98EE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CB472D4A21F765E700FB98EE /* ErrorMessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessagePresenter.swift; sourceTree = "<group>"; };
+		CB4CA13E22BE93EC007B7CFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CB4CA13F22BE93ED007B7CFE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		CB4EB173222E3D6B00FF2232 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		CB4EB175222E912D00FF2232 /* GradientSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSegmentControl.swift; sourceTree = "<group>"; };
 		CB4EB1A3222EDF6100FF2232 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -2548,6 +2550,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = CBAC540A21F4A3D4004C8C65;
 			productRefGroup = CBAC541421F4A3D4004C8C65 /* Products */;
@@ -3042,6 +3045,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CBAC541B21F4A3D4004C8C65 /* Base */,
+				CB4CA13F22BE93ED007B7CFE /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -3050,6 +3054,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CBAC542321F4A3D7004C8C65 /* Base */,
+				CB4CA13E22BE93EC007B7CFE /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3061,6 +3066,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -3122,6 +3128,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
