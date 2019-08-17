@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrimaryButton: UIButton {
+class PrimaryButton: LocalizableButton {
 
     // MARK: - Instance Properties
 

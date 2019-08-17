@@ -33,7 +33,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jqp-8d-Fv7">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jqp-8d-Fv7" customClass="LocalizableTextField" customModule="RoomDebts" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="141.5" width="359" height="44"/>
                                                 <color key="backgroundColor" red="0.14657169580000001" green="0.18256133790000001" blue="0.38609483839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,7 +47,7 @@
                                                     <outlet property="delegate" destination="t6m-m8-8Bm" id="02g-eJ-cB3"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7e-DK-Idf">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7e-DK-Idf" customClass="LocalizableTextField" customModule="RoomDebts" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="193.5" width="359" height="44"/>
                                                 <color key="backgroundColor" red="0.14657169580000001" green="0.18256133790000001" blue="0.38609483839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

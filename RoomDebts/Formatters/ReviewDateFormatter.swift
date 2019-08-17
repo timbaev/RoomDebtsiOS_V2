@@ -27,7 +27,7 @@ class ReviewDateFormatter {
     func string(from date: Date, reviewStatus: CheckUserStatus) -> String? {
         let calendar = Calendar.current
 
-        let status = reviewStatus.rawValue
+        let status = reviewStatus.rawLocalizedValue
 
         if calendar.isDateInToday(date) {
             let dateComponents = calendar.dateComponents([.minute, .hour], from: date, to: Date())
@@ -55,9 +55,9 @@ class ReviewDateFormatter {
 
             return String(format: "%@ at %@".localized(), status, self.dateFormatter.string(from: date))
         } else {
-            self.dateFormatter.dateFormat = "MMMM dd"
+            self.dateFormatter.dateFormat = "dd MMMM"
 
-            return String(format: "%@ at %@".localized(), status, self.dateFormatter.string(from: date))
+            return String(format: "%@ %@".localized(), status, self.dateFormatter.string(from: date))
         }
     }
 }

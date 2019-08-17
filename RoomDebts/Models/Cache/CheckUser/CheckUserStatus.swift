@@ -30,4 +30,8 @@ enum CheckUserStatus: String {
             return #imageLiteral(resourceName: "CheckRejectIcon.pdf")
         }
     }
+
+    var rawLocalizedValue: String {
+        return self.rawValue.localized()
+    }
 }

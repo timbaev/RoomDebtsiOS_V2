@@ -1,0 +1,174 @@
+"Rejected %@" = "Отклоненный %@";
+"rejected" = "отклонил";
+"accepted" = "принял";
+"Pending %@" = "Ожидающий %@";
+"Add Photo" = "Добавить Фото";
+"From Camera" = "Из камеры";
+"From Gallery" = "Из галереи";
+"Cancel" = "Отмена";
+"Try Again" = "Попробуйте снова";
+"Debt can be delete without opponent approve" = "Долги можно удалить без подтверждения оппонента";
+"Delete" = "Удалить";
+"Opponent should approve deletion of this debt" = "Оппонент должен одобрить отмену этого долга";
+"Send delete request" = "Отправить запрос на удаление";
+"Deletion" = "Удаление";
+"Repay" = "Погасить";
+"Opponent should approve repayment of this debt" = "Оппонент должен одобрить погашение этой задолженности";
+"Send repay request" = "Отправить запрос на погашение";
+"Loading debts" = "Загрузка долгов";
+"We are loading list of debts. Please wait a bit" = "Мы загружаем список долгов. Пожалуйста, подождите немного";
+"Create new debt" = "Создать новый долг";
+"Debts not exists" = "Долгов не существует";
+"Resetting calculations" = "Сброс расчетов";
+"Previous calculation results will be lost and approvals will be cancel." = "Предыдущие результаты расчета будут потеряны, и согласия будут отменены.";
+"Recalculate" = "Пересчитать";
+"Loading products" = "Загрузка продуктов";
+"We are loading list of products. Please wait a bit" = "Мы загружаем список товаров. Пожалуйста, подождите немного";
+"Calculate" = "Рассчитать";
+"Products not exists" = "Продуктов не найдены";
+"Invalid QR Code" = "Недопустимый QR-код";
+"Support only receipt's QR codes" = "QR-коды поддерживают только чеки";
+"Loading checks" = "Загрузка чеков";
+"We are loading list of checks. Please wait a bit" = "Мы загружаем список чеков. Пожалуйста, подождите немного";
+"Checks not exists" = "Чеки не найдены";
+"Scan New Check" = "Сканировать Новый Чек";
+"OK" = "ОК";
+"Actions" = "Действия";
+"All actions opponent should approve" = "Все дейтсвия должны быть подтверждены оппонентом";
+"Repay All Debts" = "Погасить все долги";
+"Conversation can be delete without opponent approve" = "Совместные долги можно удалить без подтверждения оппонента";
+"Delete action opponent should approve" = "Запрос на удаление оппонент должен подтвердить";
+"Cancel Repay Request" = "Отмена Запроса на Погашение долга";
+"Cancel Delete Request" = "Отменить Запрос на Удаление";
+"Delete Conversation" = "Удалить совместные долги";
+"Loading conversations" = "Загрузка Совместных долгов";
+"We are loading list of conversations. Please wait a bit" = "Мы загружаем список совместных долгов. Пожалуйста, подождите немного";
+"Conversations not exists" = "Совместных долгов не существует";
+"RoomDebts can’t process your request at the moment. \n Please, try again later." = "RoomDebts не может обработать ваш запрос в данный момент. Пожалуйста, попробуйте снова позже.";
+"Something went wrong" = "Что-то пошло не так";
+"RoomDebts app requires an internet connection to provide offers. Please check your connection and try again." = "RoomDebts приложение требует подключения к интернету для предоставления предложений. Пожалуйста, проверьте ваше соединение и попробуйте снова.";
+"No Internet Connection" = "Нет подключения к интернету";
+"My Account" = "Мой аккаунт";
+"Notifications" = "Уведомления";
+"Log Out" = "Выход";
+"App Version %@ (%@)" = "Версия приложения %@ (%@)";
+"First Name" = "Имя";
+"Last Name" = "Фамилия";
+"Phone Number" = "Номер телефона";
+"Done" = "Готово";
+"Loading users" = "Загрузка пользователей";
+"We are loading list of users. Please wait a bit" = "Мы загружаем список пользователей. Пожалуйста, подождите немного";
+"Create debt conversation" = "Создать совместные долги";
+"You have not debt conversations with users" = "Вы не имеете совместных долгов с пользователями";
+"Loading reviews" = "Загрузка комментариев";
+"We are loading list of reviews. Please wait a bit" = "Мы загружаем cписок комментариев. Пожалуйста, подождите немного";
+"Reviews not found" = "Комментарии не найдены";
+"%.2f₽" = "%.2f₽";
+"Results" = "Результаты";
+"Reviews" = "Комментарии";
+"Continue" = "Продолжить";
+"Save" = "Сохранить";
+"Confirmation" = "Подтверждение";
+"Delete @% from check? Previous calculation results will be lost and approvals will be cancel." = "Удалить @% от чека? Предыдущие результаты расчета будут потеряны, и утверждение будет отменить.";
+"participant" = "участник";
+"%@ now" = "%@ сейчас";
+"%@ %dm ago" = "%@ %dм назад";
+"%@ %ds ago" = "%@ %dс назад";
+"%@ yesterday at %@" = "%@ вчера в %@";
+"%@ at %@" = "%@ в %@";
+"Get" = "Получить";
+"No debts" = "Нет долгов";
+"(Invite rejected)" = "(Приглашение отклонено)";
+"(Repay all debts request rejected)" = "(Запрос на погашение всех долгов отклонен)";
+"(Delete request rejected)" = "(Запрос на удаление отклонен)";
+"Change Photo" = "Изменить фото";
+"Update" = "Обновить";
+"Edit Debt" = "Измененить долг";
+"Check your wi-fi or mobile data connection." = "Проверьте ваше Wi-Fi или мобильное подключение к сети.";
+"Error" = "Ошибка";
+"Please let us know what went wrong or try again later." = "Пожалуйста, дайте нам знать, что пошло не так или повторите попытку позже.";
+"Accepted" = "Принят";
+"Calculated" = "Распределен";
+"Not calculated" = "Не распределен";
+"Rejected" = "Отклонён";
+"Closed" = "Закрыт";
+"Repaid" = "Погашен";
+"New Request" = "новый запрос";
+"Edit Request" = "Запрос на изменение";
+"Repay Request" = "Запрос на погашение";
+"Delete Request" = "Удалить запрос";
+"Next" = "Далее";
+"Pending repay all debts request" = "Запрос на погашение всех долгов в ожидании";
+"Repay all debts request" = "Запрос на погашение всех долгов";
+"Waiting for confirmation" = "Ожидание подтверждения";
+"Confirm invitation" = "Подтвердить приглашение";
+"Pending delete request" = "Отложенный запрос на удаление";
+"Delete request" = "Запрос на удаление";
+"Name or Phone Number" = "Имя или номер телефона";
+"Invitation sent successfully" = "Приглашение успешно отправлено";
+"Send invite to %@ %@?" = "Отправить приглашение пользователю %@ %@?";
+"Send Invite" = "Отправить приглашение";
+/* Checks.storyboard */
+"Store" = "Магазин";
+"Checks" = "Чеки";
+"(Repay Request Rejected)" = "(Запрос на погашение отклонен)";
+"Not Calculated" = "Не поделен";
+"0.00₽" = "0.00₽";
+/* CreateDebt.storyboard */
+"Create" = "Создать";
+"Price" = "Цена";
+"Date" = "Дата";
+"Debtor" = "Должник";
+"Create Debt" = "Создать долг";
+"dd.MM.yyyy" = "дд.мм.гггг";
+/* Search.storyboard */
+"Search" = "Поиск";
+/* Settings.storyboard */
+"Settings" = "Настройки";
+/* VerificationCode.storyboard */
+"Verify" = "Проверить";
+"We will text you a verification code to make sure it is you." = "Мы пришлем вам код подтверждения, чтобы убедиться, что это вы.";
+"Code" = "Код";
+"Verification Code" = "Код верификации";
+/* Participants.storyboard */
+"App Participants" = "Добавить участника";
+"Creator" = "Создатель";
+"Information" = "Информация";
+"Store" = "Магазин";
+"Participants" = "Участники";
+/* QRScanner.storyboard */
+"Place the QR code inside area" = "Поместите QR-код внутри области";
+"Receipt Scanning" = "Сканирование чека";
+/* SignIn.storyboard */
+"Login" = "Войти";
+"Send code" = "Отправить код";
+/* Avatar.storyboard */
+"Help your friends find you" = "Помогите вашим друзьям найти вас";
+/* Welcome.storyboard */
+"Create an account" = "Создать учетную запись";
+"RoomDebts" = "RoomDebts";
+"Control your debts easily" = "Контролируй свои долги легко";
+"Starting with account" = "Войти с аккаунтом";
+/* Conversations.storyboard */
+"ACCEPT" = "ПРИНЯТЬ";
+"0.00₽" = "0.00₽";
+"Debts" = "Долги";
+"DECLINE" = "ОТКЛОНИТЬ";
+/* RejectReason.storyboard */
+"Reject Reason" = "Причина отказа";
+"SEND" = "ОТПРАВИТЬ";
+/* Products.storyboard */
+"Quantity" = "Количество";
+/* SignUp.storyboard */
+"Create an account" = "Создать учетную запись";
+/* Reviews.storyboard */
+"Distribute" = "Распределить";
+"APPROVE" = "ПОДТВРЕДИТЬ";
+"REJECT" = "ОТКЛОНИТЬ";
+/* Debts.storyboard */
+"Price" = "Цена";
+"ACCEPT" = "ПРИНЯТЬ";
+"Date" = "Дата";
+"Description" = "Описание";
+/* AddParticipants.storyboard */
+"Add Participants" = "Добавить участников";

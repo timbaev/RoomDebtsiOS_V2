@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable public class Button: UIButton {
+@IBDesignable class Button: LocalizableButton {
 
     // MARK: - Nested Types
 

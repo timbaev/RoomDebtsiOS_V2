@@ -34,6 +34,8 @@ public class LoggedViewController: UIViewController {
         Log.i(sender: self)
         
         self.isViewAppeared = false
+
+        self.title = self.title?.localized()
     }
 
     public override func viewWillAppear(_ animated: Bool) {

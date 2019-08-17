@@ -28,6 +28,15 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CBAC541221F4A3D4004C8C65"
+            BuildableName = "RoomDebts.app"
+            BlueprintName = "RoomDebts"
+            ReferencedContainer = "container:RoomDebts.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -51,20 +60,12 @@
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBAC541221F4A3D4004C8C65"
-            BuildableName = "RoomDebts.app"
-            BlueprintName = "RoomDebts"
-            ReferencedContainer = "container:RoomDebts.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = "ru"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"

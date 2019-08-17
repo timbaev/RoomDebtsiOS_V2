@@ -53,7 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRn-k9-50M">
-                                                    <rect key="frame" x="0.0" y="43" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="42.5" width="414" height="1"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="4Sl-vO-ZNg"/>
@@ -113,14 +113,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Participants" id="EKo-kn-9J4" customClass="LocalizableNavigationItem" customModule="RoomDebts" customModuleProvider="target">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="I5e-dH-Fc4" customClass="LocalizableBarButtonItem" customModule="RoomDebts" customModuleProvider="target">
+                    <navigationItem key="navigationItem" title="Add Participants" id="EKo-kn-9J4">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="I5e-dH-Fc4">
                             <color key="tintColor" red="1" green="0.20784313725490194" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onCancelBarButtonItemTouchUpInside:" destination="QVn-Qx-aMw" id="8fr-us-Kd3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Done" style="done" id="qgd-PI-6tH" customClass="LocalizableBarButtonItem" customModule="RoomDebts" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Done" style="done" id="qgd-PI-6tH">
                             <color key="tintColor" red="0.0" green="0.5725490196078431" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onDoneBarButtonItemTouchUpInside:" destination="QVn-Qx-aMw" id="xo2-Ov-WyS"/>

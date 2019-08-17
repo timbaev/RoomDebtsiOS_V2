@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoneColorTabBarItem: UITabBarItem {
+class NoneColorTabBarItem: LocalizableTabBarItem {
 
     // MARK: - UITabBarItem
 

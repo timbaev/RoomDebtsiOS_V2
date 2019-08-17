@@ -29,7 +29,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1r7-Uz-Uwi" customClass="RoundedView" customModule="RoomDebts" customModuleProvider="target">
                                 <rect key="frame" x="16" y="196.5" width="382" height="385"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reject Reason" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCk-nq-us6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reject Reason" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCk-nq-us6" customClass="LocalizableLabel" customModule="RoomDebts" customModuleProvider="target">
                                         <rect key="frame" x="123.5" y="43" width="135.5" height="21.5"/>
                                         <fontDescription key="fontDescription" name="Rubik-Black" family="Rubik" pointSize="18"/>
                                         <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

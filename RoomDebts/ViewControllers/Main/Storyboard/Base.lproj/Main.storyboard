@@ -17,6 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.63921568627450975" green="0.1764705882352941" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.63921568630000003" green="0.1764705882" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="dc5-NQ-zpX" kind="relationship" relationship="viewControllers" id="jQu-Bu-sPd"/>
@@ -38,11 +40,11 @@
             </objects>
             <point key="canvasLocation" x="390" y="-34"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Debts-->
         <scene sceneID="SIn-zV-wSu">
             <objects>
                 <navigationController id="dc5-NQ-zpX" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="DebtsIcon" selectedImage="DebtsSelectedIcon" id="Sjy-MR-A3k" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Debts" image="DebtsIcon" selectedImage="DebtsSelectedIcon" id="Sjy-MR-A3k" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -88,11 +90,11 @@
             </objects>
             <point key="canvasLocation" x="390" y="1169"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Checks-->
         <scene sceneID="M0L-qG-VcA">
             <objects>
                 <navigationController id="ay5-kK-eMo" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="CheckIcon" selectedImage="CheckSelectedIcon" id="elG-VF-dUB" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="Checks" image="CheckIcon" selectedImage="CheckSelectedIcon" id="elG-VF-dUB" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="km1-0X-ZVl">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -105,11 +107,11 @@
             </objects>
             <point key="canvasLocation" x="390" y="704"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Search-->
         <scene sceneID="SbG-1a-Gyc">
             <objects>
                 <navigationController id="R6c-Rm-O5J" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="SearchIcon" selectedImage="SearchSelectedIcon" id="bIT-QA-3Dc" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="SearchIcon" selectedImage="SearchSelectedIcon" id="bIT-QA-3Dc" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="1rQ-T7-qeF">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -125,11 +127,11 @@
             </objects>
             <point key="canvasLocation" x="-372" y="704"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="HQS-Eo-aia">
             <objects>
                 <navigationController id="Unr-0J-e9b" customClass="MainNavigationController" customModule="RoomDebts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="SettingsIcon" selectedImage="SettingsSelectedIcon" id="gc9-ne-MEa" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsIcon" selectedImage="SettingsSelectedIcon" id="gc9-ne-MEa" customClass="NoneColorTabBarItem" customModule="RoomDebts" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TxQ-wr-kGc">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>

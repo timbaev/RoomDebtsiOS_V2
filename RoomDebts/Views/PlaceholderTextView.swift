@@ -13,7 +13,7 @@ import UIKit
     // MARK: - Instance Properties
 
     private var textView = UITextView()
-    private var placeholderLabel = UILabel()
+    private var placeholderLabel = LocalizableLabel()
 
     // MARK: -
 
@@ -92,7 +92,7 @@ import UIKit
     // MARK: - Instance Methods
 
     private func applyState() {
-        self.placeholderLabel.text = self.placeholderText
+        self.placeholderLabel.text = self.placeholderText?.localized()
         self.placeholderLabel.font = self.font
 
         self.textView.text = self.text
