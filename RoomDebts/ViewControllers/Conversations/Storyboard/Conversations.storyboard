@@ -150,10 +150,20 @@
                                                                         <color key="textColor" white="1" alpha="0.68999999999999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCj-ET-WFX" customClass="RoundLabel" customModule="RoomDebts" customModuleProvider="target">
+                                                                        <rect key="frame" x="220.5" y="14.5" width="18" height="18"/>
+                                                                        <color key="backgroundColor" red="1" green="0.23529411764705882" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="Tfy-hA-teQ"/>
+                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="h8c-rT-bpX"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="13"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="leading" secondItem="qBo-NW-R99" secondAttribute="trailing" constant="7" id="2ho-Cb-lMV"/>
-                                                                    <constraint firstItem="qBo-NW-R99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G7y-8u-Hhh" secondAttribute="trailing" constant="16" id="30G-9s-LjT"/>
                                                                     <constraint firstAttribute="trailing" secondItem="XUC-bs-y5K" secondAttribute="trailing" id="8Mj-WC-nye"/>
                                                                     <constraint firstItem="zYy-d1-4g7" firstAttribute="top" secondItem="G7y-8u-Hhh" secondAttribute="bottom" constant="5" id="8P3-K6-yNH"/>
                                                                     <constraint firstItem="G7y-8u-Hhh" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" constant="13" id="966-AN-4qw"/>
@@ -167,12 +177,15 @@
                                                                     <constraint firstItem="gHL-Pa-cYZ" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" constant="3" id="QnY-cn-TR0"/>
                                                                     <constraint firstItem="g3c-6L-WpU" firstAttribute="top" secondItem="G7y-8u-Hhh" secondAttribute="bottom" constant="5" id="Sws-Kw-VtD"/>
                                                                     <constraint firstItem="fsO-Hm-Mju" firstAttribute="top" secondItem="g3c-6L-WpU" secondAttribute="bottom" constant="14" id="T6T-Tz-57A"/>
+                                                                    <constraint firstItem="HCj-ET-WFX" firstAttribute="leading" secondItem="G7y-8u-Hhh" secondAttribute="trailing" constant="8" id="ZL6-nu-DBW"/>
                                                                     <constraint firstAttribute="bottom" secondItem="fsO-Hm-Mju" secondAttribute="bottom" constant="14" id="cUm-Vc-8Mh"/>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="top" secondItem="Qab-Dx-Se1" secondAttribute="top" id="cv7-fg-f0M"/>
                                                                     <constraint firstItem="qBo-NW-R99" firstAttribute="centerY" secondItem="Axt-Km-lnH" secondAttribute="centerY" id="eOO-G2-KkO"/>
                                                                     <constraint firstItem="fsO-Hm-Mju" firstAttribute="top" secondItem="zYy-d1-4g7" secondAttribute="bottom" constant="14" id="grC-20-8go"/>
                                                                     <constraint firstItem="XUC-bs-y5K" firstAttribute="leading" secondItem="gHL-Pa-cYZ" secondAttribute="trailing" constant="11" id="m0l-mp-fgj"/>
                                                                     <constraint firstAttribute="bottom" secondItem="XUC-bs-y5K" secondAttribute="bottom" id="pxa-2U-Tiv"/>
+                                                                    <constraint firstItem="HCj-ET-WFX" firstAttribute="centerY" secondItem="G7y-8u-Hhh" secondAttribute="centerY" id="rQ8-ev-eWd"/>
+                                                                    <constraint firstItem="qBo-NW-R99" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HCj-ET-WFX" secondAttribute="trailing" constant="16" id="yqd-v7-BGX"/>
                                                                 </constraints>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -199,6 +212,7 @@
                                         <connections>
                                             <outlet property="acceptButton" destination="SK6-9D-MnJ" id="9Cy-ku-L1V"/>
                                             <outlet property="avatarImageView" destination="Axt-Km-lnH" id="ckR-Kq-LQL"/>
+                                            <outlet property="badgeCountLabel" destination="HCj-ET-WFX" id="ZPk-Kn-2Ae"/>
                                             <outlet property="declineButton" destination="xi8-Kw-yHX" id="0BX-jI-3aT"/>
                                             <outlet property="moreButton" destination="gHL-Pa-cYZ" id="hZr-f8-N52"/>
                                             <outlet property="opponentNameLabel" destination="G7y-8u-Hhh" id="Kcc-MJ-I8T"/>

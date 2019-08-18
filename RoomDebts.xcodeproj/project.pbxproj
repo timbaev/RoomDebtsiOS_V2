@@ -58,6 +58,7 @@
 		CB1CC2CF22A12B2D000CE50F /* UserListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1CC2CE22A12B2D000CE50F /* UserListType.swift */; };
 		CB1CC2D122A12BC6000CE50F /* DefaultUserListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1CC2D022A12BC6000CE50F /* DefaultUserListExtension.swift */; };
 		CB2061C922B502660061D70D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2061C822B502660061D70D /* RoundButton.swift */; };
+		CB2EFC8E23098F9600EA2921 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC8D23098F9600EA2921 /* RoundLabel.swift */; };
 		CB320B4222420BE1006AA4D6 /* ConversationTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */; };
 		CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */; };
 		CB37A9922206289A007ECB86 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A9912206289A007ECB86 /* MimeType.swift */; };
@@ -422,6 +423,7 @@
 		CB1CC2CE22A12B2D000CE50F /* UserListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListType.swift; sourceTree = "<group>"; };
 		CB1CC2D022A12BC6000CE50F /* DefaultUserListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserListExtension.swift; sourceTree = "<group>"; };
 		CB2061C822B502660061D70D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		CB2EFC8D23098F9600EA2921 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewModel.swift; sourceTree = "<group>"; };
 		CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParameterEncoder.swift; sourceTree = "<group>"; };
 		CB37A9912206289A007ECB86 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
@@ -1191,6 +1193,7 @@
 				CBEB2DBE222C1CEC00653B11 /* RoundedButton.swift */,
 				CBE31E9F22207B96006EF081 /* RoundedImageView.swift */,
 				CB83E0D7221EFC6B001ADE12 /* RoundedView.swift */,
+				CB2EFC8D23098F9600EA2921 /* RoundLabel.swift */,
 				CB4EB1A3222EDF6100FF2232 /* TextField.swift */,
 				CB9E2E9022B2DEF40042514E /* View.swift */,
 			);
@@ -3016,6 +3019,7 @@
 				CB5D828F22620C47005F971A /* DefaultCheckService.swift in Sources */,
 				CBAC547F21F4DC39004C8C65 /* MainNavigationController.swift in Sources */,
 				CBA3600622AC31E300BF6FAB /* CheckUser.swift in Sources */,
+				CB2EFC8E23098F9600EA2921 /* RoundLabel.swift in Sources */,
 				CB9C443D2226B34E0052F512 /* DefaultUserManager.swift in Sources */,
 				CB9C44312226813F0052F512 /* ConversationStatus.swift in Sources */,
 				CB472D4121F75B0800FB98EE /* CacheManagerFactory.swift in Sources */,

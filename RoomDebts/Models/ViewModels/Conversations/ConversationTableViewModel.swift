@@ -112,6 +112,6 @@ class ConversationTableViewModel {
     }
 
     private func configVisited() {
-        self.isVisited = true
+        self.isVisited = false
     }
 }

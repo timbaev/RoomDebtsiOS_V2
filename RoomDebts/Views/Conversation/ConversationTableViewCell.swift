@@ -19,6 +19,7 @@ class ConversationTableViewCell: UITableViewCell {
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var moreButton: UIButton!
 
+    @IBOutlet private weak var badgeCountLabel: RoundLabel!
     @IBOutlet private weak var visitedView: GradientView!
 
     @IBOutlet private weak var acceptButton: RoundedButton!
