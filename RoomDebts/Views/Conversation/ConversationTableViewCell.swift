@@ -75,5 +75,7 @@ extension ConversationTableViewCell: ConfigurableCell {
         self.visitedView.isHidden = viewModel.isVisited
         self.acceptButton.isHidden = !viewModel.isShowActions
         self.declineButton.isHidden = !viewModel.isShowActions
+        self.badgeCountLabel.isHidden = viewModel.isBadgeCountHidden
+        self.badgeCountLabel.text = viewModel.badgeCount
     }
 }

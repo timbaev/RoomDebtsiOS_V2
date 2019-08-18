@@ -16,6 +16,7 @@ protocol Conversation: AnyObject {
 
     var debtorUID: Int64 { get set }
     var price: Double { get set }
+    var newDebtCount: Int64 { get set }
 
     var status: ConversationStatus? { get set }
     var rejectStatus: ConversationStatus? { get set }

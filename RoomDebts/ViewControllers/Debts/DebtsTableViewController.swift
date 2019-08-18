@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import PromiseKit
 
 class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorMessagePresenter, NVActivityIndicatorViewable {
 
@@ -278,6 +279,7 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
 
         Services.debtService.fetch(for: conversation.uid, success: { [weak self] debtList in
             self?.apply(debtList: debtList)
+            self?.updateConversationVisit()
         }, failure: { [weak self] error in
             self?.handle(stateError: error, retryHandler: { [weak self] in
                 self?.refreshDebtList()
@@ -356,6 +358,22 @@ class DebtsTableViewController: LoggedViewController, EmptyStateViewable, ErrorM
             viewController.stopAnimating()
             viewController.handle(stateError: error)
         })
+    }
+
+    private func updateConversationVisit() {
+        Log.i()
+
+        guard let conversation = self.conversation else {
+            fatalError()
+        }
+
+        firstly {
+            Services.conversationVisitService.update(for: conversation.uid)
+        }.done { conversationVisit in
+            Log.i("Success")
+        }.catch { error in
+            Log.e("Error: \(error)")
+        }
     }
 
     // MARK: -

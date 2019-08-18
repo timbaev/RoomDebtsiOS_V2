@@ -25,6 +25,7 @@ enum Services {
                                                                 checkUserExtractor: Services.checkUserExtractor)
 
     static let productService: ProductService = DefaultProductService(productExtractor: Services.productExtractor)
+    static let conversationVisitService: ConversationVisitService = DefaultConversationVisitService(conversationVisitExtractor: Services.conversationVisitExtractor)
 
     // MARK: -
 
@@ -51,6 +52,9 @@ enum Services {
     static let checkUserExtractor: CheckUserExtractor = DefaultCheckUserExtractor(cacheProvider: Services.cacheProvider,
                                                                                   userExtractor: Services.userExtractor,
                                                                                   checkUserCoder: Coders.checkUserCoder)
+
+    static let conversationVisitExtractor: ConversationVisitExtractor = DefaultConversationVisitExtractor(cacheProvider: Services.cacheProvider,
+                                                                                                          conversationVisitCoder: Coders.conversationVisitCoder)
 
     // MARK: -
 

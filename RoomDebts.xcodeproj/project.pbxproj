@@ -59,6 +59,17 @@
 		CB1CC2D122A12BC6000CE50F /* DefaultUserListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1CC2D022A12BC6000CE50F /* DefaultUserListExtension.swift */; };
 		CB2061C922B502660061D70D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2061C822B502660061D70D /* RoundButton.swift */; };
 		CB2EFC8E23098F9600EA2921 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC8D23098F9600EA2921 /* RoundLabel.swift */; };
+		CB2EFC9223099C8A00EA2921 /* ConversationVisitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC9123099C8A00EA2921 /* ConversationVisitService.swift */; };
+		CB2EFC9423099C9B00EA2921 /* DefaultConversationVisitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC9323099C9B00EA2921 /* DefaultConversationVisitService.swift */; };
+		CB2EFC9623099CE600EA2921 /* ConversationVisitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC9523099CE600EA2921 /* ConversationVisitAPI.swift */; };
+		CB2EFC992309B7CC00EA2921 /* ConversationVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC982309B7CC00EA2921 /* ConversationVisit.swift */; };
+		CB2EFC9B2309B80200EA2921 /* DefaultConversationVisitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC9A2309B80200EA2921 /* DefaultConversationVisitExtension.swift */; };
+		CB2EFC9E2309B85200EA2921 /* ConversationVisitCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC9D2309B85200EA2921 /* ConversationVisitCoder.swift */; };
+		CB2EFCA02309B86C00EA2921 /* DefaultConversationVisitCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFC9F2309B86C00EA2921 /* DefaultConversationVisitCoder.swift */; };
+		CB2EFCA32309D07700EA2921 /* ConversationVisitExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFCA22309D07700EA2921 /* ConversationVisitExtractor.swift */; };
+		CB2EFCA52309D08A00EA2921 /* DefaultConversationVisitExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFCA42309D08A00EA2921 /* DefaultConversationVisitExtractor.swift */; };
+		CB2EFCA82309D22700EA2921 /* ConversationVisitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFCA72309D22700EA2921 /* ConversationVisitManager.swift */; };
+		CB2EFCAA2309D24C00EA2921 /* DefaultConversationVisitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EFCA92309D24C00EA2921 /* DefaultConversationVisitManager.swift */; };
 		CB320B4222420BE1006AA4D6 /* ConversationTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */; };
 		CB37A98E2205B128007ECB86 /* ImageParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */; };
 		CB37A9922206289A007ECB86 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37A9912206289A007ECB86 /* MimeType.swift */; };
@@ -424,6 +435,17 @@
 		CB1CC2D022A12BC6000CE50F /* DefaultUserListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserListExtension.swift; sourceTree = "<group>"; };
 		CB2061C822B502660061D70D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		CB2EFC8D23098F9600EA2921 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
+		CB2EFC9123099C8A00EA2921 /* ConversationVisitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationVisitService.swift; sourceTree = "<group>"; };
+		CB2EFC9323099C9B00EA2921 /* DefaultConversationVisitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationVisitService.swift; sourceTree = "<group>"; };
+		CB2EFC9523099CE600EA2921 /* ConversationVisitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationVisitAPI.swift; sourceTree = "<group>"; };
+		CB2EFC982309B7CC00EA2921 /* ConversationVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationVisit.swift; sourceTree = "<group>"; };
+		CB2EFC9A2309B80200EA2921 /* DefaultConversationVisitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationVisitExtension.swift; sourceTree = "<group>"; };
+		CB2EFC9D2309B85200EA2921 /* ConversationVisitCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationVisitCoder.swift; sourceTree = "<group>"; };
+		CB2EFC9F2309B86C00EA2921 /* DefaultConversationVisitCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationVisitCoder.swift; sourceTree = "<group>"; };
+		CB2EFCA22309D07700EA2921 /* ConversationVisitExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationVisitExtractor.swift; sourceTree = "<group>"; };
+		CB2EFCA42309D08A00EA2921 /* DefaultConversationVisitExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationVisitExtractor.swift; sourceTree = "<group>"; };
+		CB2EFCA72309D22700EA2921 /* ConversationVisitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationVisitManager.swift; sourceTree = "<group>"; };
+		CB2EFCA92309D24C00EA2921 /* DefaultConversationVisitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConversationVisitManager.swift; sourceTree = "<group>"; };
 		CB320B4122420BE1006AA4D6 /* ConversationTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewModel.swift; sourceTree = "<group>"; };
 		CB37A98D2205B128007ECB86 /* ImageParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParameterEncoder.swift; sourceTree = "<group>"; };
 		CB37A9912206289A007ECB86 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
@@ -962,6 +984,61 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		CB2EFC8F23099C7000EA2921 /* ConversationVisit */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EFCA12309D06B00EA2921 /* Extractor */,
+				CB2EFC9023099C7E00EA2921 /* Service */,
+			);
+			path = ConversationVisit;
+			sourceTree = "<group>";
+		};
+		CB2EFC9023099C7E00EA2921 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EFC9123099C8A00EA2921 /* ConversationVisitService.swift */,
+				CB2EFC9323099C9B00EA2921 /* DefaultConversationVisitService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CB2EFC972309A82800EA2921 /* ConversationVisit */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EFCA62309D21D00EA2921 /* Manager */,
+				CB2EFC982309B7CC00EA2921 /* ConversationVisit.swift */,
+				CB2EFC9A2309B80200EA2921 /* DefaultConversationVisitExtension.swift */,
+			);
+			path = ConversationVisit;
+			sourceTree = "<group>";
+		};
+		CB2EFC9C2309B83E00EA2921 /* ConversationVisit */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EFC9D2309B85200EA2921 /* ConversationVisitCoder.swift */,
+				CB2EFC9F2309B86C00EA2921 /* DefaultConversationVisitCoder.swift */,
+			);
+			path = ConversationVisit;
+			sourceTree = "<group>";
+		};
+		CB2EFCA12309D06B00EA2921 /* Extractor */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EFCA22309D07700EA2921 /* ConversationVisitExtractor.swift */,
+				CB2EFCA42309D08A00EA2921 /* DefaultConversationVisitExtractor.swift */,
+			);
+			path = Extractor;
+			sourceTree = "<group>";
+		};
+		CB2EFCA62309D21D00EA2921 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EFCA72309D22700EA2921 /* ConversationVisitManager.swift */,
+				CB2EFCA92309D24C00EA2921 /* DefaultConversationVisitManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		CB320B4022420B5B006AA4D6 /* Conversations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1107,6 +1184,7 @@
 				CB5D828A22620C1B005F971A /* Check */,
 				CB67D20222AD029400CDB89E /* CheckUser */,
 				CB098EC42225205600FDD47C /* Conversation */,
+				CB2EFC8F23099C7000EA2921 /* ConversationVisit */,
 				CBCCC42F2232CE5000535D57 /* Debt */,
 				CB94D839227C3C7B006F39EF /* Product */,
 				CB714B8C2222CA8D007961C6 /* User */,
@@ -1129,6 +1207,7 @@
 				CB472D0C21F7340800FB98EE /* AccountAPI.swift */,
 				CB517A4C2260890B009BCCE0 /* CheckAPI.swift */,
 				CB098EBD22251AD100FDD47C /* ConversationAPI.swift */,
+				CB2EFC9523099CE600EA2921 /* ConversationVisitAPI.swift */,
 				CBCCC4352232CE9E00535D57 /* DebtAPI.swift */,
 				CB714B8A2222C9D6007961C6 /* UserAPI.swift */,
 			);
@@ -1143,9 +1222,10 @@
 				CB67D20922AD02ED00CDB89E /* CheckUser */,
 				CB71C3D121F9B708008FDD0B /* Confirm */,
 				CB098EBF22251E9300FDD47C /* Conversation */,
+				CB2EFC9C2309B83E00EA2921 /* ConversationVisit */,
 				CBCCC43A2232D14D00535D57 /* Debt */,
-				CB94D844227C3E58006F39EF /* Product */,
 				CBF277EA21FAFA37008E516C /* PhoneNumber */,
+				CB94D844227C3E58006F39EF /* Product */,
 				CB472D1121F7430A00FB98EE /* UserAccount */,
 				CB714DDE2222D9A6007961C6 /* UserCoder */,
 				CB714DE32222DA18007961C6 /* Coder.swift */,
@@ -1866,6 +1946,7 @@
 				CBA3600422AC31D100BF6FAB /* CheckUser */,
 				CBA3600B22AC334000BF6FAB /* CheckUserList */,
 				CB9C442D222680C30052F512 /* Conversation */,
+				CB2EFC972309A82800EA2921 /* ConversationVisit */,
 				CB0ECA3C222983EF000B902E /* ConversationList */,
 				CB03CBD12236CCAD00104251 /* Debt */,
 				CB3ADFCC223A411600495E05 /* DebtList */,
@@ -2769,6 +2850,7 @@
 				CB5964A2227CC91D00E94FF2 /* UserCollectionViewCell.swift in Sources */,
 				CB1C83D3227B824A00D10324 /* DefaultProductListExtension.swift in Sources */,
 				CBC2009A223F6E6F00D0DF6A /* DebtTableViewModel.swift in Sources */,
+				CB2EFCA52309D08A00EA2921 /* DefaultConversationVisitExtractor.swift in Sources */,
 				CB472CE721F70B7600FB98EE /* HTTPMethod.swift in Sources */,
 				CB07D5A922AD949E00BDFE28 /* DefaultCheckUserListManager.swift in Sources */,
 				CB472D2621F74C1E00FB98EE /* EventConnection.swift in Sources */,
@@ -2791,10 +2873,12 @@
 				CB714B892222C7D7007961C6 /* UserTableViewCell.swift in Sources */,
 				CB714DE42222DA18007961C6 /* Coder.swift in Sources */,
 				CB472CEC21F70C9F00FB98EE /* ParameterEncoding.swift in Sources */,
+				CB2EFC9423099C9B00EA2921 /* DefaultConversationVisitService.swift in Sources */,
 				CBBF79B9226241E800752AE4 /* QRScannerViewController.swift in Sources */,
 				CB37A994220629EA007ECB86 /* MediaData.swift in Sources */,
 				CB472D1D21F74BF700FB98EE /* CacheContextType.swift in Sources */,
 				CB117BAE2204B8D000C20905 /* AvatarViewController.swift in Sources */,
+				CB2EFCA82309D22700EA2921 /* ConversationVisitManager.swift in Sources */,
 				CB472CF921F7135100FB98EE /* NetworkRouter.swift in Sources */,
 				CBFDBA9821F5B9DC0017ED61 /* Fonts.swift in Sources */,
 				CBA02E18222D84C0009683A5 /* DebtsTableViewController.swift in Sources */,
@@ -2839,6 +2923,7 @@
 				CBB71D9E23083EA300F8101C /* PhoneFormatterTextFieldExtension.swift in Sources */,
 				CB1C83CC227B7E7800D10324 /* DefaultProductExtension.swift in Sources */,
 				CB472D2E21F7586E00FB98EE /* Coders.swift in Sources */,
+				CB2EFC9B2309B80200EA2921 /* DefaultConversationVisitExtension.swift in Sources */,
 				CBE2F8832227E98B006B0FA4 /* UIAlertControllerExtension.swift in Sources */,
 				CB9C4433222681B80052F512 /* DefaultConversationExtension.swift in Sources */,
 				CB18CA3722315A190027E905 /* DebtDateFormatter.swift in Sources */,
@@ -2936,6 +3021,7 @@
 				CB714B902222CAFC007961C6 /* DefaultUserService.swift in Sources */,
 				CBFF85B121F8F0E4002B7FCD /* Access.swift in Sources */,
 				CBFF85AB21F896DC002B7FCD /* VerificationCodeViewController.swift in Sources */,
+				CB2EFC9623099CE600EA2921 /* ConversationVisitAPI.swift in Sources */,
 				CB03CBD022369EDB00104251 /* ISO8601Formatter.swift in Sources */,
 				CBFD5FE6225F67B8000F711C /* ChecksConfigurator.swift in Sources */,
 				CBAC547A21F4CD76004C8C65 /* GradientView.swift in Sources */,
@@ -2998,6 +3084,7 @@
 				CB1C83D6227B859500D10324 /* ProductManager.swift in Sources */,
 				CBA3600D22AC335200BF6FAB /* CheckUserList.swift in Sources */,
 				CBB8869E22A12E06005BC5CA /* UserListManager.swift in Sources */,
+				CB2EFC9223099C8A00EA2921 /* ConversationVisitService.swift in Sources */,
 				CB42856122B8247100F666D9 /* UITableViewExtension.swift in Sources */,
 				CBAC545321F4A48A004C8C65 /* CoreDataStorageContext.swift in Sources */,
 				CBEB2DC6222C32A100653B11 /* EmptyStateViewable.swift in Sources */,
@@ -3006,6 +3093,7 @@
 				CB472D4921F764BA00FB98EE /* UIViewControllerExtension.swift in Sources */,
 				CBFB80CC22B02BBF000DB32A /* TotalTableViewCell.swift in Sources */,
 				CB472CEE21F70DFD00FB98EE /* ParameterEncoder.swift in Sources */,
+				CB2EFC992309B7CC00EA2921 /* ConversationVisit.swift in Sources */,
 				CB67D20B22AD02F900CDB89E /* CheckUserCoder.swift in Sources */,
 				CB472D3821F7598700FB98EE /* CacheProvider.swift in Sources */,
 				CB005A992260DD6800830030 /* CreateCheckForm.swift in Sources */,
@@ -3031,12 +3119,15 @@
 				CBC86B8F223A595C003C50F6 /* DefaultDebtListManager.swift in Sources */,
 				CB472D4021F75B0800FB98EE /* CacheContextFactory.swift in Sources */,
 				CB71C3DD21F9DA94008FDD0B /* PhoneNumberViewController.swift in Sources */,
+				CB2EFCA32309D07700EA2921 /* ConversationVisitExtractor.swift in Sources */,
 				CB5964A0227CC7DD00E94FF2 /* ProductUsersCollectionDatasource.swift in Sources */,
 				CBA3601122AC348800BF6FAB /* DefaultCheckUserListExtension.swift in Sources */,
 				CB0ECA45222989F9000B902E /* DefaultConversationListManager.swift in Sources */,
 				CBFD5FE0225F67B8000F711C /* ChecksPresenter.swift in Sources */,
 				CB472D3621F7598700FB98EE /* DefaultCacheProvider.swift in Sources */,
 				CBB7203923084A4D00F8101C /* LocalizableUITabBarItem.swift in Sources */,
+				CB2EFCA02309B86C00EA2921 /* DefaultConversationVisitCoder.swift in Sources */,
+				CB2EFCAA2309D24C00EA2921 /* DefaultConversationVisitManager.swift in Sources */,
 				CBE261D022F166F400A70F6C /* LocalizableButton.swift in Sources */,
 				CB67D20D22AD030600CDB89E /* DefaultCheckUserCoder.swift in Sources */,
 				CB37A9922206289A007ECB86 /* MimeType.swift in Sources */,
@@ -3045,6 +3136,7 @@
 				CB03CBDA2236D4A500104251 /* DebtManager.swift in Sources */,
 				CB472D1921F74B6F00FB98EE /* CacheContext.swift in Sources */,
 				CBAC546B21F4ACCB004C8C65 /* Models.swift in Sources */,
+				CB2EFC9E2309B85200EA2921 /* ConversationVisitCoder.swift in Sources */,
 				CB472D3021F7593E00FB98EE /* Services.swift in Sources */,
 				CB472D3E21F75B0800FB98EE /* DefaultCacheContextFactory.swift in Sources */,
 				CB472D1B21F74BE200FB98EE /* CacheModel.swift in Sources */,

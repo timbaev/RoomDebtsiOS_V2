@@ -47,6 +47,10 @@ final class DefaultCacheContext: CacheContext {
         return self.model.managerFactory.createCheckUserManager(with: self)
     }()
 
+    private(set) lazy var conversationVisitManager: ConversationVisitManager = { [unowned self] in
+        return self.model.managerFactory.createConversationVisitManager(with: self)
+    }()
+
     // MARK: -
 
     private(set) lazy var conversationListManager: ConversationListManager = { [unowned self] in

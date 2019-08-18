@@ -40,6 +40,10 @@ struct DefaultCacheManagerFactory: CacheManagerFactory {
         return DefaultCheckUserManager<DefaultCheckUser>(context: context)
     }
 
+    func createConversationVisitManager(with context: CacheContext) -> ConversationVisitManager {
+        return DefaultConversationVisitManager<DefaultConversationVisit>(context: context)
+    }
+
     // MARK: -
 
     func createConversationListManager(with context: CacheContext) -> ConversationListManager {

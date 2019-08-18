@@ -39,6 +39,8 @@ class ConversationTableViewModel {
     var isMoreButtonHidden = false
     var isVisited = false
     var isShowActions = false
+    var isBadgeCountHidden = false
+    var badgeCount: String?
 
     // MARK: - Initializers
 
@@ -50,6 +52,7 @@ class ConversationTableViewModel {
         self.configRejectStatus()
         self.configPrice()
         self.configVisited()
+        self.configBadgeCount()
     }
 
     // MARK: - Instance Methods
@@ -112,6 +115,11 @@ class ConversationTableViewModel {
     }
 
     private func configVisited() {
-        self.isVisited = false
+        self.isVisited = (self.conversation.newDebtCount == 0)
+    }
+
+    private func configBadgeCount() {
+        self.isBadgeCountHidden = (self.conversation.newDebtCount == 0)
+        self.badgeCount = "\(self.conversation.newDebtCount)"
     }
 }

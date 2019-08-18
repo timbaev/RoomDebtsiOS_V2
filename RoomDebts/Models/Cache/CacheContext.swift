@@ -24,6 +24,7 @@ protocol CacheContext: AnyObject {
     var checkManager: CheckManager { get }
     var productManager: ProductManager { get }
     var checkUserManager: CheckUserManager { get }
+    var conversationVisitManager: ConversationVisitManager { get }
 
     // MARK: -
 
@@ -66,6 +67,7 @@ extension CacheContext {
         self.checkManager.clear()
         self.productManager.clear()
         self.checkUserManager.clear()
+        self.conversationVisitManager.clear()
 
         self.conversationListManager.clear()
         self.debtListManager.clear()

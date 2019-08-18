@@ -23,6 +23,7 @@ struct DefaultConversationCoder: ConversationCoder {
         static let price = "price"
         static let status = "status"
         static let rejectStatus = "rejectStatus"
+        static let newDebtCount = "newDebtCount"
 
         static let creator = "creator"
         static let opponent = "opponent"
@@ -55,6 +56,10 @@ struct DefaultConversationCoder: ConversationCoder {
             return false
         }
 
+        guard let newDebtCount: Int64 = JSONKeys.newDebtCount <~~ json else {
+            return false
+        }
+
         let debtorUID: Int64 = JSONKeys.debtorID <~~ json ?? 0
 
         var rejectStatus: ConversationStatus?
@@ -69,6 +74,7 @@ struct DefaultConversationCoder: ConversationCoder {
         conversation.price = price
         conversation.status = status
         conversation.rejectStatus = rejectStatus
+        conversation.newDebtCount = newDebtCount
 
         return true
     }

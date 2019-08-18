@@ -59,6 +59,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         self.unsubscribeFromConversationsEvents()
         self.unsubscribeFromDebtsEvents()
         self.unsubscribeFromUserAccountEvents()
+        self.unsubscribeFromConversationVisitEvents()
     }
 
     // MARK: - Instance Methods
@@ -181,10 +182,28 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
                 self?.shouldApplyData = true
             }
         })
+
+        checkManager.startObserving()
     }
 
     private func unsubscribeFromCheckEvents() {
         Services.cacheViewContext.checkManager.objectsChangedEvent.disconnect(self)
+    }
+
+    private func subscribeToConversationVisitEvents() {
+        self.unsubscribeFromConversationVisitEvents()
+
+        let conversationVisitManager = Services.cacheViewContext.conversationVisitManager
+
+        conversationVisitManager.objectsChangedEvent.connect(self, handler: { [weak self] conversationVisits in
+            self?.shouldApplyData = true
+        })
+
+        conversationVisitManager.startObserving()
+    }
+
+    private func unsubscribeFromConversationVisitEvents() {
+        Services.cacheViewContext.conversationVisitManager.objectsChangedEvent.disconnect(self)
     }
 
     // MARK: -
@@ -489,6 +508,7 @@ class ConversationViewController: LoggedViewController, EmptyStateViewable, NVAc
         self.subscribeToConversationsEvents()
         self.subscribeToDebtsEvents()
         self.subscribeToUserAccountEvents()
+        self.subscribeToConversationVisitEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {
